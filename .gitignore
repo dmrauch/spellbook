@@ -1,9 +1,4 @@
-*.pyc
-*/__pycache__
+.buildinfo
 
-spellbook.code-workspace
+*.odg
 
-/doc/source/stubs
-/doc/build
-/examples
-/.vscode

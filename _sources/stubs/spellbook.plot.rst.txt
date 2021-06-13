@@ -1,0 +1,10 @@
+﻿spellbook.plot
+==============
+
+
+.. automodule:: spellbook.plot
+   :members:
+   :special-members: __init__, __iadd__
+   :undoc-members:
+
+.. :inherited-members:

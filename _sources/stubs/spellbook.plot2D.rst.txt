@@ -1,0 +1,10 @@
+﻿spellbook.plot2D
+================
+
+
+.. automodule:: spellbook.plot2D
+   :members:
+   :special-members: __init__, __iadd__
+   :undoc-members:
+
+.. :inherited-members:
