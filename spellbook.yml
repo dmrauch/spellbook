@@ -1,4 +1,4 @@
-name: datascience
+name: spellbook
 channels:
  - defaults
  - conda-forge
