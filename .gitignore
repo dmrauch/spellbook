@@ -1,0 +1,9 @@
+*.pyc
+*/__pycache__
+
+spellbook.code-workspace
+
+/doc/source/stubs
+/doc/build
+/examples
+/.vscode
