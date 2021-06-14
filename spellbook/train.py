@@ -290,7 +290,7 @@ class ROCPlot:
                                plot_args = dict(color='C0', linestyle='-'))
                  WPs1 = roc.get_WP('1000 epochs (testing)', FPR=[0.1, 0.2])
                  WPs2 = roc.get_WP('1000 epochs (testing)', TPR=[0.8, 0.9])
-                 roc.draw_WP(WPs1+WPs2, linecolor=['C0', 'C1', 'C2', 'black])
+                 roc.draw_WP(WPs1+WPs2, linecolor=['C0', 'C1', 'C2', 'black'])
                  sb.plot.save(roc.plot(), 'roc.png')
         '''
 
