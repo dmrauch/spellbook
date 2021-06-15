@@ -224,7 +224,7 @@ class ROCPlot:
 
     def get_WP(
         self,
-        name:str,
+        curve_name: str,
         threshold: Union[float, List[float]] = None,
         FPR: Union[float, List[float]] = None,
         TPR: Union[float, List[float]] = None,
@@ -239,7 +239,7 @@ class ROCPlot:
         more than one of the three at the same time.
 
         Args:
-            name (str): Name of the curve from which to determine the WP(s)
+            curve_name (str): Name of the curve from which to determine the WP(s)
             threshold (float / [float]): Threshold/cut value on the classifier's
                 sigmoid-activated output to separate the two classes
             FPR (float / [float]): Target FPR(s) to match
@@ -301,8 +301,8 @@ class ROCPlot:
 
         assert method in ['interpolate', 'nearest']
 
-        if not name in self.curves.keys():
-            raise KeyError("There is no curve with the name '{}'".format(name))
+        if not curve_name in self.curves.keys():
+            raise KeyError("There is no curve with the name '{}'".format(curve_name))
 
         def find_closest(A, target):
             '''
@@ -405,9 +405,9 @@ class ROCPlot:
             p = alpha*p0 + (1-alpha)*p1
             return(p)
 
-        thresholds = self.curves[name]['thresholds']
-        fpr = self.curves[name]['fpr']
-        tpr = self.curves[name]['tpr']
+        thresholds = self.curves[curve_name]['thresholds']
+        fpr = self.curves[curve_name]['fpr']
+        tpr = self.curves[curve_name]['tpr']
         n = len(thresholds)
         assert(n == len(fpr))
         assert(n == len(tpr))
