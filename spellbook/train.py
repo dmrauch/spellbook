@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import pickle
+import seaborn as sns
+import sklearn.calibration
 import sklearn.metrics
 import tensorflow as tf
 
@@ -77,6 +79,159 @@ class ModelSavingCallback(tf.keras.callbacks.Callback):
         print("Training finished after {} epochs:".format(
                 self.params['epochs']) \
               + " Saved model to folder '{}'".format(self.foldername))
+
+
+
+class BinaryCalibrationPlot:
+    '''
+    Plot showing calibration/reliability curve(s) in binary classification
+
+    .. image:: /images/calibration.png
+        :align: center
+        :width: 400px
+
+    For each classifier, whose calibration curve is to be plotted, a set
+    of true labels and predictions/scores has to be given. The calibration
+    curves are calculated with :func:`sklearn.calibration.calibration_curve`:
+    The range of the predictions/scores is divided into **bins** bins. In each
+    bin, the average of the predictions in that bin is calculated
+    (*mean predicted value*) as well as the which fraction of the datapoints
+    in that bin is actually *positive* (*fraction of positives*).
+    For a perfectly calibrated classifier, the predictions/scores actually
+    give the probabilities for a particular datapoint to belong to the
+    *positive* class and therefore, the *mean predicted values* and the
+    *fraction of positives* are close to each other, resulting in a straight
+    diagonal calibration curve.
+
+    Below the calibration curves, histograms of the predictions are shown.
+    It is possible to use a logarithmic y-axis, which can be handy to
+    visualise predictions that are very non-uniformly distributed.
+
+    Args:
+        labels (array-like or list of array-like):
+            The true target labels/classes. The type can be
+
+            - :class:`numpy.ndarray` or :class:`tf.Tensor`: when plotting
+              a single calibration curve
+            - :class:`list`\[:class:`numpy.ndarray`\]
+              or :class:`list`\[:class:`tf.Tensor`\]: when plotting
+              one or more calibration curves
+
+        predictions (array-like or list of array-like):
+            The predicted labels/classes. The type can be
+
+            - :class:`numpy.ndarray` or :class:`tf.Tensor`: when plotting
+              a single calibration curve
+            - :class:`list`\[:class:`numpy.ndarray`\]
+              or :class:`list`\[:class:`tf.Tensor`\]: when plotting
+              one or more calibration curves
+
+        names (:class:`str` or :class:`list`\[:class:`str`\]):
+            The names of the legend entries for each calibration curve.
+            The type can be
+
+            - :class:`str`: when plotting a single calibration curve
+            - :class:`list`\[:class:`str`\]: when plotting one or more
+              calibration curves
+
+        bins (:class:`int` or :class:`list`\[:class:`int`\]):
+            The number of bins in which to evaluate the calibration,
+            i.e. the fractions of positives vs. the mean predicted values.
+            The type can be
+
+            - :class:`int`: when plotting a single calibration curve
+            - :class:`list`\[:class:`int`\]: when plotting one or more
+              calibration curves
+
+        predictions_hist_args: Arguments passed on to
+            :meth:`matplotlib.axes.Axes.hist` when plotting the histograms
+            of the predictions
+        predictions_ymin: The lower end of the y-axis of predictions histogram
+        predictions_ymax: The upper end of the y-axis of predictions histogram
+        predictions_yscale: The scaling behaviour of the y-axis of predictions
+            histogram as described in :meth:`matplotlib.axes.Axes.set_yscale`.
+            Meaningful values for histograms are ``'linear'`` and ``'log'``.
+
+    Attributes:
+        fig: The :class:`matplotlib.figure.Figure` object holding the plot
+        grid: The :class:`matplotlib.gridspec.GridSpec` object
+        ax_calibrations: The :class:`matplotlib.axes.Axes` object holding the
+            calibration curves
+        ax_predictions: The :class:`matplotlib.axes.Axes` object holding the
+            histograms of the predictions
+
+    See also:
+        Based on
+        https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration_curve.html
+    '''
+
+    def __init__(self,
+        labels: Union[
+            np.ndarray, tf.Tensor, List[np.ndarray], List[tf.Tensor]],
+        predictions: Union[
+            np.ndarray, tf.Tensor, List[np.ndarray], List[tf.Tensor]],
+        names: Union[str, List[str]] = None,
+        bins: Union[int, List[int]] = 10,
+        plot_args: dict = {},
+        predictions_hist_args: dict = {},
+        predictions_ymin: float = None,
+        predictions_ymax: float = None,
+        predictions_yscale: str = None
+        ) -> BinaryCalibrationPlot:
+
+        if not isinstance(labels, list): labels = [labels]
+        if not isinstance(predictions, list): predictions = [predictions]
+        if not isinstance(bins, list): bins = [bins]
+        if not names: names = [None] * len(predictions)
+        assert len(labels) == len(predictions)
+        assert len(labels) == len(bins)
+        assert len(labels) == len(names)
+
+        # calculate calibration curve
+        prob_true = []
+        prob_pred = []
+        for i, (label, prediction) in enumerate(zip(labels, predictions)):
+            p_true, p_pred = sklearn.calibration.calibration_curve(
+                y_true=label, y_prob=prediction, n_bins=bins[i])
+            prob_true.append(p_true)
+            prob_pred.append(p_pred)
+
+        # prepare the figure
+        self.fig = mpl.pyplot.figure(figsize=(5.0,6.7), tight_layout=True)
+        # https://matplotlib.org/stable/tutorials/intermediate/gridspec.html
+        self.grid = mpl.gridspec.GridSpec(nrows=2, ncols=1, height_ratios=[0.75, 0.25])
+
+        # plot the calibration curve
+        self.ax_calibrations = mpl.pyplot.Subplot(self.fig, self.grid[0])
+        self.fig.add_subplot(self.ax_calibrations)
+        # ax_calibration.set_aspect('equal')
+        self.ax_calibrations.plot([0.0, 1.0], [0.0, 1.0], '--', color='grey')
+        for i, (p_true, p_pred) in enumerate(zip(prob_true, prob_pred)):
+            self.ax_calibrations.plot(
+                p_pred, p_true, label=names[i], linestyle='-', marker='o',
+                **plot_args)
+        self.ax_calibrations.set_xlabel('mean predicted value')
+        self.ax_calibrations.set_ylabel('fraction of positives')
+
+        # plot histograms of the predictions
+        self.ax_predictions = plt.Subplot(self.fig, self.grid[1])
+        self.fig.add_subplot(self.ax_predictions)
+
+        # sns.histplot(data=predictions, ax=ax_predictions, legend=False,
+        #     fill=False, element='step')
+
+        self.ax_predictions.hist(predictions, label=names,
+            linewidth=1.5, histtype='step', **predictions_hist_args)
+
+        self.ax_predictions.set_xlabel('predictions')
+        self.ax_predictions.set_ylabel('counts')
+        if predictions_ymin:
+            self.ax_predictions.set_ylim(bottom = predictions_ymin)
+        if predictions_ymax:
+            self.ax_predictions.set_ylim(top = predictions_ymax)
+        self.ax_predictions.set_yscale(predictions_yscale)
+
+        if names[0]: self.ax_calibrations.legend()
 
 
 
@@ -1005,42 +1160,3 @@ def get_binary_labels(predictions: Union[np.ndarray, tf.Tensor],
     else:
         raise TypeError("Argument 'predictions' must be of "
                         "type 'numpy.ndarray' or 'tensorflow.Tensor'")
-
-
-def plot_calibration_curve(
-    labels: Union[np.ndarray, tf.Tensor],
-    predictions: Union[np.ndarray, tf.Tensor],
-    n_bins: int = 10,
-    histogram_args: dict = {}):
-    '''
-    .. todo:: write docstring for spellbook.train.plot_calibration_curve
-
-    .. image:: /images/calibration.png
-       :align: center
-       :width: 400px
-    '''
-
-    # calculate calibration curve
-    prob_true, prob_pred = sklearn.calibration.calibration_curve(
-        y_true=labels, y_prob=predictions, n_bins=n_bins)
-
-    # prepare the figure
-    fig = mpl.pyplot.figure(figsize=(5.0,6.7), tight_layout=True)
-    # https://matplotlib.org/stable/tutorials/intermediate/gridspec.html
-    grid = mpl.gridspec.GridSpec(nrows=2, ncols=1, height_ratios=[0.75, 0.25])
-
-    # plot the calibration curve
-    ax_calibration = mpl.pyplot.Subplot(fig, grid[0])
-    fig.add_subplot(ax_calibration)
-    ax_calibration.set_aspect('equal')
-    ax_calibration.plot([0.0, 1.0], [0.0, 1.0], '--', color='grey')
-    ax_calibration.plot(prob_pred, prob_true, linestyle='-', marker='o')
-    ax_calibration.set_xlabel('mean predicted value')
-    ax_calibration.set_ylabel('fraction of positives')
-
-    # plot the histogram of the predictions
-    sb.plot1D.histogram(data=predictions, fig=fig, grid=grid, gridindex=1,
-        xlabel='prediction', show_decorations=False, show_stats=False,
-        **histogram_args)
-
-    return fig
