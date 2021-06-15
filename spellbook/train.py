@@ -93,9 +93,7 @@ class ROCPlot:
     def __init__(self):
         self.curves = {}
         # default figsize is (6.4, 4.8) [inches]
-        self.fig, self.ax = plt.subplots(figsize=(5.8, 5.3))
-        self.ax.set_xlim(left=0.0, right=100.0)
-        self.ax.set_ylim(bottom=0.0, top=102.0)
+        self.fig, self.ax = plt.subplots(figsize=(5.8, 5.3), tight_layout=True)
         self.WP_legend_lines = []
         self.WP_legend_labels = []
 
@@ -512,11 +510,6 @@ class ROCPlot:
             self.ax.scatter(x=wp['FPR']*100.0, y=wp['TPR']*100.0, # s=20.0
                             color='red', zorder=3)
 
-            # transformation from data to axes coordinates to determine ymax for vlines
-            # based on https://stackoverflow.com/q/62004022
-            p = self.ax.transData.transform((wp['FPR']*100.0, wp['TPR']*100.0))
-            xmin, ymax = self.ax.transAxes.inverted().transform(p)
-
             if highlight or (type(highlight)==int and highlight==i):
                 color = 'red'
             else:
@@ -527,9 +520,10 @@ class ROCPlot:
                 hline = self.ax.axhline(y=wp['TPR']*100.0, zorder=-1,
                                         color=color, linestyle=linestyle[i],
                                         linewidth=1.0)
-                self.ax.axvline(x=wp['FPR']*100.0, ymax=ymax, zorder=-1,
-                                color=color, linestyle=linestyle[i],
-                                linewidth=1.0)
+                self.ax.plot(
+                    [wp['FPR']*100.0, wp['FPR']*100.0], [0.0, wp['TPR']*100.0],
+                    zorder=-1, color=color,
+                    linestyle=linestyle[i], linewidth=1.0)
                 if info is None or info == True \
                                 or (type(info)==list and len(info)>i and info[i]):
                     self.WP_legend_lines.append(hline)
@@ -547,9 +541,20 @@ class ROCPlot:
                                             loc='lower right')
 
 
-    def plot(self) -> mpl.figure.Figure:
+    def plot(self,
+        xmin: float = 0.0,
+        xmax: float = 100.0,
+        ymin: float = 0.0,
+        ymax: float = 102.0
+        ) -> mpl.figure.Figure:
         '''
         Plot one or more ROC curves and working points to a figure object
+
+        Args:
+            xmin: Lower end of the x-axis
+            xmax: Upper end of the x-axis
+            ymin: Lower end of the y-axis
+            ymax: Upper end of the y-axis
 
         Returns:
             :class:`matplotlib.figure.Figure`: The figure containing the full
@@ -560,9 +565,10 @@ class ROCPlot:
             if isinstance(child, mpl.legend.Legend):
                 child.remove()
 
+        self.ax.set_xlim(left=xmin, right=xmax)
+        self.ax.set_ylim(bottom=ymin, top=ymax)
         self.ax.set_xlabel('false positive rate = 1 - specificity [%]')
         self.ax.set_ylabel('true positive rate = sensitivity [%]')
-        self.ax.set_aspect('equal')
 
         legend = self.ax.legend(handles=self.get_legend_lines()[::-1],
                                 labels = self.get_legend_labels()[::-1],
@@ -586,7 +592,6 @@ class ROCPlot:
                 self.ax.transAxes.inverted()).y1
             self.legend_WP.set_bbox_to_anchor((1.0, y1))
 
-        self.fig.tight_layout()
         return(self.fig)
 
 
