@@ -2,11 +2,21 @@
 Functions for model inspection
 '''
 
+from __future__ import annotations   # for type hinting the enclosing class
+                                     # https://stackoverflow.com/a/33533514
 import matplotlib as mpl
 import numpy as np
 import pandas as pd
 import scipy
+import sys
 import tensorflow as tf
+
+modules = {}
+try:
+    import tensorflow_decision_forests as tfdf
+    modules['tfdf'] = True
+except:
+    modules['tfdf'] = False
 
 from typing import Dict
 from typing import List
@@ -16,34 +26,88 @@ import spellbook as sb
 
 
 class PermutationImportance:
+    '''
+    Feature importance from permutation
+
+    This implementation follows the *Permutation Feature Importance*
+    algorithm in *scikit-learn*
+
+    - presented in the *scikit-learn* `User Guide
+      <https://scikit-learn.org/stable/modules/permutation_importance.html>`_
+    - implemented in :func:`sklearn.inspection.permutation_importance`
+
+    but goes further in that it provides a mechanism for permuting
+    clusters of multiple features simultaneously. This allows to
+    estimate the permutation importance when some of the feature
+    variables are correlated.
+
+    Args:
+        data (:class:`pandas.DataFrame`): The dataset
+        features: The names of the feature variables
+        target: The name of the target variable
+        model (:class:`tf.keras.Model`): The predictor/classifier/regressor
+        metrics ([:class:`tf.keras.metrics.Metric`]):
+            The metrics to evaluate
+        n_repeats: How often each feature (cluster) is permuted
+        feature_clusters: *Optional*. Dictionary with cluster names as keys
+            and lists of features as the values. Each list contains the
+            features that are grouped together as one cluster and permuted
+            simultaneously.
+        tfdf: *Optional*. Whether or not the model is one of the models
+            in ``tensorflow_decision_forests``
+    
+    Attributes:
+        baseline (:class:`dict`\[:class:`str`, :class:`float`\]):
+            Dictionary containing the nominal metrics, i.e. without permutation.
+            The keys are the names of the metrics and the values are the values
+            of the metrics.
+        results (:class:`list`\[:class:`dict`\]): For each feature or feature
+            cluster, a dictionary is added to the list. Each dictionary has
+            the following keys and associated values:
+
+            - ``feature``: The name of the feature or the feature cluster
+            - ``results``: A list containing a dictionary for each permutation.
+              Each dictionary contains the names and values of the metrics
+              calculated in that permutation
+            - ``mean``: A dictionary containing the means of the results,
+              with one entry for each metric
+            - ``std``: A dictionary containing the standard deviations of the
+              results, with one entry for each metric
+            - ``mean_rel_diff``: A dictionary containing the relative
+              differences between the mean and the nominal, with one entry
+              for each metric
+
+        tfdf (bool): Whether or not the model is one of the models in
+            ``tensorflow_decision_forests``
+
+    See also:
+
+        - *scikit-learn* example:
+          `Permutation Importance with Multicollinear or Correlated Features
+          <https://scikit-learn.org/stable/auto_examples/inspection/plot_permutation_importance_multicollinear.html>`_
+    '''
 
 
     def __init__(self,
-        data, features, target,
-        model, metrics,
-        n_repeats=10,
-        feature_clusters: Dict[str, List[str]] = None):
-        '''
-        .. todo:: write docstring for spellbook.inspect.permutation_importance
+        data: pd.DataFrame,
+        features,
+        target,
+        model,
+        metrics: Union[tf.keras.metrics.Metric, List[tf.keras.metrics.Metric]],
+        n_repeats: int = 10,
+        feature_clusters: Dict[str, List[str]] = None,
+        tfdf: bool = False) -> PermutationImportance:
 
-        See also:
-            This implementation follows the *Permutation Feature Importance*
-            algorithm in *scikit-learn*
-
-            - presented in
-              https://scikit-learn.org/stable/modules/permutation_importance.html
-            - implemented in
-              https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html
-
-            :Further reading:
-
-            - Permutation Importance with Multicollinear or Correlated Features:
-              https://scikit-learn.org/stable/auto_examples/inspection/plot_permutation_importance_multicollinear.html
-
-        '''
+        self.tfdf = tfdf
+        if tfdf and not modules['tfdf']:
+            raise ModuleNotFoundError(
+                "No module named 'tensorflow_decision_forests")
+        
+        if not isinstance(metrics, list): metrics = [metrics]
+        assert isinstance(n_repeats, int) and n_repeats > 0
 
         # get the nominal model performance without feature permutation
-        self.baseline = self.permute_feature(
+        self.baseline = self._permute_feature(
             data, features, target, model, metrics)
 
         # calculate permutation runs
@@ -65,8 +129,8 @@ class PermutationImportance:
 
         # feature permutation loop
         self.results = []
-        # for var in features:
-        for run_name, run_vars in runs.items():
+        print('Calculating permutation importance:')
+        for irun, (run_name, run_vars) in enumerate(runs.items()):
 
             # prepare the data structures
             result = {}
@@ -74,9 +138,18 @@ class PermutationImportance:
             result['results'] = []
 
             # get the results
-            for i in range(n_repeats):
+            for irep in range(n_repeats):
+                # https://stackoverflow.com/a/52590238
+                # if irep > 0: sys.stdout.write('\x1b[1A') # cursor up one line
+                sys.stdout.write('\r') # carriage return
+                sys.stdout.write('\x1b[2K') # delete last line
+                sys.stdout.write("- feature/cluster '{}' - {}/{} - {:.1f}% "\
+                    .format(run_name, irep+1, n_repeats,
+                        (irun*n_repeats+irep)/(len(runs)*n_repeats)*100.0))
+                sys.stdout.flush()
+
                 result['results'].append(
-                    self.permute_feature(
+                    self._permute_feature(
                         data, features, target, model, metrics, run_vars))
 
             # calculate the mean and standard deviation for each metric
@@ -98,8 +171,15 @@ class PermutationImportance:
 
             self.results.append(result)
 
+            # https://stackoverflow.com/a/52590238
+            # sys.stdout.write('\x1b[1A') # cursor up one line
+            sys.stdout.write('\r') # carriage return
+            sys.stdout.write('\x1b[2K') # delete last line
+            print("- feature/cluster '{}' - DONE - {:.1f}%".format(run_name,
+                ((irun+1)*n_repeats)/(len(runs)*n_repeats)*100.0))
 
-    def permute_feature(self,
+
+    def _permute_feature(self,
         data: pd.DataFrame,
         features: List[str],
         target: str,
@@ -119,10 +199,11 @@ class PermutationImportance:
             features: The names of the feature variables
             target: The name of the target variable
             model (:class:`tf.keras.Model`): The predictor/classifier/regressor
-            metrics ([:class:`tf.keras.metrics.Metric`]): The metrics to evaluate
+            metrics ([:class:`tf.keras.metrics.Metric`]):
+                The metrics to evaluate
             permute: *Optional*. The name(s) of the variable(s) to permute
                 (independently)
-        
+
         Returns:
             A dictionary - the keys are the names of the metrics and the values
             are the values of the metrics
@@ -135,7 +216,7 @@ class PermutationImportance:
             # promote to List[str]
             if isinstance(permute, str): permute = [permute]
 
-        local_data = data.copy()
+        local_data = data[features + [target]].copy()
         if permute:
             for pf in permute:
                 assert isinstance(pf, str)
@@ -144,13 +225,22 @@ class PermutationImportance:
                 # permute one single column: https://stackoverflow.com/a/54014039
                 local_data[pf] = np.random.default_rng().permutation(
                     local_data[pf].values)
+        
+        if self.tfdf and modules['tfdf']:
+            dataset = tfdf.keras.pd_dataframe_to_tf_dataset(
+                local_data, label=target)
+            xs, ys = zip(*dataset.unbatch())
+            predictions = model.predict(dataset)
 
-        xs = local_data[features].values
-        ys = local_data[target].values
+        else:
+            # model is neural network
 
-        # obtain the predictions of the model
-        predictions = model.predict(xs) # when fed np.ndarrays returns np.ndarray
-        # ys_pred = sb.train.get_binary_labels(predictions)
+            xs = local_data[features].values
+            ys = local_data[target].values
+
+            # obtain the predictions of the model
+            predictions = model.predict(xs) # when fed np.ndarrays returns np.ndarray
+            # ys_pred = sb.train.get_binary_labels(predictions)
 
         # calculate the metrics
         result = {}
@@ -168,15 +258,12 @@ class PermutationImportance:
         xmax: float = None,
         ascending: bool = True,
         annotations_alignment: str = 'left',
+        show_std: bool = False,
         show_rel_diffs: bool = True,
-        rainbow: bool = False):
+        rainbow: bool = False
+        ) -> mpl.figure.Figure:
         '''
-        Plot the feature permutation importance
-
-        This function plots the feature permutation importance calculated
-        with :func:`spellbook.inspect.permutation_importance`
-
-        .. todo:: write docstring for spellbook.inspect.plot_permutation_importance
+        Plot the permutation importance of features / feature clusters
 
         .. list-table::
            :class: spellbook-gallery-scroll
@@ -188,11 +275,33 @@ class PermutationImportance:
                   :width: 400px
         
         Args:
+            metric_name: The name of the metric to be plotted
+            xmin: *Optional*. The lower end of the x-axis
+            xmax: *Optional*. The upper end of the x-axis
             ascending: *Optional*. Order from the top to the bottom of the plot:
 
-            - ``True``: Ascending from smaller to larger values
-            - ``False``: Descending from larger to smaller values
+              - ``True``: Ascending from smaller to larger values
+              - ``False``: Descending from larger to smaller values
 
+            annotations_alignment: *Optional*. Whether the annotations
+                indicating the mean (and possibly the standard deviation)
+                as well as the relative difference to the nominal metric
+                should be printed to the ``left`` or the ``right`` of the
+                markers.
+            show_std: *Optional*. Whether or not the standard deviations
+                of the metrics for the permuted features should be included
+                in the annotations.
+            show_rel_diffs: *Optional*. Whether or not the relative
+                differences between the mean of the metrics for the permuted
+                features and the nominal metric shown be included in the
+                annotations.
+            rainbow: *Optional*. Whether or not the horizontal bars between
+                the means of the metrics for the permuted features and the
+                nominal metric should cycle through the colour palette.
+
+        Returns:
+            The figure containing the ranking of the features according to
+            their permutation importance
         '''
 
         assert annotations_alignment in ['left', 'right']
@@ -225,14 +334,22 @@ class PermutationImportance:
             ax.errorbar(
                 result['mean'][metric_name], i,
                 xerr=result['std'][metric_name], yerr=0.5,
-                color='C0', linewidth=4.0)
+                color='C0', linewidth=4.0, zorder=2.1)
             
-            # annotations with mean values
-            ax.annotate(
-                '{}{:.3f}{}'.format(
+            # annotations with mean values and standard deviations
+            if show_std:
+                annotation = '{}{:.3f} ± {:.3f}{}'.format(
                     space_before,
                     result['mean'][metric_name],
-                    space_after),
+                    result['std'][metric_name],
+                    space_after)
+            else:
+                annotation = '{}{:.3f}{}'.format(
+                    space_before,
+                    result['mean'][metric_name],
+                    space_after)
+            ax.annotate(
+                annotation,
                 xy = (result['mean'][metric_name], i),
                 xytext = (result['mean'][metric_name], i+0.26),
                 horizontalalignment = annotations_alignment,
@@ -263,7 +380,7 @@ class PermutationImportance:
             x = 0.5, y = yb,
             s = 'nominal {}: {:.3f}'.format(metric_name, self.baseline[metric_name]),
             color='C1', transform=ax.transAxes, horizontalalignment='center')
-        ax.axvline(self.baseline[metric_name], color='C1', linewidth=3.0)
+        ax.axvline(self.baseline[metric_name], color='C1', linewidth=4.0)
 
         ax.set_yticks(np.arange(len(self.results)))
         ax.set_yticklabels(yticklabels)
