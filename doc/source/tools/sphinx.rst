@@ -366,7 +366,7 @@ have to be used:
             .. code:: rst
 
                Args:
-                  data(:class:`pandas.DataFrame`): The imbalanced data
+                  data(:class:`pandas.DataFrame`): The dataset
 
           - For the return type, just write something like this into the
             docstring:
