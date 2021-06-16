@@ -12,8 +12,8 @@ Random Forests and Gradient Boosted Trees in *TensorFlow*
           <span class="tag-text">tags:</span>
           <a class="tag right" href="../../search.html?q=tags+binary+classification">
              binary classification</a>
-          <a class="tag right" href="../../search.html?q=tags+boosted+gradient+tree">
-             boosted gradient tree</a>
+          <a class="tag right" href="../../search.html?q=tags+gradient+boosted+trees">
+             gradient boosted trees</a>
           <a class="tag right" href="../../search.html?q=tags+decision+forest">
              decision forest</a>
           <a class="tag right" href="../../search.html?q=tags+supervised+learning">
@@ -411,7 +411,7 @@ deviation of the resulting metrics are calculated. The standard deviations
 are used to draw horizontal error bars on the average deteriorated metrics,
 but can also be printed into the plot.
 
-We can see that the boosted gradient trees classifier relies most heavily
+We can see that the gradient boosted trees classifier relies most heavily
 on age, the average glucose level and the BMI, with the accuracy dropping
 by about 31%, 23% and 16%, respectively, when the corresponding values are
 scrambled.

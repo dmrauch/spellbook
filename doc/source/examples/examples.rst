@@ -8,8 +8,8 @@ Projects & Tutorials
        <div class="tag-cell">
           <a class="tag left" href="../search.html?q=tags+binary+classification">
              binary classification</a>
-          <a class="tag left" href="../search.html?q=tags+boosted+gradient+tree">
-             boosted gradient tree</a>
+          <a class="tag left" href="../search.html?q=tags+gradient+boosted+trees">
+             gradient boosted trees</a>
           <a class="tag left" href="../search.html?q=tags+decision+forest">
              decision forest</a>
           <a class="tag left" href="../search.html?q=tags+imbalanced+data">
@@ -20,7 +20,7 @@ Projects & Tutorials
              supervised learning</a>
        </div>
     </div>
- 
+
 
 
 .. admonition:: Table of Contents
