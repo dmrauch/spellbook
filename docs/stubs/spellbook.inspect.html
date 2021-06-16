@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spellbook.inspect &#8212; spellbook</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tooltip.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script defer="defer" src="../_static/tooltip.js"></script>
+    <script src="../_static/glossary.json"></script>
+    <link rel="shortcut icon" href="../_static/spellbook-icon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="spellbook.plot" href="spellbook.plot.html" />
+    <link rel="prev" title="spellbook.input" href="spellbook.input.html" />
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/spellbook-logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">spellbook</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search" aria-label="Search" autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  The spellbook Library
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../API.html">
+   Source Code Reference
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="../API-python.html">
+     Python
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="spellbook.input.html">
+       spellbook.input
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       spellbook.inspect
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="spellbook.plot.html">
+       spellbook.plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="spellbook.plot1D.html">
+       spellbook.plot1D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="spellbook.plot2D.html">
+       spellbook.plot2D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="spellbook.plotutils.html">
+       spellbook.plotutils
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="spellbook.stat.html">
+       spellbook.stat
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="spellbook.train.html">
+       spellbook.train
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../tools.html">
+   Tools and Technologies
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/anaconda.html">
+     Anaconda / Conda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/aws.html">
+     AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/git.html">
+     Git
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/mkdocs.html">
+     MkDocs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/python.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/sphinx.html">
+     Sphinx
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../tools/tf.html">
+     TensorFlow
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tools/tf-save.html">
+       Saving and Loading Models
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/vscode.html">
+     Visual Studio Code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Projects &amp; Tutorials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/examples.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../examples/1-binary-stroke-prediction/index.html">
+   Binary Classification: Stroke Prediction
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/1-binary-stroke-prediction/exploration-cleaning.html">
+     Data Exploration and Cleaning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/1-binary-stroke-prediction/input-pipeline.html">
+     Data Preparation and Input Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/1-binary-stroke-prediction/training-validation.html">
+     Model Training and Validation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/2-tensorflow-decision-forests/index.html">
+   Decision Forests in TensorFlow
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Extras
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../literature.html">
+   Links &amp; Literature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+<div class="navbar_extra_footer">
+    <table style="margin-top:2.0rem;">
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://github.com/dmrauch">
+                    <img src="../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
+                </a>
+            </td>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://github.com/dmrauch">GitHub</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://www.linkedin.com/in/dmrauch/">
+                    <img src="../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
+                </a>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/stubs/spellbook.inspect.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fstubs/spellbook.inspect.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/stubs/spellbook.inspect.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="module-spellbook.inspect">
+<span id="spellbook-inspect"></span><h1>spellbook.inspect<a class="headerlink" href="#module-spellbook.inspect" title="Permalink to this headline">¶</a></h1>
+<p>Functions for model inspection</p>
+<p><strong>Classes:</strong></p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.inspect.PermutationImportance" title="spellbook.inspect.PermutationImportance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PermutationImportance</span></code></a>(data, features, …[, …])</p></td>
+<td><p>Feature importance from permutation</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="spellbook.inspect.PermutationImportance">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">spellbook.inspect.</span></code><code class="sig-name descname"><span class="pre">PermutationImportance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repeats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tfdf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/inspect.html#PermutationImportance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.inspect.PermutationImportance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Feature importance from permutation</p>
+<p>This implementation follows the <em>Permutation Feature Importance</em>
+algorithm in <em>scikit-learn</em></p>
+<ul class="simple">
+<li><p>presented in the <em>scikit-learn</em> <a class="reference external" href="https://scikit-learn.org/stable/modules/permutation_importance.html">User Guide</a></p></li>
+<li><p>implemented in <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html#sklearn.inspection.permutation_importance" title="(in scikit-learn v0.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.inspection.permutation_importance()</span></code></a></p></li>
+</ul>
+<p>but goes further in that it provides a mechanism for permuting
+clusters of multiple features simultaneously. This allows to
+estimate the permutation importance when some of the feature
+variables are correlated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset</p></li>
+<li><p><strong>features</strong> – The names of the feature variables</p></li>
+<li><p><strong>target</strong> – The name of the target variable</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/Model" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.Model</span></code></a>) – The predictor/classifier/regressor</p></li>
+<li><p><strong>metrics</strong> ([<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/metrics/Metric" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.metrics.Metric</span></code></a>]) – The metrics to evaluate</p></li>
+<li><p><strong>n_repeats</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – How often each feature (cluster) is permuted</p></li>
+<li><p><strong>feature_clusters</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]]) – <em>Optional</em>. Dictionary with cluster names as keys
+and lists of features as the values. Each list contains the
+features that are grouped together as one cluster and permuted
+simultaneously.</p></li>
+<li><p><strong>tfdf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <em>Optional</em>. Whether or not the model is one of the models
+in <code class="docutils literal notranslate"><span class="pre">tensorflow_decision_forests</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="spellbook.inspect.PermutationImportance.baseline">
+<code class="sig-name descname"><span class="pre">baseline</span></code><a class="headerlink" href="#spellbook.inspect.PermutationImportance.baseline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary containing the nominal metrics, i.e. without permutation.
+The keys are the names of the metrics and the values are the values
+of the metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="spellbook.inspect.PermutationImportance.results">
+<code class="sig-name descname"><span class="pre">results</span></code><a class="headerlink" href="#spellbook.inspect.PermutationImportance.results" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each feature or feature
+cluster, a dictionary is added to the list. Each dictionary has
+the following keys and associated values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">feature</span></code>: The name of the feature or the feature cluster</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">results</span></code>: A list containing a dictionary for each permutation.
+Each dictionary contains the names and values of the metrics
+calculated in that permutation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mean</span></code>: A dictionary containing the means of the results,
+with one entry for each metric</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">std</span></code>: A dictionary containing the standard deviations of the
+results, with one entry for each metric</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mean_rel_diff</span></code>: A dictionary containing the relative
+differences between the mean and the nominal, with one entry
+for each metric</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="spellbook.inspect.PermutationImportance.tfdf">
+<code class="sig-name descname"><span class="pre">tfdf</span></code><a class="headerlink" href="#spellbook.inspect.PermutationImportance.tfdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not the model is one of the models in
+<code class="docutils literal notranslate"><span class="pre">tensorflow_decision_forests</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><em>scikit-learn</em> example:
+<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/inspection/plot_permutation_importance_multicollinear.html">Permutation Importance with Multicollinear or Correlated Features</a></p></li>
+</ul>
+</div>
+<p><strong>Methods:</strong></p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.inspect.PermutationImportance.__init__" title="spellbook.inspect.PermutationImportance.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(data, features, target, model, metrics)</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spellbook.inspect.PermutationImportance.plot" title="spellbook.inspect.PermutationImportance.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(metric_name[, xmin, xmax, ascending, …])</p></td>
+<td><p>Plot the permutation importance of features / feature clusters</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="spellbook.inspect.PermutationImportance.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repeats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tfdf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/inspect.html#PermutationImportance.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.inspect.PermutationImportance.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spellbook.inspect.PermutationImportance.plot">
+<code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotations_alignment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'left'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_std</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_rel_diffs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rainbow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/inspect.html#PermutationImportance.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.inspect.PermutationImportance.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the permutation importance of features / feature clusters</p>
+<table class="spellbook-gallery-scroll table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="../_images/permutation-importance.png"><img alt="../_images/permutation-importance.png" src="../_images/permutation-importance.png" style="width: 400px;" /></a>
+</td>
+<td><a class="reference internal image-reference" href="../_images/permutation-importance-rainbow.png"><img alt="../_images/permutation-importance-rainbow.png" src="../_images/permutation-importance-rainbow.png" style="width: 400px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>metric_name</strong> – The name of the metric to be plotted</p></li>
+<li><p><strong>xmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – <em>Optional</em>. The lower end of the x-axis</p></li>
+<li><p><strong>xmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – <em>Optional</em>. The upper end of the x-axis</p></li>
+<li><p><strong>ascending</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <p><em>Optional</em>. Order from the top to the bottom of the plot:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: Ascending from smaller to larger values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: Descending from larger to smaller values</p></li>
+</ul>
+</p></li>
+<li><p><strong>annotations_alignment</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – <em>Optional</em>. Whether the annotations
+indicating the mean (and possibly the standard deviation)
+as well as the relative difference to the nominal metric
+should be printed to the <code class="docutils literal notranslate"><span class="pre">left</span></code> or the <code class="docutils literal notranslate"><span class="pre">right</span></code> of the
+markers.</p></li>
+<li><p><strong>show_std</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <em>Optional</em>. Whether or not the standard deviations
+of the metrics for the permuted features should be included
+in the annotations.</p></li>
+<li><p><strong>show_rel_diffs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <em>Optional</em>. Whether or not the relative
+differences between the mean of the metrics for the permuted
+features and the nominal metric shown be included in the
+annotations.</p></li>
+<li><p><strong>rainbow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <em>Optional</em>. Whether or not the horizontal bars between
+the means of the metrics for the permuted features and the
+nominal metric should cycle through the colour palette.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The figure containing the ranking of the features according to
+their permutation importance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="spellbook.input.html" title="previous page">spellbook.input</a>
+    <a class='right-next' id="next-link" href="spellbook.plot.html" title="next page">spellbook.plot</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
+          Last updated on June 16, 2021.<br/>
+          <div class="extra_footer">
+            Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
+using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

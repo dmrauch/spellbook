@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TensorFlow &#8212; spellbook</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tooltip.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script defer="defer" src="../_static/tooltip.js"></script>
+    <script src="../_static/glossary.json"></script>
+    <link rel="shortcut icon" href="../_static/spellbook-icon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Saving and Loading Models" href="tf-save.html" />
+    <link rel="prev" title="Sphinx" href="sphinx.html" />
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/spellbook-logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">spellbook</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search" aria-label="Search" autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  The spellbook Library
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../API.html">
+   Source Code Reference
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../API-python.html">
+     Python
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../stubs/spellbook.input.html">
+       spellbook.input
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../stubs/spellbook.inspect.html">
+       spellbook.inspect
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../stubs/spellbook.plot.html">
+       spellbook.plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../stubs/spellbook.plot1D.html">
+       spellbook.plot1D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../stubs/spellbook.plot2D.html">
+       spellbook.plot2D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../stubs/spellbook.plotutils.html">
+       spellbook.plotutils
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../stubs/spellbook.stat.html">
+       spellbook.stat
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../stubs/spellbook.train.html">
+       spellbook.train
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../tools.html">
+   Tools and Technologies
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="anaconda.html">
+     Anaconda / Conda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="aws.html">
+     AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="git.html">
+     Git
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mkdocs.html">
+     MkDocs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sphinx.html">
+     Sphinx
+    </a>
+   </li>
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="current reference internal" href="#">
+     TensorFlow
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf-save.html">
+       Saving and Loading Models
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="vscode.html">
+     Visual Studio Code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Projects &amp; Tutorials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/examples.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../examples/1-binary-stroke-prediction/index.html">
+   Binary Classification: Stroke Prediction
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/1-binary-stroke-prediction/exploration-cleaning.html">
+     Data Exploration and Cleaning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/1-binary-stroke-prediction/input-pipeline.html">
+     Data Preparation and Input Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/1-binary-stroke-prediction/training-validation.html">
+     Model Training and Validation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/2-tensorflow-decision-forests/index.html">
+   Decision Forests in TensorFlow
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Extras
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../literature.html">
+   Links &amp; Literature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+<div class="navbar_extra_footer">
+    <table style="margin-top:2.0rem;">
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://github.com/dmrauch">
+                    <img src="../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
+                </a>
+            </td>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://github.com/dmrauch">GitHub</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://www.linkedin.com/in/dmrauch/">
+                    <img src="../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
+                </a>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tools/tf.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Ftools/tf.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/tools/tf.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#layers">
+   Layers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activation-functions">
+   Activation Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimizers">
+   Optimizers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loss-functions">
+   Loss Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metrics">
+   Metrics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspection-information-about-the-model">
+   Inspection / Information about the Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regularisation">
+   Regularisation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#treatment-of-inputs">
+   Treatment of Inputs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-resources">
+   Links &amp; Resources
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tensorflow">
+<h1>TensorFlow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="layers">
+<h2>Layers<a class="headerlink" href="#layers" title="Permalink to this headline">¶</a></h2>
+<p>Module: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/layers">tf.keras.layers</a></p>
+<ul class="simple">
+<li><p>InputLayer: <code class="docutils literal notranslate"><span class="pre">tf.keras.layers.InputLayer(input_shape=(10,))</span></code></p></li>
+<li><p>Dense: <code class="docutils literal notranslate"><span class="pre">tf.keras.layers.Dense(units,</span> <span class="pre">activation=None)</span></code></p></li>
+<li><p>Flatten: <code class="docutils literal notranslate"><span class="pre">tf.keras.layers.Flatten()</span></code></p></li>
+<li><p>Dropout: <code class="docutils literal notranslate"><span class="pre">tf.keras.layers.Dropout(rate)</span></code></p></li>
+<li><p>Conv2D: <code class="docutils literal notranslate"><span class="pre">tf.keras.layers.Conv2D(filters,</span> <span class="pre">kernel_size,</span> <span class="pre">activation=None,</span> <span class="pre">input_shape)</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">input_shape</span></code> is expected to be a 3D tuple, with the last dimension being the colour channels, e.g. <code class="docutils literal notranslate"><span class="pre">(28,28,3)</span></code> for 28 x 28 pixels and 3 colour channels (RGB). An alpha channel would probably be a fourth channel?</p></li>
+</ul>
+</li>
+<li><p>MaxPooling2D: <code class="docutils literal notranslate"><span class="pre">tf.keras.layers.MaxPooling2D(pool_size=(2,</span> <span class="pre">2))</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="activation-functions">
+<h2>Activation Functions<a class="headerlink" href="#activation-functions" title="Permalink to this headline">¶</a></h2>
+<p>Module: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/activations">tf.keras.activations</a></p>
+<p>The activation functions are also available as individual layers, e.g. when you would like the model to output logits and would like to build a separate probability model with an additional softmax layer appended.</p>
+<ul class="simple">
+<li><p>ReLu: <code class="docutils literal notranslate"><span class="pre">&quot;relu&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">tf.keras.activations.relu</span></code></p></li>
+<li><p>Softmax: <code class="docutils literal notranslate"><span class="pre">&quot;softmax&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">tf.keras.activations.softmax</span></code></p></li>
+<li><p>Sigmoid: <code class="docutils literal notranslate"><span class="pre">&quot;sigmoid&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">tf.keras.activations.sigmoid</span></code></p>
+<ul>
+<li><p>Normally, the number of output neurons should match the number of classes
+in a classification problem. One exception is binary classification, where
+it is possible to use one single output neuron with sigmoid activation.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="optimizers">
+<h2>Optimizers<a class="headerlink" href="#optimizers" title="Permalink to this headline">¶</a></h2>
+<p>Module: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/optimizers" title="(in TensorFlow v2.4)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tf.keras.optimizers</span></code></a></p>
+<ul class="simple">
+<li><p>SGD: <code class="docutils literal notranslate"><span class="pre">optimizer='sgd'</span></code>, <code class="docutils literal notranslate"><span class="pre">tf.keras.optimizers.SGD(learning_rate=0.01,</span> <span class="pre">momentum=0.0)</span></code></p></li>
+<li><p>Adam: <code class="docutils literal notranslate"><span class="pre">optimizer='adam'</span></code>, <code class="docutils literal notranslate"><span class="pre">tf.keras.optimizers.Adam(learning_rate=0.001)</span></code></p></li>
+<li><p>RMSProp: <code class="docutils literal notranslate"><span class="pre">tf.keras.optimizers.RMSprop(learning_rate=0.001)</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="loss-functions">
+<h2>Loss Functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">¶</a></h2>
+<p>Module: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/losses">tf.keras.losses</a></p>
+<ul class="simple">
+<li><p>Binary Crossentropy: <code class="docutils literal notranslate"><span class="pre">tf.keras.losses.BinaryCrossentropy(from_logits=False)</span></code></p></li>
+<li><p>Categorical Crossentropy: <code class="docutils literal notranslate"><span class="pre">tf.keras.losses.CategoricalCrossentropy(from_logits=False)</span></code></p></li>
+<li><p>Sparse Categorical Crossentropy: <code class="docutils literal notranslate"><span class="pre">tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False)</span></code></p></li>
+<li><p>Mean Squared Error: <code class="docutils literal notranslate"><span class="pre">tf.keras.losses.MeanSquaredError</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="metrics">
+<h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;accuracy&quot;</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="inspection-information-about-the-model">
+<h2>Inspection / Information about the Model<a class="headerlink" href="#inspection-information-about-the-model" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">model.summary()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model.input_shape</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model.output_shape</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model.layers</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="regularisation">
+<h2>Regularisation<a class="headerlink" href="#regularisation" title="Permalink to this headline">¶</a></h2>
+<p>Module: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/regularizers" title="(in TensorFlow v2.4)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tf.keras.regularizers</span></code></a></p>
+<ul class="simple">
+<li><p>L1 / lasso: <code class="docutils literal notranslate"><span class="pre">kernel_regularizer='l1'</span></code>, <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/regularizers/L1" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.regularizers.L1</span></code></a></p></li>
+<li><p>L2 / ridge: <code class="docutils literal notranslate"><span class="pre">kernel_regularizer='l2'</span></code>, <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/regularizers/L2" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.regularizers.L2</span></code></a></p></li>
+<li><p>L1L2: <code class="docutils literal notranslate"><span class="pre">kernel_regularizer='l1_l2'</span></code>, <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/regularizers/L1L2" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.regularizers.L1L2</span></code></a></p></li>
+</ul>
+</div>
+<div class="section" id="treatment-of-inputs">
+<h2>Treatment of Inputs<a class="headerlink" href="#treatment-of-inputs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/numpy">Load NumPy data</a></p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/pandas_dataframe">Load a pandas.DataFrame</a></p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset#shuffle">Dataset.shuffle</a></p></li>
+<li><p>Split into training and testing datasets</p>
+<ul>
+<li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset#take">Dataset.take</a></p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset#skip">Dataset.skip</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset#batch">Dataset.batch</a></p></li>
+</ul>
+</div>
+<div class="section" id="links-resources">
+<h2>Links &amp; Resources<a class="headerlink" href="#links-resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary">Google Machine Learning Glossary</a></p></li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="sphinx.html" title="previous page">Sphinx</a>
+    <a class='right-next' id="next-link" href="tf-save.html" title="next page">Saving and Loading Models</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
+          Last updated on June 16, 2021.<br/>
+          <div class="extra_footer">
+            Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
+using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,1020 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Exploration and Cleaning &#8212; spellbook</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tooltip.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script defer="defer" src="../../_static/tooltip.js"></script>
+    <script src="../../_static/glossary.json"></script>
+    <link rel="shortcut icon" href="../../_static/spellbook-icon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Data Preparation and Input Pipeline" href="input-pipeline.html" />
+    <link rel="prev" title="Binary Classification with the Stroke Prediction Dataset" href="index.html" />
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/spellbook-logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">spellbook</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search" aria-label="Search" autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  The spellbook Library
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../API.html">
+   Source Code Reference
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../API-python.html">
+     Python
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.input.html">
+       spellbook.input
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.inspect.html">
+       spellbook.inspect
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.plot.html">
+       spellbook.plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.plot1D.html">
+       spellbook.plot1D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.plot2D.html">
+       spellbook.plot2D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.plotutils.html">
+       spellbook.plotutils
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.stat.html">
+       spellbook.stat
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.train.html">
+       spellbook.train
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../tools.html">
+   Tools and Technologies
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/anaconda.html">
+     Anaconda / Conda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/aws.html">
+     AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/git.html">
+     Git
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/mkdocs.html">
+     MkDocs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/python.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/sphinx.html">
+     Sphinx
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../tools/tf.html">
+     TensorFlow
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tools/tf-save.html">
+       Saving and Loading Models
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/vscode.html">
+     Visual Studio Code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Projects &amp; Tutorials
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="index.html">
+   Binary Classification: Stroke Prediction
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Data Exploration and Cleaning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="input-pipeline.html">
+     Data Preparation and Input Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="training-validation.html">
+     Model Training and Validation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2-tensorflow-decision-forests/index.html">
+   Decision Forests in TensorFlow
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Extras
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../literature.html">
+   Links &amp; Literature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+<div class="navbar_extra_footer">
+    <table style="margin-top:2.0rem;">
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://github.com/dmrauch">
+                    <img src="../../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
+                </a>
+            </td>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://github.com/dmrauch">GitHub</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://www.linkedin.com/in/dmrauch/">
+                    <img src="../../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
+                </a>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/examples/1-binary-stroke-prediction/exploration-cleaning.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fexamples/1-binary-stroke-prediction/exploration-cleaning.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/examples/1-binary-stroke-prediction/exploration-cleaning.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#textual-data-inspection">
+   Textual Data Inspection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-cleaning">
+   Data Cleaning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-visualisation">
+   Data Visualisation
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-exploration-and-cleaning">
+<h1>Data Exploration and Cleaning<a class="headerlink" href="#data-exploration-and-cleaning" title="Permalink to this headline">¶</a></h1>
+<p>Now let’s dive in a bit deeper and have a look at some code snippets!</p>
+<p>The source code for this tutorial is located in
+<code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction</span></code> and consists of a few numbered scripts as
+well as the <code class="docutils literal notranslate"><span class="pre">helpers</span></code> module which contains a function for loading and
+cleaning the dataset. We will begin by looking at the <code class="docutils literal notranslate"><span class="pre">helpers</span></code> module.</p>
+<div class="section" id="textual-data-inspection">
+<h2>Textual Data Inspection<a class="headerlink" href="#textual-data-inspection" title="Permalink to this headline">¶</a></h2>
+<p>First, we load the data from the <code class="docutils literal notranslate"><span class="pre">*.csv</span></code> file using <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html#pandas.read_csv" title="(in pandas v1.2.4)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></a></p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>helpers.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;healthcare-dataset-stroke-data.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which returns a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>. Objects of this type come with a
+few methods for inspecting them in textual form already:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>helpers.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>  <span class="c1"># datatype of each column</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">)</span>    <span class="c1"># table with first few lines of the data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">count</span><span class="p">())</span> <span class="c1"># count valid datapoints - something going on with &#39;bmi&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;bmi&#39;</span><span class="p">])</span>  <span class="c1"># print column - &#39;bmi&#39; contains floats and &#39;NaN&#39;</span>
+</pre></div>
+</div>
+<p>The <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dtypes.html#pandas.DataFrame.dtypes" title="(in pandas v1.2.4)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.dtypes()</span></code></a> method yields</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span>                     <span class="n">int64</span>
+<span class="n">gender</span>                <span class="nb">object</span>
+<span class="n">age</span>                  <span class="n">float64</span>
+<span class="n">hypertension</span>           <span class="n">int64</span>
+<span class="n">heart_disease</span>          <span class="n">int64</span>
+<span class="n">ever_married</span>          <span class="nb">object</span>
+<span class="n">work_type</span>             <span class="nb">object</span>
+<span class="n">Residence_type</span>        <span class="nb">object</span>
+<span class="n">avg_glucose_level</span>    <span class="n">float64</span>
+<span class="n">bmi</span>                  <span class="n">float64</span>
+<span class="n">smoking_status</span>        <span class="nb">object</span>
+<span class="n">stroke</span>                 <span class="n">int64</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>with <code class="docutils literal notranslate"><span class="pre">object</span></code> indicating string category labels. This can be seen explicitly
+with the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html#pandas.DataFrame.head" title="(in pandas v1.2.4)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.head()</span></code></a> command, which outputs</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">bound</span> <span class="n">method</span> <span class="n">NDFrame</span><span class="o">.</span><span class="n">head</span> <span class="n">of</span>          <span class="nb">id</span>  <span class="n">gender</span>   <span class="n">age</span>  <span class="n">hypertension</span>  <span class="n">heart_disease</span> <span class="n">ever_married</span>      <span class="n">work_type</span> <span class="n">Residence_type</span>  <span class="n">avg_glucose_level</span>   <span class="n">bmi</span>   <span class="n">smoking_status</span>  <span class="n">stroke</span>
+<span class="mi">0</span>      <span class="mi">9046</span>    <span class="n">Male</span>  <span class="mf">67.0</span>             <span class="mi">0</span>              <span class="mi">1</span>          <span class="n">Yes</span>        <span class="n">Private</span>          <span class="n">Urban</span>             <span class="mf">228.69</span>  <span class="mf">36.6</span>  <span class="n">formerly</span> <span class="n">smoked</span>       <span class="mi">1</span>
+<span class="mi">1</span>     <span class="mi">51676</span>  <span class="n">Female</span>  <span class="mf">61.0</span>             <span class="mi">0</span>              <span class="mi">0</span>          <span class="n">Yes</span>  <span class="n">Self</span><span class="o">-</span><span class="n">employed</span>          <span class="n">Rural</span>             <span class="mf">202.21</span>   <span class="n">NaN</span>     <span class="n">never</span> <span class="n">smoked</span>       <span class="mi">1</span>
+<span class="mi">2</span>     <span class="mi">31112</span>    <span class="n">Male</span>  <span class="mf">80.0</span>             <span class="mi">0</span>              <span class="mi">1</span>          <span class="n">Yes</span>        <span class="n">Private</span>          <span class="n">Rural</span>             <span class="mf">105.92</span>  <span class="mf">32.5</span>     <span class="n">never</span> <span class="n">smoked</span>       <span class="mi">1</span>
+<span class="mi">3</span>     <span class="mi">60182</span>  <span class="n">Female</span>  <span class="mf">49.0</span>             <span class="mi">0</span>              <span class="mi">0</span>          <span class="n">Yes</span>        <span class="n">Private</span>          <span class="n">Urban</span>             <span class="mf">171.23</span>  <span class="mf">34.4</span>           <span class="n">smokes</span>       <span class="mi">1</span>
+<span class="mi">4</span>      <span class="mi">1665</span>  <span class="n">Female</span>  <span class="mf">79.0</span>             <span class="mi">1</span>              <span class="mi">0</span>          <span class="n">Yes</span>  <span class="n">Self</span><span class="o">-</span><span class="n">employed</span>          <span class="n">Rural</span>             <span class="mf">174.12</span>  <span class="mf">24.0</span>     <span class="n">never</span> <span class="n">smoked</span>       <span class="mi">1</span>
+<span class="o">...</span>     <span class="o">...</span>     <span class="o">...</span>   <span class="o">...</span>           <span class="o">...</span>            <span class="o">...</span>          <span class="o">...</span>            <span class="o">...</span>            <span class="o">...</span>                <span class="o">...</span>   <span class="o">...</span>              <span class="o">...</span>     <span class="o">...</span>
+<span class="mi">5105</span>  <span class="mi">18234</span>  <span class="n">Female</span>  <span class="mf">80.0</span>             <span class="mi">1</span>              <span class="mi">0</span>          <span class="n">Yes</span>        <span class="n">Private</span>          <span class="n">Urban</span>              <span class="mf">83.75</span>   <span class="n">NaN</span>     <span class="n">never</span> <span class="n">smoked</span>       <span class="mi">0</span>
+<span class="mi">5106</span>  <span class="mi">44873</span>  <span class="n">Female</span>  <span class="mf">81.0</span>             <span class="mi">0</span>              <span class="mi">0</span>          <span class="n">Yes</span>  <span class="n">Self</span><span class="o">-</span><span class="n">employed</span>          <span class="n">Urban</span>             <span class="mf">125.20</span>  <span class="mf">40.0</span>     <span class="n">never</span> <span class="n">smoked</span>       <span class="mi">0</span>
+<span class="mi">5107</span>  <span class="mi">19723</span>  <span class="n">Female</span>  <span class="mf">35.0</span>             <span class="mi">0</span>              <span class="mi">0</span>          <span class="n">Yes</span>  <span class="n">Self</span><span class="o">-</span><span class="n">employed</span>          <span class="n">Rural</span>              <span class="mf">82.99</span>  <span class="mf">30.6</span>     <span class="n">never</span> <span class="n">smoked</span>       <span class="mi">0</span>
+<span class="mi">5108</span>  <span class="mi">37544</span>    <span class="n">Male</span>  <span class="mf">51.0</span>             <span class="mi">0</span>              <span class="mi">0</span>          <span class="n">Yes</span>        <span class="n">Private</span>          <span class="n">Rural</span>             <span class="mf">166.29</span>  <span class="mf">25.6</span>  <span class="n">formerly</span> <span class="n">smoked</span>       <span class="mi">0</span>
+<span class="mi">5109</span>  <span class="mi">44679</span>  <span class="n">Female</span>  <span class="mf">44.0</span>             <span class="mi">0</span>              <span class="mi">0</span>          <span class="n">Yes</span>       <span class="n">Govt_job</span>          <span class="n">Urban</span>              <span class="mf">85.28</span>  <span class="mf">26.2</span>          <span class="n">Unknown</span>       <span class="mi">0</span>
+
+<span class="p">[</span><span class="mi">5110</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">12</span> <span class="n">columns</span><span class="p">]</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>As we can see, some categorical columns contain string labels, e.g.
+<code class="docutils literal notranslate"><span class="pre">Yes</span></code>/<code class="docutils literal notranslate"><span class="pre">No</span></code> in the column <code class="docutils literal notranslate"><span class="pre">ever_married</span></code>, while others are labelled with
+integers, e.g. <code class="docutils literal notranslate"><span class="pre">0</span></code>/<code class="docutils literal notranslate"><span class="pre">1</span></code> in the column <code class="docutils literal notranslate"><span class="pre">hypertension</span></code>, leading to the
+indicated datatypes.</p>
+<p>The <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.count.html#pandas.DataFrame.count" title="(in pandas v1.2.4)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.count()</span></code></a> method counts the valid datapoints in each
+column, ignoring <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span>                   <span class="mi">5110</span>
+<span class="n">gender</span>               <span class="mi">5110</span>
+<span class="n">age</span>                  <span class="mi">5110</span>
+<span class="n">hypertension</span>         <span class="mi">5110</span>
+<span class="n">heart_disease</span>        <span class="mi">5110</span>
+<span class="n">ever_married</span>         <span class="mi">5110</span>
+<span class="n">work_type</span>            <span class="mi">5110</span>
+<span class="n">Residence_type</span>       <span class="mi">5110</span>
+<span class="n">avg_glucose_level</span>    <span class="mi">5110</span>
+<span class="n">bmi</span>                  <span class="mi">4909</span>
+<span class="n">smoking_status</span>       <span class="mi">5110</span>
+<span class="n">stroke</span>               <span class="mi">5110</span>
+</pre></div>
+</div>
+<p>We can see that the variable <code class="docutils literal notranslate"><span class="pre">bmi</span></code> contains 4909 entries as opposed to
+5110 for the other columns. When printing it, we can see the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+<span class="mi">0</span>       <span class="mf">36.6</span>
+<span class="mi">1</span>        <span class="n">NaN</span>
+<span class="mi">2</span>       <span class="mf">32.5</span>
+<span class="mi">3</span>       <span class="mf">34.4</span>
+<span class="mi">4</span>       <span class="mf">24.0</span>
+        <span class="o">...</span>
+<span class="mi">5105</span>     <span class="n">NaN</span>
+<span class="mi">5106</span>    <span class="mf">40.0</span>
+<span class="mi">5107</span>    <span class="mf">30.6</span>
+<span class="mi">5108</span>    <span class="mf">25.6</span>
+<span class="mi">5109</span>    <span class="mf">26.2</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">bmi</span><span class="p">,</span> <span class="n">Length</span><span class="p">:</span> <span class="mi">5110</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>corresponding to <code class="docutils literal notranslate"><span class="pre">N/A</span></code> entries in the original <code class="docutils literal notranslate"><span class="pre">*.csv</span></code> file.</p>
+</div>
+<div class="section" id="data-cleaning">
+<h2>Data Cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this headline">¶</a></h2>
+<p>There are different ways of handling <em>missing data</em> such as these <code class="docutils literal notranslate"><span class="pre">NaN</span></code>
+values. One option is <em>imputation</em> where the missing values are replaced
+with other plausible values, such as the mean of the other values.
+Here, we are just going to drop the corresponding datapoints entirely:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>helpers.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> means that the existing <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> <code class="docutils literal notranslate"><span class="pre">data</span></code>
+itself is modified and the datapoints containing missing values are removed.
+Otherwise, <code class="docutils literal notranslate"><span class="pre">data</span></code> would be left unaltered and a new copy would be returned
+with the affected datapoints removed.</p>
+<p>Let’s also delete the <code class="docutils literal notranslate"><span class="pre">id</span></code> column:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>helpers.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now that the dataset is slimmed down to the relevant information, let’s
+continue by bringing the variable names and the categorical string labels
+into a consistent form that is instantly informative when later plotting
+the data:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>helpers.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># clean up variable names</span>
+<span class="n">rename_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Residence_type&#39;</span><span class="p">:</span> <span class="s1">&#39;residence_type&#39;</span><span class="p">}</span>
+<span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">rename_dict</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># clean up datatypes</span>
+<span class="n">replace_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;ever_married&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;No&#39;</span><span class="p">:</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">:</span> <span class="s1">&#39;yes&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;gender&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Female&#39;</span><span class="p">:</span> <span class="s1">&#39;female&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Male&#39;</span><span class="p">:</span> <span class="s1">&#39;male&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Other&#39;</span><span class="p">:</span> <span class="s1">&#39;other&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;heart_disease&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;yes&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;hypertension&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;yes&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;residence_type&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Urban&#39;</span><span class="p">:</span> <span class="s1">&#39;urban&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Rural&#39;</span><span class="p">:</span> <span class="s1">&#39;rural&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;smoking_status&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Unknown&#39;</span><span class="p">:</span> <span class="s1">&#39;unknown&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;never smoked&#39;</span><span class="p">:</span> <span class="s1">&#39;never&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;formerly smoked&#39;</span><span class="p">:</span> <span class="s1">&#39;formerly&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;work_type&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Govt_job&#39;</span><span class="p">:</span> <span class="s1">&#39;govt&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Never_worked&#39;</span><span class="p">:</span> <span class="s1">&#39;never&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Private&#39;</span><span class="p">:</span> <span class="s1">&#39;private&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Self-employed&#39;</span><span class="p">:</span> <span class="s1">&#39;self&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;stroke&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;yes&#39;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">replace_dict</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first part just converts the variable name to lower-case, consistent with
+the other variable names. Similar lower-case consistency is also implemented
+in the second part for the names of the different categorical classes.
+However, the second part also replaces the integer values <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code>
+with their slightly more expressive text counterparts <code class="docutils literal notranslate"><span class="pre">'no'</span></code> and <code class="docutils literal notranslate"><span class="pre">'yes'</span></code>.
+While such string labels are of course not adequate for feeding into a
+neural network, this is just a tad more intuitive in the plots we are about
+to create in a moment. Bringing them into a form that can be handled by the
+network will be done afterwards as part of the preprocessing and input pipeline.</p>
+<p>It is always handy to have lists with the names of the feature and target
+variables at hand, so let’s create these:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>helpers.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create lists of variable names</span>
+<span class="nb">vars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;stroke&#39;</span>
+<span class="n">features</span> <span class="o">=</span> <span class="nb">vars</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>   <span class="c1"># make a copy to protect the original list</span>
+<span class="n">features</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>  <span class="c1"># from being modified by the &#39;remove&#39; statement</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">vars</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Remember to protect <code class="docutils literal notranslate"><span class="pre">vars</span></code> by making <code class="docutils literal notranslate"><span class="pre">features</span></code> a copy of it!</p>
+<p>Finally, let’s check that <em>spellbook</em> correctly identifies each variable as
+<em>categorical</em> or <em>continuous</em>. This is used in the high-level plotting
+functions in <a class="reference internal" href="../../stubs/spellbook.plot.html#module-spellbook.plot" title="spellbook.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.plot</span></code></a> for automatically choosing the adequate
+visual representation for each variable, e.g. barcharts or histograms for
+1D/univariate plots and heatmaps, multiple horizontal histograms or
+scatterplots for 2D/bivariate/correlation plots:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>helpers.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">plotutils</span><span class="o">.</span><span class="n">print_data_kinds</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>correctly returns</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span>            <span class="n">kind</span>
+<span class="o">------------------------</span>
+<span class="n">gender</span>               <span class="n">cat</span>
+<span class="n">age</span>                 <span class="n">cont</span>
+<span class="n">hypertension</span>         <span class="n">cat</span>
+<span class="n">heart_disease</span>        <span class="n">cat</span>
+<span class="n">ever_married</span>         <span class="n">cat</span>
+<span class="n">work_type</span>            <span class="n">cat</span>
+<span class="n">residence_type</span>       <span class="n">cat</span>
+<span class="n">avg_glucose_level</span>   <span class="n">cont</span>
+<span class="n">bmi</span>                 <span class="n">cont</span>
+<span class="n">smoking_status</span>       <span class="n">cat</span>
+<span class="n">stroke</span>               <span class="n">cat</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-visualisation">
+<h2>Data Visualisation<a class="headerlink" href="#data-visualisation" title="Permalink to this headline">¶</a></h2>
+<p>Now, finally, let’s start plotting the dataset. In this section we’ll walk
+through the code in <code class="docutils literal notranslate"><span class="pre">1-plot.py</span></code>.</p>
+<p>It begins by loading and cleaning the data using the helper function
+introduced before:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>1-plot.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">helpers</span>
+<span class="n">data</span><span class="p">,</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Individual univariate plots can be created with <a class="reference internal" href="../../stubs/spellbook.plot.html#spellbook.plot.plot_1D" title="spellbook.plot.plot_1D"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.plot_1D()</span></code></a>,
+which creates and returns a <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> object, and
+<a class="reference internal" href="../../stubs/spellbook.plot.html#spellbook.plot.save" title="spellbook.plot.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.save()</span></code></a>, which saves a figure to a file:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>1-plot.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_1D</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;stroke&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mf">14.0</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;stroke.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A slightly more involved example, with both plotting and saving chained after
+one another, is:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>1-plot.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+    <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_1D</span><span class="p">(</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;avg_glucose_level&#39;</span><span class="p">,</span>
+        <span class="n">xlabel</span> <span class="o">=</span> <span class="s1">&#39;Average Glucose Level&#39;</span><span class="p">,</span>
+        <span class="n">statsbox_args</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;text_args&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;backgroundcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">),</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;avg_glucose_level.png&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>These commands create plots of the target variable <code class="docutils literal notranslate"><span class="pre">stroke</span></code> (Figure 12) and
+one of the feature variables, <code class="docutils literal notranslate"><span class="pre">avg_glucose_level</span></code> (Figure 13):</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/stroke.png"><img alt="../../_images/stroke.png" src="../../_images/stroke.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-text">Figure 12: barchart</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/avg_glucose_level.png"><img alt="../../_images/avg_glucose_level.png" src="../../_images/avg_glucose_level.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-text">Figure 13: histogram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The type of plot is determined automatically by <a class="reference internal" href="../../stubs/spellbook.plot.html#spellbook.plot.plot_1D" title="spellbook.plot.plot_1D"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.plot_1D()</span></code></a>
+according to the kind of the variable: For categorical variables,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot1D.heatmap()</span></code> is called, and for continuous variables,
+<a class="reference internal" href="../../stubs/spellbook.plot1D.html#spellbook.plot1D.histogram" title="spellbook.plot1D.histogram"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot1D.histogram()</span></code></a>. The histogram comes with a few additional
+visual elements indicating descriptive statistics, such as the mean, median,
+standard deviation, quantiles, as well as a box in which the numerical
+values of all the statistics are given. All these elements can be switched on
+and off individually.</p>
+<p>It is also possible to plot multiple variables arranged in a grid:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>1-plot.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot all target and feature distributions</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+    <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_grid_1D</span><span class="p">(</span>
+        <span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="n">features</span><span class="p">,</span>
+        <span class="n">stats</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mf">11.0</span>
+    <span class="p">),</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;variables.png&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># plot a subset of the feature variables</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+    <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_grid_1D</span><span class="p">(</span>
+        <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+        <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;hypertension&#39;</span><span class="p">,</span> <span class="s1">&#39;heart_disease&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;bmi&#39;</span><span class="p">,</span> <span class="s1">&#39;avg_glucose_level&#39;</span><span class="p">,</span> <span class="s1">&#39;smoking_status&#39;</span><span class="p">],</span>
+        <span class="n">stats</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mf">11.0</span>
+    <span class="p">),</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;variables-health.png&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The first command creates a grid plot of all variables, both the target variable
+as well as all of the feature variables (Figure 14). The target variable is
+shown first and highlighted in orange. The second command creates a plot of a
+subset of the feature variables (Figure 15). The statistics boxes are
+deactivated so as to not overcrowd the plots.</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/variables.png"><img alt="../../_images/variables.png" src="../../_images/variables.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-text">Figure 14: grid plot of the target and all feature variables</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/variables-health.png"><img alt="../../_images/variables-health.png" src="../../_images/variables-health.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-text">Figure 15: grid plot of a subset of the feature variables</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>As we have already seen in the summary version on the previous page,
+there are far fewer patients with a stroke than without, making the dataset
+<em>imbalanced</em>. We can also see that a majority of 60% of the patients
+are female and that the age distribution is slightly concentrated at medium
+ages between 40 and 60 and falls off a bit towards the edges, with the notable
+exception of the first and last bin. 9% of the patients have hypertension
+and 5% of them suffer from a heart condition. About two thirds of them are
+married or have been married at least once. The majority, about 57%, work in
+the private sector. The dataset is pretty balanced with regard to where
+the patients live (urban or rural areas). The distribution of the average
+glucose level shows a secondary peak just above 200, pulling the mean slightly
+above the median. The BMI distribution has a slight tail on the right-hand
+side, but is otherwise centered at around 30, which is the boundary between
+the <em>overweight</em> and <em>moderately obese (class 1)</em> categories. Finally,
+about 38% of the patients have never smoked, 17% and 15% are former and current
+smokers, respectively, and for the remaining 30%, it is not known if they
+do or do not smoke.</p>
+<p>This is all good and fine, but more interesting than univariate plots are
+bivariate plots showing the correlations between different variables. So let’s
+go ahead and plot some! Let’s start with single plots containing just one
+correlation:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>1-plot.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span> <span class="c1"># default: no descriptive statistics</span>
+    <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_2D</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mf">14.0</span><span class="p">),</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;age-corr.png&#39;</span>
+<span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span> <span class="c1"># boxes with descriptive statistics included</span>
+    <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_2D</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mf">11.0</span><span class="p">,</span>
+        <span class="n">histogram_args</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="nb">dict</span><span class="p">(</span><span class="n">show_stats</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">statsbox_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alignment&#39;</span><span class="p">:</span> <span class="s1">&#39;bl&#39;</span><span class="p">}),</span>
+            <span class="nb">dict</span><span class="p">(</span>
+                <span class="n">show_stats</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="n">statsbox_args</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mf">0.96</span><span class="p">,</span>
+                    <span class="s1">&#39;text_args&#39;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="c1"># RGBA white with 50% alpha/opacity</span>
+                        <span class="s1">&#39;backgroundcolor&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">),</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;age-corr-stats.png&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Correlations between a continuous variable on the x-axis and a categorical
+variable on the y-axis are shown as a sequence of histograms for each of the
+y-categories, plotted one above the other.
+The first example (Figure 16) is the default configuration where the boxes
+indicating the descriptive statistics are suppressed. The second version
+(Figure 17) shows how to activate and configure them.</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/age-corr.png"><img alt="../../_images/age-corr.png" src="../../_images/age-corr.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-text">Figure 16: default bivariate histogram</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/age-corr-stats.png"><img alt="../../_images/age-corr-stats.png" src="../../_images/age-corr-stats.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-text">Figure 17: bivariate histogram with descriptive statistics included</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now let’s plot the correlations of all feature variables with the target.
+Correlations between categorical values on both the x-axis and the y-axis are
+shown as heatmaps. Here, we first plot the correlation with absolute numbers
+in the heatmaps, and then normalised along the columns:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>1-plot.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># absolute values</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_grid_2D</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">xs</span><span class="o">=</span><span class="n">features</span><span class="p">,</span> <span class="n">ys</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot2D</span><span class="o">.</span><span class="n">heatmap_set_annotations_fontsize</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">get_axes</span><span class="p">()[</span><span class="mi">7</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-small&#39;</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot2D</span><span class="o">.</span><span class="n">heatmap_set_annotations_fontsize</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">get_axes</span><span class="p">()[</span><span class="mi">15</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;corrs-absolute.png&#39;</span><span class="p">)</span>
+
+<span class="c1"># relative values</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_grid_2D</span><span class="p">(</span>
+    <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">xs</span><span class="o">=</span><span class="n">features</span><span class="p">,</span> <span class="n">ys</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">relative</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot2D</span><span class="o">.</span><span class="n">heatmap_set_annotations_fontsize</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">get_axes</span><span class="p">()[</span><span class="mi">7</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-small&#39;</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot2D</span><span class="o">.</span><span class="n">heatmap_set_annotations_fontsize</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">get_axes</span><span class="p">()[</span><span class="mi">15</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;corrs-relative.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The resulting plots are shown in Figure 18 and 19:</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/corrs-absolute.png"><img alt="../../_images/corrs-absolute.png" src="../../_images/corrs-absolute.png" style="height: 200px;" /></a>
+<p class="caption"><span class="caption-text">Figure 18: Correlations with absolute numbers in the heatmaps</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/corrs-relative.png"><img alt="../../_images/corrs-relative.png" src="../../_images/corrs-relative.png" style="height: 200px;" /></a>
+<p class="caption"><span class="caption-text">Figure 19: Correlations with heatmaps normalised along the columns</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>As you see in the code snippet, we are adjusting the fontsize in the cells of
+some of the heatmaps with the
+<a class="reference internal" href="../../stubs/spellbook.plot2D.html#spellbook.plot2D.heatmap_set_annotations_fontsize" title="spellbook.plot2D.heatmap_set_annotations_fontsize"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.heatmap_set_annotations_fontsize()</span></code></a> function.
+In order to do this, we have to point it to the correct
+<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object. Each grid plot has one <em>axes</em> in each
+of the grid cells. Additionally, categorical histograms have one <em>axes</em>
+object for each category. Therefore, the grid cell showing the
+<code class="docutils literal notranslate"><span class="pre">stroke</span></code>-<code class="docutils literal notranslate"><span class="pre">work_type</span></code> correlation (bottom left) has the index <code class="docutils literal notranslate"><span class="pre">7</span></code> and
+<code class="docutils literal notranslate"><span class="pre">stroke</span></code>-<code class="docutils literal notranslate"><span class="pre">smoking_status</span></code> correlation (bottom right) the index <code class="docutils literal notranslate"><span class="pre">15</span></code>.</p>
+<p>Looking at the correlations shown in the plots, we can see that men and women
+have about the same stroke rate - the small difference of 0.3% is likely not
+significant. Strokes are more likely with increasing age and show correlations
+with hypertension and heart conditions. Curiously enough there is a correlation
+between the presence of a stroke and the marriage status. But we should not
+confuse correlation and causation here - strokes are probably not <em>due to</em>
+marriages or divorces, at least not entirely, and this correlation is likely
+a consequence of the correlation between marriage status and age and the
+correlation of age with the stroke rate - or rather the underlying causal
+relation between declining health and increasing age. Regarding the type of
+work, self-employed patients seem to have a slightly higher stroke rate than
+people working in the private sector or government jobs. For children and
+people who have never worked, the stroke rate is practically zero, which again
+is likely to be a consequence of their young age. Residence type and BMI
+show no correlations with the presence of strokes while for the average
+glucose level, the secondary peak seems to be a tad more pronounced among
+stroke patients. Finally, former and current smokers seem to show a slightly
+elevated stroke rate - however, the statistical significance of these numbers
+is not large. It is also curious that the stroke rate is least among patients
+for which the smoking habits are not known. Since no options other
+than <em>smokes</em>, <em>formerly</em> and <em>never</em> come to mind, I would have expected
+this category to show similar stroke rates as the others. Given that the
+<em>unknown</em> category contains as many patients as the <em>former</em> and <em>smokes</em>
+categories combined, its lower stroke rate is indeed statistically significant
+which makes a statistical fluctuation unlikely.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>1-plot.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_2D</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;ever_married&#39;</span><span class="p">),</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;corr-married-age.png&#39;</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_2D</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;work_type&#39;</span><span class="p">),</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;corr-work-age.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This snippet generates plots of the correlations between age and marriage
+status (Figure 20) as well as age and type of work (Figure 21). As mentioned
+in the last paragraph, these do show correlations and are likely the deeper
+reason for the correlations between marriage status, work type and strokes.</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id9">
+<a class="reference internal image-reference" href="../../_images/corr-married-age.png"><img alt="../../_images/corr-married-age.png" src="../../_images/corr-married-age.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-text">Figure 20: Correlation between marriage status and age</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id10">
+<a class="reference internal image-reference" href="../../_images/corr-work-age.png"><img alt="../../_images/corr-work-age.png" src="../../_images/corr-work-age.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-text">Figure 21: Correlation between work type and age</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Finally, pairplots are a handy tool for showing the correlations between
+all possible combinations of variables along with the individual distributions
+of each variable. In <em>spellbook</em>, it is possible to
+plot both all correlations, resulting in a square plot grid, but also
+subsets of all possible correlations, with different variables on the x- and
+y-axes, resulting in rectangular plot grids. Examples for both options are:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>1-plot.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3x5 pairplot</span>
+<span class="nb">vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ever_married&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;hypertension&#39;</span><span class="p">,</span> <span class="s1">&#39;heart_disease&#39;</span><span class="p">,</span> <span class="s1">&#39;bmi&#39;</span><span class="p">,</span> <span class="s1">&#39;stroke&#39;</span><span class="p">]</span>
+<span class="n">pairplot</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">xs</span><span class="o">=</span><span class="nb">vars</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">ys</span><span class="o">=</span><span class="nb">vars</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">pairplot</span><span class="p">,</span> <span class="s1">&#39;pairplot-3x5.png&#39;</span><span class="p">)</span>
+
+<span class="c1"># full pairplot of all features</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+    <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">xs</span><span class="o">=</span><span class="n">features</span><span class="p">),</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;pairplot-features.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For the full pairplot, the resolution was decreased to 100dpi to keep the
+filesize at bay. The resulting plots are shown in Figures 22 and 23:</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id11">
+<a class="reference internal image-reference" href="../../_images/pairplot-3x5.png"><img alt="../../_images/pairplot-3x5.png" src="../../_images/pairplot-3x5.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Figure 22: 3x5 pairplot of a subset of the features</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id12">
+<a class="reference internal image-reference" href="../../_images/pairplot-features.png"><img alt="../../_images/pairplot-features.png" src="../../_images/pairplot-features.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Figure 23: Full paiplot for all features</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Binary Classification with the Stroke Prediction Dataset</a>
+    <a class='right-next' id="next-link" href="input-pipeline.html" title="next page">Data Preparation and Input Pipeline</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
+          Last updated on June 16, 2021.<br/>
+          <div class="extra_footer">
+            Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
+using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

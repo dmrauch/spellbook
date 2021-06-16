@@ -1,0 +1,1030 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model Training and Validation &#8212; spellbook</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tooltip.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <script defer="defer" src="../../_static/tooltip.js"></script>
+    <script src="../../_static/glossary.json"></script>
+    <link rel="shortcut icon" href="../../_static/spellbook-icon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Random Forests and Gradient Boosted Trees in TensorFlow" href="../2-tensorflow-decision-forests/index.html" />
+    <link rel="prev" title="Data Preparation and Input Pipeline" href="input-pipeline.html" />
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/spellbook-logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">spellbook</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search" aria-label="Search" autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  The spellbook Library
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../API.html">
+   Source Code Reference
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../API-python.html">
+     Python
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.input.html">
+       spellbook.input
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.inspect.html">
+       spellbook.inspect
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.plot.html">
+       spellbook.plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.plot1D.html">
+       spellbook.plot1D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.plot2D.html">
+       spellbook.plot2D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.plotutils.html">
+       spellbook.plotutils
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.stat.html">
+       spellbook.stat
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.train.html">
+       spellbook.train
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../tools.html">
+   Tools and Technologies
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/anaconda.html">
+     Anaconda / Conda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/aws.html">
+     AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/git.html">
+     Git
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/mkdocs.html">
+     MkDocs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/python.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/sphinx.html">
+     Sphinx
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../tools/tf.html">
+     TensorFlow
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tools/tf-save.html">
+       Saving and Loading Models
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/vscode.html">
+     Visual Studio Code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Projects &amp; Tutorials
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="index.html">
+   Binary Classification: Stroke Prediction
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="exploration-cleaning.html">
+     Data Exploration and Cleaning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="input-pipeline.html">
+     Data Preparation and Input Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Model Training and Validation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2-tensorflow-decision-forests/index.html">
+   Decision Forests in TensorFlow
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Extras
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../literature.html">
+   Links &amp; Literature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+<div class="navbar_extra_footer">
+    <table style="margin-top:2.0rem;">
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://github.com/dmrauch">
+                    <img src="../../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
+                </a>
+            </td>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://github.com/dmrauch">GitHub</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://www.linkedin.com/in/dmrauch/">
+                    <img src="../../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
+                </a>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/examples/1-binary-stroke-prediction/training-validation.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fexamples/1-binary-stroke-prediction/training-validation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/examples/1-binary-stroke-prediction/training-validation.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#naive-approach">
+   Naive Approach
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#oversampling-the-minority-class">
+   Oversampling the Minority Class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#normalising-the-inputs">
+   Normalising the Inputs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-roc-curves">
+   Comparison: ROC Curves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="model-training-and-validation">
+<span id="binarystrokeprediction-trainingvalidation"></span><h1>Model Training and Validation<a class="headerlink" href="#model-training-and-validation" title="Permalink to this headline">¶</a></h1>
+<p>Now that the inputs are prepared, we can proceed to set up and configure a
+model. I tried different configurations with up to three hidden layers with
+different numbers of nodes in each layer and eventually settled on the following
+model layout:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>2-stroke-prediction-naive.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+   <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">InputLayer</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,)),</span>
+   <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+   <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span>
+         <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">L2</span><span class="p">(</span><span class="n">l2</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)),</span>
+   <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">rate</span><span class="o">=</span><span class="mf">0.2</span><span class="p">),</span>
+   <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+   <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">rate</span><span class="o">=</span><span class="mf">0.2</span><span class="p">),</span>
+   <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This sets up a neural network with three fully connected hidden layers,
+interleaved with two dropout layers and with <a class="reference internal" href="../../glossary.html#term-L2-regularisation"><span class="xref std std-term">L2 regularisation</span></a>
+activated in the middle hidden layer.</p>
+<p>Since there are 10 input variables, the input layer of the network has
+<code class="docutils literal notranslate"><span class="pre">input_shape=(10,)</span></code>. The following dense layers have 10, 100 and 50 neurons,
+respectively. Dropout is a regularisation technique
+aimed at eliminating overtraining by introducing an element of randomness.
+During training, a <a class="reference internal" href="../../glossary.html#term-dropout"><span class="xref std std-term">dropout</span></a> layer randomly discards a configurable
+fraction of the inputs received from the preceding layer during each
+feed-forward step. In this case, 20% of the previous layer’s outputs are thrown
+away by each of the two dropout layers. Finally, the network ends with a single
+sigmoid-activated output neuron. This is a typical situation in binary
+classification - low values near 0 denote one class, larger values near 1
+the other.</p>
+<p>This model has a total of 6311 parameters as can be seen from the <code class="docutils literal notranslate"><span class="pre">summary()</span></code>
+command:</p>
+<ul class="simple">
+<li><p>The first hidden dense layer with 10 neurons, which are fed from the 10
+input nodes plus a bias node, has (10 + 1) · 10 = 110 parameters</p></li>
+<li><p>The second dense layer with 100 neurons, which are fed from the 10 neurons
+of the previous layer plus a bias node, has (10 + 1) · 100 = 1100
+parameters</p></li>
+<li><p>Dropout layers do not have any free parameters that can be optimised during
+training</p></li>
+<li><p>Similarly, the third dense layer and the single-neuron output layer have
+5050 and 51 parameters, respectively.</p></li>
+</ul>
+<p>Before we can begin training the model, we need to equip the model with a
+few more tools, in particular, a <em>loss function</em> and an <em>optimiser</em>.
+Metrics that quantify certain aspects of the model’s performance are not
+strictly necessary but highly useful:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>2-stroke-prediction-naive.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span>
+              <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span>
+                  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">BinaryCrossentropy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">),</span>
+                  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">BinaryAccuracy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;binary_accuracy&#39;</span><span class="p">),</span>
+                  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">TruePositives</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;tp&#39;</span><span class="p">),</span>
+                  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">TrueNegatives</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;tn&#39;</span><span class="p">),</span>
+                  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">FalsePositives</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;fp&#39;</span><span class="p">),</span>
+                  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">FalseNegatives</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;fn&#39;</span><span class="p">),</span>
+                  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Recall</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">),</span>
+                  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Precision</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;precision&#39;</span><span class="p">)</span>
+              <span class="p">])</span>
+</pre></div>
+</div>
+<p>The optimiser is the algorithm responsible for minimising the loss
+function and the loss function quantifies how much the predictions of the
+model generated during training differ from the training labels.
+The loss function of choice for binary classification tasks is
+<em>binary crossentropy</em> (<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/losses/BinaryCrossentropy" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.losses.BinaryCrossentropy</span></code></a>)
+and <em>Adam</em> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.optimizers.Adam</span></code>) is one of several optimisers
+that can be used.</p>
+<p>In binary classification, in particular, there is a wide range of different,
+but related metrics. Let us take this opportunity and briefly discuss some of
+the metrics specifically geared towards binary classification - a thorough
+discussion can be found on <a class="reference external" href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">Wikipedia: Sensitivity and specificity</a>:</p>
+<ul>
+<li><p><strong>True Positives</strong> (<a class="reference internal" href="../../glossary.html#term-TP"><span class="xref std std-term">TP</span></a>): The number of datapoints that were classified
+as belonging to the <em>positive</em> class, corresponding to the presence of a
+stroke in our example, by the model and that in reality do belong to the
+positive class</p></li>
+<li><p><strong>True Negatives</strong> (<a class="reference internal" href="../../glossary.html#term-TN"><span class="xref std std-term">TN</span></a>): The number of datapoints that were classified
+as belonging to the <em>negative</em> class, corresponding to the absence of a
+stroke in our example, by the model and that in reality do belong to the
+negative class</p></li>
+<li><p><strong>False Positives</strong> (<a class="reference internal" href="../../glossary.html#term-FP"><span class="xref std std-term">FP</span></a>): The number of datapoints that were
+classified as belonging to the <em>positive</em> class but truly belong to the
+<em>negative</em> class</p></li>
+<li><p><strong>False Negatives</strong> (<a class="reference internal" href="../../glossary.html#term-FN"><span class="xref std std-term">FN</span></a>): The number of datapoints that were
+classified as belonging to the <em>negative</em> class but truly belong to the
+<em>positive</em> class</p></li>
+<li><p><strong>Recall</strong>, also called <em>sensitivity</em> and <em>True Positive Rate</em>
+(<a class="reference internal" href="../../glossary.html#term-TPR"><span class="xref std std-term">TPR</span></a>) is defined as</p>
+<div class="math notranslate nohighlight">
+\[\frac{\text{TP}}{\text{TP} + \text{FN}}\]</div>
+<p>and quantifies the fraction of the truly <em>positve</em> datapoints that were
+correctly predicted/classified by the model.</p>
+</li>
+<li><p><strong>Precision</strong> is defined as</p>
+<div class="math notranslate nohighlight">
+\[\frac{\text{TP}}{\text{TP} + \text{FP}}\]</div>
+<p>and quantifies the fraction of all positively classified datapoints that are
+in fact truly positive.</p>
+</li>
+<li><p><strong>Accuracy</strong>: The fraction of datapoints that were correctly
+classified, i.e. the predicted class was identical to the true class.
+Accuracy is not a specifically binary metrics but is also very useful in
+multi-class classification problems.</p></li>
+</ul>
+<p>Finally, we start the training as follows:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>2-stroke-prediction-naive.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">epochs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span>
+    <span class="n">validation_data</span><span class="o">=</span><span class="n">val</span><span class="p">,</span>
+    <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">CSVLogger</span><span class="p">(</span>
+            <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;naive-e</span><span class="si">{}</span><span class="s1">-history.csv&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epochs</span><span class="p">)),</span>
+        <span class="n">sb</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">ModelSavingCallback</span><span class="p">(</span>
+            <span class="n">foldername</span><span class="o">=</span><span class="s1">&#39;model-naive-e</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epochs</span><span class="p">))</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+<p>This configures 100 training epochs, during each of which the full training
+set is digested and processed by the network in its search for ever-improving
+model parameters. During training not only the loss is calculated, but also
+the values of the other quantities specified in the metrics list. At the end
+of each epoch, the complete validation dataset is consumed to calculate the
+same metrics on a disjoint dataset that is not used for adjusting the model
+parameters. The values of all metrics, both those calculated from the training
+set and those evaluated from the test set, are written to a <code class="docutils literal notranslate"><span class="pre">*.csv</span></code> file by
+the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/CSVLogger" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.callbacks.CSVLogger</span></code></a> callback at the end of each epoch.
+Similarly, the <a class="reference internal" href="../../stubs/spellbook.train.html#spellbook.train.ModelSavingCallback" title="spellbook.train.ModelSavingCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.train.ModelSavingCallback</span></code></a> callback saves
+the entire model including its architecture as well as all parameter values
+every 10 epochs. This can be very handy because it preserves the model and
+its state in case the training has to be cancelled.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I will use this exact model setup in the rest of this
+tutorial to demonstrate the effect that different training strategies
+can have on models with exactly the same layout. The only difference
+will be in the batch size, which is taken to be 100 here in the
+first approach and is reduced to the default value of 32 in the
+later versions.</p>
+</div>
+<div class="section" id="naive-approach">
+<h2>Naive Approach<a class="headerlink" href="#naive-approach" title="Permalink to this headline">¶</a></h2>
+<p>Let’s have a look at the training and validation metrics we obtain when
+training the model in this ‘naive’ setup using the imbalanced dataset with
+96% negative (<em>no stroke</em>) and 4% positive (<em>stroke</em>) cases.</p>
+<p>Plots showing the evolution of the binary metrics can be generated with
+<em>spellbook</em>’s <a class="reference internal" href="../../stubs/spellbook.train.html#spellbook.train.plot_history_binary" title="spellbook.train.plot_history_binary"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.train.plot_history_binary()</span></code></a> function:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>2-stroke-prediction-naive.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># inspect/plot the training history</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">plot_history_binary</span><span class="p">(</span><span class="n">history</span><span class="p">,</span>
+   <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-e</span><span class="si">{}</span><span class="s1">-history&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">epochs</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The resulting plot will be shown in Figure 24.</p>
+<p>In order to determine the confusion matrix, it is necessary to retrieve the
+predictions of the trained model for the validation data. These can be
+obtained after some reorganisation and type conversion gymnastics:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>2-stroke-prediction-naive.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># separate the datasets into features and labels</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">separate_tfdataset_to_tftensors</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">val_labels</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">separate_tfdataset_to_tftensors</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+<span class="c1"># obtain the predictions of the model</span>
+<span class="n">train_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+<span class="n">val_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+<span class="c1"># not strictly necessary: remove the superfluous inner nesting</span>
+<span class="n">train_predictions</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">train_predictions</span><span class="p">,</span> <span class="n">train_predictions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">val_predictions</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">val_predictions</span><span class="p">,</span> <span class="n">val_predictions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># until now the predictions are still continuous in [0, 1] and this breaks the</span>
+<span class="c1"># calculation of the confusion matrix, so we need to set them to either 0 or 1</span>
+<span class="c1"># according to a default intermediate threshold of 0.5</span>
+<span class="n">train_predicted_labels</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">get_binary_labels</span><span class="p">(</span>
+    <span class="n">train_predictions</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">val_predicted_labels</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">get_binary_labels</span><span class="p">(</span>
+    <span class="n">val_predictions</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># calculate and plot the confusion matrix</span>
+<span class="n">class_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">categories</span><span class="p">[</span><span class="s1">&#39;stroke&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">class_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">categories</span><span class="p">[</span><span class="s1">&#39;stroke&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">val_confusion_matrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">val_labels</span><span class="p">,</span>
+                                                <span class="n">val_predicted_labels</span><span class="p">,</span>
+                                                <span class="n">num_classes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">class_names</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The confusion matrix relates the predicted classes to the true classes and
+shows how often the model was accurate and in what way it erred. It can
+be plotted with the <a class="reference internal" href="../../stubs/spellbook.plot.html#spellbook.plot.plot_confusion_matrix" title="spellbook.plot.plot_confusion_matrix"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.plot_confusion_matrix()</span></code></a> function:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>2-stroke-prediction-naive.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># absolute datapoint counts</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+   <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_confusion_matrix</span><span class="p">(</span>
+      <span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">val_confusion_matrix</span><span class="p">,</span>
+      <span class="n">class_names</span> <span class="o">=</span> <span class="n">class_names</span><span class="p">,</span>
+      <span class="n">class_ids</span> <span class="o">=</span> <span class="n">class_ids</span><span class="p">),</span>
+   <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-e</span><span class="si">{}</span><span class="s1">-confusion.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">epochs</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The resulting plot is shown in Figure 25.</p>
+<table class="spellbook-gallery-wrap table" id="ex1-fig-naive">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/naive-e100-history-loss-acc.png"><img alt="../../_images/naive-e100-history-loss-acc.png" src="../../_images/naive-e100-history-loss-acc.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Figure 24: Evolution of the loss and the classification accuracy
+during training in the <em>naive</em> approach</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/naive-e100-confusion.png"><img alt="../../_images/naive-e100-confusion.png" src="../../_images/naive-e100-confusion.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Figure 25: Confusion matrix with absolute datapoint counts in the
+<em>naive</em> approach</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>As we can see from Figure 24, the loss improves only in the beginning, but
+then only decreases very slightly after about 10 epochs. Similarly, the
+accuracy reaches 95-96% at about the same time and does not improve beyond
+that. This accuracy very closely resembles the fractions of the two target
+classes or labels. Recall from <a class="reference internal" href="index.html#ex1-fig-variables"><span class="std std-ref">Figure 1</span></a> in
+<a class="reference internal" href="index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a> that 95.7% of the
+people in the dataset have not had a stroke
+compared to 4.3% who have. Looking at the confusion matrix in
+<a class="reference internal" href="#ex1-fig-naive"><span class="std std-ref">Figure 25</span></a>, we
+can confirm what has happened: The model has learned to practically only and
+exclusively categorise the data as <em>negative</em> or <em>healthy</em>. Since it predicts
+all datapoints to be <em>negative</em>, its accuracy simply reflects how often this
+category appears in the dataset and despite the 95% accuracy it is in fact
+completely ignorant. Looking at the evolution of the true/false positive/
+negative counts as well as the precision and recall in Figures 26 and 27,
+we can indeed confirm that this is not an accidental fluctuation:</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/naive-e100-history-pos-neg.png"><img alt="../../_images/naive-e100-history-pos-neg.png" src="../../_images/naive-e100-history-pos-neg.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Figure 26: Evolution of the true/false positive/negative counts
+during training in the <em>naive</em> approach</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/naive-e100-history-rec-prec.png"><img alt="../../_images/naive-e100-history-rec-prec.png" src="../../_images/naive-e100-history-rec-prec.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Figure 27: Evolution of precision and recall during training
+in the <em>naive</em> approach</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>All of this is despite the fact that the batch size was increased to 100
+so as to make it probable that at least <em>some</em> positive cases were present in
+each batch. However, the 4% fraction of the positive cases is simply just
+much smaller than the 96% fraction of negative cases.</p>
+<p>This is a typical situation when dealing with <em>imbalanced data</em>, where one
+target class appears substantially more often than the other(s). Note that
+simply training longer does not change the fundamental challenge. Instead, when
+facing this situation, two approaches come to mind:</p>
+<ul class="simple">
+<li><p><strong>Class/event weights</strong>: Assigning larger weights to the minority events, thus
+making them more ‘important’ effectively. This is similar to the <em>boosting</em>
+approach commonly used when training sets of decision trees (even in balanced
+situations).</p></li>
+<li><p><strong>Oversampling</strong>: Balancing the datasets by passing the same minority events
+to the model multiple times during each epoch</p></li>
+</ul>
+<p>In this tutorial, we will apply the oversampling method.</p>
+</div>
+<div class="section" id="oversampling-the-minority-class">
+<h2>Oversampling the Minority Class<a class="headerlink" href="#oversampling-the-minority-class" title="Permalink to this headline">¶</a></h2>
+<p>The idea of oversampling is to divide the dataset into two parts according the
+positive and
+negative cases, thus separating the majority and minority classes and then to
+repeatedly sample with replacement from the minority classes to create a
+‘pseudo’ minority dataset that is equal in size to the majority class. This
+resampled minority dataset will naturally contain events multiple times and the
+oversampling factor is given by the ratio of the sizes of the majority and the
+original minority sets. Oversampling is implemented in
+<a class="reference internal" href="../../stubs/spellbook.input.html#spellbook.input.oversample" title="spellbook.input.oversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.oversample()</span></code></a> and can be applied as follows:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>3-stroke-prediction-oversampling.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># oversampling (including shuffling of the data)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">oversample</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Under the hood, oversampling is realised as follows:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <a class="reference internal" href="../../stubs/spellbook.input.html#spellbook.input.oversample" title="spellbook.input.oversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.oversample()</span></code></a></p>
+<p>in <a class="reference internal" href="../../stubs/spellbook.input.html#module-spellbook.input" title="spellbook.input"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.input</span></code></a></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the different categories</span>
+<span class="n">cats</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span>
+
+<span class="c1"># split data by target category</span>
+<span class="n">datapoints</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cats</span><span class="p">)):</span>
+    <span class="n">datapoints</span><span class="p">[</span><span class="n">cats</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">==</span> <span class="n">cats</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+
+<span class="c1"># count datapoints in each category</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cats</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cats</span><span class="p">)):</span>
+    <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">datapoints</span><span class="p">[</span><span class="n">cats</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="c1"># get number of datapoints in the largest category</span>
+<span class="n">nmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+
+<span class="n">resampled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cats</span><span class="p">):</span>
+
+    <span class="c1"># how many datapoints are missing?</span>
+    <span class="n">nmiss</span> <span class="o">=</span> <span class="n">nmax</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">datapoints</span><span class="p">[</span><span class="n">cat</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">nmiss</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+
+    <span class="k">if</span> <span class="n">nmiss</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+
+        <span class="c1"># ordered array of indices of the underrepresented category</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="c1"># draw nmiss times with replacement from the indices array</span>
+        <span class="n">choices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">nmiss</span><span class="p">)</span>
+
+        <span class="n">datapoints</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span> <span class="o">=</span> <span class="n">datapoints</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">datapoints</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">choices</span><span class="p">])</span>
+
+    <span class="n">resampled</span> <span class="o">=</span> <span class="n">resampled</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datapoints</span><span class="p">[</span><span class="n">cat</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="n">shuffle</span><span class="p">:</span> <span class="n">resampled</span> <span class="o">=</span> <span class="n">resampled</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The data is grouped and separated according to the different categories of
+the target variable and the difference in size between the largest
+class/category and the minority classes/categories is made up by sampling
+them with replacement until the size gaps are closed. This way, it is ensured
+that all original datapoints in the minority classes are preserved and only
+the datapoints needed to fill the gaps are randomly sampled.</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/oversampling-e500-history-loss-acc.png"><img alt="../../_images/oversampling-e500-history-loss-acc.png" src="../../_images/oversampling-e500-history-loss-acc.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Figure 28: Evolution of the loss and the classification accuracy
+during training when <em>oversampling</em> is used</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/oversampling-e500-history-pos-neg.png"><img alt="../../_images/oversampling-e500-history-pos-neg.png" src="../../_images/oversampling-e500-history-pos-neg.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Figure 29: Evolution of the true/false positives/negatives during training when <em>oversampling</em> is used</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/oversampling-e500-confusion-norm-true.png"><img alt="../../_images/oversampling-e500-confusion-norm-true.png" src="../../_images/oversampling-e500-confusion-norm-true.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Figure 30: Confusion matrix, normalised for each true target class</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>In Figure 28 we can see that the loss is now somewhat increased compared to
+the <em>naive</em> approach, but decreases steadily over a longer range of training
+epochs. Likewise, the initial classification accuracy has decreased to about
+70% and continually improves from there to about 86%. Given that the training
+and validation sets now, thanks to oversampling, are made up of very similar
+amounts of <em>positive</em> and <em>negative</em> datapoints, this accuracy is
+actually meaningful. This can also be seen in Figures 29 and 30, which show
+the evolution of the numbers of true/false positives/negatives and the
+truth-normalised confusion matrix, respectively. Now, the model is actually
+learning to detect <em>positive</em> cases and reaches a performance with 0.5% of
+the truly <em>positive</em> cases wrongly classified as <em>negative</em> and 27.6% of the
+truly <em>negative</em> cases wrongly classified as <em>positive</em>.</p>
+</div>
+<div class="section" id="normalising-the-inputs">
+<h2>Normalising the Inputs<a class="headerlink" href="#normalising-the-inputs" title="Permalink to this headline">¶</a></h2>
+<p>Now, we are going to apply an additional technique on top -
+<em>input normalisation</em>. Normally, this should be done earlier, but I wanted to
+evaluate the benefit this brings by benchmarking against the previous
+model based on un-normalised inputs. The strategy of input normalisation is
+based on the sensitivity of neural networks to the scale of numerical
+input values - variables of the order of magnitude 1 are handled much better
+than values in the range of hundreds, thousands or even larger.</p>
+<p>One common approach is <em>standardisation</em>, where a variable is shifted and
+scaled so that after the transformation its mean is 0 and its variance 1.
+Here, in order to see how powerful even a very simplistic normalisation is,
+we are just dividing the continuous numerical variables by some constant
+factors to rescale them to intervals roughly between 0 and 1:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>4-stroke-prediction-oversampling-norm.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># normalisation</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;age_norm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">100.0</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;avg_glucose_level_norm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;avg_glucose_level&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">300.0</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;bmi_norm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;bmi&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">100.0</span>
+<span class="c1"># replace unnormalised variable names with their normalised counterparts</span>
+<span class="n">features</span><span class="p">[</span><span class="n">features</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="s1">&#39;age_norm&#39;</span>
+<span class="n">features</span><span class="p">[</span><span class="n">features</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;avg_glucose_level&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="s1">&#39;avg_glucose_level_norm&#39;</span>
+<span class="n">features</span><span class="p">[</span><span class="n">features</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;bmi&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="s1">&#39;bmi_norm&#39;</span>
+</pre></div>
+</div>
+<p>We are keeping the original unnormalised variables, created new, normalised
+ones with the suffix <code class="docutils literal notranslate"><span class="pre">_norm</span></code> and replace the original variables with them
+in the list of feature variables which is later used for splitting the full
+dataset into separate sets for the features and the labels.</p>
+<p>After training for 2000 epochs, we get the following results:</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/oversampling-normalised-e2000-history-loss-acc.png"><img alt="../../_images/oversampling-normalised-e2000-history-loss-acc.png" src="../../_images/oversampling-normalised-e2000-history-loss-acc.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Figure 31: Evolution of the loss and the classification accuracy
+during training when both <em>oversampling</em> and <em>input normalisation</em>
+are used</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id9">
+<a class="reference internal image-reference" href="../../_images/oversampling-normalised-e2000-history-pos-neg.png"><img alt="../../_images/oversampling-normalised-e2000-history-pos-neg.png" src="../../_images/oversampling-normalised-e2000-history-pos-neg.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Figure 32: Evolution of the true/false positives/negatives
+during training when both <em>oversampling</em> and <em>input normalisation</em>
+are used</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id10">
+<a class="reference internal image-reference" href="../../_images/oversampling-normalised-e2000-confusion-norm-true.png"><img alt="../../_images/oversampling-normalised-e2000-confusion-norm-true.png" src="../../_images/oversampling-normalised-e2000-confusion-norm-true.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-text">Figure 33: Confusion matrix, normalised for each true target class</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>As we can see from Figure 33, the performance of the model has improved further
+as reflected in reduced classification errors shown in the off-diagonal
+cells of the confusion matrix: The fraction of true negatives wrongly
+classified as positive has decreased to 9.5% and the fraction of true positives
+wrongly classified as negative has even gone down to zero.</p>
+</div>
+<div class="section" id="comparison-roc-curves">
+<h2>Comparison: ROC Curves<a class="headerlink" href="#comparison-roc-curves" title="Permalink to this headline">¶</a></h2>
+<p>Finally, let’s compare all three approaches in yet another way: by means of
+the <em>Receiver Operator Characteristic</em> (<a class="reference internal" href="../../glossary.html#term-ROC"><span class="xref std std-term">ROC</span></a>) curves.
+ROC curves are a commonly used tool to benchmark the performance of different
+models against each other. They show the <em>False Positive Rate</em> (<a class="reference internal" href="../../glossary.html#term-FPR"><span class="xref std std-term">FPR</span></a>)
+on the x-axis, indicating how often truly negative datapoints are
+wrongly classified as positive, and the <em>True Positive Rate</em> (<a class="reference internal" href="../../glossary.html#term-TPR"><span class="xref std std-term">TPR</span></a>) on
+the y-axis, indicating what fraction of the truly positive datapoints are
+correctly classified.</p>
+<p>ROC curves are implemented in <a class="reference internal" href="../../stubs/spellbook.train.html#spellbook.train.ROCPlot" title="spellbook.train.ROCPlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.train.ROCPlot</span></code></a>.
+At the end of each training, we determine the ROC curves for the respective
+models and save them to disk using <em>Python</em>’s <em>pickle</em> mechanism:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>4-stroke-prediction-oversampling-norm.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate and plot the ROC curve</span>
+<span class="n">roc</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">ROCPlot</span><span class="p">()</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">add_curve</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> / </span><span class="si">{}</span><span class="s1"> epochs (training)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">epochs</span><span class="p">),</span>
+    <span class="n">train_labels</span><span class="p">,</span> <span class="n">train_predictions</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+    <span class="n">plot_args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">))</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">add_curve</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> / </span><span class="si">{}</span><span class="s1"> epochs (validation)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">epochs</span><span class="p">),</span>
+    <span class="n">val_labels</span><span class="p">,</span> <span class="n">val_predictions</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+    <span class="n">plot_args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">))</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">roc</span><span class="o">.</span><span class="n">plot</span><span class="p">(),</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-e</span><span class="si">{}</span><span class="s1">-roc.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">epochs</span><span class="p">))</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">pickle_save</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-e</span><span class="si">{}</span><span class="s1">-roc.pickle&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">epochs</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>We can subsequently load these pickle files with</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>5-roc.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roc_naive100</span> <span class="o">=</span> <span class="n">ROCPlot</span><span class="o">.</span><span class="n">pickle_load</span><span class="p">(</span><span class="s1">&#39;naive-e100-roc.pickle&#39;</span><span class="p">)</span>
+<span class="n">roc_oversampling2000</span> <span class="o">=</span> <span class="n">ROCPlot</span><span class="o">.</span><span class="n">pickle_load</span><span class="p">(</span><span class="s1">&#39;oversampling-e2000-roc.pickle&#39;</span><span class="p">)</span>
+<span class="n">roc_norm2000</span> <span class="o">=</span> <span class="n">ROCPlot</span><span class="o">.</span><span class="n">pickle_load</span><span class="p">(</span><span class="s1">&#39;oversampling-normalised-e2000-roc.pickle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and combine the ROC curves of different models in a single plot with</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>5-roc.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roc</span> <span class="o">=</span> <span class="n">ROCPlot</span><span class="p">()</span>
+<span class="n">roc</span> <span class="o">+=</span> <span class="n">roc_naive100</span>
+<span class="n">WP</span> <span class="o">=</span> <span class="n">roc</span><span class="o">.</span><span class="n">get_WP</span><span class="p">(</span><span class="s1">&#39;naive / 100 epochs (validation)&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">draw_WP</span><span class="p">(</span><span class="n">WP</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">curves</span><span class="p">[</span><span class="s1">&#39;naive / 100 epochs (training)&#39;</span><span class="p">][</span><span class="s1">&#39;line&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">curves</span><span class="p">[</span><span class="s1">&#39;naive / 100 epochs (validation)&#39;</span><span class="p">][</span><span class="s1">&#39;line&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+
+<span class="n">roc</span> <span class="o">+=</span> <span class="n">roc_oversampling2000</span>
+<span class="n">WP</span> <span class="o">=</span> <span class="n">roc</span><span class="o">.</span><span class="n">get_WP</span><span class="p">(</span><span class="s1">&#39;oversampling / 2000 epochs (validation)&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">draw_WP</span><span class="p">(</span><span class="n">WP</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+
+<span class="n">roc</span> <span class="o">+=</span> <span class="n">roc_norm2000</span>
+<span class="n">WP</span> <span class="o">=</span> <span class="n">roc</span><span class="o">.</span><span class="n">get_WP</span><span class="p">(</span><span class="s1">&#39;oversampling normalised / 2000 epochs (validation)&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">draw_WP</span><span class="p">(</span><span class="n">WP</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">curves</span><span class="p">[</span><span class="s1">&#39;oversampling normalised / 2000 epochs (training)&#39;</span><span class="p">][</span><span class="s1">&#39;line&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">curves</span><span class="p">[</span><span class="s1">&#39;oversampling normalised / 2000 epochs (validation)&#39;</span><span class="p">][</span><span class="s1">&#39;line&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">roc</span><span class="o">.</span><span class="n">plot</span><span class="p">(),</span> <span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;roc-2000-naive-oversampling-normalised.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This code also serves to draw specific working points on the ROC curves,
+corresponding to picking the values of the model output (the sigmoid-activated
+output of the last model layer) that mark the boundary between classifying
+a datapoint as <em>negative</em> or as <em>positive</em>. Defining different working points
+with different threshold values can decrease the number of false negatives
+at the cost of increasing the number of false positives and vice versa.
+Here, we are simply going to stick to the default working points with
+threshold values of 0.5.</p>
+<p>In order to have a fair benchmark, we plot the ROC curves for the second and
+third model after training for 2000 epochs in both cases. Since it was
+obvious that the first, <em>naive</em> model does not perform well at all for
+systematic reasons and that this does not change when training longer, we
+stick to 100 training epochs for this model and only include it for the
+sake of completeness.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/roc-2000-naive-oversampling-normalised.png"><img alt="../../_images/roc-2000-naive-oversampling-normalised.png" src="../../_images/roc-2000-naive-oversampling-normalised.png" style="height: 450px;" /></a>
+</div>
+<p>We can see that the third model, trained with both <em>oversampling</em> and
+<em>input normalisatoin</em> outperforms the other two, as indicated by its ROC
+curve extending further to the top left corner of the plot, corresponding
+to lower FPR and higher TPR. The <em>area under the curve</em> (<a class="reference internal" href="../../glossary.html#term-AUC"><span class="xref std std-term">AUC</span></a>) metric
+condenses this into a single number and we can see that the third model
+reaches an AUC of about 0.98 on the validation set as opposed to 0.94 for the
+second model.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, we used <em>TensorFlow</em> to set up and train a neural network
+for binary classification, detecting whether or not patients were suffering
+from a stroke. We encountered the problem of <em>imbalanced data</em>, saw how it
+prevented a first naive model from learning to distinguish between both
+target classes and then used <em>oversampling</em> to train a better classifier.
+We also saw the impact of <em>input normalisation</em> and used different metics
+as well as ROC curves to compare the performance of our different models.
+Our final classifier reached an AUC of about 0.98 with a TPR of 100% and an FPR
+of about 11% for the default working point with a treshold of 0.5 on the
+sigmoid-activated output of the single node in the last network layer.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="input-pipeline.html" title="previous page">Data Preparation and Input Pipeline</a>
+    <a class='right-next' id="next-link" href="../2-tensorflow-decision-forests/index.html" title="next page">Random Forests and Gradient Boosted Trees in <em>TensorFlow</em></a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
+          Last updated on June 16, 2021.<br/>
+          <div class="extra_footer">
+            Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
+using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

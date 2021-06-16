@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spellbook.plot1D &#8212; spellbook</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tooltip.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script defer="defer" src="../../_static/tooltip.js"></script>
+    <script src="../../_static/glossary.json"></script>
+    <link rel="shortcut icon" href="../../_static/spellbook-icon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/spellbook-logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">spellbook</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search" aria-label="Search" autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  The spellbook Library
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../API.html">
+   Source Code Reference
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../API-python.html">
+     Python
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.input.html">
+       spellbook.input
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.inspect.html">
+       spellbook.inspect
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.plot.html">
+       spellbook.plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.plot1D.html">
+       spellbook.plot1D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.plot2D.html">
+       spellbook.plot2D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.plotutils.html">
+       spellbook.plotutils
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.stat.html">
+       spellbook.stat
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../stubs/spellbook.train.html">
+       spellbook.train
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../tools.html">
+   Tools and Technologies
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/anaconda.html">
+     Anaconda / Conda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/aws.html">
+     AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/git.html">
+     Git
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/mkdocs.html">
+     MkDocs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/python.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/sphinx.html">
+     Sphinx
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../tools/tf.html">
+     TensorFlow
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tools/tf-save.html">
+       Saving and Loading Models
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/vscode.html">
+     Visual Studio Code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Projects &amp; Tutorials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/examples.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../examples/1-binary-stroke-prediction/index.html">
+   Binary Classification: Stroke Prediction
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../examples/1-binary-stroke-prediction/exploration-cleaning.html">
+     Data Exploration and Cleaning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../examples/1-binary-stroke-prediction/input-pipeline.html">
+     Data Preparation and Input Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../examples/1-binary-stroke-prediction/training-validation.html">
+     Model Training and Validation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/2-tensorflow-decision-forests/index.html">
+   Decision Forests in TensorFlow
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Extras
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../literature.html">
+   Links &amp; Literature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+<div class="navbar_extra_footer">
+    <table style="margin-top:2.0rem;">
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://github.com/dmrauch">
+                    <img src="../../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
+                </a>
+            </td>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://github.com/dmrauch">GitHub</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://www.linkedin.com/in/dmrauch/">
+                    <img src="../../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
+                </a>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_modules/spellbook/plot1D.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <h1>Source code for spellbook.plot1D</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Lower-level functions for creating 1D / univariate plots</span>
+
+<span class="sd">The high-level functions for creating plots, which make use of the functions</span>
+<span class="sd">in this module, can be found in :mod:`plot`.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">spellbook</span> <span class="k">as</span> <span class="nn">sb</span>
+
+
+<div class="viewcode-block" id="barchart"><a class="viewcode-back" href="../../stubs/spellbook.plot1D.html#spellbook.plot1D.barchart">[docs]</a><span class="k">def</span> <span class="nf">barchart</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+             <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+             <span class="n">fig</span><span class="p">:</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">,</span>
+             <span class="n">grid</span><span class="p">:</span> <span class="n">mpl</span><span class="o">.</span><span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">,</span>
+             <span class="n">gridindex</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+             <span class="n">xlabel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">histplot_args</span><span class="o">=</span><span class="p">{})</span> <span class="o">-&gt;</span> <span class="n">mpl</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">Axes</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Draw a vertical barchart</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data: The dataset to plot</span>
+<span class="sd">        x: Name of the variable to plot</span>
+<span class="sd">        fig: The figure on which to draw</span>
+<span class="sd">        grid: The grid on the figure in which to draw</span>
+<span class="sd">        gridindex: The index of the grid cell in which to draw</span>
+<span class="sd">        histplot_args: *Optional*. Arguments for :func:`seaborn.histplot`</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The axes object drawn. The axes object is already added to the figure,</span>
+<span class="sd">        but it is returned as well so that it can be caught for easier access</span>
+<span class="sd">        and manipulation</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Subplot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">grid</span><span class="p">[</span><span class="n">gridindex</span><span class="p">])</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">histplot_args</span><span class="p">)</span>
+
+    <span class="c1"># matplotlib draws lazily, need xticklabels before plot is shown</span>
+    <span class="c1"># based on https://stackoverflow.com/a/41124884</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+    <span class="c1"># annotations in the histogram bars</span>
+    <span class="c1"># - category labels</span>
+    <span class="c1"># - counts and frequencies</span>
+    <span class="n">xvals</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">()</span>
+    <span class="n">xlabels</span> <span class="o">=</span> <span class="p">[</span><span class="n">xlabel</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">xlabel</span> <span class="ow">in</span> <span class="n">plot</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()]</span>
+    <span class="n">yvals</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">yfreqs</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ymax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span> <span class="c1"># remove xticklabels under the axis to avoid overlaps</span>
+    <span class="k">for</span> <span class="n">iB</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xvals</span><span class="p">)):</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">xlabels</span><span class="p">[</span><span class="n">iB</span><span class="p">]),</span>
+                    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">xvals</span><span class="p">[</span><span class="n">iB</span><span class="p">],</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">ymax</span><span class="p">),</span>
+                    <span class="n">horizontalalignment</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">)</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> / </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">yvals</span><span class="p">[</span><span class="n">xlabels</span><span class="p">[</span><span class="n">iB</span><span class="p">]],</span> <span class="mf">100.0</span><span class="o">*</span><span class="n">yfreqs</span><span class="p">[</span><span class="n">xlabels</span><span class="p">[</span><span class="n">iB</span><span class="p">]]),</span>
+                    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">xvals</span><span class="p">[</span><span class="n">iB</span><span class="p">],</span> <span class="mf">0.90</span><span class="o">*</span><span class="n">ymax</span><span class="p">),</span>
+                    <span class="n">horizontalalignment</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                    <span class="n">verticalalignment</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>
+                    <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">sb</span><span class="o">.</span><span class="n">plotutils</span><span class="o">.</span><span class="n">stats_style_dict</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">xlabel</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">xlabel</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="boxplot"><a class="viewcode-back" href="../../stubs/spellbook.plot1D.html#spellbook.plot1D.boxplot">[docs]</a><span class="k">def</span> <span class="nf">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">,</span>
+            <span class="n">lw_mean</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">lw_median</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
+            <span class="n">show_axis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_stats</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Draw a boxplot</span>
+
+<span class="sd">    .. todo:: Document :func:`spellbook.plot1D.boxplot`</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># sns.boxplot(data=data, y=&#39;data&#39;)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="n">orient</span><span class="p">)</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">stat</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+  
+    <span class="n">xmin</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">;</span> <span class="n">xmax</span> <span class="o">=</span> <span class="mf">0.4</span>
+    <span class="n">ymin</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">;</span> <span class="n">ymax</span> <span class="o">=</span> <span class="mf">0.4</span>
+  
+    <span class="k">if</span> <span class="n">orient</span> <span class="o">==</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">stats_text</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">stat</span><span class="o">.</span><span class="n">describe_text</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">y</span><span class="p">])</span>
+    
+        <span class="c1"># standard deviation</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]),</span>
+                    <span class="n">width</span><span class="o">=</span><span class="n">xmax</span><span class="o">-</span><span class="n">xmin</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">2.0</span><span class="o">*</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">],</span>
+                    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+        <span class="c1"># median</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;median&#39;</span><span class="p">],</span> <span class="n">xmin</span><span class="o">=</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">xmax</span><span class="p">,</span>
+                  <span class="n">color</span><span class="o">=</span><span class="n">sb</span><span class="o">.</span><span class="n">plotutils</span><span class="o">.</span><span class="n">colours</span><span class="p">[</span><span class="s2">&quot;DarkDarkBlue&quot;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_median</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="c1"># mean</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">],</span> <span class="n">xmin</span><span class="o">=</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">xmax</span><span class="p">,</span>
+                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_mean</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="c1"># CI(mean)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                  <span class="n">ymin</span><span class="o">=</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;CI_mean&#39;</span><span class="p">],</span>
+                  <span class="n">ymax</span><span class="o">=</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;CI_mean&#39;</span><span class="p">],</span>
+                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_mean</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    
+    <span class="k">elif</span> <span class="n">orient</span> <span class="o">==</span> <span class="s1">&#39;h&#39;</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">stats_text</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">stat</span><span class="o">.</span><span class="n">describe_text</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+    
+        <span class="c1"># standard deviation</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">],</span> <span class="n">ymin</span><span class="p">),</span>
+                    <span class="n">width</span><span class="o">=</span><span class="mf">2.0</span><span class="o">*</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">],</span> <span class="n">height</span><span class="o">=</span><span class="n">ymax</span><span class="o">-</span><span class="n">ymin</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+        <span class="c1"># median</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;median&#39;</span><span class="p">],</span> <span class="n">ymin</span><span class="o">=</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">ymax</span><span class="p">,</span>
+                  <span class="n">color</span><span class="o">=</span><span class="n">sb</span><span class="o">.</span><span class="n">plotutils</span><span class="o">.</span><span class="n">colours</span><span class="p">[</span><span class="s2">&quot;DarkDarkBlue&quot;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_median</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="c1"># mean</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">],</span> <span class="n">ymin</span><span class="o">=</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">ymax</span><span class="p">,</span>
+                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_mean</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="c1"># CI(mean)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                  <span class="n">xmin</span><span class="o">=</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;CI_mean&#39;</span><span class="p">],</span>
+                  <span class="n">xmax</span><span class="o">=</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;CI_mean&#39;</span><span class="p">],</span>
+                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_mean</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+  
+    <span class="k">if</span> <span class="n">show_stats</span><span class="p">:</span>
+        <span class="n">sb</span><span class="o">.</span><span class="n">plotutils</span><span class="o">.</span><span class="n">statsbox</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">stats_text</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">show_axis</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="histogram"><a class="viewcode-back" href="../../stubs/spellbook.plot1D.html#spellbook.plot1D.histogram">[docs]</a><span class="k">def</span> <span class="nf">histogram</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+              <span class="n">fig</span><span class="p">:</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">,</span>
+              <span class="n">grid</span><span class="p">:</span> <span class="n">mpl</span><span class="o">.</span><span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">,</span>
+              <span class="n">gridindex</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+              <span class="n">x</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+              <span class="n">xlabel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+              <span class="n">CL_mean</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">95</span><span class="p">,</span>
+              <span class="n">lw_mean</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">,</span>
+              <span class="n">lw_median</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">,</span>
+              <span class="n">lw_quartiles</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
+              <span class="n">show_histogram</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="n">show_decorations</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="n">show_mean</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="n">show_std</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="n">show_sem</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="n">show_median</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="n">show_quartiles</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="n">show_min</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="n">show_max</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="n">show_axis</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="n">show_stats</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="n">histplot_args</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{},</span>
+              <span class="n">statsbox_args</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{},</span>
+              <span class="n">ymin</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+              <span class="n">ymax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+              <span class="n">yscale</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+              <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">mpl</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">Axes</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Draw a histogram</span>
+
+<span class="sd">    .. image:: ../images/histogram.png</span>
+<span class="sd">       :width: 500px</span>
+<span class="sd">       :align: center</span>
+
+<span class="sd">    Besides the pure histogram itself, various lines, bands and bars can be</span>
+<span class="sd">    drawn that indicate a range of descriptive statistics:</span>
+
+<span class="sd">    - a black line for the mean</span>
+<span class="sd">    - a grey band for the standard deviation</span>
+<span class="sd">    - a black error bar indicating the confidence interval of the standard error</span>
+<span class="sd">      of the mean at a desired level</span>
+<span class="sd">    - a thick dark blue line for the median</span>
+<span class="sd">    - thin dashed lines for the 25% and 75% quartiles</span>
+<span class="sd">    - thin solid lines for the minimum and maximum values</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (:class:`pandas.DataFrame`, :class:`numpy.ndarray` or \</span>
+<span class="sd">        :class:`tf.Tensor`): The data to plot</span>
+<span class="sd">        fig: The figure on which to draw</span>
+<span class="sd">        grid: The grid on the figure in which to draw</span>
+<span class="sd">        gridindex: The index of the grid cell in which to draw</span>
+<span class="sd">        x: *Optional*. The name of the variable to plot</span>
+<span class="sd">        xlabel: *Optional*. The x-axis label.</span>
+<span class="sd">        CL_mean: *Optional*. The confidence level in percent for the uncertainty</span>
+<span class="sd">            bar around the mean giving the standard error of the mean</span>
+<span class="sd">        lw_mean: *Optional*. The linewidth of the mean</span>
+<span class="sd">        lw_median: *Optional*. The linewidth of the median</span>
+<span class="sd">        lw_quartiles: *Optional*. The linewidth of the quartiles</span>
+<span class="sd">        show_histogram: *Optional*. If the histogram should be shown</span>
+<span class="sd">        show_decorations: *Optional*. If set to ``False``, none of the lines</span>
+<span class="sd">            and errors bands/bars indicating the descriptive statistics will</span>
+<span class="sd">            be shown</span>
+<span class="sd">        show_mean: *Optional*. If the mean should be shown</span>
+<span class="sd">        show_std: *Optional*. If the standard deviation should be shown</span>
+<span class="sd">        show_sem: *Optional*. If the standard error of the mean should be shown</span>
+<span class="sd">        show_median: *Optional*. If the median should be shown</span>
+<span class="sd">        show_quartiles: *Optional*. If the quartiles should be shown</span>
+<span class="sd">        show_min: *Optional*. If the minimum value / 0% percentile should be</span>
+<span class="sd">            shown</span>
+<span class="sd">        show_max: *Optional*. If the minimum value / 1000% percentile should</span>
+<span class="sd">            be shown</span>
+<span class="sd">        show_axis: *Optional*. If the axes, including labels, ticks and</span>
+<span class="sd">            ticklabels should be shown</span>
+<span class="sd">        show_stats: *Optional*. If a box giving the values of the descriptive</span>
+<span class="sd">            statistics should be shown</span>
+<span class="sd">        histplot_args: *Optional*. Arguments for :func:`seaborn.histplot`</span>
+<span class="sd">        statsbox_args: *Optional*. Arguments for</span>
+<span class="sd">            :func:`spellbook.plotutils.statsbox`</span>
+<span class="sd">        ymin: *Optional*. The lower view limit of the y-axis.</span>
+<span class="sd">        ymax: *Optional*. The upper view limit of the y-axis.</span>
+<span class="sd">        yscale: *Optional*. The type of scale used for the y-axis. See</span>
+<span class="sd">            :meth:`matplotlib.axes.Axes.set_yscale`.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        :class:`matplotlib.axes.Axes`: The axes object drawn. The axes object</span>
+<span class="sd">        is already added to the figure, but it is returned as well so that it</span>
+<span class="sd">        can be caught for easier access and manipulation.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples:</span>
+
+<span class="sd">    - plotting a :class:`pandas.DataFrame`</span>
+
+<span class="sd">      .. testcode::</span>
+
+<span class="sd">         import matplotlib as mpl</span>
+<span class="sd">         import numpy as np</span>
+<span class="sd">         import pandas as pd</span>
+<span class="sd">         import spellbook as sb</span>
+
+<span class="sd">         fig = mpl.pyplot.figure(tight_layout=True)</span>
+<span class="sd">         grid = mpl.gridspec.GridSpec(nrows=1, ncols=1)</span>
+
+<span class="sd">         x = np.random.normal(size=1000)</span>
+<span class="sd">         data = pd.DataFrame({&#39;x&#39;: x})</span>
+<span class="sd">         ax = sb.plot1D.histogram(data, fig, grid, gridindex=0, x=&#39;x&#39;)</span>
+
+<span class="sd">    - plotting a :class:`numpy.ndarray` (:class:`tf.Tensor` analogous)</span>
+
+<span class="sd">      .. testcode::</span>
+
+<span class="sd">         import matplotlib as mpl</span>
+<span class="sd">         import numpy as np</span>
+<span class="sd">         import spellbook as sb</span>
+
+<span class="sd">         fig = mpl.pyplot.figure(tight_layout=True)</span>
+<span class="sd">         grid = mpl.gridspec.GridSpec(nrows=1, ncols=1)</span>
+
+<span class="sd">         x = np.random.normal(size=1000)</span>
+<span class="sd">         ax = sb.plot1D.histogram(x, fig, grid, gridindex=0,</span>
+<span class="sd">                                 xlabel=&#39;x-axis label&#39;)</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+
+    <span class="c1"># s = stats.describe(data[x])</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">nobs</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">mean</span>
+    <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">variance</span><span class="p">)</span> <span class="c1"># standard deviation</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">ppf</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">CL_mean</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">))</span>
+    <span class="n">sem</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">sem</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1"># standard error of the mean</span>
+    <span class="n">CI_mean</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="n">sem</span>
+  
+    <span class="n">med</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+  
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Subplot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">grid</span><span class="p">[</span><span class="n">gridindex</span><span class="p">])</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+  
+    <span class="k">if</span> <span class="n">xlabel</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">xlabel</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="k">if</span> <span class="n">show_histogram</span><span class="p">:</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">histplot_args</span><span class="p">)</span>
+        <span class="n">y_max</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">y_max</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="c1"># show the lines, bars and bands indicating the descriptive statistics</span>
+    <span class="k">if</span> <span class="n">show_decorations</span><span class="p">:</span>
+
+        <span class="c1"># standard deviation</span>
+        <span class="k">if</span> <span class="n">show_std</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">mean</span><span class="o">-</span><span class="n">std</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                                <span class="n">width</span><span class="o">=</span><span class="mf">2.0</span><span class="o">*</span><span class="n">std</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">y_max</span><span class="p">,</span>
+                                <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    
+        <span class="c1"># median, quartiles, min, max</span>
+        <span class="k">if</span> <span class="n">show_median</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">med</span><span class="p">,</span>
+                       <span class="n">color</span><span class="o">=</span><span class="n">sb</span><span class="o">.</span><span class="n">plotutils</span><span class="o">.</span><span class="n">colours</span><span class="p">[</span><span class="s2">&quot;DarkDarkBlue&quot;</span><span class="p">],</span>
+                       <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_median</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">show_min</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                       <span class="n">color</span><span class="o">=</span><span class="n">sb</span><span class="o">.</span><span class="n">plotutils</span><span class="o">.</span><span class="n">colours</span><span class="p">[</span><span class="s2">&quot;DarkDarkBlue&quot;</span><span class="p">],</span>
+                       <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_quartiles</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">show_quartiles</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                       <span class="n">color</span><span class="o">=</span><span class="n">sb</span><span class="o">.</span><span class="n">plotutils</span><span class="o">.</span><span class="n">colours</span><span class="p">[</span><span class="s2">&quot;DarkDarkBlue&quot;</span><span class="p">],</span>
+                       <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_quartiles</span><span class="p">,</span>
+                       <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+                       <span class="n">color</span><span class="o">=</span><span class="n">sb</span><span class="o">.</span><span class="n">plotutils</span><span class="o">.</span><span class="n">colours</span><span class="p">[</span><span class="s2">&quot;DarkDarkBlue&quot;</span><span class="p">],</span>
+                       <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_quartiles</span><span class="p">,</span>
+                       <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">show_max</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                       <span class="n">color</span><span class="o">=</span><span class="n">sb</span><span class="o">.</span><span class="n">plotutils</span><span class="o">.</span><span class="n">colours</span><span class="p">[</span><span class="s2">&quot;DarkDarkBlue&quot;</span><span class="p">],</span>
+                       <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_quartiles</span><span class="p">)</span>
+
+        <span class="c1"># mean and standard error of the mean</span>
+        <span class="k">if</span> <span class="n">show_mean</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_mean</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">show_sem</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y_max</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="n">mean</span><span class="o">-</span><span class="n">CI_mean</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">mean</span><span class="o">+</span><span class="n">CI_mean</span><span class="p">,</span>
+                               <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw_mean</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    
+    <span class="c1"># stats box</span>
+    <span class="k">if</span> <span class="n">show_stats</span><span class="p">:</span>
+        <span class="n">sb</span><span class="o">.</span><span class="n">plotutils</span><span class="o">.</span><span class="n">statsbox</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">sb</span><span class="o">.</span><span class="n">stat</span><span class="o">.</span><span class="n">describe_text</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+                             <span class="o">**</span><span class="n">statsbox_args</span><span class="p">)</span>
+  
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ymargin</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ymax</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="n">ymax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ymin</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="n">ymin</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">yscale</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="n">yscale</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">show_axis</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+  
+    <span class="k">return</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span></div>
+</pre></div>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
+          Last updated on June 16, 2021.<br/>
+          <div class="extra_footer">
+            Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
+using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
