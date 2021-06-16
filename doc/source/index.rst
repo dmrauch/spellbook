@@ -66,6 +66,7 @@ Welcome to the :bolditalic:`spellbook` Data Science & Machine Learning Library!
    - :func:`spellbook.plot1D.histogram`
    - :func:`spellbook.plot2D.categorical_histogram`
    - :func:`spellbook.plot.parallel_coordinates`
+   - :class:`spellbook.train.BinaryCalibrationPlot`
 
 
 .. margin:: News
@@ -106,6 +107,9 @@ Welcome to the :bolditalic:`spellbook` Data Science & Machine Learning Library!
              :height: 200px
 
         - .. figure:: /images/parallel-coordinates.png
+             :height: 200px
+
+        - .. figure:: /images/calibration.png
              :height: 200px
 
 
