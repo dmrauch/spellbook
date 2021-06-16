@@ -6,21 +6,22 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 
+from typing import Dict
 from typing import List
 from typing import Tuple
 from typing import Union
 
 
-def encode_categories(data: pd.DataFrame):
+def encode_categories(data: pd.DataFrame) -> Dict[str, Dict[int, str]]:
     '''
     Turns all string variables into categorical variables and adds columns with
     the corresponding numerical values
 
     Args:
-        data: The data
+        data (:class:`pandas.DataFrame`): The dataset
 
     Returns:
-        Dictionary of dictionaries with the encodings of each category:
+        Dictionary of dictionaries with the encodings of each category.
         For each categorical variable there is a dictionary with the numerical
         codes as the keys and the category names/labels as the values
     '''
@@ -656,6 +657,7 @@ def separate_tfdataset_to_tftensors(
     
     # dataset is tf.data.Dataset and has format [[f, l], [f, l], ...]
     # need to reshape this into two separate tuples of tensors (f, f, f), (l, l, l)
+    # if type(dataset).__name__ == 'BatchDataset':
     if dataset.element_spec[0].shape[0] is None \
        and dataset.element_spec[1].shape[0] is None:
         # dataset is batched -> remove batching first
