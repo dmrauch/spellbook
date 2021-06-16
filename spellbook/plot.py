@@ -10,6 +10,7 @@ import pandas as pd
 import seaborn as sns
 import tensorflow as tf
 
+from typing import Dict
 from typing import List
 from typing import Tuple
 from typing import Union
@@ -714,3 +715,169 @@ def plot_confusion_matrix(confusion_matrix: tf.Tensor,
 
     fig.tight_layout()
     return(fig)
+
+
+
+def parallel_coordinates(
+    data: pd.DataFrame,
+    features: List[str],
+    target: str,
+    categories: Dict[str, Dict[int, str]],
+    fontsize: float = None,
+    shift: float = 0.3
+    ) -> mpl.figure.Figure:
+    '''
+    Parallel coordinates plot
+
+    .. image:: /images/parallel-coordinates.png
+       :align: center
+       :height: 250px
+
+    Based on `Parallel Coordinates in Matplotlib
+    <https://benalexkeen.com/parallel-coordinates-in-matplotlib/>`_,
+    but extended to also support categorical variables.
+
+    For categorical variables, a random uniform shift is applied to spread
+    the lines in the vicinity of the respective classes. This way, there
+    is an indication for the composition of the datapoints in a particular
+    class/category in terms of the target labels/classes. Furthermore, the
+    shift interval is sized according to the number of datapoints in the
+    respective class/category in order to give an impression for how many
+    datapoints there are in that class.
+
+    Args:
+        data (:class:`pandas.DataFrame`): The dataset to plot
+        features: The names of the feature variables
+        target: The name of the target variable
+        categories: Dictionary holding the category codes/indices and names
+            as returned by :func:`spellbook.input.encode_categories`
+        fontsize: *Optional*. Baseline fontsize for all elements.
+            This is probably the fontsize that ``medium`` corresponds to?
+        shift: *Optional*. The half-size of the interval for uniformely
+            shifting categorical variables
+
+    .. todo:: Support more than the 10 colours included in *Matplotlib*'s
+              tableau colours
+    '''
+
+    df = data.copy() # get local copy to protect original data
+
+    target_name = target.replace('_codes', '').replace('_norm', '')
+    features.append(target) # 
+    feature_names = [f.replace('_codes', '').replace('_norm', '')
+        for f in features]
+    x = [i for i, _ in enumerate(features)]
+
+    # https://matplotlib.org/stable/gallery/color/named_colors.html
+    colours = list(mpl.colors.TABLEAU_COLORS)
+
+    if fontsize:
+        tmp_fontsize = plt.rcParams['font.size']
+        plt.rcParams['font.size'] = fontsize
+
+    fig, axs = plt.subplots(1, len(features)-1, sharey=False,
+        figsize = (1.5*len(features), 5))
+
+    cat_mins = {}
+    cat_maxs = {}
+    for i, feature in enumerate(features):
+        features[i] = feature + '_y'
+        if feature_names[i] in categories:
+            ncats = len(categories[feature_names[i]])
+
+            # counts / absolute frequencies of each class
+            counts = df[feature].value_counts()
+
+            # empty shifting vector, one entry per row/datapoint
+            shifts = np.zeros(shape=len(df[feature]))
+
+            # calculate shift for each class
+            for index, value in enumerate(df[feature].values):
+
+                # larger shift if class is more frequent
+                # -> thickness of line bundle indicates how many datapoints
+                #    fall in that particular class
+                shifts[index] = shift * (counts[value]-1)/max(5,len(df)-1)
+
+            # apply uniform shifts
+            df[feature+'_y'] = 1.0 / (ncats-1) \
+                * np.random.uniform(low = df[feature]-shifts,
+                                    high = df[feature]+shifts)
+            cat_mins[feature+'_y'] = -shift/(ncats-1)
+            cat_maxs[feature+'_y'] = (ncats-1+shift)/(ncats-1)
+        else:
+            df[feature+'_y'] = df[feature]
+    cat_min = np.amin(list(cat_mins.values()))
+    cat_max = np.amax(list(cat_maxs.values()))
+
+    # Get min, max and range for each column
+    # Normalize the data for each column
+    min_max_range = {}
+    for i, feature in enumerate(features):
+        min_val = df[feature].min()
+        max_val = df[feature].max()
+        val_range = np.ptp(df[feature])
+        min_max_range[feature] = [min_val, max_val, val_range]
+        if feature_names[i] in categories:
+            y = (df[feature]-cat_mins[feature]) / (cat_maxs[feature]-cat_mins[feature])
+        else:
+            if max_val > 0.0:
+                y = df[feature] / max_val
+            else:
+                y = df[feature]
+        df[feature] = cat_min + (cat_max-cat_min) * y
+
+    # Plot each row
+    for i, ax in enumerate(axs):
+        for idx, row in df.iterrows():
+            category = int(row[target])
+            ax.plot(x, row[features], colours[category])
+        ax.set_xlim([i, i+1])
+
+    # Set the tick positions and labels on y axis for each plot
+    # Tick positions based on normalised data
+    # Tick labels are based on original data
+    def set_ticks_for_axis(dim, ax, ticks):
+        min_val, max_val, val_range = min_max_range[features[dim]]
+
+        feature = feature_names[dim]
+        if feature in categories:
+            tick_labels = categories[feature].values()
+            ncats = len(categories[feature])
+            ticks = [(cat_index+shift) / (ncats-1+2*shift) 
+                for cat_index in categories[feature].keys()]
+        else:
+            if max_val > 0.0:
+                step = max_val / float(ticks-1)
+                norm_step = 1.0 / float(ticks-1)
+                tick_labels = [round(step * i, 2) for i in range(ticks)]
+                ticks = [round(norm_step * i, 2) for i in range(ticks)]
+            else:
+                step = 1.0 / float(ticks-1)
+                norm_step = 1.0 / float(ticks-1)
+                tick_labels = [round(step * i, 2) for i in range(ticks)]
+                ticks = [round(norm_step * i, 2) for i in range(ticks)]
+        ticks = [cat_min + (cat_max-cat_min)*tick for tick in ticks]
+        ax.set_yticks(ticks)
+        ax.set_yticklabels(tick_labels, backgroundcolor=(1,1,1, 0.7)) # fontweight='bold')
+        ax.set_ylim(bottom=-shift-0.08, top=1+shift+0.08)
+
+    for dim, ax in enumerate(axs):
+        ax.xaxis.set_major_locator(mpl.ticker.FixedLocator([dim]))
+        set_ticks_for_axis(dim, ax, ticks=6)
+        ax.set_xticklabels([feature_names[dim]])
+
+    # Move the final axis' ticks to the right-hand side
+    ax = axs[-1].twinx()
+    dim = len(axs)
+    ax.xaxis.set_major_locator(mpl.ticker.FixedLocator([x[-2], x[-1]]))
+    set_ticks_for_axis(dim, ax, ticks=6)
+    ax.set_xticklabels([feature_names[-2], feature_names[-1]])
+    ncats = len(categories[target_name])
+    ax.set_ylim(bottom=-shift-0.05, top=1+shift+0.05)
+
+    fig.tight_layout()
+    fig.subplots_adjust(wspace=0) # remove space between subplots
+
+    if fontsize: plt.rcParams['font.size'] = tmp_fontsize
+    return fig
