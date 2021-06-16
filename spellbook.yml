@@ -3,8 +3,8 @@ channels:
  - defaults
  - conda-forge
 dependencies:
- - python = 3.8.5 # must be >= 3.8 because of sphinx-autodoc-typehints
- - tensorflow >= 2.4.1
+ - python >= 3.8.5 # must be >= 3.8 because of sphinx-autodoc-typehints
+ - tensorflow >= 2.5.0
  - scikit-learn >= 0.24.2
 # - jupyter_core
  - ipykernel # run jupyter notebooks

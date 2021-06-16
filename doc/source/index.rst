@@ -19,6 +19,7 @@
 
    Table of Contents <examples/examples.rst>
    Binary Classification: Stroke Prediction <examples/1-binary-stroke-prediction/index>
+   Decision Forests in TensorFlow <examples/2-tensorflow-decision-forests/index>
 
 
 .. toctree::
@@ -72,6 +73,7 @@ Welcome to the :bolditalic:`spellbook` Data Science & Machine Learning Library!
 .. margin:: News
    :class: spellbook-news
 
+   - *June 16, 2021*: :doc:`/examples/2-tensorflow-decision-forests/index`
    - *June 13, 2021*: :doc:`/examples/1-binary-stroke-prediction/index`
    - *June 13, 2021*: Release
 
@@ -117,6 +119,7 @@ Welcome to the :bolditalic:`spellbook` Data Science & Machine Learning Library!
    :class: spellbook-projects
 
    - :doc:`/examples/1-binary-stroke-prediction/index`
+   - :doc:`/examples/2-tensorflow-decision-forests/index`
 
 
 *spellbook* is where I collect functionality that I implement and expect to

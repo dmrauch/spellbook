@@ -163,6 +163,7 @@ table.spellbook-gallery-wrap.table tbody tr {
   justify-content: center;
 }
 .spellbook-gallery-wrap.table p.caption {max-width: 450px;}
+.spellbook-gallery-wrap.perc90.table p.caption {max-width: 90%;}
 
 /*  .. list-table::
        :class: spellbook-gallery-scroll */

@@ -1,0 +1,33 @@
+# tensorflow_decision_forests is only available via pip from PyPI
+# and does not work with a tensorflow installation from conda
+#
+# - install this conda environment with
+#
+#     conda env create --file spellbook-no-tensorflow.yml
+#
+# - activate it with
+#
+#     conda activate spellbook-no-tensorflow
+#
+# - then install tensorflow and tensorflow_decision_forests with pip
+#
+#     pip install -r requirements.txt
+#
+
+name: spellbook-no-tensorflow
+channels:
+ - defaults
+ - conda-forge
+dependencies:
+ - python >= 3.8.5 # must be >= 3.8 because of sphinx-autodoc-typehints
+ - scikit-learn >= 0.24.2
+ - ipykernel
+ - matplotlib
+ - seaborn
+ - sphinx =3.5.4 # margin/sidebar in sphinx-book-theme don't work in sphinx 4
+ - sphinx-book-theme >= 0.0.41
+ - sphinx-tabs
+ - autodocsumm
+ - sphinx-autodoc-typehints
+ - nbsphinx
+ - beautifulsoup4

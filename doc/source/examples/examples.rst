@@ -8,6 +8,10 @@ Projects & Tutorials
        <div class="tag-cell">
           <a class="tag left" href="../search.html?q=tags+binary+classification">
              binary classification</a>
+          <a class="tag left" href="../search.html?q=tags+boosted+gradient+tree">
+             boosted gradient tree</a>
+          <a class="tag left" href="../search.html?q=tags+decision+forest">
+             decision forest</a>
           <a class="tag left" href="../search.html?q=tags+imbalanced+data">
              imbalanced data</a>
           <a class="tag left" href="../search.html?q=tags+oversampling">
