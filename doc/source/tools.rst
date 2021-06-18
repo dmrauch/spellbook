@@ -33,8 +33,8 @@ This is a collection of notes on different software tools and technologies.
    :doc:`tools/python`       *Python*
    *seaborn*                 high-level plotting framework built on top of
                              *Matplotlib*
-   :doc:`tools/sphinx`       reStructuredText-based documentation and *Python*-
-                             centric source code reference system
+   :doc:`tools/sphinx`       reStructuredText-based documentation and
+                             *Python*-centric source code reference system
    :doc:`tools/tf`           machine learning framework by Google
    :doc:`tools/vscode`       cross-platform source code editor and IDE
    ========================= ==================
