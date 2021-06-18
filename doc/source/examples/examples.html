@@ -6,17 +6,45 @@
 -->
 <script>
 $(document).ready(function(){
-  $("#examples-searchbar").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#examples-table-body tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    $("#examples-searchbar").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#examples-table-body tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
     });
-  });
 });
 </script>
-<br>
-<input id="examples-searchbar" placeholder="Search.."> <!-- type="text" -->
 
+<table class="tag-container">
+    <tr class="tag-list">
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+binary+classification">
+                binary classification</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+decision+forest">
+                decision forest</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+gradient+boosted+trees">
+                gradient boosted trees</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+imbalanced+data">
+                imbalanced data</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+oversampling">
+                oversampling</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+supervised+learning">
+                supervised learning</a>
+        </td>
+    </tr>
+</table>
+
+<input id="examples-searchbar" placeholder="Search.."> <!-- type="text" -->
 
 <table id="examples-table" class=”sortable”>
     <thead>
