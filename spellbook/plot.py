@@ -643,12 +643,15 @@ def pairplot(data: pd.DataFrame,
     return(fig)
 
 
+
 def plot_confusion_matrix(confusion_matrix: tf.Tensor,
                           class_names: List[str],
                           class_ids: List[int] = None,
                           normalisation: str = 'count',
+                          crop: bool = True,
                           figsize: Tuple[float, float] = (5.8, 5.3),
-                          crop: bool = True
+                          fontsize: float = None,
+                          fontsize_annotations: Union[str, float] = None
                           ) -> mpl.figure.Figure:
     '''
     Create a confusion matrix heatmap plot
@@ -690,12 +693,21 @@ def plot_confusion_matrix(confusion_matrix: tf.Tensor,
               in the same position as with normalisation set to ``count`` or
               ``norm-all``
 
+        fontsize: *Optional*. Baseline fontsize for all elements.
+            This is probably the fontsize that ``medium`` corresponds to?
+        fontsize_annotations: *Optional*. Fontsize for the annotations.
+            As specified in :meth:`matplotlib.text.Text.set_fontsize`.
+
     Returns:
         The figure containing the plot
     
     See also:
         :func:`tf.math.confusion_matrix`
     '''
+
+    if fontsize:
+        tmp_fontsize = plt.rcParams['font.size']
+        plt.rcParams['font.size'] = fontsize
 
     fig = plt.figure(figsize=figsize)
     grid = mpl.gridspec.GridSpec(nrows=1, ncols=1)
@@ -713,6 +725,13 @@ def plot_confusion_matrix(confusion_matrix: tf.Tensor,
                      ylabels_horizontal = True,
                      heatmap_args = dict(square=True))
 
+    if fontsize_annotations:
+        for child in fig.get_children():
+            if isinstance(child, mpl.axes.Axes):
+                sb.plot2D.heatmap_set_annotations_fontsize(
+                    child, fontsize_annotations)
+
+    if fontsize: plt.rcParams['font.size'] = tmp_fontsize
     fig.tight_layout()
     return(fig)
 

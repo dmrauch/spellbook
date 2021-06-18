@@ -22,7 +22,7 @@ import spellbook as sb
 
 def heatmap_set_annotations_fontsize(
     ax: mpl.axes.Axes,
-    fontsize: float) -> None:
+    fontsize: Union[str, float]) -> None:
     '''
     Set the fontsize for numbers within the heatmap matrix
 
