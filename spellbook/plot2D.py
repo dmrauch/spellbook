@@ -234,7 +234,7 @@ def heatmap(data: Union[np.ndarray, pd.DataFrame],
                 cmap = sb.plotutils.cmap_white)
     # [label.set_fontsize("large") for label in ax_values.get_xticklabels()]
     # [label.set_fontsize("large") for label in ax_values.get_yticklabels()]
-    if normalisation in ['norm-row', 'norm-true']:
+    if crop == False and normalisation in ['norm-row', 'norm-true']:
         ax_values.yaxis.get_major_ticks()[0].tick1line.set_visible(False)
     ax_values.set_xlabel(x) # fontsize='x-large'
     ax_values.set_ylabel(y) # fontsize='x-large'
