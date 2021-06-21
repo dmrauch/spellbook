@@ -91,6 +91,25 @@ C
     CL
         :term:`confidence level`
 
+    CNN
+        *Convolutional Neural Network*
+
+        A neural network containing one or more convolutional layers.
+
+        In a 2D convolutional layer, typically used for images, :math:`n_f`
+        two-dimensional filters of size :math:`f_1 \times f_2` are slid
+        across the two-dimensional data arrays of size :math:`n_1 \times n_2`
+        to create :math:`n_f` output data arrays of size
+        :math:`(n_1-f_1+1) \times (n_2-f_2+1)`. Analogous convolutional
+        layers of different dimensionalities exist as well.
+        Convolutional layers are often followed by pooling layers that
+        aggregate neighbouring pixels or voxels by calculating their maximum
+        or average.
+
+        By training and adjusting the filters, the neural network can
+        distill particular patterns in the data and feed them to the
+        following dense layers.
+
     confidence level
         The probability of *not* making a
         :term:`type-1 error`, i.e. the probability of *not* wrongly rejecting
@@ -223,6 +242,19 @@ I
 -
 
 .. glossary::
+
+    image augmentation
+        In *image augmentation*, transformations are applied to images
+        before feeding them into a model. These transformations can serve
+        to normalise the images, e.g. by rescaling them with a common
+        factor, as well as to effectively increase the size of the datasets by
+        applying random flips, rotations, brightness changes and other
+        transformations. While these random transformations can help protect
+        against :term:`overtraining`, they can also help the trained model
+        in generalising to other images. For example, this would be the
+        case with the *Fashion-MNIST* dataset which, among other types of
+        clothes, contains shoes which are all pointing with their tips to
+        the left.
 
     imbalanced data
         When the data contain significantly more datapoints in one class than
@@ -442,7 +474,25 @@ S
         has to be taken with a grain of salt, see :term:`calibration`.
 
     softmax
-        .. todo:: write: softmax function, activation
+        The *softmax* function is typically used as the activation function
+        in :term:`multi-class classification` problems with one-hot
+        encoded labels. It is defined as
+
+        .. math::
+
+           \sigma(\vec{x})_i = \frac{e^{x_i}}{\sum_{j=1}^n e^{x_j}}
+
+        Each of the :math:`n` target classes corresponds to one entry in
+        the classification vector :math:`\vec{x}` and the *softmax* function
+        provides a mapping :math:`\mathbb{R}^n \to [0,1]^n`. Furthermore,
+        it provides a normalisation such that the activated entries of the
+        classification vector sum up to unity, i.e.
+        :math:`\sum_{i=1}^n \sigma(\vec{x})_i = 1`.
+        This is what is naturally expected for discreet probabilities.
+        However, as long as a classifier is not calibrated, it cannot be
+        guaranteed that the activated output of the last layer gives the
+        probabilities for a datapoint to belong to each of the involved
+        target classes.
 
     specificity
         Defined as
