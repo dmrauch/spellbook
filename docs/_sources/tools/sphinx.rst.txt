@@ -36,23 +36,15 @@ Name                         Description
 ``nbsphinx``                 add ``*.ipynb`` files to the toctree, automatically
                              execute them and generate pages that display the
                              notebook text and code cells and its outputs
+``sphinx_gallery``           create one or more galleries of examples and plots
+                             from folders containing *Python* scripts and
+                             automatically cross-reference them from the
+                             source code documentation
 ``sphinx.ext.githubpages``   creates ``.nojekyll`` file for GitHub Pages
 ============================ =====================================================================================================
 
 Built-in extensions are listed here:
 https://www.sphinx-doc.org/en/master/usage/extensions/index.html
-
-.. note:: Despite the different extensions, it is not possible in *Sphinx* to
-          automatically generate a source code documentation where each of the
-          different members has a toc entry associated to it. Therefore,
-          unfortunately, the source code documentation can only be scrolled
-          through or searched, but it is not possible to automatically
-          generate page-level tables of content pointing to the individual
-          classes, functions and attributes.
-          This seems to be possible in :ref:`MkDocs`.
-          
-          It is, however, possible to generate summary tables for all members
-          at the top of each page using the ``autodocsumm`` extension.
 
 
 

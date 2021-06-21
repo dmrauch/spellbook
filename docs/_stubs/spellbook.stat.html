@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tooltip.css" />
     
@@ -159,6 +163,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tools/docker.html">
+     Docker
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tools/git.html">
      Git
     </a>
@@ -242,6 +251,18 @@
    Decision Forests in TensorFlow
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -322,7 +343,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/stubs/spellbook.stat.rst.txt"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/_stubs/spellbook.stat.rst.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
@@ -342,10 +363,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fstubs/spellbook.stat.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_stubs/spellbook.stat.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/stubs/spellbook.stat.rst"><button
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/_stubs/spellbook.stat.rst"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -365,6 +386,37 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#describe">
+     <em>
+      describe
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#describe-text">
+     <em>
+      describe_text
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -376,7 +428,10 @@
   <div class="section" id="module-spellbook.stat">
 <span id="spellbook-stat"></span><h1>spellbook.stat<a class="headerlink" href="#module-spellbook.stat" title="Permalink to this headline">¶</a></h1>
 <p>Statistics functions</p>
-<p><strong>Functions:</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Functions:</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
@@ -391,16 +446,25 @@
 </tr>
 </tbody>
 </table>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="describe">
+<h3><em>describe</em><a class="headerlink" href="#describe" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.stat.describe">
 <code class="sig-prename descclassname"><span class="pre">spellbook.stat.</span></code><code class="sig-name descname"><span class="pre">describe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CL_mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">95</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/stat.html#describe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.stat.describe" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</div>
+<div class="section" id="describe-text">
+<span id="sphx-glr-backref-spellbook-stat-describe"></span><h3><em>describe_text</em><a class="headerlink" href="#describe-text" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.stat.describe_text">
 <code class="sig-prename descclassname"><span class="pre">spellbook.stat.</span></code><code class="sig-name descname"><span class="pre">describe_text</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/stat.html#describe_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.stat.describe_text" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<span class="target" id="sphx-glr-backref-spellbook-stat-describe-text"></span></div>
+</div>
 </div>
 
 
@@ -421,7 +485,7 @@
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

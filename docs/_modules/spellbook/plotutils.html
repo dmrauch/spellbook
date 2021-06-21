@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tooltip.css" />
     
@@ -95,42 +99,42 @@
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.input.html">
+      <a class="reference internal" href="../../_stubs/spellbook.input.html">
        spellbook.input
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.inspect.html">
+      <a class="reference internal" href="../../_stubs/spellbook.inspect.html">
        spellbook.inspect
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot.html">
        spellbook.plot
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot1D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot1D.html">
        spellbook.plot1D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot2D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot2D.html">
        spellbook.plot2D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plotutils.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plotutils.html">
        spellbook.plotutils
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.stat.html">
+      <a class="reference internal" href="../../_stubs/spellbook.stat.html">
        spellbook.stat
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.train.html">
+      <a class="reference internal" href="../../_stubs/spellbook.train.html">
        spellbook.train
       </a>
      </li>
@@ -155,6 +159,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../tools/aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/docker.html">
+     Docker
     </a>
    </li>
    <li class="toctree-l2">
@@ -239,6 +248,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../examples/2-tensorflow-decision-forests/index.html">
    Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
 </ul>
@@ -394,11 +415,11 @@
 <span class="n">legend_halign_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">}</span>
 <span class="n">legend_vanchor_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
 <span class="n">legend_hanchor_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
-<div class="viewcode-block" id="legend_loc"><a class="viewcode-back" href="../../stubs/spellbook.plotutils.html#spellbook.plotutils.legend_loc">[docs]</a><span class="k">def</span> <span class="nf">legend_loc</span><span class="p">(</span><span class="n">align</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;bl&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="legend_loc"><a class="viewcode-back" href="../../_stubs/spellbook.plotutils.html#spellbook.plotutils.legend_loc">[docs]</a><span class="k">def</span> <span class="nf">legend_loc</span><span class="p">(</span><span class="n">align</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;bl&#39;</span><span class="p">):</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">align</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
     <span class="k">return</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">legend_valign_dict</span><span class="p">[</span><span class="n">align</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
                           <span class="n">legend_halign_dict</span><span class="p">[</span><span class="n">align</span><span class="p">[</span><span class="mi">1</span><span class="p">]]))</span></div>
-<div class="viewcode-block" id="legend_bbox_to_anchor"><a class="viewcode-back" href="../../stubs/spellbook.plotutils.html#spellbook.plotutils.legend_bbox_to_anchor">[docs]</a><span class="k">def</span> <span class="nf">legend_bbox_to_anchor</span><span class="p">(</span><span class="n">align</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;bl&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="legend_bbox_to_anchor"><a class="viewcode-back" href="../../_stubs/spellbook.plotutils.html#spellbook.plotutils.legend_bbox_to_anchor">[docs]</a><span class="k">def</span> <span class="nf">legend_bbox_to_anchor</span><span class="p">(</span><span class="n">align</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;bl&#39;</span><span class="p">):</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">align</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
     <span class="k">return</span><span class="p">((</span><span class="n">legend_hanchor_dict</span><span class="p">[</span><span class="n">align</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">legend_vanchor_dict</span><span class="p">[</span><span class="n">align</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span></div>
 
@@ -419,7 +440,7 @@
 <span class="p">}</span>
 
 
-<div class="viewcode-block" id="not_yet_implemented"><a class="viewcode-back" href="../../stubs/spellbook.plotutils.html#spellbook.plotutils.not_yet_implemented">[docs]</a><span class="k">def</span> <span class="nf">not_yet_implemented</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">gridindex</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<div class="viewcode-block" id="not_yet_implemented"><a class="viewcode-back" href="../../_stubs/spellbook.plotutils.html#spellbook.plotutils.not_yet_implemented">[docs]</a><span class="k">def</span> <span class="nf">not_yet_implemented</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">gridindex</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
 
     <span class="n">text</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">not yet implemented&#39;</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; - &#39;</span><span class="p">))</span>
@@ -433,7 +454,7 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_data_kind"><a class="viewcode-back" href="../../stubs/spellbook.plotutils.html#spellbook.plotutils.get_data_kind">[docs]</a><span class="k">def</span> <span class="nf">get_data_kind</span><span class="p">(</span><span class="n">var</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="get_data_kind"><a class="viewcode-back" href="../../_stubs/spellbook.plotutils.html#spellbook.plotutils.get_data_kind">[docs]</a><span class="k">def</span> <span class="nf">get_data_kind</span><span class="p">(</span><span class="n">var</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Determine the datakind of a :class:`pandas.Series`</span>
 
@@ -458,7 +479,7 @@
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Somehow I am missing a type...&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="print_data_kinds"><a class="viewcode-back" href="../../stubs/spellbook.plotutils.html#spellbook.plotutils.print_data_kinds">[docs]</a><span class="k">def</span> <span class="nf">print_data_kinds</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="print_data_kinds"><a class="viewcode-back" href="../../_stubs/spellbook.plotutils.html#spellbook.plotutils.print_data_kinds">[docs]</a><span class="k">def</span> <span class="nf">print_data_kinds</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Print datakinds for all columns in the dataframe</span>
 <span class="sd">    </span>
@@ -476,7 +497,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="valuebox_text"><a class="viewcode-back" href="../../stubs/spellbook.plotutils.html#spellbook.plotutils.valuebox_text">[docs]</a><span class="k">def</span> <span class="nf">valuebox_text</span><span class="p">(</span><span class="n">labels</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">values</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+<div class="viewcode-block" id="valuebox_text"><a class="viewcode-back" href="../../_stubs/spellbook.plotutils.html#spellbook.plotutils.valuebox_text">[docs]</a><span class="k">def</span> <span class="nf">valuebox_text</span><span class="p">(</span><span class="n">labels</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">values</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
                   <span class="n">label_header</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                   <span class="n">value_header</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&#39;&#39;&#39;</span>
@@ -519,7 +540,7 @@
     <span class="k">return</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="statsbox"><a class="viewcode-back" href="../../stubs/spellbook.plotutils.html#spellbook.plotutils.statsbox">[docs]</a><span class="k">def</span> <span class="nf">statsbox</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alignment</span><span class="o">=</span><span class="s2">&quot;tr&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-small&#39;</span><span class="p">,</span>
+<div class="viewcode-block" id="statsbox"><a class="viewcode-back" href="../../_stubs/spellbook.plotutils.html#spellbook.plotutils.statsbox">[docs]</a><span class="k">def</span> <span class="nf">statsbox</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alignment</span><span class="o">=</span><span class="s2">&quot;tr&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-small&#39;</span><span class="p">,</span>
              <span class="n">text_args</span> <span class="o">=</span> <span class="p">{}):</span>
   <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">stats_x_left</span> <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;l&quot;</span> <span class="ow">in</span> <span class="n">alignment</span><span class="p">)</span> <span class="k">else</span> <span class="n">stats_x_right</span> <span class="c1"># default: right</span>
@@ -536,7 +557,7 @@
   <span class="k">return</span><span class="p">(</span><span class="n">statbox</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="categorybox"><a class="viewcode-back" href="../../stubs/spellbook.plotutils.html#spellbook.plotutils.categorybox">[docs]</a><span class="k">def</span> <span class="nf">categorybox</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alignment</span><span class="o">=</span><span class="s2">&quot;tl&quot;</span><span class="p">,</span> <span class="n">text_args</span><span class="o">=</span><span class="p">{}):</span>
+<div class="viewcode-block" id="categorybox"><a class="viewcode-back" href="../../_stubs/spellbook.plotutils.html#spellbook.plotutils.categorybox">[docs]</a><span class="k">def</span> <span class="nf">categorybox</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alignment</span><span class="o">=</span><span class="s2">&quot;tl&quot;</span><span class="p">,</span> <span class="n">text_args</span><span class="o">=</span><span class="p">{}):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Args:</span>
 <span class="sd">        ax</span>
@@ -582,7 +603,7 @@
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

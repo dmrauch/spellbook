@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="_static/tooltip.css" />
     
@@ -45,7 +49,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Anaconda / Conda" href="tools/anaconda.html" />
-    <link rel="prev" title="spellbook.train" href="stubs/spellbook.train.html" />
+    <link rel="prev" title="spellbook.train" href="_stubs/spellbook.train.html" />
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -96,42 +100,42 @@
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.input.html">
+      <a class="reference internal" href="_stubs/spellbook.input.html">
        spellbook.input
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.inspect.html">
+      <a class="reference internal" href="_stubs/spellbook.inspect.html">
        spellbook.inspect
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.plot.html">
+      <a class="reference internal" href="_stubs/spellbook.plot.html">
        spellbook.plot
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.plot1D.html">
+      <a class="reference internal" href="_stubs/spellbook.plot1D.html">
        spellbook.plot1D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.plot2D.html">
+      <a class="reference internal" href="_stubs/spellbook.plot2D.html">
        spellbook.plot2D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.plotutils.html">
+      <a class="reference internal" href="_stubs/spellbook.plotutils.html">
        spellbook.plotutils
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.stat.html">
+      <a class="reference internal" href="_stubs/spellbook.stat.html">
        spellbook.stat
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.train.html">
+      <a class="reference internal" href="_stubs/spellbook.train.html">
        spellbook.train
       </a>
      </li>
@@ -156,6 +160,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="tools/aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tools/docker.html">
+     Docker
     </a>
    </li>
    <li class="toctree-l2">
@@ -240,6 +249,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="examples/2-tensorflow-decision-forests/index.html">
    Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
 </ul>
@@ -378,7 +399,7 @@
 <p>This is a collection of notes on different software tools and technologies.</p>
 <div class="toctree-wrapper compound">
 </div>
-<div class="spellbook-admonition-orange admonition">
+<div class="spellbook-admonition-blue admonition">
 <p class="admonition-title">Overview</p>
 <table class="table">
 <colgroup>
@@ -397,28 +418,31 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="tools/aws.html"><span class="doc">AWS (Amazon Web Services)</span></a></p></td>
 <td><p>Amazon Web Services</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="tools/git.html"><span class="doc">Git</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="tools/docker.html"><span class="doc">Docker</span></a></p></td>
+<td><p>containers</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="tools/git.html"><span class="doc">Git</span></a></p></td>
 <td><p>distributed version control system</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="tools/mkdocs.html"><span class="doc">MkDocs</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="tools/mkdocs.html"><span class="doc">MkDocs</span></a></p></td>
 <td><p>Markdown-based documentation and language-agnostic
 source code reference system</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="tools/python.html"><span class="doc">Python</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="tools/python.html"><span class="doc">Python</span></a></p></td>
 <td><p><em>Python</em></p></td>
 </tr>
-<tr class="row-odd"><td><p><em>seaborn</em></p></td>
+<tr class="row-even"><td><p><em>seaborn</em></p></td>
 <td><p>high-level plotting framework built on top of
 <em>Matplotlib</em></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="tools/sphinx.html"><span class="doc">Sphinx</span></a></p></td>
-<td><p>reStructuredText-based documentation and <em>Python</em>-
-centric source code reference system</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="tools/sphinx.html"><span class="doc">Sphinx</span></a></p></td>
+<td><p>reStructuredText-based documentation and
+<em>Python</em>-centric source code reference system</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="tools/tf.html"><span class="doc">TensorFlow</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="tools/tf.html"><span class="doc">TensorFlow</span></a></p></td>
 <td><p>machine learning framework by Google</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="tools/vscode.html"><span class="doc">Visual Studio Code</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="tools/vscode.html"><span class="doc">Visual Studio Code</span></a></p></td>
 <td><p>cross-platform source code editor and IDE</p></td>
 </tr>
 </tbody>
@@ -432,7 +456,7 @@ centric source code reference system</p></td>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="stubs/spellbook.train.html" title="previous page">spellbook.train</a>
+    <a class='left-prev' id="prev-link" href="_stubs/spellbook.train.html" title="previous page">spellbook.train</a>
     <a class='right-next' id="next-link" href="tools/anaconda.html" title="next page">Anaconda / Conda</a>
 
         </div>
@@ -444,7 +468,7 @@ centric source code reference system</p></td>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

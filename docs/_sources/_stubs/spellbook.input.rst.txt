@@ -1,0 +1,148 @@
+﻿spellbook.input
+===============
+
+
+.. automodule:: spellbook.input
+
+   
+
+   
+   :Functions::
+
+   .. autosummary::
+
+      
+      calculate_splits
+      encode_categories
+      oversample
+      separate_tfdataset_to_tftensors
+      split_pddataframe_to_nparrays
+      split_pddataframe_to_pddataframes
+      split_pddataframe_to_tfdatasets
+   
+
+
+   
+   
+   
+
+
+   
+   
+
+   Functions
+   =========
+
+   
+
+   
+   
+   
+   
+   
+   *calculate\_splits*
+   -------------------
+
+   .. autofunction:: calculate_splits
+
+   .. _sphx_glr_backref_spellbook.input.calculate_splits:
+
+   .. minigallery:: spellbook.input.calculate_splits
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *encode\_categories*
+   --------------------
+
+   .. autofunction:: encode_categories
+
+   .. _sphx_glr_backref_spellbook.input.encode_categories:
+
+   .. minigallery:: spellbook.input.encode_categories
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *oversample*
+   ------------
+
+   .. autofunction:: oversample
+
+   .. _sphx_glr_backref_spellbook.input.oversample:
+
+   .. minigallery:: spellbook.input.oversample
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *separate\_tfdataset\_to\_tftensors*
+   ------------------------------------
+
+   .. autofunction:: separate_tfdataset_to_tftensors
+
+   .. _sphx_glr_backref_spellbook.input.separate_tfdataset_to_tftensors:
+
+   .. minigallery:: spellbook.input.separate_tfdataset_to_tftensors
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *split\_pddataframe\_to\_nparrays*
+   ----------------------------------
+
+   .. autofunction:: split_pddataframe_to_nparrays
+
+   .. _sphx_glr_backref_spellbook.input.split_pddataframe_to_nparrays:
+
+   .. minigallery:: spellbook.input.split_pddataframe_to_nparrays
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *split\_pddataframe\_to\_pddataframes*
+   --------------------------------------
+
+   .. autofunction:: split_pddataframe_to_pddataframes
+
+   .. _sphx_glr_backref_spellbook.input.split_pddataframe_to_pddataframes:
+
+   .. minigallery:: spellbook.input.split_pddataframe_to_pddataframes
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *split\_pddataframe\_to\_tfdatasets*
+   ------------------------------------
+
+   .. autofunction:: split_pddataframe_to_tfdatasets
+
+   .. _sphx_glr_backref_spellbook.input.split_pddataframe_to_tfdatasets:
+
+   .. minigallery:: spellbook.input.split_pddataframe_to_tfdatasets
+      :add-heading: used in
+   
+   
+
+
+   
+   
+   

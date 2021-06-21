@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tooltip.css" />
     
@@ -44,7 +48,7 @@
     <link rel="shortcut icon" href="../../_static/spellbook-icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Links &amp; Literature" href="../../literature.html" />
+    <link rel="next" title="Serving TensorFlow Models in Docker" href="../../_examples/3-tensorflow-serving-docker/code.html" />
     <link rel="prev" title="Model Training and Validation" href="../1-binary-stroke-prediction/training-validation.html" />
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
@@ -96,42 +100,42 @@
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.input.html">
+      <a class="reference internal" href="../../_stubs/spellbook.input.html">
        spellbook.input
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.inspect.html">
+      <a class="reference internal" href="../../_stubs/spellbook.inspect.html">
        spellbook.inspect
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot.html">
        spellbook.plot
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot1D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot1D.html">
        spellbook.plot1D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot2D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot2D.html">
        spellbook.plot2D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plotutils.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plotutils.html">
        spellbook.plotutils
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.stat.html">
+      <a class="reference internal" href="../../_stubs/spellbook.stat.html">
        spellbook.stat
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.train.html">
+      <a class="reference internal" href="../../_stubs/spellbook.train.html">
        spellbook.train
       </a>
      </li>
@@ -156,6 +160,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../tools/aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/docker.html">
+     Docker
     </a>
    </li>
    <li class="toctree-l2">
@@ -240,6 +249,18 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
 </ul>
@@ -486,7 +507,7 @@ just like the <a class="reference internal" href="../1-binary-stroke-prediction/
 So therefore, before we try out the decision trees in <em>TF-DF</em>, let’s have
 a look at another possibility of visualising entire datasets in a rather
 compact way - <em>parallel coordinate plots</em>. In <em>spellbook</em>, they are
-implemented in <a class="reference internal" href="../../stubs/spellbook.plot.html#spellbook.plot.parallel_coordinates" title="spellbook.plot.parallel_coordinates"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.parallel_coordinates()</span></code></a> and can be used
+implemented in <a class="reference internal" href="../../_stubs/spellbook.plot.html#spellbook.plot.parallel_coordinates" title="spellbook.plot.parallel_coordinates"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.parallel_coordinates()</span></code></a> and can be used
 like this:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>1-plot.py</strong></p>
@@ -507,7 +528,7 @@ Figure 1.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><div class="figure align-center" id="id4">
-<a class="reference internal image-reference" href="../../_images/parallel-coordinates.png"><img alt="../../_images/parallel-coordinates.png" src="../../_images/parallel-coordinates.png" style="width: 90%;" /></a>
+<a class="reference internal image-reference" href="../../_images/parallel-coordinates1.png"><img alt="../../_images/parallel-coordinates1.png" src="../../_images/parallel-coordinates1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-text">Figure 1: Parallel coordinates plot showing a subset of
 Kaggle’s Stroke Prediction Dataset</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
@@ -741,7 +762,7 @@ correlation of a feature with the target by randomly permuting the values
 of just that particular feature - hence the name. This way, the classifier
 is no longer able to use that feature when deriving the prediction.
 Permutation importance is implemented in <em>spellbook</em> in
-<a class="reference internal" href="../../stubs/spellbook.inspect.html#spellbook.inspect.PermutationImportance" title="spellbook.inspect.PermutationImportance"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.inspect.PermutationImportance</span></code></a>, based on
+<a class="reference internal" href="../../_stubs/spellbook.inspect.html#spellbook.inspect.PermutationImportance" title="spellbook.inspect.PermutationImportance"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.inspect.PermutationImportance</span></code></a>, based on
 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html#sklearn.inspection.permutation_importance" title="(in scikit-learn v0.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.inspection.permutation_importance()</span></code></a>, and can be calculated
 and plotted as follows for any of the metrics previously defined and passed
 to the model in the <code class="docutils literal notranslate"><span class="pre">compile</span></code> step:</p>
@@ -789,7 +810,7 @@ correlated. In this case, information from the missing permuted feature
 can at least partly be recovered by the classifier from the remaining
 correlated variable(s), leading to a less-than-expected deterioration
 of the studied metric. To overcome this limitation,
-<a class="reference internal" href="../../stubs/spellbook.inspect.html#spellbook.inspect.PermutationImportance" title="spellbook.inspect.PermutationImportance"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.inspect.PermutationImportance</span></code></a> provides a mechanism for
+<a class="reference internal" href="../../_stubs/spellbook.inspect.html#spellbook.inspect.PermutationImportance" title="spellbook.inspect.PermutationImportance"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.inspect.PermutationImportance</span></code></a> provides a mechanism for
 grouping multiple features into clusters and permuting them simultaneously.</p>
 <p>Further info:</p>
 <ul class="simple">
@@ -848,7 +869,7 @@ rate</em> (<a class="reference internal" href="../../glossary.html#term-TPR"><sp
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><div class="figure align-default" id="id10">
-<a class="reference internal image-reference" href="../../_images/roc.png"><img alt="../../_images/roc.png" src="../../_images/roc.png" style="height: 450px;" /></a>
+<a class="reference internal image-reference" href="../../_images/roc1.png"><img alt="../../_images/roc1.png" src="../../_images/roc1.png" style="height: 450px;" /></a>
 <p class="caption"><span class="caption-text">Figure 7: Receiver Operator Characteristic (<a class="reference internal" href="../../glossary.html#term-ROC"><span class="xref std std-term">ROC</span></a>) curves</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </td>
@@ -882,7 +903,7 @@ patterns in such unstructured datasets.</p>
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../1-binary-stroke-prediction/training-validation.html" title="previous page">Model Training and Validation</a>
-    <a class='right-next' id="next-link" href="../../literature.html" title="next page">Links &amp; Literature</a>
+    <a class='right-next' id="next-link" href="../../_examples/3-tensorflow-serving-docker/code.html" title="next page">Serving <em>TensorFlow</em> Models in <em>Docker</em></a>
 
         </div>
         
@@ -893,7 +914,7 @@ patterns in such unstructured datasets.</p>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

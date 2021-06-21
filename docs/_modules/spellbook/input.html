@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tooltip.css" />
     
@@ -95,42 +99,42 @@
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.input.html">
+      <a class="reference internal" href="../../_stubs/spellbook.input.html">
        spellbook.input
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.inspect.html">
+      <a class="reference internal" href="../../_stubs/spellbook.inspect.html">
        spellbook.inspect
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot.html">
        spellbook.plot
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot1D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot1D.html">
        spellbook.plot1D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot2D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot2D.html">
        spellbook.plot2D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plotutils.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plotutils.html">
        spellbook.plotutils
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.stat.html">
+      <a class="reference internal" href="../../_stubs/spellbook.stat.html">
        spellbook.stat
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.train.html">
+      <a class="reference internal" href="../../_stubs/spellbook.train.html">
        spellbook.train
       </a>
      </li>
@@ -155,6 +159,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../tools/aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/docker.html">
+     Docker
     </a>
    </li>
    <li class="toctree-l2">
@@ -239,6 +248,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../examples/2-tensorflow-decision-forests/index.html">
    Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
 </ul>
@@ -368,7 +389,7 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 
-<div class="viewcode-block" id="encode_categories"><a class="viewcode-back" href="../../stubs/spellbook.input.html#spellbook.input.encode_categories">[docs]</a><span class="k">def</span> <span class="nf">encode_categories</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<div class="viewcode-block" id="encode_categories"><a class="viewcode-back" href="../../_stubs/spellbook.input.html#spellbook.input.encode_categories">[docs]</a><span class="k">def</span> <span class="nf">encode_categories</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Turns all string variables into categorical variables and adds columns with</span>
 <span class="sd">    the corresponding numerical values</span>
@@ -397,7 +418,7 @@
     <span class="k">return</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="oversample"><a class="viewcode-back" href="../../stubs/spellbook.input.html#spellbook.input.oversample">[docs]</a><span class="k">def</span> <span class="nf">oversample</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+<div class="viewcode-block" id="oversample"><a class="viewcode-back" href="../../_stubs/spellbook.input.html#spellbook.input.oversample">[docs]</a><span class="k">def</span> <span class="nf">oversample</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
                <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
     <span class="sd">&#39;&#39;&#39;</span>
@@ -535,7 +556,7 @@
     <span class="k">return</span><span class="p">(</span><span class="n">resampled</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="calculate_splits"><a class="viewcode-back" href="../../stubs/spellbook.input.html#spellbook.input.calculate_splits">[docs]</a><span class="k">def</span> <span class="nf">calculate_splits</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<div class="viewcode-block" id="calculate_splits"><a class="viewcode-back" href="../../_stubs/spellbook.input.html#spellbook.input.calculate_splits">[docs]</a><span class="k">def</span> <span class="nf">calculate_splits</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                      <span class="n">frac_train</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
                      <span class="n">frac_val</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                      <span class="n">n_train</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -655,7 +676,7 @@
     <span class="k">return</span><span class="p">((</span><span class="n">n_train</span><span class="p">,</span> <span class="n">n_val</span><span class="p">,</span> <span class="n">n_test</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="split_pddataframe_to_pddataframes"><a class="viewcode-back" href="../../stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_pddataframes">[docs]</a><span class="k">def</span> <span class="nf">split_pddataframe_to_pddataframes</span><span class="p">(</span>
+<div class="viewcode-block" id="split_pddataframe_to_pddataframes"><a class="viewcode-back" href="../../_stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_pddataframes">[docs]</a><span class="k">def</span> <span class="nf">split_pddataframe_to_pddataframes</span><span class="p">(</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">features</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
@@ -769,7 +790,7 @@
     <span class="k">return</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">result</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="split_pddataframe_to_nparrays"><a class="viewcode-back" href="../../stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_nparrays">[docs]</a><span class="k">def</span> <span class="nf">split_pddataframe_to_nparrays</span><span class="p">(</span>
+<div class="viewcode-block" id="split_pddataframe_to_nparrays"><a class="viewcode-back" href="../../_stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_nparrays">[docs]</a><span class="k">def</span> <span class="nf">split_pddataframe_to_nparrays</span><span class="p">(</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">features</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
@@ -883,7 +904,7 @@
     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="split_pddataframe_to_tfdatasets"><a class="viewcode-back" href="../../stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_tfdatasets">[docs]</a><span class="k">def</span> <span class="nf">split_pddataframe_to_tfdatasets</span><span class="p">(</span>
+<div class="viewcode-block" id="split_pddataframe_to_tfdatasets"><a class="viewcode-back" href="../../_stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_tfdatasets">[docs]</a><span class="k">def</span> <span class="nf">split_pddataframe_to_tfdatasets</span><span class="p">(</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">features</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
@@ -994,7 +1015,7 @@
         <span class="k">return</span><span class="p">((</span><span class="n">train</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="separate_tfdataset_to_tftensors"><a class="viewcode-back" href="../../stubs/spellbook.input.html#spellbook.input.separate_tfdataset_to_tftensors">[docs]</a><span class="k">def</span> <span class="nf">separate_tfdataset_to_tftensors</span><span class="p">(</span>
+<div class="viewcode-block" id="separate_tfdataset_to_tftensors"><a class="viewcode-back" href="../../_stubs/spellbook.input.html#spellbook.input.separate_tfdataset_to_tftensors">[docs]</a><span class="k">def</span> <span class="nf">separate_tfdataset_to_tftensors</span><span class="p">(</span>
     <span class="n">dataset</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
     <span class="sd">&#39;&#39;&#39;</span>
@@ -1051,7 +1072,7 @@
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

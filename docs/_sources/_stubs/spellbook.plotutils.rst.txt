@@ -1,0 +1,164 @@
+﻿spellbook.plotutils
+===================
+
+
+.. automodule:: spellbook.plotutils
+
+   
+
+   
+   :Functions::
+
+   .. autosummary::
+
+      
+      categorybox
+      get_data_kind
+      legend_bbox_to_anchor
+      legend_loc
+      not_yet_implemented
+      print_data_kinds
+      statsbox
+      valuebox_text
+   
+
+
+   
+   
+   
+
+
+   
+   
+
+   Functions
+   =========
+
+   
+
+   
+   
+   
+   
+   
+   *categorybox*
+   -------------
+
+   .. autofunction:: categorybox
+
+   .. _sphx_glr_backref_spellbook.plotutils.categorybox:
+
+   .. minigallery:: spellbook.plotutils.categorybox
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *get\_data\_kind*
+   -----------------
+
+   .. autofunction:: get_data_kind
+
+   .. _sphx_glr_backref_spellbook.plotutils.get_data_kind:
+
+   .. minigallery:: spellbook.plotutils.get_data_kind
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *legend\_bbox\_to\_anchor*
+   --------------------------
+
+   .. autofunction:: legend_bbox_to_anchor
+
+   .. _sphx_glr_backref_spellbook.plotutils.legend_bbox_to_anchor:
+
+   .. minigallery:: spellbook.plotutils.legend_bbox_to_anchor
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *legend\_loc*
+   -------------
+
+   .. autofunction:: legend_loc
+
+   .. _sphx_glr_backref_spellbook.plotutils.legend_loc:
+
+   .. minigallery:: spellbook.plotutils.legend_loc
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *not\_yet\_implemented*
+   -----------------------
+
+   .. autofunction:: not_yet_implemented
+
+   .. _sphx_glr_backref_spellbook.plotutils.not_yet_implemented:
+
+   .. minigallery:: spellbook.plotutils.not_yet_implemented
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *print\_data\_kinds*
+   --------------------
+
+   .. autofunction:: print_data_kinds
+
+   .. _sphx_glr_backref_spellbook.plotutils.print_data_kinds:
+
+   .. minigallery:: spellbook.plotutils.print_data_kinds
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *statsbox*
+   ----------
+
+   .. autofunction:: statsbox
+
+   .. _sphx_glr_backref_spellbook.plotutils.statsbox:
+
+   .. minigallery:: spellbook.plotutils.statsbox
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *valuebox\_text*
+   ----------------
+
+   .. autofunction:: valuebox_text
+
+   .. _sphx_glr_backref_spellbook.plotutils.valuebox_text:
+
+   .. minigallery:: spellbook.plotutils.valuebox_text
+      :add-heading: used in
+   
+   
+
+
+   
+   
+   

@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tooltip.css" />
     
@@ -97,42 +101,42 @@
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.input.html">
+      <a class="reference internal" href="../_stubs/spellbook.input.html">
        spellbook.input
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.inspect.html">
+      <a class="reference internal" href="../_stubs/spellbook.inspect.html">
        spellbook.inspect
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.plot.html">
+      <a class="reference internal" href="../_stubs/spellbook.plot.html">
        spellbook.plot
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.plot1D.html">
+      <a class="reference internal" href="../_stubs/spellbook.plot1D.html">
        spellbook.plot1D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.plot2D.html">
+      <a class="reference internal" href="../_stubs/spellbook.plot2D.html">
        spellbook.plot2D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.plotutils.html">
+      <a class="reference internal" href="../_stubs/spellbook.plotutils.html">
        spellbook.plotutils
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.stat.html">
+      <a class="reference internal" href="../_stubs/spellbook.stat.html">
        spellbook.stat
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.train.html">
+      <a class="reference internal" href="../_stubs/spellbook.train.html">
        spellbook.train
       </a>
      </li>
@@ -157,6 +161,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docker.html">
+     Docker
     </a>
    </li>
    <li class="toctree-l2">
@@ -241,6 +250,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../examples/2-tensorflow-decision-forests/index.html">
    Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
 </ul>
@@ -624,26 +645,19 @@ functions in a module</p></td>
 execute them and generate pages that display the
 notebook text and code cells and its outputs</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sphinx.ext.githubpages</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sphinx_gallery</span></code></p></td>
+<td><p>create one or more galleries of examples and plots
+from folders containing <em>Python</em> scripts and
+automatically cross-reference them from the
+source code documentation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sphinx.ext.githubpages</span></code></p></td>
 <td><p>creates <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file for GitHub Pages</p></td>
 </tr>
 </tbody>
 </table>
 <p>Built-in extensions are listed here:
 <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/index.html">https://www.sphinx-doc.org/en/master/usage/extensions/index.html</a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Despite the different extensions, it is not possible in <em>Sphinx</em> to
-automatically generate a source code documentation where each of the
-different members has a toc entry associated to it. Therefore,
-unfortunately, the source code documentation can only be scrolled
-through or searched, but it is not possible to automatically
-generate page-level tables of content pointing to the individual
-classes, functions and attributes.
-This seems to be possible in <a class="reference internal" href="mkdocs.html#mkdocs"><span class="std std-ref">MkDocs</span></a>.</p>
-<p>It is, however, possible to generate summary tables for all members
-at the top of each page using the <code class="docutils literal notranslate"><span class="pre">autodocsumm</span></code> extension.</p>
-</div>
 </div>
 <div class="section" id="text-after-roles-without-intermediate-space">
 <h3>Text After Roles Without Intermediate Space<a class="headerlink" href="#text-after-roles-without-intermediate-space" title="Permalink to this headline">¶</a></h3>
@@ -1177,7 +1191,7 @@ window. Otherwise, the plots will be centered horizontally.</p>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/roc1.png"><img alt="../_images/roc1.png" src="../_images/roc1.png" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/roc.png"><img alt="../_images/roc.png" src="../_images/roc.png" style="height: 200px;" /></a>
 </div>
 </td>
 <td><div class="figure align-default">
@@ -1224,7 +1238,7 @@ window. Otherwise, the plots will be centered horizontally.</p>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/roc1.png"><img alt="../_images/roc1.png" src="../_images/roc1.png" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/roc.png"><img alt="../_images/roc.png" src="../_images/roc.png" style="height: 200px;" /></a>
 </div>
 </td>
 </tr>
@@ -1281,7 +1295,7 @@ glossary and the index</p></li>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

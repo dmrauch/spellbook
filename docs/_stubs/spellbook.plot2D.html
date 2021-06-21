@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tooltip.css" />
     
@@ -159,6 +163,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tools/docker.html">
+     Docker
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tools/git.html">
      Git
     </a>
@@ -242,6 +251,18 @@
    Decision Forests in TensorFlow
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -322,7 +343,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/stubs/spellbook.plot2D.rst.txt"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/_stubs/spellbook.plot2D.rst.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
@@ -342,10 +363,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fstubs/spellbook.plot2D.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_stubs/spellbook.plot2D.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/stubs/spellbook.plot2D.rst"><button
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/_stubs/spellbook.plot2D.rst"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -365,6 +386,58 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorical-histogram">
+     <em>
+      categorical_histogram
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heatmap">
+     <em>
+      heatmap
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heatmap-set-annotations-fontsize">
+     <em>
+      heatmap_set_annotations_fontsize
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scatterplot">
+     <em>
+      scatterplot
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#violinplot">
+     <em>
+      violinplot
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -378,7 +451,10 @@
 <p>Lower-level functions for creating 2D / bivariate / correlation plots</p>
 <p>The high-level functions for creating plots, which make use of the functions
 in this module, can be found in <code class="xref py py-mod docutils literal notranslate"><span class="pre">plot</span></code>.</p>
-<p><strong>Functions:</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Functions:</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
@@ -402,6 +478,10 @@ in this module, can be found in <code class="xref py py-mod docutils literal not
 </tr>
 </tbody>
 </table>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="categorical-histogram">
+<h3><em>categorical_histogram</em><a class="headerlink" href="#categorical-histogram" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot2D.categorical_histogram">
 <code class="sig-prename descclassname"><span class="pre">spellbook.plot2D.</span></code><code class="sig-name descname"><span class="pre">categorical_histogram</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridindex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histogram_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot2D.html#categorical_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot2D.categorical_histogram" title="Permalink to this definition">¶</a></dt>
@@ -410,6 +490,9 @@ of the continuous x-variable for each value of the categorical y-variable</p>
 <a class="reference internal image-reference" href="../_images/categorical-histogram.png"><img alt="../_images/categorical-histogram.png" class="align-center" src="../_images/categorical-histogram.png" style="width: 500px;" /></a>
 </dd></dl>
 
+</div>
+<div class="section" id="heatmap">
+<span id="sphx-glr-backref-spellbook-plot2d-categorical-histogram"></span><h3><em>heatmap</em><a class="headerlink" href="#heatmap" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot2D.heatmap">
 <code class="sig-prename descclassname"><span class="pre">spellbook.plot2D.</span></code><code class="sig-name descname"><span class="pre">heatmap</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridindex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalisation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'count'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabels_horizontal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Blues'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heatmap_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot2D.html#heatmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot2D.heatmap" title="Permalink to this definition">¶</a></dt>
@@ -475,6 +558,9 @@ and <a class="reference external" href="https://matplotlib.org/stable/api/_as_ge
 </div>
 </dd></dl>
 
+</div>
+<div class="section" id="heatmap-set-annotations-fontsize">
+<span id="sphx-glr-backref-spellbook-plot2d-heatmap"></span><h3><em>heatmap_set_annotations_fontsize</em><a class="headerlink" href="#heatmap-set-annotations-fontsize" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot2D.heatmap_set_annotations_fontsize">
 <code class="sig-prename descclassname"><span class="pre">spellbook.plot2D.</span></code><code class="sig-name descname"><span class="pre">heatmap_set_annotations_fontsize</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot2D.html#heatmap_set_annotations_fontsize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot2D.heatmap_set_annotations_fontsize" title="Permalink to this definition">¶</a></dt>
@@ -483,7 +569,7 @@ and <a class="reference external" href="https://matplotlib.org/stable/api/_as_ge
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>) – The axes object</p></li>
-<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – The fontsize to use</p></li>
+<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – The fontsize to use</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -492,11 +578,17 @@ and <a class="reference external" href="https://matplotlib.org/stable/api/_as_ge
 </dl>
 </dd></dl>
 
+</div>
+<div class="section" id="scatterplot">
+<span id="sphx-glr-backref-spellbook-plot2d-heatmap-set-annotations-fontsize"></span><h3><em>scatterplot</em><a class="headerlink" href="#scatterplot" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot2D.scatterplot">
 <code class="sig-prename descclassname"><span class="pre">spellbook.plot2D.</span></code><code class="sig-name descname"><span class="pre">scatterplot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_scatterplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_lineplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_stats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statsbox_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot2D.html#scatterplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot2D.scatterplot" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</div>
+<div class="section" id="violinplot">
+<span id="sphx-glr-backref-spellbook-plot2d-scatterplot"></span><h3><em>violinplot</em><a class="headerlink" href="#violinplot" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot2D.violinplot">
 <code class="sig-prename descclassname"><span class="pre">spellbook.plot2D.</span></code><code class="sig-name descname"><span class="pre">violinplot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridindex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot2D.html#violinplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot2D.violinplot" title="Permalink to this definition">¶</a></dt>
@@ -505,6 +597,8 @@ of the continuous y-variable for each value of the categorical x-variable</p>
 <a class="reference internal image-reference" href="../_images/violinplot.png"><img alt="../_images/violinplot.png" class="align-center" src="../_images/violinplot.png" style="width: 500px;" /></a>
 </dd></dl>
 
+<span class="target" id="sphx-glr-backref-spellbook-plot2d-violinplot"></span></div>
+</div>
 </div>
 
 
@@ -525,7 +619,7 @@ of the continuous y-variable for each value of the categorical x-variable</p>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

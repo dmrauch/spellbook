@@ -1,0 +1,52 @@
+﻿spellbook.inspect
+=================
+
+
+.. automodule:: spellbook.inspect
+
+   
+   :Classes::
+
+   .. autosummary::
+
+      
+      PermutationImportance
+   
+
+   
+
+
+   
+   
+
+   Classes
+   =======
+
+   
+
+   
+   
+   *PermutationImportance*
+   -----------------------
+
+   .. autoclass:: PermutationImportance
+      :members:
+      :special-members: __init__, __iadd__
+      :undoc-members:
+
+   .. _sphx_glr_backref_spellbook.inspect.PermutationImportance:
+
+   .. minigallery:: spellbook.inspect.PermutationImportance
+       :add-heading: used in
+   
+   
+
+
+   
+   
+   
+
+
+   
+   
+   

@@ -1,0 +1,144 @@
+﻿spellbook.train
+===============
+
+
+.. automodule:: spellbook.train
+
+   
+   :Classes::
+
+   .. autosummary::
+
+      
+      BinaryCalibrationPlot
+      ModelSavingCallback
+      ROCPlot
+   
+
+   
+   :Functions::
+
+   .. autosummary::
+
+      
+      get_binary_labels
+      plot_history
+      plot_history_binary
+   
+
+
+   
+   
+
+   Classes
+   =======
+
+   
+
+   
+   
+   *BinaryCalibrationPlot*
+   -----------------------
+
+   .. autoclass:: BinaryCalibrationPlot
+      :members:
+      :special-members: __init__, __iadd__
+      :undoc-members:
+
+   .. _sphx_glr_backref_spellbook.train.BinaryCalibrationPlot:
+
+   .. minigallery:: spellbook.train.BinaryCalibrationPlot
+       :add-heading: used in
+
+   
+   
+   *ModelSavingCallback*
+   ---------------------
+
+   .. autoclass:: ModelSavingCallback
+      :members:
+      :special-members: __init__, __iadd__
+      :undoc-members:
+
+   .. _sphx_glr_backref_spellbook.train.ModelSavingCallback:
+
+   .. minigallery:: spellbook.train.ModelSavingCallback
+       :add-heading: used in
+
+   
+   
+   *ROCPlot*
+   ---------
+
+   .. autoclass:: ROCPlot
+      :members:
+      :special-members: __init__, __iadd__
+      :undoc-members:
+
+   .. _sphx_glr_backref_spellbook.train.ROCPlot:
+
+   .. minigallery:: spellbook.train.ROCPlot
+       :add-heading: used in
+   
+   
+
+
+   
+   
+
+   Functions
+   =========
+
+   
+
+   
+   
+   
+   
+   
+   *get\_binary\_labels*
+   ---------------------
+
+   .. autofunction:: get_binary_labels
+
+   .. _sphx_glr_backref_spellbook.train.get_binary_labels:
+
+   .. minigallery:: spellbook.train.get_binary_labels
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *plot\_history*
+   ---------------
+
+   .. autofunction:: plot_history
+
+   .. _sphx_glr_backref_spellbook.train.plot_history:
+
+   .. minigallery:: spellbook.train.plot_history
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *plot\_history\_binary*
+   -----------------------
+
+   .. autofunction:: plot_history_binary
+
+   .. _sphx_glr_backref_spellbook.train.plot_history_binary:
+
+   .. minigallery:: spellbook.train.plot_history_binary
+      :add-heading: used in
+   
+   
+
+
+   
+   
+   

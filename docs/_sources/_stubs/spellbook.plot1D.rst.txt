@@ -1,0 +1,84 @@
+﻿spellbook.plot1D
+================
+
+
+.. automodule:: spellbook.plot1D
+
+   
+
+   
+   :Functions::
+
+   .. autosummary::
+
+      
+      barchart
+      boxplot
+      histogram
+   
+
+
+   
+   
+   
+
+
+   
+   
+
+   Functions
+   =========
+
+   
+
+   
+   
+   
+   
+   
+   *barchart*
+   ----------
+
+   .. autofunction:: barchart
+
+   .. _sphx_glr_backref_spellbook.plot1D.barchart:
+
+   .. minigallery:: spellbook.plot1D.barchart
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *boxplot*
+   ---------
+
+   .. autofunction:: boxplot
+
+   .. _sphx_glr_backref_spellbook.plot1D.boxplot:
+
+   .. minigallery:: spellbook.plot1D.boxplot
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *histogram*
+   -----------
+
+   .. autofunction:: histogram
+
+   .. _sphx_glr_backref_spellbook.plot1D.histogram:
+
+   .. minigallery:: spellbook.plot1D.histogram
+      :add-heading: used in
+   
+   
+
+
+   
+   
+   

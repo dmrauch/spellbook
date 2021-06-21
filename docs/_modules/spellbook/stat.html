@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tooltip.css" />
     
@@ -95,42 +99,42 @@
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.input.html">
+      <a class="reference internal" href="../../_stubs/spellbook.input.html">
        spellbook.input
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.inspect.html">
+      <a class="reference internal" href="../../_stubs/spellbook.inspect.html">
        spellbook.inspect
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot.html">
        spellbook.plot
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot1D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot1D.html">
        spellbook.plot1D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot2D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot2D.html">
        spellbook.plot2D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plotutils.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plotutils.html">
        spellbook.plotutils
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.stat.html">
+      <a class="reference internal" href="../../_stubs/spellbook.stat.html">
        spellbook.stat
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.train.html">
+      <a class="reference internal" href="../../_stubs/spellbook.train.html">
        spellbook.train
       </a>
      </li>
@@ -155,6 +159,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../tools/aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/docker.html">
+     Docker
     </a>
    </li>
    <li class="toctree-l2">
@@ -239,6 +248,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../examples/2-tensorflow-decision-forests/index.html">
    Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
 </ul>
@@ -365,7 +386,7 @@
 <span class="kn">import</span> <span class="nn">spellbook</span> <span class="k">as</span> <span class="nn">sb</span>
 
 
-<div class="viewcode-block" id="describe"><a class="viewcode-back" href="../../stubs/spellbook.stat.html#spellbook.stat.describe">[docs]</a><span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">CL_mean</span><span class="o">=</span><span class="mi">95</span><span class="p">):</span>
+<div class="viewcode-block" id="describe"><a class="viewcode-back" href="../../_stubs/spellbook.stat.html#spellbook.stat.describe">[docs]</a><span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">CL_mean</span><span class="o">=</span><span class="mi">95</span><span class="p">):</span>
 
   <span class="n">s</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
   <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">nobs</span>
@@ -393,7 +414,7 @@
   <span class="p">})</span></div>
 
 
-<div class="viewcode-block" id="describe_text"><a class="viewcode-back" href="../../stubs/spellbook.stat.html#spellbook.stat.describe_text">[docs]</a><span class="k">def</span> <span class="nf">describe_text</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="describe_text"><a class="viewcode-back" href="../../_stubs/spellbook.stat.html#spellbook.stat.describe_text">[docs]</a><span class="k">def</span> <span class="nf">describe_text</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 
   <span class="n">stats</span> <span class="o">=</span> <span class="n">describe</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
   <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;25%&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;75%&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]</span>
@@ -423,7 +444,7 @@
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

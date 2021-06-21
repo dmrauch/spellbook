@@ -1,0 +1,164 @@
+﻿spellbook.plot
+==============
+
+
+.. automodule:: spellbook.plot
+
+   
+
+   
+   :Functions::
+
+   .. autosummary::
+
+      
+      pairplot
+      parallel_coordinates
+      plot_1D
+      plot_2D
+      plot_confusion_matrix
+      plot_grid_1D
+      plot_grid_2D
+      save
+   
+
+
+   
+   
+   
+
+
+   
+   
+
+   Functions
+   =========
+
+   
+
+   
+   
+   
+   
+   
+   *pairplot*
+   ----------
+
+   .. autofunction:: pairplot
+
+   .. _sphx_glr_backref_spellbook.plot.pairplot:
+
+   .. minigallery:: spellbook.plot.pairplot
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *parallel\_coordinates*
+   -----------------------
+
+   .. autofunction:: parallel_coordinates
+
+   .. _sphx_glr_backref_spellbook.plot.parallel_coordinates:
+
+   .. minigallery:: spellbook.plot.parallel_coordinates
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *plot\_1D*
+   ----------
+
+   .. autofunction:: plot_1D
+
+   .. _sphx_glr_backref_spellbook.plot.plot_1D:
+
+   .. minigallery:: spellbook.plot.plot_1D
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *plot\_2D*
+   ----------
+
+   .. autofunction:: plot_2D
+
+   .. _sphx_glr_backref_spellbook.plot.plot_2D:
+
+   .. minigallery:: spellbook.plot.plot_2D
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *plot\_confusion\_matrix*
+   -------------------------
+
+   .. autofunction:: plot_confusion_matrix
+
+   .. _sphx_glr_backref_spellbook.plot.plot_confusion_matrix:
+
+   .. minigallery:: spellbook.plot.plot_confusion_matrix
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *plot\_grid\_1D*
+   ----------------
+
+   .. autofunction:: plot_grid_1D
+
+   .. _sphx_glr_backref_spellbook.plot.plot_grid_1D:
+
+   .. minigallery:: spellbook.plot.plot_grid_1D
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *plot\_grid\_2D*
+   ----------------
+
+   .. autofunction:: plot_grid_2D
+
+   .. _sphx_glr_backref_spellbook.plot.plot_grid_2D:
+
+   .. minigallery:: spellbook.plot.plot_grid_2D
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *save*
+   ------
+
+   .. autofunction:: save
+
+   .. _sphx_glr_backref_spellbook.plot.save:
+
+   .. minigallery:: spellbook.plot.save
+      :add-heading: used in
+   
+   
+
+
+   
+   
+   

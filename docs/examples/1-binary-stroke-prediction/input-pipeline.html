@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tooltip.css" />
     
@@ -96,42 +100,42 @@
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.input.html">
+      <a class="reference internal" href="../../_stubs/spellbook.input.html">
        spellbook.input
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.inspect.html">
+      <a class="reference internal" href="../../_stubs/spellbook.inspect.html">
        spellbook.inspect
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot.html">
        spellbook.plot
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot1D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot1D.html">
        spellbook.plot1D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot2D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot2D.html">
        spellbook.plot2D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plotutils.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plotutils.html">
        spellbook.plotutils
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.stat.html">
+      <a class="reference internal" href="../../_stubs/spellbook.stat.html">
        spellbook.stat
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.train.html">
+      <a class="reference internal" href="../../_stubs/spellbook.train.html">
        spellbook.train
       </a>
      </li>
@@ -156,6 +160,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../tools/aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/docker.html">
+     Docker
     </a>
    </li>
    <li class="toctree-l2">
@@ -240,6 +249,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../2-tensorflow-decision-forests/index.html">
    Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
 </ul>
@@ -472,8 +493,8 @@ columns that we will later feed into the network.</p>
 <p>The corresponding code in <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.encode_categories()</span></code> looks
 like this:</p>
 <div class="margin sidebar">
-<p class="sidebar-title">from <a class="reference internal" href="../../stubs/spellbook.input.html#spellbook.input.encode_categories" title="spellbook.input.encode_categories"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.encode_categories()</span></code></a></p>
-<p>in <a class="reference internal" href="../../stubs/spellbook.input.html#module-spellbook.input" title="spellbook.input"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.input</span></code></a></p>
+<p class="sidebar-title">from <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.encode_categories" title="spellbook.input.encode_categories"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.encode_categories()</span></code></a></p>
+<p>in <a class="reference internal" href="../../_stubs/spellbook.input.html#module-spellbook.input" title="spellbook.input"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.input</span></code></a></p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">categories</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
@@ -575,8 +596,8 @@ two <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</
 <code class="xref py py-func docutils literal notranslate"><span class="pre">tensorflow.data.Dataset.from_tensor_slices()</span></code> function. Finally, the
 split is applied:</p>
 <div class="margin sidebar">
-<p class="sidebar-title">from <a class="reference internal" href="../../stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_tfdatasets" title="spellbook.input.split_pddataframe_to_tfdatasets"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.split_pddataframe_to_tfdatasets()</span></code></a></p>
-<p>in <a class="reference internal" href="../../stubs/spellbook.input.html#module-spellbook.input" title="spellbook.input"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.input</span></code></a></p>
+<p class="sidebar-title">from <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_tfdatasets" title="spellbook.input.split_pddataframe_to_tfdatasets"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.split_pddataframe_to_tfdatasets()</span></code></a></p>
+<p>in <a class="reference internal" href="../../_stubs/spellbook.input.html#module-spellbook.input" title="spellbook.input"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.input</span></code></a></p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">n_train</span><span class="p">,</span> <span class="n">n_val</span><span class="p">,</span> <span class="n">n_test</span> <span class="o">=</span> <span class="n">calculate_splits</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">frac_train</span><span class="p">,</span> <span class="n">frac_val</span><span class="p">,</span>
@@ -650,8 +671,8 @@ when calculating a confusion matrix or a <a class="reference internal" href="../
 of the predicted labels against the actual true target labels.</p>
 <p>Internally, <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.separate_tfdataset_to_tftensors()</span></code> proceeds as follows:</p>
 <div class="margin sidebar">
-<p class="sidebar-title">from <a class="reference internal" href="../../stubs/spellbook.input.html#spellbook.input.separate_tfdataset_to_tftensors" title="spellbook.input.separate_tfdataset_to_tftensors"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.separate_tfdataset_to_tftensors()</span></code></a></p>
-<p>in <a class="reference internal" href="../../stubs/spellbook.input.html#module-spellbook.input" title="spellbook.input"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.input</span></code></a></p>
+<p class="sidebar-title">from <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.separate_tfdataset_to_tftensors" title="spellbook.input.separate_tfdataset_to_tftensors"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.separate_tfdataset_to_tftensors()</span></code></a></p>
+<p>in <a class="reference internal" href="../../_stubs/spellbook.input.html#module-spellbook.input" title="spellbook.input"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.input</span></code></a></p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># unpack the feature and label tensors from the dataset</span>
 <span class="c1"># and reshape them into two separate tuples of tensors</span>
@@ -690,8 +711,8 @@ and implemented in <code class="xref py py-func docutils literal notranslate"><s
 <p>The function <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.split_pddataframe_to_nparrays()</span></code> works
 like this in principle</p>
 <div class="margin sidebar">
-<p class="sidebar-title">from <a class="reference internal" href="../../stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_nparrays" title="spellbook.input.split_pddataframe_to_nparrays"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.split_pddataframe_to_nparrays()</span></code></a></p>
-<p>in <a class="reference internal" href="../../stubs/spellbook.input.html#module-spellbook.input" title="spellbook.input"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.input</span></code></a></p>
+<p class="sidebar-title">from <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_nparrays" title="spellbook.input.split_pddataframe_to_nparrays"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.split_pddataframe_to_nparrays()</span></code></a></p>
+<p>in <a class="reference internal" href="../../_stubs/spellbook.input.html#module-spellbook.input" title="spellbook.input"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.input</span></code></a></p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">n_train</span><span class="p">]</span>
 <span class="n">val</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">n_train</span><span class="p">:]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">n_val</span><span class="p">]</span>
@@ -726,7 +747,7 @@ the call to <code class="xref py py-meth docutils literal notranslate"><span cla
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

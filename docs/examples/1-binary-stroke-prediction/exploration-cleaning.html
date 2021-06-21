@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tooltip.css" />
     
@@ -96,42 +100,42 @@
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.input.html">
+      <a class="reference internal" href="../../_stubs/spellbook.input.html">
        spellbook.input
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.inspect.html">
+      <a class="reference internal" href="../../_stubs/spellbook.inspect.html">
        spellbook.inspect
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot.html">
        spellbook.plot
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot1D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot1D.html">
        spellbook.plot1D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot2D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot2D.html">
        spellbook.plot2D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plotutils.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plotutils.html">
        spellbook.plotutils
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.stat.html">
+      <a class="reference internal" href="../../_stubs/spellbook.stat.html">
        spellbook.stat
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.train.html">
+      <a class="reference internal" href="../../_stubs/spellbook.train.html">
        spellbook.train
       </a>
      </li>
@@ -156,6 +160,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../tools/aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/docker.html">
+     Docker
     </a>
    </li>
    <li class="toctree-l2">
@@ -240,6 +249,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../2-tensorflow-decision-forests/index.html">
    Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
 </ul>
@@ -595,7 +616,7 @@ variables at hand, so let’s create these:</p>
 <p>Remember to protect <code class="docutils literal notranslate"><span class="pre">vars</span></code> by making <code class="docutils literal notranslate"><span class="pre">features</span></code> a copy of it!</p>
 <p>Finally, let’s check that <em>spellbook</em> correctly identifies each variable as
 <em>categorical</em> or <em>continuous</em>. This is used in the high-level plotting
-functions in <a class="reference internal" href="../../stubs/spellbook.plot.html#module-spellbook.plot" title="spellbook.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.plot</span></code></a> for automatically choosing the adequate
+functions in <a class="reference internal" href="../../_stubs/spellbook.plot.html#module-spellbook.plot" title="spellbook.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.plot</span></code></a> for automatically choosing the adequate
 visual representation for each variable, e.g. barcharts or histograms for
 1D/univariate plots and heatmaps, multiple horizontal histograms or
 scatterplots for 2D/bivariate/correlation plots:</p>
@@ -637,9 +658,9 @@ introduced before:</p>
 <span class="n">data</span><span class="p">,</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Individual univariate plots can be created with <a class="reference internal" href="../../stubs/spellbook.plot.html#spellbook.plot.plot_1D" title="spellbook.plot.plot_1D"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.plot_1D()</span></code></a>,
+<p>Individual univariate plots can be created with <a class="reference internal" href="../../_stubs/spellbook.plot.html#spellbook.plot.plot_1D" title="spellbook.plot.plot_1D"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.plot_1D()</span></code></a>,
 which creates and returns a <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> object, and
-<a class="reference internal" href="../../stubs/spellbook.plot.html#spellbook.plot.save" title="spellbook.plot.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.save()</span></code></a>, which saves a figure to a file:</p>
+<a class="reference internal" href="../../_stubs/spellbook.plot.html#spellbook.plot.save" title="spellbook.plot.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.save()</span></code></a>, which saves a figure to a file:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>1-plot.py</strong></p>
 <p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
@@ -688,10 +709,10 @@ one of the feature variables, <code class="docutils literal notranslate"><span c
 </tr>
 </tbody>
 </table>
-<p>The type of plot is determined automatically by <a class="reference internal" href="../../stubs/spellbook.plot.html#spellbook.plot.plot_1D" title="spellbook.plot.plot_1D"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.plot_1D()</span></code></a>
+<p>The type of plot is determined automatically by <a class="reference internal" href="../../_stubs/spellbook.plot.html#spellbook.plot.plot_1D" title="spellbook.plot.plot_1D"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.plot_1D()</span></code></a>
 according to the kind of the variable: For categorical variables,
 <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot1D.heatmap()</span></code> is called, and for continuous variables,
-<a class="reference internal" href="../../stubs/spellbook.plot1D.html#spellbook.plot1D.histogram" title="spellbook.plot1D.histogram"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot1D.histogram()</span></code></a>. The histogram comes with a few additional
+<a class="reference internal" href="../../_stubs/spellbook.plot1D.html#spellbook.plot1D.histogram" title="spellbook.plot1D.histogram"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot1D.histogram()</span></code></a>. The histogram comes with a few additional
 visual elements indicating descriptive statistics, such as the mean, median,
 standard deviation, quantiles, as well as a box in which the numerical
 values of all the statistics are given. All these elements can be switched on
@@ -869,7 +890,7 @@ in the heatmaps, and then normalised along the columns:</p>
 </table>
 <p>As you see in the code snippet, we are adjusting the fontsize in the cells of
 some of the heatmaps with the
-<a class="reference internal" href="../../stubs/spellbook.plot2D.html#spellbook.plot2D.heatmap_set_annotations_fontsize" title="spellbook.plot2D.heatmap_set_annotations_fontsize"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.heatmap_set_annotations_fontsize()</span></code></a> function.
+<a class="reference internal" href="../../_stubs/spellbook.plot2D.html#spellbook.plot2D.heatmap_set_annotations_fontsize" title="spellbook.plot2D.heatmap_set_annotations_fontsize"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.heatmap_set_annotations_fontsize()</span></code></a> function.
 In order to do this, we have to point it to the correct
 <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object. Each grid plot has one <em>axes</em> in each
 of the grid cells. Additionally, categorical histograms have one <em>axes</em>
@@ -964,7 +985,7 @@ filesize at bay. The resulting plots are shown in Figures 22 and 23:</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><div class="figure align-default" id="id11">
-<a class="reference internal image-reference" href="../../_images/pairplot-3x5.png"><img alt="../../_images/pairplot-3x5.png" src="../../_images/pairplot-3x5.png" style="height: 300px;" /></a>
+<a class="reference internal image-reference" href="../../_images/pairplot-3x51.png"><img alt="../../_images/pairplot-3x51.png" src="../../_images/pairplot-3x51.png" style="height: 300px;" /></a>
 <p class="caption"><span class="caption-text">Figure 22: 3x5 pairplot of a subset of the features</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
 </td>
@@ -997,7 +1018,7 @@ filesize at bay. The resulting plots are shown in Figures 22 and 23:</p>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

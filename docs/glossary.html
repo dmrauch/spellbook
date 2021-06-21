@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="_static/tooltip.css" />
     
@@ -98,42 +102,42 @@
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.input.html">
+      <a class="reference internal" href="_stubs/spellbook.input.html">
        spellbook.input
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.inspect.html">
+      <a class="reference internal" href="_stubs/spellbook.inspect.html">
        spellbook.inspect
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.plot.html">
+      <a class="reference internal" href="_stubs/spellbook.plot.html">
        spellbook.plot
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.plot1D.html">
+      <a class="reference internal" href="_stubs/spellbook.plot1D.html">
        spellbook.plot1D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.plot2D.html">
+      <a class="reference internal" href="_stubs/spellbook.plot2D.html">
        spellbook.plot2D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.plotutils.html">
+      <a class="reference internal" href="_stubs/spellbook.plotutils.html">
        spellbook.plotutils
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.stat.html">
+      <a class="reference internal" href="_stubs/spellbook.stat.html">
        spellbook.stat
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="stubs/spellbook.train.html">
+      <a class="reference internal" href="_stubs/spellbook.train.html">
        spellbook.train
       </a>
      </li>
@@ -158,6 +162,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="tools/aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tools/docker.html">
+     Docker
     </a>
    </li>
    <li class="toctree-l2">
@@ -242,6 +251,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="examples/2-tensorflow-decision-forests/index.html">
    Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
 </ul>
@@ -540,6 +561,21 @@ on the x-axis and the fraction of true positives on the y-axis</p></li>
 </dd>
 <dt id="term-CL">CL<a class="headerlink" href="#term-CL" title="Permalink to this term">¶</a></dt><dd><p><a class="reference internal" href="#term-confidence-level"><span class="xref std std-term">confidence level</span></a></p>
 </dd>
+<dt id="term-CNN">CNN<a class="headerlink" href="#term-CNN" title="Permalink to this term">¶</a></dt><dd><p><em>Convolutional Neural Network</em></p>
+<p>A neural network containing one or more convolutional layers.</p>
+<p>In a 2D convolutional layer, typically used for images, <span class="math notranslate nohighlight">\(n_f\)</span>
+two-dimensional filters of size <span class="math notranslate nohighlight">\(f_1 \times f_2\)</span> are slid
+across the two-dimensional data arrays of size <span class="math notranslate nohighlight">\(n_1 \times n_2\)</span>
+to create <span class="math notranslate nohighlight">\(n_f\)</span> output data arrays of size
+<span class="math notranslate nohighlight">\((n_1-f_1+1) \times (n_2-f_2+1)\)</span>. Analogous convolutional
+layers of different dimensionalities exist as well.
+Convolutional layers are often followed by pooling layers that
+aggregate neighbouring pixels or voxels by calculating their maximum
+or average.</p>
+<p>By training and adjusting the filters, the neural network can
+distill particular patterns in the data and feed them to the
+following dense layers.</p>
+</dd>
 <dt id="term-confidence-level">confidence level<a class="headerlink" href="#term-confidence-level" title="Permalink to this term">¶</a></dt><dd><p>The probability of <em>not</em> making a
 <a class="reference internal" href="#term-type-1-error"><span class="xref std std-term">type-1 error</span></a>, i.e. the probability of <em>not</em> wrongly rejecting
 the null hypothesis and therefore rightly accepting the null hypothesis.</p>
@@ -649,6 +685,18 @@ Gaussian random processes.</p></li>
 <div class="section" id="i">
 <h2>I<a class="headerlink" href="#i" title="Permalink to this headline">¶</a></h2>
 <dl class="glossary">
+<dt id="term-image-augmentation">image augmentation<a class="headerlink" href="#term-image-augmentation" title="Permalink to this term">¶</a></dt><dd><p>In <em>image augmentation</em>, transformations are applied to images
+before feeding them into a model. These transformations can serve
+to normalise the images, e.g. by rescaling them with a common
+factor, as well as to effectively increase the size of the datasets by
+applying random flips, rotations, brightness changes and other
+transformations. While these random transformations can help protect
+against <a class="reference internal" href="#term-overtraining"><span class="xref std std-term">overtraining</span></a>, they can also help the trained model
+in generalising to other images. For example, this would be the
+case with the <em>Fashion-MNIST</em> dataset which, among other types of
+clothes, contains shoes which are all pointing with their tips to
+the left.</p>
+</dd>
 <dt id="term-imbalanced-data">imbalanced data<a class="headerlink" href="#term-imbalanced-data" title="Permalink to this term">¶</a></dt><dd><p>When the data contain significantly more datapoints in one class than
 the other(s), in <a class="reference internal" href="#term-binary-classification"><span class="xref std std-term">binary classification</span></a> or
 <a class="reference internal" href="#term-multi-class-classification"><span class="xref std std-term">multi-class classification</span></a>.</p>
@@ -838,7 +886,23 @@ activated network output is also often interpreted as the probability
 of a datapoint to belong to the second class, but this interpretation
 has to be taken with a grain of salt, see <a class="reference internal" href="#term-calibration"><span class="xref std std-term">calibration</span></a>.</p>
 </dd>
-<dt id="term-softmax">softmax<a class="headerlink" href="#term-softmax" title="Permalink to this term">¶</a></dt><dd></dd>
+<dt id="term-softmax">softmax<a class="headerlink" href="#term-softmax" title="Permalink to this term">¶</a></dt><dd><p>The <em>softmax</em> function is typically used as the activation function
+in <a class="reference internal" href="#term-multi-class-classification"><span class="xref std std-term">multi-class classification</span></a> problems with one-hot
+encoded labels. It is defined as</p>
+<div class="math notranslate nohighlight">
+\[\sigma(\vec{x})_i = \frac{e^{x_i}}{\sum_{j=1}^n e^{x_j}}\]</div>
+<p>Each of the <span class="math notranslate nohighlight">\(n\)</span> target classes corresponds to one entry in
+the classification vector <span class="math notranslate nohighlight">\(\vec{x}\)</span> and the <em>softmax</em> function
+provides a mapping <span class="math notranslate nohighlight">\(\mathbb{R}^n \to [0,1]^n\)</span>. Furthermore,
+it provides a normalisation such that the activated entries of the
+classification vector sum up to unity, i.e.
+<span class="math notranslate nohighlight">\(\sum_{i=1}^n \sigma(\vec{x})_i = 1\)</span>.
+This is what is naturally expected for discreet probabilities.
+However, as long as a classifier is not calibrated, it cannot be
+guaranteed that the activated output of the last layer gives the
+probabilities for a datapoint to belong to each of the involved
+target classes.</p>
+</dd>
 <dt id="term-specificity">specificity<a class="headerlink" href="#term-specificity" title="Permalink to this term">¶</a></dt><dd><p>Defined as</p>
 <div class="math notranslate nohighlight">
 \[\text{specificity} := \frac{\text{TN}}{\text{TN} + \text{FP}}
@@ -997,7 +1061,7 @@ will generalise poorly to new data, see <a class="reference internal" href="#ter
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

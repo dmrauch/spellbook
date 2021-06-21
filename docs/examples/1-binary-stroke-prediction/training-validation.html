@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tooltip.css" />
     
@@ -98,42 +102,42 @@
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.input.html">
+      <a class="reference internal" href="../../_stubs/spellbook.input.html">
        spellbook.input
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.inspect.html">
+      <a class="reference internal" href="../../_stubs/spellbook.inspect.html">
        spellbook.inspect
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot.html">
        spellbook.plot
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot1D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot1D.html">
        spellbook.plot1D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plot2D.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plot2D.html">
        spellbook.plot2D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.plotutils.html">
+      <a class="reference internal" href="../../_stubs/spellbook.plotutils.html">
        spellbook.plotutils
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.stat.html">
+      <a class="reference internal" href="../../_stubs/spellbook.stat.html">
        spellbook.stat
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../stubs/spellbook.train.html">
+      <a class="reference internal" href="../../_stubs/spellbook.train.html">
        spellbook.train
       </a>
      </li>
@@ -158,6 +162,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../tools/aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/docker.html">
+     Docker
     </a>
    </li>
    <li class="toctree-l2">
@@ -242,6 +251,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../2-tensorflow-decision-forests/index.html">
    Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
 </ul>
@@ -551,7 +572,7 @@ same metrics on a disjoint dataset that is not used for adjusting the model
 parameters. The values of all metrics, both those calculated from the training
 set and those evaluated from the test set, are written to a <code class="docutils literal notranslate"><span class="pre">*.csv</span></code> file by
 the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/CSVLogger" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.callbacks.CSVLogger</span></code></a> callback at the end of each epoch.
-Similarly, the <a class="reference internal" href="../../stubs/spellbook.train.html#spellbook.train.ModelSavingCallback" title="spellbook.train.ModelSavingCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.train.ModelSavingCallback</span></code></a> callback saves
+Similarly, the <a class="reference internal" href="../../_stubs/spellbook.train.html#spellbook.train.ModelSavingCallback" title="spellbook.train.ModelSavingCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.train.ModelSavingCallback</span></code></a> callback saves
 the entire model including its architecture as well as all parameter values
 every 10 epochs. This can be very handy because it preserves the model and
 its state in case the training has to be cancelled.</p>
@@ -570,7 +591,7 @@ later versions.</p>
 training the model in this ‘naive’ setup using the imbalanced dataset with
 96% negative (<em>no stroke</em>) and 4% positive (<em>stroke</em>) cases.</p>
 <p>Plots showing the evolution of the binary metrics can be generated with
-<em>spellbook</em>’s <a class="reference internal" href="../../stubs/spellbook.train.html#spellbook.train.plot_history_binary" title="spellbook.train.plot_history_binary"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.train.plot_history_binary()</span></code></a> function:</p>
+<em>spellbook</em>’s <a class="reference internal" href="../../_stubs/spellbook.train.html#spellbook.train.plot_history_binary" title="spellbook.train.plot_history_binary"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.train.plot_history_binary()</span></code></a> function:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>2-stroke-prediction-naive.py</strong></p>
 <p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
@@ -618,7 +639,7 @@ obtained after some reorganisation and type conversion gymnastics:</p>
 </div>
 <p>The confusion matrix relates the predicted classes to the true classes and
 shows how often the model was accurate and in what way it erred. It can
-be plotted with the <a class="reference internal" href="../../stubs/spellbook.plot.html#spellbook.plot.plot_confusion_matrix" title="spellbook.plot.plot_confusion_matrix"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.plot_confusion_matrix()</span></code></a> function:</p>
+be plotted with the <a class="reference internal" href="../../_stubs/spellbook.plot.html#spellbook.plot.plot_confusion_matrix" title="spellbook.plot.plot_confusion_matrix"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.plot_confusion_matrix()</span></code></a> function:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>2-stroke-prediction-naive.py</strong></p>
 <p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
@@ -719,7 +740,7 @@ repeatedly sample with replacement from the minority classes to create a
 resampled minority dataset will naturally contain events multiple times and the
 oversampling factor is given by the ratio of the sizes of the majority and the
 original minority sets. Oversampling is implemented in
-<a class="reference internal" href="../../stubs/spellbook.input.html#spellbook.input.oversample" title="spellbook.input.oversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.oversample()</span></code></a> and can be applied as follows:</p>
+<a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.oversample" title="spellbook.input.oversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.oversample()</span></code></a> and can be applied as follows:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>3-stroke-prediction-oversampling.py</strong></p>
 <p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
@@ -730,8 +751,8 @@ original minority sets. Oversampling is implemented in
 </div>
 <p>Under the hood, oversampling is realised as follows:</p>
 <div class="margin sidebar">
-<p class="sidebar-title">from <a class="reference internal" href="../../stubs/spellbook.input.html#spellbook.input.oversample" title="spellbook.input.oversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.oversample()</span></code></a></p>
-<p>in <a class="reference internal" href="../../stubs/spellbook.input.html#module-spellbook.input" title="spellbook.input"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.input</span></code></a></p>
+<p class="sidebar-title">from <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.oversample" title="spellbook.input.oversample"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.oversample()</span></code></a></p>
+<p>in <a class="reference internal" href="../../_stubs/spellbook.input.html#module-spellbook.input" title="spellbook.input"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.input</span></code></a></p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the different categories</span>
 <span class="n">cats</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span>
@@ -895,7 +916,7 @@ on the x-axis, indicating how often truly negative datapoints are
 wrongly classified as positive, and the <em>True Positive Rate</em> (<a class="reference internal" href="../../glossary.html#term-TPR"><span class="xref std std-term">TPR</span></a>) on
 the y-axis, indicating what fraction of the truly positive datapoints are
 correctly classified.</p>
-<p>ROC curves are implemented in <a class="reference internal" href="../../stubs/spellbook.train.html#spellbook.train.ROCPlot" title="spellbook.train.ROCPlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.train.ROCPlot</span></code></a>.
+<p>ROC curves are implemented in <a class="reference internal" href="../../_stubs/spellbook.train.html#spellbook.train.ROCPlot" title="spellbook.train.ROCPlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.train.ROCPlot</span></code></a>.
 At the end of each training, we determine the ROC curves for the respective
 models and save them to disk using <em>Python</em>’s <em>pickle</em> mechanism:</p>
 <div class="margin sidebar">
@@ -1007,7 +1028,7 @@ sigmoid-activated output of the single node in the last network layer.</p>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

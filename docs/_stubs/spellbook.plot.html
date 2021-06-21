@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tooltip.css" />
     
@@ -159,6 +163,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tools/docker.html">
+     Docker
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tools/git.html">
      Git
     </a>
@@ -242,6 +251,18 @@
    Decision Forests in TensorFlow
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -322,7 +343,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/stubs/spellbook.plot.rst.txt"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/_stubs/spellbook.plot.rst.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
@@ -342,10 +363,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fstubs/spellbook.plot.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_stubs/spellbook.plot.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/stubs/spellbook.plot.rst"><button
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/_stubs/spellbook.plot.rst"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -365,6 +386,86 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pairplot">
+     <em>
+      pairplot
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallel-coordinates">
+     <em>
+      parallel_coordinates
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-1d">
+     <em>
+      plot_1D
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-2d">
+     <em>
+      plot_2D
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-confusion-matrix">
+     <em>
+      plot_confusion_matrix
+     </em>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#used-in">
+       used in
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-grid-1d">
+     <em>
+      plot_grid_1D
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-grid-2d">
+     <em>
+      plot_grid_2D
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#save">
+     <em>
+      save
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -376,7 +477,10 @@
   <div class="section" id="module-spellbook.plot">
 <span id="spellbook-plot"></span><h1>spellbook.plot<a class="headerlink" href="#module-spellbook.plot" title="Permalink to this headline">¶</a></h1>
 <p>High-level functions for creating and saving plots</p>
-<p><strong>Functions:</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Functions:</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
@@ -409,11 +513,15 @@
 </tr>
 </tbody>
 </table>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pairplot">
+<h3><em>pairplot</em><a class="headerlink" href="#pairplot" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot.pairplot">
 <code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">pairplot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#pairplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.pairplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a pairplot</p>
-<a class="reference internal image-reference" href="../_images/pairplot-3x51.png"><img alt="../_images/pairplot-3x51.png" class="align-center" src="../_images/pairplot-3x51.png" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/pairplot-3x5.png"><img alt="../_images/pairplot-3x5.png" class="align-center" src="../_images/pairplot-3x5.png" style="width: 700px;" /></a>
 <p>The plot does not need to contain the same variables or number of variables
 in x and y. It can be rectangular with any number of rows and any number of
 columns. The subplots with the same variable in x and y are detected
@@ -448,11 +556,14 @@ which is used to draw the histograms</p></li>
 </dl>
 </dd></dl>
 
+</div>
+<div class="section" id="parallel-coordinates">
+<span id="sphx-glr-backref-spellbook-plot-pairplot"></span><h3><em>parallel_coordinates</em><a class="headerlink" href="#parallel-coordinates" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot.parallel_coordinates">
 <code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">parallel_coordinates</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#parallel_coordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.parallel_coordinates" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parallel coordinates plot</p>
-<a class="reference internal image-reference" href="../_images/parallel-coordinates1.png"><img alt="../_images/parallel-coordinates1.png" class="align-center" src="../_images/parallel-coordinates1.png" style="height: 250px;" /></a>
+<a class="reference internal image-reference" href="../_images/parallel-coordinates.png"><img alt="../_images/parallel-coordinates.png" class="align-center" src="../_images/parallel-coordinates.png" style="height: 250px;" /></a>
 <p>Based on <a class="reference external" href="https://benalexkeen.com/parallel-coordinates-in-matplotlib/">Parallel Coordinates in Matplotlib</a>,
 but extended to also support categorical variables.</p>
 <p>For categorical variables, a random uniform shift is applied to spread
@@ -484,6 +595,9 @@ shifting categorical variables</p></li>
 </dl>
 </dd></dl>
 
+</div>
+<div class="section" id="plot-1d">
+<span id="sphx-glr-backref-spellbook-plot-parallel-coordinates"></span><h3><em>plot_1D</em><a class="headerlink" href="#plot-1d" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot.plot_1D">
 <code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">plot_1D</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">barchart_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histogram_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statsbox_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_1D" title="Permalink to this definition">¶</a></dt>
@@ -523,6 +637,9 @@ which is used to draw the plot</p></li>
 </dl>
 </dd></dl>
 
+</div>
+<div class="section" id="plot-2d">
+<span id="sphx-glr-backref-spellbook-plot-plot-1d"></span><h3><em>plot_2D</em><a class="headerlink" href="#plot-2d" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot.plot_2D">
 <code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">plot_2D</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heatmap_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">violinplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cathist_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatterplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_2D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_2D" title="Permalink to this definition">¶</a></dt>
@@ -625,9 +742,12 @@ of the two categories. Each one of the dictionaries is then passed on to
 </ul>
 </dd></dl>
 
+</div>
+<div class="section" id="plot-confusion-matrix">
+<span id="sphx-glr-backref-spellbook-plot-plot-2d"></span><h3><em>plot_confusion_matrix</em><a class="headerlink" href="#plot-confusion-matrix" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot.plot_confusion_matrix">
-<code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">plot_confusion_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">confusion_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalisation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'count'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5.8,</span> <span class="pre">5.3)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_confusion_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_confusion_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">plot_confusion_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">confusion_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalisation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'count'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5.8,</span> <span class="pre">5.3)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize_annotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_confusion_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_confusion_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a confusion matrix heatmap plot</p>
 <a class="reference internal image-reference" href="../_images/confusion-matrix-absolute.png"><img alt="../_images/confusion-matrix-absolute.png" class="align-center" src="../_images/confusion-matrix-absolute.png" style="width: 600px;" /></a>
 <p>Both the absolute frequencies as well as the relative frequencies, either
@@ -666,6 +786,10 @@ in the same position as with normalisation set to <code class="docutils literal 
 <code class="docutils literal notranslate"><span class="pre">norm-all</span></code></p></li>
 </ul>
 </p></li>
+<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – <em>Optional</em>. Baseline fontsize for all elements.
+This is probably the fontsize that <code class="docutils literal notranslate"><span class="pre">medium</span></code> corresponds to?</p></li>
+<li><p><strong>fontsize_annotations</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>]) – <em>Optional</em>. Fontsize for the annotations.
+As specified in <a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontsize" title="(in Matplotlib v3.4.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.text.Text.set_fontsize()</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -681,6 +805,16 @@ in the same position as with normalisation set to <code class="docutils literal 
 </div>
 </dd></dl>
 
+<div class="section" id="used-in">
+<span id="sphx-glr-backref-spellbook-plot-plot-confusion-matrix"></span><h4>used in<a class="headerlink" href="#used-in" title="Permalink to this headline">¶</a></h4>
+<div class="sphx-glr-thumbcontainer" tooltip="    &lt;div class=&quot;tag-list&quot;&gt;        &lt;div class=&quot;tag-cell tag-date&quot;&gt;June 21, 2021&lt;/div&gt;        &lt;di..."><div class="figure align-default" id="id2">
+<img alt="Serving *TensorFlow* Models in *Docker*" src="../_images/sphx_glr_code_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html#sphx-glr-examples-3-tensorflow-serving-docker-code-py"><span class="std std-ref">Serving TensorFlow Models in Docker</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-clear"></div></div>
+</div>
+<div class="section" id="plot-grid-1d">
+<h3><em>plot_grid_1D</em><a class="headerlink" href="#plot-grid-1d" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot.plot_grid_1D">
 <code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">plot_grid_1D</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nrows</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stats_align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binwidths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histogram_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_grid_1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_grid_1D" title="Permalink to this definition">¶</a></dt>
@@ -740,6 +874,9 @@ that are passed to <a class="reference internal" href="spellbook.plot1D.html#spe
 </div>
 </dd></dl>
 
+</div>
+<div class="section" id="plot-grid-2d">
+<span id="sphx-glr-backref-spellbook-plot-plot-grid-1d"></span><h3><em>plot_grid_2D</em><a class="headerlink" href="#plot-grid-2d" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot.plot_grid_2D">
 <code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">plot_grid_2D</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nrows</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heatmap_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">violinplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cathist_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatterplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_grid_2D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_grid_2D" title="Permalink to this definition">¶</a></dt>
@@ -794,6 +931,9 @@ a <em>continuous</em> variable on the y-axis</p></li>
 </dl>
 </dd></dl>
 
+</div>
+<div class="section" id="save">
+<span id="sphx-glr-backref-spellbook-plot-plot-grid-2d"></span><h3><em>save</em><a class="headerlink" href="#save" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.plot.save">
 <code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.save" title="Permalink to this definition">¶</a></dt>
@@ -809,6 +949,8 @@ a <em>continuous</em> variable on the y-axis</p></li>
 </dl>
 </dd></dl>
 
+<span class="target" id="sphx-glr-backref-spellbook-plot-save"></span></div>
+</div>
 </div>
 
 
@@ -829,7 +971,7 @@ a <em>continuous</em> variable on the y-axis</p></li>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

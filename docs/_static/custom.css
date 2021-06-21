@@ -283,8 +283,13 @@ div.spellbook-projects.admonition {border-left-color: var(--orange);}
     TAGS
     ---- */
 
-.tag-list {display: table-row; width: 100%;}
-.tag-cell {display: table-cell; padding: 1em 0 1em; white-space: nowrap;}
+table.tag-container {
+  border: solid 1px var(--grey-medium); display: block; padding: 0.5em 0.7em;
+}
+tr.tag-list {display: flex; flex-wrap: wrap;}
+td.tag-cell {display: table-cell; white-space: nowrap; margin: 0.7em 0;}
+div.tag-list {display: table-row; width: 100%;}
+div.tag-cell {display: table-cell; padding: 1em 0 1em; white-space: nowrap;}
 .tag-date {font-style: italic;}
 .tag-center {display: table-cell; width: 100%;}
 .tag-text {margin-right: 1em;}
@@ -304,6 +309,33 @@ a.tag.left {margin-right: 0.5em;}
 a.tag.right {margin-left: 0.5em;}
 a.tag:hover {background-color: var(--blue-medium); text-decoration: none;}
 a.tag:active {background-color: var(--orange-medium1);}
+
+#examples-searchbar {
+  /* background-image: "_static/search.png";
+  background-position: 10px 10px;
+  background-repeat: no-repeat; */
+  width: 100%;
+  padding: 0.5em 1.0em; /* 12px 20px 12px 40px */
+  border: solid 1px var(--grey-medium);
+  margin: 15px 0 12px;
+}
+/* #examples-searchbar::before {content: "\f002";} */
+
+#examples-table {
+  border-collapse: collapse;
+  display: table;
+  width: 100%;
+  border: 1px solid var(--grey-medium);
+}
+#examples-table th, #examples-table td {
+  text-align: left;
+  padding: 0.5em 1.0em; /* 12px */
+}
+#examples-table tr {
+  border-bottom: 1px solid var(--grey-medium);
+}
+#examples-table tr.header {background-color: var(--blue-medium);}
+#examples-table-body tr:hover {background-color: var(--grey-light);}
 
 
 
@@ -349,29 +381,14 @@ a.tag:active {background-color: var(--orange-medium1);}
 
 * {box-sizing: border-box;}
 
-#examples-table {
-  border-collapse: collapse;
-  display: table;
-  width: 100%;
-  border: 1px solid var(--grey-medium);
-}
-#examples-table th, #examples-table td {
-  text-align: left;
-  padding: 0.5em 1.0em; /* 12px */
-}
-#examples-table tr {
-  border-bottom: 1px solid var(--grey-medium);
-}
-#examples-table tr.header {background-color: var(--blue-medium);}
-#examples-table-body tr:hover {background-color: var(--grey-light);}
 
-#examples-searchbar {
-  /* background-image: "_static/search.png";
-  background-position: 10px 10px;
-  background-repeat: no-repeat; */
-  width: 100%;
-  padding: 0.5em 1.0em; /* 12px 20px 12px 40px */
-  border: 1px solid var(--grey-medium);
-  margin-bottom: 12px;
-}
-/* #examples-searchbar::before {content: "\f002";} */
+
+/*  -------------------------
+    Sphinx-Gallery
+    ------------------------- */
+
+div.sphx-glr-download-link-note {display: none;}
+div.sphx-glr-footer {display: none;}
+p.sphx-glr-signature {display: none;}
+div.sphx-glr-thumbcontainer::before {display: none;} /* remove the tooltips */
+div.sphx-glr-thumbcontainer::after {display: none;}  /* remove the tooltips */

@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tooltip.css" />
     
@@ -159,6 +163,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tools/docker.html">
+     Docker
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tools/git.html">
      Git
     </a>
@@ -242,6 +251,18 @@
    Decision Forests in TensorFlow
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -322,7 +343,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/stubs/spellbook.input.rst.txt"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/_stubs/spellbook.input.rst.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
@@ -342,10 +363,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fstubs/spellbook.input.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_stubs/spellbook.input.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/stubs/spellbook.input.rst"><button
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/_stubs/spellbook.input.rst"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -365,6 +386,72 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-splits">
+     <em>
+      calculate_splits
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#encode-categories">
+     <em>
+      encode_categories
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oversample">
+     <em>
+      oversample
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#separate-tfdataset-to-tftensors">
+     <em>
+      separate_tfdataset_to_tftensors
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#split-pddataframe-to-nparrays">
+     <em>
+      split_pddataframe_to_nparrays
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#split-pddataframe-to-pddataframes">
+     <em>
+      split_pddataframe_to_pddataframes
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#split-pddataframe-to-tfdatasets">
+     <em>
+      split_pddataframe_to_tfdatasets
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -376,7 +463,10 @@
   <div class="section" id="module-spellbook.input">
 <span id="spellbook-input"></span><h1>spellbook.input<a class="headerlink" href="#module-spellbook.input" title="Permalink to this headline">¶</a></h1>
 <p>Functions for handling and preprocessing input data</p>
-<p><strong>Functions:</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Functions:</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
@@ -406,6 +496,10 @@
 </tr>
 </tbody>
 </table>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="calculate-splits">
+<h3><em>calculate_splits</em><a class="headerlink" href="#calculate-splits" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.input.calculate_splits">
 <code class="sig-prename descclassname"><span class="pre">spellbook.input.</span></code><code class="sig-name descname"><span class="pre">calculate_splits</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/input.html#calculate_splits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.input.calculate_splits" title="Permalink to this definition">¶</a></dt>
@@ -483,6 +577,9 @@ test: 150
 </ul>
 </dd></dl>
 
+</div>
+<div class="section" id="encode-categories">
+<span id="sphx-glr-backref-spellbook-input-calculate-splits"></span><h3><em>encode_categories</em><a class="headerlink" href="#encode-categories" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.input.encode_categories">
 <code class="sig-prename descclassname"><span class="pre">spellbook.input.</span></code><code class="sig-name descname"><span class="pre">encode_categories</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/input.html#encode_categories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.input.encode_categories" title="Permalink to this definition">¶</a></dt>
@@ -503,6 +600,9 @@ codes as the keys and the category names/labels as the values</p>
 </dl>
 </dd></dl>
 
+</div>
+<div class="section" id="oversample">
+<span id="sphx-glr-backref-spellbook-input-encode-categories"></span><h3><em>oversample</em><a class="headerlink" href="#oversample" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.input.oversample">
 <code class="sig-prename descclassname"><span class="pre">spellbook.input.</span></code><code class="sig-name descname"><span class="pre">oversample</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/input.html#oversample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.input.oversample" title="Permalink to this definition">¶</a></dt>
@@ -596,6 +696,9 @@ with the same number of datapoints</p>
 </div>
 </dd></dl>
 
+</div>
+<div class="section" id="separate-tfdataset-to-tftensors">
+<span id="sphx-glr-backref-spellbook-input-oversample"></span><h3><em>separate_tfdataset_to_tftensors</em><a class="headerlink" href="#separate-tfdataset-to-tftensors" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.input.separate_tfdataset_to_tftensors">
 <code class="sig-prename descclassname"><span class="pre">spellbook.input.</span></code><code class="sig-name descname"><span class="pre">separate_tfdataset_to_tftensors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/input.html#separate_tfdataset_to_tftensors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.input.separate_tfdataset_to_tftensors" title="Permalink to this definition">¶</a></dt>
@@ -617,6 +720,9 @@ tensors for the features and the labels:
 </dl>
 </dd></dl>
 
+</div>
+<div class="section" id="split-pddataframe-to-nparrays">
+<span id="sphx-glr-backref-spellbook-input-separate-tfdataset-to-tftensors"></span><h3><em>split_pddataframe_to_nparrays</em><a class="headerlink" href="#split-pddataframe-to-nparrays" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.input.split_pddataframe_to_nparrays">
 <code class="sig-prename descclassname"><span class="pre">spellbook.input.</span></code><code class="sig-name descname"><span class="pre">split_pddataframe_to_nparrays</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/input.html#split_pddataframe_to_nparrays"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.input.split_pddataframe_to_nparrays" title="Permalink to this definition">¶</a></dt>
@@ -702,6 +808,9 @@ val_labels: &lt;class &#39;numpy.ndarray&#39;&gt; (30,)
 </ul>
 </dd></dl>
 
+</div>
+<div class="section" id="split-pddataframe-to-pddataframes">
+<span id="sphx-glr-backref-spellbook-input-split-pddataframe-to-nparrays"></span><h3><em>split_pddataframe_to_pddataframes</em><a class="headerlink" href="#split-pddataframe-to-pddataframes" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.input.split_pddataframe_to_pddataframes">
 <code class="sig-prename descclassname"><span class="pre">spellbook.input.</span></code><code class="sig-name descname"><span class="pre">split_pddataframe_to_pddataframes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/input.html#split_pddataframe_to_pddataframes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.input.split_pddataframe_to_pddataframes" title="Permalink to this definition">¶</a></dt>
@@ -787,6 +896,9 @@ val_labels: &lt;class &#39;pandas.core.series.Series&#39;&gt; (30,)
 </ul>
 </dd></dl>
 
+</div>
+<div class="section" id="split-pddataframe-to-tfdatasets">
+<span id="sphx-glr-backref-spellbook-input-split-pddataframe-to-pddataframes"></span><h3><em>split_pddataframe_to_tfdatasets</em><a class="headerlink" href="#split-pddataframe-to-tfdatasets" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.input.split_pddataframe_to_tfdatasets">
 <code class="sig-prename descclassname"><span class="pre">spellbook.input.</span></code><code class="sig-name descname"><span class="pre">split_pddataframe_to_tfdatasets</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/input.html#split_pddataframe_to_tfdatasets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.input.split_pddataframe_to_tfdatasets" title="Permalink to this definition">¶</a></dt>
@@ -872,6 +984,8 @@ val: &lt;class &#39;tensorflow.python.data.ops.dataset_ops.TakeDataset&#39;&gt; 
 </ul>
 </dd></dl>
 
+<span class="target" id="sphx-glr-backref-spellbook-input-split-pddataframe-to-tfdatasets"></span></div>
+</div>
 </div>
 
 
@@ -892,7 +1006,7 @@ val: &lt;class &#39;tensorflow.python.data.ops.dataset_ops.TakeDataset&#39;&gt; 
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

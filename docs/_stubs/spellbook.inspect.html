@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tooltip.css" />
     
@@ -159,6 +163,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tools/docker.html">
+     Docker
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tools/git.html">
      Git
     </a>
@@ -242,6 +251,18 @@
    Decision Forests in TensorFlow
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -322,7 +343,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/stubs/spellbook.inspect.rst.txt"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/_stubs/spellbook.inspect.rst.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
@@ -342,10 +363,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fstubs/spellbook.inspect.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_stubs/spellbook.inspect.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/stubs/spellbook.inspect.rst"><button
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/_stubs/spellbook.inspect.rst"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -365,6 +386,30 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classes">
+   Classes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#permutationimportance">
+     <em>
+      PermutationImportance
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -376,7 +421,10 @@
   <div class="section" id="module-spellbook.inspect">
 <span id="spellbook-inspect"></span><h1>spellbook.inspect<a class="headerlink" href="#module-spellbook.inspect" title="Permalink to this headline">¶</a></h1>
 <p>Functions for model inspection</p>
-<p><strong>Classes:</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Classes:</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
@@ -388,6 +436,10 @@
 </tr>
 </tbody>
 </table>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="permutationimportance">
+<h3><em>PermutationImportance</em><a class="headerlink" href="#permutationimportance" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt id="spellbook.inspect.PermutationImportance">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">spellbook.inspect.</span></code><code class="sig-name descname"><span class="pre">PermutationImportance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repeats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tfdf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/inspect.html#PermutationImportance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.inspect.PermutationImportance" title="Permalink to this definition">¶</a></dt>
@@ -557,6 +609,8 @@ their permutation importance</p>
 
 </dd></dl>
 
+<span class="target" id="sphx-glr-backref-spellbook-inspect-permutationimportance"></span></div>
+</div>
 </div>
 
 
@@ -577,7 +631,7 @@ their permutation importance</p>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

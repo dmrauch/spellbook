@@ -1,0 +1,68 @@
+﻿spellbook.stat
+==============
+
+
+.. automodule:: spellbook.stat
+
+   
+
+   
+   :Functions::
+
+   .. autosummary::
+
+      
+      describe
+      describe_text
+   
+
+
+   
+   
+   
+
+
+   
+   
+
+   Functions
+   =========
+
+   
+
+   
+   
+   
+   
+   
+   *describe*
+   ----------
+
+   .. autofunction:: describe
+
+   .. _sphx_glr_backref_spellbook.stat.describe:
+
+   .. minigallery:: spellbook.stat.describe
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *describe\_text*
+   ----------------
+
+   .. autofunction:: describe_text
+
+   .. _sphx_glr_backref_spellbook.stat.describe_text:
+
+   .. minigallery:: spellbook.stat.describe_text
+      :add-heading: used in
+   
+   
+
+
+   
+   
+   

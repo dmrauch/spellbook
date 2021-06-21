@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tooltip.css" />
     
@@ -96,42 +100,42 @@
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.input.html">
+      <a class="reference internal" href="../_stubs/spellbook.input.html">
        spellbook.input
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.inspect.html">
+      <a class="reference internal" href="../_stubs/spellbook.inspect.html">
        spellbook.inspect
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.plot.html">
+      <a class="reference internal" href="../_stubs/spellbook.plot.html">
        spellbook.plot
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.plot1D.html">
+      <a class="reference internal" href="../_stubs/spellbook.plot1D.html">
        spellbook.plot1D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.plot2D.html">
+      <a class="reference internal" href="../_stubs/spellbook.plot2D.html">
        spellbook.plot2D
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.plotutils.html">
+      <a class="reference internal" href="../_stubs/spellbook.plotutils.html">
        spellbook.plotutils
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.stat.html">
+      <a class="reference internal" href="../_stubs/spellbook.stat.html">
        spellbook.stat
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../stubs/spellbook.train.html">
+      <a class="reference internal" href="../_stubs/spellbook.train.html">
        spellbook.train
       </a>
      </li>
@@ -156,6 +160,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../tools/aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/docker.html">
+     Docker
     </a>
    </li>
    <li class="toctree-l2">
@@ -240,6 +249,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="2-tensorflow-decision-forests/index.html">
    Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
 </ul>
@@ -375,23 +396,6 @@
                 
   <div class="section" id="projects-tutorials">
 <h1>Projects &amp; Tutorials<a class="headerlink" href="#projects-tutorials" title="Permalink to this headline">¶</a></h1>
-<div class="tag-list">
-   <div class="tag-cell">
-      <a class="tag left" href="../search.html?q=tags+binary+classification">
-         binary classification</a>
-      <a class="tag left" href="../search.html?q=tags+gradient+boosted+trees">
-         gradient boosted trees</a>
-      <a class="tag left" href="../search.html?q=tags+decision+forest">
-         decision forest</a>
-      <a class="tag left" href="../search.html?q=tags+imbalanced+data">
-         imbalanced data</a>
-      <a class="tag left" href="../search.html?q=tags+oversampling">
-         oversampling</a>
-      <a class="tag left" href="../search.html?q=tags+supervised+learning">
-         supervised learning</a>
-   </div>
-</div><div class="spellbook-admonition-orange admonition">
-<p class="admonition-title">Table of Contents</p>
 <!--
     - manual filter/search table in JavaScript
       https://www.w3schools.com/howto/howto_js_filter_table.asp
@@ -400,17 +404,65 @@
 -->
 <script>
 $(document).ready(function(){
-  $("#examples-searchbar").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#examples-table-body tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    $("#examples-searchbar").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#examples-table-body tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
     });
-  });
 });
 </script>
-<br>
-<input id="examples-searchbar" placeholder="Search.."> <!-- type="text" -->
 
+<table class="tag-container">
+    <tr class="tag-list">
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+binary+classification">
+                binary classification</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+CNN">
+                CNN</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+decision+forest">
+                decision forest</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+Docker">
+                Docker</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+gradient+boosted+trees">
+                gradient boosted trees</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+image+augmentation">
+                image augmentation</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+image+classification">
+                image classification</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+imbalanced+data">
+                imbalanced data</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+multi+class+classification">
+                multi-class classification</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+oversampling">
+                oversampling</a>
+        </td>
+        <td class="tag-cell">
+            <a class="tag left" href="../search.html?q=tags+supervised+learning">
+                supervised learning</a>
+        </td>
+    </tr>
+</table>
+
+<input id="examples-searchbar" placeholder="Search.."> <!-- type="text" -->
 
 <table id="examples-table" class=”sortable”>
     <thead>
@@ -431,9 +483,13 @@ $(document).ready(function(){
             <td><a href="2-tensorflow-decision-forests/index.html">Random Forests and Gradient Boosted Trees in TensorFlow</a></td>
             <td>June 16, 2021</td>
         </tr>
+        <tr>
+            <td>3</td>
+            <td><a href="../_examples/3-tensorflow-serving-docker/code.html">Serving TensorFlow Models in Docker</a></td>
+            <td>June 21, 2021</td>
+        </tr>
     </tbody>
 </table>
-</div>
 </div>
 
 
@@ -454,7 +510,7 @@ $(document).ready(function(){
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

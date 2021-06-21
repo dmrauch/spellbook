@@ -1,0 +1,116 @@
+﻿spellbook.plot2D
+================
+
+
+.. automodule:: spellbook.plot2D
+
+   
+
+   
+   :Functions::
+
+   .. autosummary::
+
+      
+      categorical_histogram
+      heatmap
+      heatmap_set_annotations_fontsize
+      scatterplot
+      violinplot
+   
+
+
+   
+   
+   
+
+
+   
+   
+
+   Functions
+   =========
+
+   
+
+   
+   
+   
+   
+   
+   *categorical\_histogram*
+   ------------------------
+
+   .. autofunction:: categorical_histogram
+
+   .. _sphx_glr_backref_spellbook.plot2D.categorical_histogram:
+
+   .. minigallery:: spellbook.plot2D.categorical_histogram
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *heatmap*
+   ---------
+
+   .. autofunction:: heatmap
+
+   .. _sphx_glr_backref_spellbook.plot2D.heatmap:
+
+   .. minigallery:: spellbook.plot2D.heatmap
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *heatmap\_set\_annotations\_fontsize*
+   -------------------------------------
+
+   .. autofunction:: heatmap_set_annotations_fontsize
+
+   .. _sphx_glr_backref_spellbook.plot2D.heatmap_set_annotations_fontsize:
+
+   .. minigallery:: spellbook.plot2D.heatmap_set_annotations_fontsize
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *scatterplot*
+   -------------
+
+   .. autofunction:: scatterplot
+
+   .. _sphx_glr_backref_spellbook.plot2D.scatterplot:
+
+   .. minigallery:: spellbook.plot2D.scatterplot
+      :add-heading: used in
+
+   
+   
+   
+   
+   
+   *violinplot*
+   ------------
+
+   .. autofunction:: violinplot
+
+   .. _sphx_glr_backref_spellbook.plot2D.violinplot:
+
+   .. minigallery:: spellbook.plot2D.violinplot
+      :add-heading: used in
+   
+   
+
+
+   
+   
+   

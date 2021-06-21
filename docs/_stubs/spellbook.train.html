@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tooltip.css" />
     
@@ -159,6 +163,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tools/docker.html">
+     Docker
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tools/git.html">
      Git
     </a>
@@ -242,6 +251,18 @@
    Decision Forests in TensorFlow
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -322,7 +343,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/stubs/spellbook.train.rst.txt"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/_stubs/spellbook.train.rst.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
@@ -342,10 +363,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fstubs/spellbook.train.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_stubs/spellbook.train.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/stubs/spellbook.train.rst"><button
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/_stubs/spellbook.train.rst"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -365,6 +386,79 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classes">
+   Classes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binarycalibrationplot">
+     <em>
+      BinaryCalibrationPlot
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelsavingcallback">
+     <em>
+      ModelSavingCallback
+     </em>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#used-in">
+       used in
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rocplot">
+     <em>
+      ROCPlot
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-binary-labels">
+     <em>
+      get_binary_labels
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-history">
+     <em>
+      plot_history
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-history-binary">
+     <em>
+      plot_history_binary
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -376,7 +470,10 @@
   <div class="section" id="module-spellbook.train">
 <span id="spellbook-train"></span><h1>spellbook.train<a class="headerlink" href="#module-spellbook.train" title="Permalink to this headline">¶</a></h1>
 <p>Functions for model training and validation</p>
-<p><strong>Classes:</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Classes:</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
@@ -394,7 +491,10 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Functions:</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Functions:</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
@@ -412,6 +512,10 @@
 </tr>
 </tbody>
 </table>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="binarycalibrationplot">
+<h3><em>BinaryCalibrationPlot</em><a class="headerlink" href="#binarycalibrationplot" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt id="spellbook.train.BinaryCalibrationPlot">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">spellbook.train.</span></code><code class="sig-name descname"><span class="pre">BinaryCalibrationPlot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_hist_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_yscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#BinaryCalibrationPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot" title="Permalink to this definition">¶</a></dt>
@@ -532,6 +636,9 @@ histograms of the predictions</p>
 
 </dd></dl>
 
+</div>
+<div class="section" id="modelsavingcallback">
+<span id="sphx-glr-backref-spellbook-train-binarycalibrationplot"></span><h3><em>ModelSavingCallback</em><a class="headerlink" href="#modelsavingcallback" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt id="spellbook.train.ModelSavingCallback">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">spellbook.train.</span></code><code class="sig-name descname"><span class="pre">ModelSavingCallback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">foldername</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'model'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ModelSavingCallback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ModelSavingCallback" title="Permalink to this definition">¶</a></dt>
@@ -614,12 +721,22 @@ method but that may change in the future.</p>
 
 </dd></dl>
 
+<div class="section" id="used-in">
+<span id="sphx-glr-backref-spellbook-train-modelsavingcallback"></span><h4>used in<a class="headerlink" href="#used-in" title="Permalink to this headline">¶</a></h4>
+<div class="sphx-glr-thumbcontainer" tooltip="    &lt;div class=&quot;tag-list&quot;&gt;        &lt;div class=&quot;tag-cell tag-date&quot;&gt;June 21, 2021&lt;/div&gt;        &lt;di..."><div class="figure align-default" id="id1">
+<img alt="Serving *TensorFlow* Models in *Docker*" src="../_images/sphx_glr_code_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html#sphx-glr-examples-3-tensorflow-serving-docker-code-py"><span class="std std-ref">Serving TensorFlow Models in Docker</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-clear"></div></div>
+</div>
+<div class="section" id="rocplot">
+<h3><em>ROCPlot</em><a class="headerlink" href="#rocplot" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt id="spellbook.train.ROCPlot">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">spellbook.train.</span></code><code class="sig-name descname"><span class="pre">ROCPlot</span></code><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot containing Receiver Operator Characteristic (ROC) curves and working
 points (WP)</p>
-<a class="reference internal image-reference" href="../_images/roc1.png"><img alt="../_images/roc1.png" class="align-center" src="../_images/roc1.png" style="width: 550px;" /></a>
+<a class="reference internal image-reference" href="../_images/roc.png"><img alt="../_images/roc.png" class="align-center" src="../_images/roc.png" style="width: 550px;" /></a>
 <p><strong>Methods:</strong></p>
 <table class="longtable table autosummary">
 <colgroup>
@@ -936,6 +1053,12 @@ plot including one or more curves and working points</p>
 
 </dd></dl>
 
+</div>
+</div>
+<div class="section" id="functions">
+<span id="sphx-glr-backref-spellbook-train-rocplot"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-binary-labels">
+<h3><em>get_binary_labels</em><a class="headerlink" href="#get-binary-labels" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.train.get_binary_labels">
 <code class="sig-prename descclassname"><span class="pre">spellbook.train.</span></code><code class="sig-name descname"><span class="pre">get_binary_labels</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#get_binary_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.get_binary_labels" title="Permalink to this definition">¶</a></dt>
@@ -990,6 +1113,9 @@ is above the threshold to the second/positive class</p></li>
 </div>
 </dd></dl>
 
+</div>
+<div class="section" id="plot-history">
+<span id="sphx-glr-backref-spellbook-train-get-binary-labels"></span><h3><em>plot_history</em><a class="headerlink" href="#plot-history" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.train.plot_history">
 <code class="sig-prename descclassname"><span class="pre">spellbook.train.</span></code><code class="sig-name descname"><span class="pre">plot_history</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['loss',</span> <span class="pre">'val_loss']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['training</span> <span class="pre">loss',</span> <span class="pre">'validation</span> <span class="pre">loss']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['l',</span> <span class="pre">'l']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaling_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[1.0,</span> <span class="pre">1.0]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['.3f',</span> <span class="pre">'.3f']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['',</span> <span class="pre">'']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">titles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[None]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['loss']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['accuracy']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_positions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['bl']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#plot_history"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.plot_history" title="Permalink to this definition">¶</a></dt>
@@ -1052,6 +1178,9 @@ grid of plots</p>
 </dl>
 </dd></dl>
 
+</div>
+<div class="section" id="plot-history-binary">
+<span id="sphx-glr-backref-spellbook-train-plot-history"></span><h3><em>plot_history_binary</em><a class="headerlink" href="#plot-history-binary" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="spellbook.train.plot_history_binary">
 <code class="sig-prename descclassname"><span class="pre">spellbook.train.</span></code><code class="sig-name descname"><span class="pre">plot_history_binary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'history-binary'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#plot_history_binary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.plot_history_binary" title="Permalink to this definition">¶</a></dt>
@@ -1105,6 +1234,8 @@ from a <code class="docutils literal notranslate"><span class="pre">*.csv</span>
 </dl>
 </dd></dl>
 
+<span class="target" id="sphx-glr-backref-spellbook-train-plot-history-binary"></span></div>
+</div>
 </div>
 
 
@@ -1125,7 +1256,7 @@ from a <code class="docutils literal notranslate"><span class="pre">*.csv</span>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 16, 2021.<br/>
+          Last updated on June 22, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
