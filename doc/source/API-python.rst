@@ -4,7 +4,7 @@ Python
 .. currentmodule:: spellbook
 
 .. autosummary::
-   :toctree: stubs
+   :toctree: _stubs
 
    spellbook.input
    spellbook.inspect

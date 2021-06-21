@@ -380,3 +380,15 @@ a.tag:active {background-color: var(--orange-medium1);}
 
 
 * {box-sizing: border-box;}
+
+
+
+/*  -------------------------
+    Sphinx-Gallery
+    ------------------------- */
+
+div.sphx-glr-download-link-note {display: none;}
+div.sphx-glr-footer {display: none;}
+p.sphx-glr-signature {display: none;}
+div.sphx-glr-thumbcontainer::before {display: none;} /* remove the tooltips */
+div.sphx-glr-thumbcontainer::after {display: none;}  /* remove the tooltips */

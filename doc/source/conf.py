@@ -46,6 +46,7 @@ extensions = [
     'autodocsumm', # automatic summary tables at the top of each page
     'sphinx_autodoc_typehints', # automatic documentation of typehints,
                                 # must come *after* 'sphinx.ext.napoleon'
+    'sphinx_gallery.gen_gallery',
     'nbsphinx',
     # 'sphinx_thebe',
     'sphinx.ext.githubpages', # creates .nojekyll file for GitHub Pages
@@ -180,4 +181,20 @@ intersphinx_mapping = {
         'https://www.tensorflow.org/api_docs/python',
         'https://raw.githubusercontent.com/GPflow/tensorflow-intersphinx/master/tf2_py_objects.inv'
     )
+}
+
+
+sphinx_gallery_conf = {
+    'examples_dirs': 'examples', # path to your example scripts
+    'gallery_dirs': '_examples',   # path to where to save gallery generated output
+    'download_all_examples': False,
+
+    'filename_pattern': '/', # execute all files
+    'ignore_pattern': 'helpers',
+
+    # directory where function/class granular galleries are stored
+    'backreferences_dir': '_stubs/backreferences',
+
+    # modules for which function/class level galleries are created
+    'doc_module': ('spellbook')
 }

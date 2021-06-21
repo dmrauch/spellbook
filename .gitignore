@@ -3,7 +3,8 @@
 
 spellbook.code-workspace
 
-/doc/source/stubs
+/doc/source/_examples
+/doc/source/_stubs
 /doc/build
 /examples
 /.vscode
