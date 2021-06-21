@@ -10,19 +10,14 @@ dependencies:
  - ipykernel # run jupyter notebooks
 # - notebook
  - matplotlib
-#  - mkdocs>=1.1.2
-#  - mkdocstrings
-#  - mkdocs-material
-#  - opencv
  - seaborn
 # - pydot
 # - graphviz
  - sphinx =3.5.4 # margin/sidebar in sphinx-book-theme don't work in sphinx 4
-# - sphinx_rtd_theme
  - sphinx-book-theme >= 0.0.41
-# - pydata-sphinx-theme >= 0.6.3
  - sphinx-tabs 
  - autodocsumm
  - sphinx-autodoc-typehints # sphinx: typehints derived from signature
+ - sphinx-gallery
  - nbsphinx
  - beautifulsoup4 # HTML parsing and web scraping
