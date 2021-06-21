@@ -48,7 +48,8 @@ extensions = [
                                 # must come *after* 'sphinx.ext.napoleon'
     'nbsphinx',
     # 'sphinx_thebe',
-    'sphinx.ext.githubpages' # creates .nojekyll file for GitHub Pages
+    'sphinx.ext.githubpages', # creates .nojekyll file for GitHub Pages
+    'doc.source._ext.code' # provides custom directive 'code-output'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
