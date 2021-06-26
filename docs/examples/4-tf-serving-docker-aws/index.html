@@ -1,0 +1,890 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TensorFlow Serving with Docker on AWS &#8212; spellbook</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tooltip.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script defer="defer" src="../../_static/tooltip.js"></script>
+    <script src="../../_static/glossary.json"></script>
+    <link rel="shortcut icon" href="../../_static/spellbook-icon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Links &amp; Literature" href="../../literature.html" />
+    <link rel="prev" title="Serving TensorFlow Models in Docker" href="../../_examples/3-tensorflow-serving-docker/code.html" />
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/spellbook-logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">spellbook</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search" aria-label="Search" autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  The spellbook Library
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../API.html">
+   Source Code Reference
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../API-python.html">
+     Python
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.input.html">
+       spellbook.input
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.inspect.html">
+       spellbook.inspect
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.plot.html">
+       spellbook.plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.plot1D.html">
+       spellbook.plot1D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.plot2D.html">
+       spellbook.plot2D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.plotutils.html">
+       spellbook.plotutils
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.stat.html">
+       spellbook.stat
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.train.html">
+       spellbook.train
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../tools.html">
+   Tools and Technologies
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/anaconda.html">
+     Anaconda / Conda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/aws.html">
+     AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/docker.html">
+     Docker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/git.html">
+     Git
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/mkdocs.html">
+     MkDocs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/python.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/sphinx.html">
+     Sphinx
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../tools/tf.html">
+     TensorFlow
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tools/tf-save.html">
+       Saving and Loading Models
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/vscode.html">
+     Visual Studio Code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Projects &amp; Tutorials
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../1-binary-stroke-prediction/index.html">
+   Binary Classification: Stroke Prediction
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-binary-stroke-prediction/exploration-cleaning.html">
+     Data Exploration and Cleaning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-binary-stroke-prediction/input-pipeline.html">
+     Data Preparation and Input Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-binary-stroke-prediction/training-validation.html">
+     Model Training and Validation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2-tensorflow-decision-forests/index.html">
+   Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   <em>
+    TensorFlow Serving
+   </em>
+   with
+   <em>
+    Docker
+   </em>
+   on
+   <em>
+    AWS
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Extras
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../literature.html">
+   Links &amp; Literature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+<div class="navbar_extra_footer">
+    <table style="margin-top:2.0rem;">
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://github.com/dmrauch">
+                    <img src="../../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
+                </a>
+            </td>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://github.com/dmrauch">GitHub</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://www.linkedin.com/in/dmrauch/">
+                    <img src="../../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
+                </a>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/examples/4-tf-serving-docker-aws/index.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fexamples/4-tf-serving-docker-aws/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/examples/4-tf-serving-docker-aws/index.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deploying-on-amazon-ec2">
+   Deploying on
+   <em>
+    Amazon EC2
+   </em>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparations">
+     Preparations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#storage-encryption-by-default">
+       Storage Encryption by Default
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creating-an-iam-user">
+       Creating an
+       <em>
+        IAM
+       </em>
+       User
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#installing-the-aws-cli">
+       Installing the
+       <em>
+        AWS CLI
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uploading-the-docker-image-to-ecr">
+     Uploading the
+     <em>
+      Docker
+     </em>
+     Image to
+     <em>
+      ECR
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#serving-the-model-on-ec2">
+     Serving the Model on
+     <em>
+      EC2
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tensorflow-serving-with-docker-on-aws">
+<h1><em>TensorFlow Serving</em> with <em>Docker</em> on <em>AWS</em><a class="headerlink" href="#tensorflow-serving-with-docker-on-aws" title="Permalink to this headline">¶</a></h1>
+<div class="tag-list">
+<div class="tag-cell tag-date">June 26, 2021</div>
+<div class="tag-cell tag-center"></div>
+<div class="tag-cell tag-right">
+   <span class="tag-text">tags:</span>
+   <a class="tag right" href="../../search.html?q=tags+AWS">
+      AWS</a>
+   <a class="tag right" href="../../search.html?q=tags+Docker">
+      Docker</a>
+   <a class="tag right" href="../../search.html?q=tags+EC2">
+      EC2</a>
+   <a class="tag right" href="../../search.html?q=tags+ECR">
+      ECR</a>
+</div>
+</div><div class="spellbook-admonition-orange admonition">
+<p class="admonition-title">In this project/tutorial, we will</p>
+<ul class="simple">
+<li><p>Deploy a <strong>TensorFlow</strong> model on <strong>AWS</strong> and serve it with
+<strong>TensorFlow Serving</strong> in a <strong>Docker container</strong></p></li>
+</ul>
+</div>
+<p>The source code file for this tutorial are located in
+<code class="docutils literal notranslate"><span class="pre">examples/4-tensorflow-serving-docker-aws/</span></code>.</p>
+<div class="section" id="deploying-on-amazon-ec2">
+<h2>Deploying on <em>Amazon EC2</em><a class="headerlink" href="#deploying-on-amazon-ec2" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, we will take the containerised example <em>TensorFlow</em> model
+from the previous tutorial <a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html"><span class="doc">Serving TensorFlow Models in Docker</span></a>
+and deploy it on <em>Amazon EC2</em>. To achieve this, we will</p>
+<ul class="simple">
+<li><p>create an <em>AWS Identity &amp; Access Management</em> (<a class="reference internal" href="../../glossary.html#term-IAM"><span class="xref std std-term">IAM</span></a>)
+user with the required permission policies</p></li>
+<li><p>install the <em>AWS Command Line Interface</em> (CLI)</p></li>
+<li><p>upload our <em>Docker</em> image to Amazon <em>Elastic Container Registry</em>
+(<a class="reference internal" href="../../glossary.html#term-ECR"><span class="xref std std-term">ECR</span></a>)</p></li>
+<li><p>create a virtual server based on one of the <em>Deep Learning AMIs</em> on
+Amazon <em>Elastic Cloud Compute</em> (<a class="reference internal" href="../../glossary.html#term-EC2"><span class="xref std std-term">EC2</span></a>)</p></li>
+<li><p>pull the <em>Docker</em> images from <em>ECR</em> to the server instance and run it there</p></li>
+<li><p>expose the server instance to the internet for answering HTTP
+prediction requests via <em>TensorFlow Serving</em>’s REST API</p></li>
+</ul>
+<p>The <em>Deep Learning AMIs</em> are container images with a range of machine learning
+frameworks and tools installed, including <em>TensorFlow</em>, <em>PyTorch</em> and
+<em>Apache MXNet</em>.</p>
+<p>In this tutorial, we will issue commands both from our host machine
+terminal as well as the terminal of virtual servers running on <em>EC2</em>
+in the Amazon cloud. To mark the difference, the commands for the local
+machine are prepended with <code class="docutils literal notranslate"><span class="pre">$</span></code>, while the commands to be run on the
+virtual server are prepended with <code class="docutils literal notranslate"><span class="pre">(ec2)</span> <span class="pre">$</span></code>.</p>
+<p class="rubric">Links &amp; Resources</p>
+<ul class="simple">
+<li><p>Amazon ECR: <a class="reference external" href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html">Using Amazon ECR with the AWS CLI</a></p></li>
+<li><p>AWS Deep Learning Containers</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/what-is-dlc.html">What are AWS Deep Learning Containers?</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/deep-learning-containers-ec2.html">Amazon EC2 Tutorials</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/deep-learning-containers-images.html">Deep Learning Containers Images</a></p></li>
+<li><p>GitHub: <a class="reference external" href="https://github.com/aws/deep-learning-containers/blob/master/available_images.md">Available Deep Learning Containers Images</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/dlc-release-notes.html">Release Notes for Deep Learning Containers</a></p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="preparations">
+<h3>Preparations<a class="headerlink" href="#preparations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="storage-encryption-by-default">
+<h4>Storage Encryption by Default<a class="headerlink" href="#storage-encryption-by-default" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a></p></li>
+</ul>
+<p>In the <em>EC2</em> management console, go to
+<em>EC2 Dashboard &gt; Account attributes &gt; EBS encryption</em>
+and set <em>Always encrypt new EBS volumes</em> to <em>Enabled</em>.
+If the alias <code class="docutils literal notranslate"><span class="pre">aws/ebs</span></code> does not work, go to the <em>AWS Key Management Service</em>
+(<a class="reference internal" href="../../glossary.html#term-KMS"><span class="xref std std-term">KMS</span></a>) management console and copy over the proper ARN.</p>
+</div>
+<div class="section" id="creating-an-iam-user">
+<h4>Creating an <em>IAM</em> User<a class="headerlink" href="#creating-an-iam-user" title="Permalink to this headline">¶</a></h4>
+<p>Either extend an existing user’s permissions or create a new <em>IAM</em> user
+with the following permission policies attached</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AmazonEC2ContainerRegistryFullAccess</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AmazonECS_FullAccess</span></code></p></li>
+</ul>
+<p>If it doesn’t yet exist, create an access key and note down the
+<em>access key ID</em> and the <em>secret access key</em>.</p>
+<p>In the following, I will assume a user with the name <code class="docutils literal notranslate"><span class="pre">tf-fmnist-ec2</span></code>.</p>
+</div>
+<div class="section" id="installing-the-aws-cli">
+<h4>Installing the <em>AWS CLI</em><a class="headerlink" href="#installing-the-aws-cli" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">installation instructions</a>
+are given in the user guide in the <a class="reference external" href="https://docs.aws.amazon.com/cli/">AWS CLI documentation</a>.
+Download the <code class="docutils literal notranslate"><span class="pre">*.zip</span></code>-file, uncompress it, install it with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./aws/install --install-dir /path/to/aws-installdir --bin-dir /path/to/aws-bin-dir
+</pre></div>
+</div>
+<p>and add <code class="docutils literal notranslate"><span class="pre">/path/to/aws-bin-dir</span></code> to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable
+in <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/path/to/aws-bin-dir
+</pre></div>
+</div>
+<p>In case the <em>AWS CLI</em> is already installed, check that it is up to date
+and if not, install the latest version as described <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-upgrade">here</a>.</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">configure</span></code> and add the access key created earlier as described
+<a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">here</a>.
+To add the user as the default profile, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ aws configure
+</pre></div>
+</div>
+<p>Here, however, we will add the user <code class="docutils literal notranslate"><span class="pre">tf-fmnist-ec2</span></code> under a specific profile
+with the same name:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ aws configure --profile tf-fmnist-ec2
+</pre></div>
+</div>
+<p>After adding the access key ID and the secret access key, you will be asked
+for a region (<code class="docutils literal notranslate"><span class="pre">&lt;AWS_REGION&gt;</span></code>) and a default output format - in my case
+<code class="docutils literal notranslate"><span class="pre">eu-central-1</span></code> and <code class="docutils literal notranslate"><span class="pre">json</span></code>.
+A list of the regional endpoints and their names can be found
+<a class="reference external" href="https://docs.aws.amazon.com/general/latest/gr/rande.html">here</a>.</p>
+<p>Profiles with a specific name, i.e. the non-default profiles, can be
+used in <code class="docutils literal notranslate"><span class="pre">aws</span></code> commands like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ aws s3 ls --profile &lt;PROFILE&gt;
+</pre></div>
+</div>
+<p>The profile information is stored in <code class="docutils literal notranslate"><span class="pre">~/.aws/credentials</span></code> and
+<code class="docutils literal notranslate"><span class="pre">~/.aws/config</span></code>. More information on named profiles is given <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html">here</a>.</p>
+</div>
+</div>
+<div class="section" id="uploading-the-docker-image-to-ecr">
+<h3>Uploading the <em>Docker</em> Image to <em>ECR</em><a class="headerlink" href="#uploading-the-docker-image-to-ecr" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html">Using Amazon ECR with the AWS CLI</a></p></li>
+</ul>
+<p>On <a class="reference internal" href="../../glossary.html#term-ECR"><span class="xref std std-term">ECR</span></a>, create a private or public repository named
+<code class="docutils literal notranslate"><span class="pre">tf-serving-fmnist</span></code> and enable <em>Scan on push</em>.
+The commands needed to push images to this repository
+can be displayed in <em>ECR</em> by selecting the repository and clicking on
+<em>View push commands</em>.</p>
+<p>Next, we have to authenticate <em>Docker</em> on our local machine to this repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ aws ecr get-login-password --profile tf-fmnist-ec2 --region &lt;AWS_REGION&gt; <span class="p">|</span> docker login --username AWS --password-stdin &lt;AWS_ACCOUNT_ID&gt;.dkr.ecr.&lt;AWS_REGION&gt;.amazonaws.com
+</pre></div>
+</div>
+<p>Tag the image and push it to the <code class="docutils literal notranslate"><span class="pre">tf-serving-fmnist</span></code> repository on <em>ECR</em>:</p>
+<ul>
+<li><p>list the images</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker images
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>REPOSITORY           TAG       IMAGE ID       CREATED        SIZE
+tf-serving-fmnist    latest    f34fefc2ee4c   27 hours ago   411MB
+tensorflow/serving   latest    e874bf5e4700   5 weeks ago    406MB</pre></div></div></li>
+<li><p>tag the image</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker tag tf-serving-fmnist:latest &lt;AWS_ACCOUNT_ID&gt;.dkr.ecr.&lt;AWS_REGION&gt;.amazonaws.com/tf-serving-fmnist:latest
+</pre></div>
+</div>
+</li>
+<li><p>push the image</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker push &lt;AWS_ACCOUNT_ID&gt;.dkr.ecr.&lt;AWS_REGION&gt;.amazonaws.com/tf-serving-fmnist:latest
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The push refers to repository [&lt;AWS_ACCOUNT_ID&gt;.dkr.ecr.&lt;AWS_REGION&gt;.amazonaws.com/tf-serving-fmnist]
+75d124fb0170: Pushed
+bb4423850a27: Pushed
+b60ba33781cd: Pushed
+547f89523b17: Pushed
+bd91f28d5f3c: Pushed
+8cafc6d2db45: Pushed
+a5d4bacb0351: Pushed
+5153e1acaabc: Pushed
+latest: digest: sha256:8807f835d9beadfa22679630bcd75f9555695272245b11201bc39f9c8c55d6e0 size: 1991</pre></div></div></li>
+</ul>
+<p>The latest image from this <a class="reference internal" href="../../glossary.html#term-ECR"><span class="xref std std-term">ECR</span></a> repository can be pulled with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker pull &lt;AWS_ACCOUNT_ID&gt;.dkr.ecr.&lt;AWS_REGION&gt;.amazonaws.com/tf-serving-fmnist:latest
+</pre></div>
+</div>
+<p>as described <a class="reference external" href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html#cli-pull-image">here</a>.</p>
+</div>
+<div class="section" id="serving-the-model-on-ec2">
+<h3>Serving the Model on <em>EC2</em><a class="headerlink" href="#serving-the-model-on-ec2" title="Permalink to this headline">¶</a></h3>
+<p>Now, we are going to create an <a class="reference internal" href="../../glossary.html#term-EC2"><span class="xref std std-term">EC2</span></a> instance based on the
+<a class="reference external" href="https://docs.aws.amazon.com/dlami/latest/devguide/overview-base.html">Deep Learning Base AMI</a>.</p>
+<p>In the <em>EC2</em> management console, go to <em>Network &amp; Security &gt; Key Pairs</em>,
+create a key pair called <code class="docutils literal notranslate"><span class="pre">tf-fmnist-ec2</span></code> and download it as a <code class="docutils literal notranslate"><span class="pre">*.pem</span></code>-file.</p>
+<p>Then, go to <em>Instances</em> and click on <em>Launch instances</em>.
+In this tutorial, we are using the
+<a class="reference external" href="https://aws.amazon.com/marketplace/pp/prodview-x5nivojpquy6y">AWS Deep Learning AMI (Ubuntu 18.04)</a>
+from the AWS Marketplace.</p>
+<p>Next, we have to choose an instance type. I have been running on a
+<code class="docutils literal notranslate"><span class="pre">t2.medium</span></code> which comes with 2 vCPUs, 4 GiB of memory and ‘low to
+moderate’ network performance, which is more than enough for testing.
+Also, it has storage on <em>EBS</em>, which can be configured to persist
+after an <em>EC2</em> instance is terminated. To achieve this, when launching
+an <em>EC2</em> instance, we have to deselect <em>Delete on Termination</em> in
+<em>Step 4: Add Storage</em>.</p>
+<p>In <em>Step 5: Add Tags</em>, you can add a tag with</p>
+<ul class="simple">
+<li><p><strong>key</strong>: Name</p></li>
+<li><p><strong>value</strong>: tf-fmnist-ec2</p></li>
+</ul>
+<p>In <em>Step 6: Configure Security Group</em>, create a new security group with
+the name <code class="docutils literal notranslate"><span class="pre">tf-fmnist-ec2</span></code> and description <em>SSH and TCP:8501 HTTP REST access</em>
+and add the following rule:</p>
+<ul class="simple">
+<li><p><strong>type</strong>: custom TCP</p></li>
+<li><p><strong>protocol</strong>: TCP</p></li>
+<li><p><strong>port range</strong>: 8501</p></li>
+<li><p><strong>source</strong>: anywhere</p></li>
+<li><p><strong>description</strong>: tensorflow-serving predict REST API</p></li>
+</ul>
+<p>As the description suggests, opening port 8501 is necessary to allow
+internet traffic requesting a prediction from the model via
+<em>TensorFlow Serving</em>’s REST API to reach the <em>EC2</em> instance.</p>
+<p>After confirming the configuration in <em>Step 7: Review Instance Launch</em> by
+clicking on <em>Launch</em>, a dialog window will ask you to either select an existing
+key pair or create a new one. Here we can choose the existing key pair
+<code class="docutils literal notranslate"><span class="pre">tf-fmnist-ec2</span></code>. This concludes the instance configuration and will spin
+up the requested server.</p>
+<p>However, as long as no internet gateway is configured in <em>VPC</em>, the instance
+cannot be reached via SSH or otherwise. Therefore, in the <em>VPC</em> management
+console go to <em>Virtual Private Cloud &gt; Internet Gateways</em>, click on
+<em>Create internet gateway</em> and set the name tag to <code class="docutils literal notranslate"><span class="pre">tf-fmnist-ec2</span></code>.
+Once it is created, attach it to the existing VPC that is used by the
+<em>EC2</em> instance: <em>Actions &gt; Attach to VPC</em>. Next, in the <em>VPC</em> management
+console, go to <em>Virtual Private Cloud &gt; Route Tables</em>, select the appropriate
+one and check that in the <em>Routes</em> tab, there is a route with the newly
+created internet gateway as a target. If this is not the case, click on
+<em>Edit routes</em> and add a route with the following configuration:</p>
+<ul class="simple">
+<li><p><strong>destination</strong>: 0.0.0.0/0</p></li>
+<li><p><strong>target</strong>: the newly created internet gateway</p></li>
+</ul>
+<p>Now, if the instance has started and is marked as <em>running</em>, we can connect
+to it from the terminal via <em>SSH</em> as described <a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html#AccessingInstancesLinuxSSHClient">here</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ssh -i /path/to/tf-fmnist-ec2.pem ubuntu@&lt;Public_IPv4_DNS&gt;
+</pre></div>
+</div>
+<p>The command with the adequate IP address can be displayed in the
+<em>EC2 management console</em> by selecting the instance and clicking on
+<em>Actions &gt; Connect &gt; SSH client</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case of connectivity issues, be it reaching the instance via SSH
+or querying the deployed model via <em>TensorFlow Serving</em>, the
+<em>VPC Reachability Analyzer</em> is a very helpful tool. In the <em>VPC</em>
+management console, go to <em>Reachability &gt; Reachability Analyzer</em>
+and click on <em>Create and analyze path</em> to configure an analysis.
+If the connection fails, the error message will give hints as to
+what should be fixed or set up differently.</p>
+</div>
+<p>When connected to the <em>EC2</em> instance, update the <em>AWS CLI</em> as described
+<a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-upgrade">here</a>
+and then run <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">configure</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>ec2<span class="o">)</span> $ aws configure --profile tf-fmnist-ec2
+</pre></div>
+</div>
+<p>and specify the credentials of the <code class="docutils literal notranslate"><span class="pre">tf-fmnist-ec2</span></code> <em>IAM</em> user.</p>
+<p>We can then pull the <em>Docker</em> image from <em>ECR</em> as described <a class="reference external" href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html#cli-pull-image">here</a>.
+But before, we have to authenticate to the <em>ECR</em> repository - otherwise
+we will get the <code class="docutils literal notranslate"><span class="pre">no</span> <span class="pre">basic</span> <span class="pre">auth</span> <span class="pre">credentials</span></code> error from <em>Docker</em>.
+Since we are not on a tty console, the <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">ecr</span> <span class="pre">...</span> <span class="pre">|</span> <span class="pre">docker</span> <span class="pre">login</span> <span class="pre">...</span></code>
+command from before will not work. Instead, we can do</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>ec2<span class="o">)</span> $ docker login -u AWS -p <span class="k">$(</span>aws ecr get-login-password --profile tf-fmnist-ec2 --region &lt;AWS_REGION&gt;<span class="k">)</span> &lt;AWS_ACCOUNT_ID&gt;.dkr.ecr.&lt;AWS_REGION&gt;.amazonaws.com
+</pre></div>
+</div>
+<p>as suggested <a class="reference external" href="https://stackoverflow.com/a/61854312">here</a>.</p>
+<p>Now we can pull the image with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>ec2<span class="o">)</span> $ docker pull &lt;AWS_ACCOUNT_ID&gt;.dkr.ecr.&lt;AWS_REGION&gt;.amazonaws.com/tf-serving-fmnist:latest
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>latest: Pulling from tf-serving-fmnist
+01bf7da0a88c: Pull complete
+f3b4a5f15c7a: Pull complete
+57ffbe87baa1: Pull complete
+e72e6208e893: Pull complete
+6ea3f464ef73: Pull complete
+01e9bf86544b: Pull complete
+68f6bba3dc50: Pull complete
+dafe84328936: Pull complete
+Digest: sha256:8807f835d9beadfa22679630bcd75f9555695272245b11201bc39f9c8c55d6e0
+Status: Downloaded newer image for 009984474629.dkr.ecr.eu-central-1.amazonaws.com/tf-serving-fmnist:latest
+009984474629.dkr.ecr.eu-central-1.amazonaws.com/tf-serving-fmnist:latest</pre></div></div><p>show the list of all images with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>ec2<span class="o">)</span> $ docker images
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>REPOSITORY                                                              TAG       IMAGE ID       CREATED      SIZE
+&lt;AWS_ACCOUNT_ID&gt;.dkr.ecr.&lt;AWS_REGION&gt;.amazonaws.com/tf-serving-fmnist   latest    f34fefc2ee4c   2 days ago   411MB</pre></div></div><p>and run it with the same command already used in the previous tutorial
+<a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html"><span class="doc">Serving TensorFlow Models in Docker</span></a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>ec2<span class="o">)</span> $ docker run -p <span class="m">8501</span>:8501 -e <span class="nv">MODEL_NAME</span><span class="o">=</span>fmnist-model -t --name tf-serving-fmnist &lt;AWS_ACCOUNT_ID&gt;.dkr.ecr.&lt;AWS_REGION&gt;.amazonaws.com/tf-serving-fmnist
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[...]
+
+2021-06-26 09:12:09.808270: I tensorflow_serving/model_servers/server.cc:414] Exporting HTTP/REST API at:localhost:8501 ...
+[evhttp_server.cc : 245] NET_LOG: Entering the event loop ...</pre></div></div><p>Now we can query the deployed model with an HTTP request to the REST API
+like in the last tutorial <span class="xref std std-doc">/examples/3-tensorflow-serving-docker/code</span>.
+For this, the script <code class="docutils literal notranslate"><span class="pre">1-request</span></code> is provided in
+<code class="docutils literal notranslate"><span class="pre">examples/4-tf-serving-docker-aws/</span></code>. In it, set the <code class="docutils literal notranslate"><span class="pre">IPv4</span></code> variable to
+the appropriate address for your <em>EC2</em> instance.
+Download a few example images of different items of clothing from the
+internet and include their filenames in the script.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">from <strong>1-request.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/4-tf-serving-docker-aws/</span></code></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_images</span><span class="p">(</span><span class="n">images</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]):</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span> <span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">images</span><span class="p">]</span>
+
+    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">),</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">image</span><span class="p">,</span>
+            <span class="n">color_mode</span> <span class="o">=</span> <span class="s1">&#39;grayscale&#39;</span><span class="p">,</span>
+            <span class="n">target_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+
+        <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">img_to_array</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="n">img</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+
+
+<span class="n">tshirts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;images/test/tshirt-1.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;images/test/tshirt-2.png&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;images/test/tshirt-3.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;images/test/tshirt-4.png&#39;</span>
+<span class="p">]</span>
+<span class="n">sandals</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;images/test/sandal-</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.jpg&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+<span class="n">sneakers</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;images/test/sneaker-</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.jpg&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+
+<span class="c1"># test_images = load_images(tshirts)</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">load_images</span><span class="p">(</span><span class="n">sandals</span><span class="p">)</span>
+<span class="c1"># test_images = load_images(sneakers)</span>
+
+<span class="n">IPv4</span> <span class="o">=</span> <span class="s1">&#39;ec2-54-93-96-215.eu-central-1.compute.amazonaws.com&#39;</span>
+<span class="c1"># IPv4 = &#39;54.93.96.215&#39;</span>
+
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+    <span class="s1">&#39;signature_name&#39;</span><span class="p">:</span> <span class="s1">&#39;serving_default&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;instances&#39;</span><span class="p">:</span> <span class="n">test_images</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>   <span class="c1"># *either* &#39;instances&#39;</span>
+    <span class="c1"># &#39;inputs&#39;: test_images.tolist()    # *or* &#39;inputs&#39;</span>
+<span class="p">})</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">}</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">&#39;http://</span><span class="si">{</span><span class="n">IPv4</span><span class="si">}</span><span class="s1">:8501/v1/models/fmnist-model:predict&#39;</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span>
+<span class="p">)</span>
+
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_response</span><span class="o">.</span><span class="n">text</span><span class="p">)[</span><span class="s1">&#39;predictions&#39;</span><span class="p">]</span> <span class="c1"># for &#39;instances&#39;</span>
+<span class="c1"># predictions = json.loads(json_response.text)[&#39;outputs&#39;]   # for &#39;inputs&#39;</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">prediction</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">predictions</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;prediction </span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1"> -&gt; predicted class: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">i</span><span class="p">,</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">prediction</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Runing the script on a few example pictures of sandals yields</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python <span class="m">1</span>-request.py
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>prediction 0: [6.30343275e-05, 1.85037115e-05, 7.5565149e-06, 2.83105837e-05, 1.74145697e-07, 0.998879, 3.21875377e-05, 2.88182633e-07, 2.93241665e-05, 0.000941563747] -&gt; predicted class: 5
+prediction 1: [0.00130418374, 2.53213402e-05, 3.95829147e-06, 7.95430169e-05, 1.08047243e-06, 0.975131869, 0.000146661841, 0.0195651725, 2.74548784e-05, 0.00371479546] -&gt; predicted class: 5
+prediction 2: [0.000241088521, 3.73763069e-05, 1.56952246e-05, 0.000210506681, 5.54936341e-05, 0.992369056, 9.06738e-05, 0.00564925186, 0.00128137472, 4.94648739e-05] -&gt; predicted class: 5
+prediction 3: [9.74363502e-06, 7.06914216e-06, 6.15942408e-05, 0.00042412043, 0.000195012341, 0.910350859, 1.11019081e-05, 0.0710703135, 0.0176780988, 0.000191997562] -&gt; predicted class: 5</pre></div></div><p>so all example images were correctly classified as sandals.</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../../_examples/3-tensorflow-serving-docker/code.html" title="previous page">Serving <em>TensorFlow</em> Models in <em>Docker</em></a>
+    <a class='right-next' id="next-link" href="../../literature.html" title="next page">Links &amp; Literature</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
+          Last updated on June 26, 2021.<br/>
+          <div class="extra_footer">
+            Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
+using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

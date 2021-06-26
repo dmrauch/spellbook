@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
@@ -41,6 +42,8 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script defer="defer" src="../../_static/tooltip.js"></script>
@@ -263,6 +266,21 @@
    </em>
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4-tf-serving-docker-aws/index.html">
+   <em>
+    TensorFlow Serving
+   </em>
+   with
+   <em>
+    Docker
+   </em>
+   on
+   <em>
+    AWS
+   </em>
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -471,7 +489,7 @@ variables and manipulating them so that they can be digested by the network.</p>
 </div>
 <p>Behind the scenes, the function <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.encode_categories()</span></code>
 loops over all categorical variables in the dataset and converts them to
-<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Categorical.html#pandas.Categorical" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Categorical</span></code></a>s.
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Categorical.html#pandas.Categorical" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Categorical</span></code></a>s.
 A dictionary containing the mapping of the category names to numerical indices
 for each categorical variable is returned:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">categories</span><span class="p">:</span> <span class="p">{</span>
@@ -514,7 +532,7 @@ As we could see before, the original dataset is actually ordered in a way that
 datapoints for patients with strokes come first. This is not what we want here
 because when splitting the dataset into a training and a validation set, this
 would mean that stroke cases would only be present in the training but not
-the validation set. We do the shuffling with <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sample.html#pandas.DataFrame.sample" title="(in pandas v1.2.4)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.sample()</span></code></a>
+the validation set. We do the shuffling with <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sample.html#pandas.DataFrame.sample" title="(in pandas v1.2.5)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.sample()</span></code></a>
 and afterwards continue to adjust our list of the feature variables and the
 name of the target variable to point to the new columns holding the integer
 category indices:</p>
@@ -547,18 +565,18 @@ datasets into objects that can be fed into the network. There are at least
 three different ways of doing this in terms of the objects and datatypes
 involved:</p>
 <ol class="arabic simple">
-<li><p>from a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> to a <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset" title="(in TensorFlow v2.4)"><code class="docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code></a>
+<li><p>from a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> to a <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset" title="(in TensorFlow v2.4)"><code class="docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code></a>
 where features and labels are combined in one object</p></li>
-<li><p>from a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> to two <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>s,
+<li><p>from a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> to two <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>s,
 one for the features and one for the labels</p></li>
-<li><p>from a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> to two <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>s,
+<li><p>from a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> to two <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>s,
 one for the features and one for the labels</p></li>
 </ol>
-<p>Since columns in a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> can be accessed in much the
+<p>Since columns in a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> can be accessed in much the
 same way as entries in a <em>Python</em> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, it is actually also possible
-to directly feed features stored in a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> and labels
-stored in a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> into <em>TensorFlow</em> networks.
-The separation of a single <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> into separate feature
+to directly feed features stored in a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> and labels
+stored in a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> into <em>TensorFlow</em> networks.
+The separation of a single <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> into separate feature
 and label sets for training, validation and testing is implemented in
 <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.split_pddataframe_to_pddataframes()</span></code>.</p>
 <div class="section" id="option-1-using-tensorflow-datasets">
@@ -589,7 +607,7 @@ results for the metrics used to quantify the model performance. The smaller
 the validation set is, the larger the statistical uncertainty on the metrics
 will be.</p>
 <p>Under the hood, in <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.split_pddataframe_to_tfdatasets()</span></code>,
-the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> is split into two separate frames,
+the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> is split into two separate frames,
 one for the features and one for the target labels. These are converted to
 two <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>s which are then used to initialise the
 <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset" title="(in TensorFlow v2.4)"><code class="docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code></a> using the
@@ -693,7 +711,7 @@ setup.</p>
 <span id="binarystrokeprediction-numpyarrays"></span><h3>Option 3: Using <em>NumPy</em> Arrays<a class="headerlink" href="#option-3-using-numpy-arrays" title="Permalink to this headline">¶</a></h3>
 <p>Used in <code class="docutils literal notranslate"><span class="pre">4-stroke-prediction-oversampling-norm.py</span></code>
 and implemented in <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.split_pddataframe_to_nparrays()</span></code>.</p>
-<p>The third option is to split the dataset into <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>s:</p>
+<p>The third option is to split the dataset into <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>s:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>4-stroke-prediction-oversampling-norm.py</strong></p>
 <p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
@@ -747,7 +765,7 @@ the call to <code class="xref py py-meth docutils literal notranslate"><span cla
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 22, 2021.<br/>
+          Last updated on June 26, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

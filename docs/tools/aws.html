@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
@@ -41,6 +42,8 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script defer="defer" src="../_static/tooltip.js"></script>
@@ -263,6 +266,21 @@
    </em>
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/4-tf-serving-docker-aws/index.html">
+   <em>
+    TensorFlow Serving
+   </em>
+   with
+   <em>
+    Docker
+   </em>
+   on
+   <em>
+    AWS
+   </em>
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -386,6 +404,21 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#services">
+   Services
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -398,6 +431,7 @@
 <h1>AWS (Amazon Web Services)<a class="headerlink" href="#aws-amazon-web-services" title="Permalink to this headline">¶</a></h1>
 <p class="rubric">Links and Resources:</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://console.aws.amazon.com">AWS Management Console</a></p></li>
 <li><p><a class="reference external" href="https://aws.amazon.com/free/">AWS Free Tier</a></p></li>
 <li><p><a class="reference external" href="https://aws.amazon.com/tools/">AWS Tools</a></p>
 <ul>
@@ -407,9 +441,27 @@
 </li>
 <li><p><a class="reference external" href="https://docs.aws.amazon.com/index.html">AWS Documentation</a></p>
 <ul>
-<li><p><a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS CLI</a></p>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">CLI</a></p>
 <ul>
 <li><p><a class="reference external" href="https://docs.aws.amazon.com/cli/latest/reference/">Command Reference</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/ec2/index.html">EC2</a></p></li>
+<li><p>General reference</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/general/latest/gr/rande.html">AWS service endpoints</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/sagemaker/index.html">SageMaker</a></p>
+<ul>
+<li><p><a class="reference external" href="https://sagemaker.readthedocs.io/en/stable/index.html">Amazon SageMaker Python SDK</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/code-samples/latest/catalog/welcome.html">AWS Code Sample Catalog</a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/code-samples/latest/catalog/code-catalog-python.html">Code Samples for Python</a></p></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>AWS SDK</p>
@@ -422,11 +474,15 @@
 </li>
 </ul>
 </li>
-<li><p><a class="reference external" href="https://docs.aws.amazon.com/code-samples/latest/catalog/welcome.html">AWS Code Sample Catalog</a></p>
+<li><p><a class="reference external" href="https://aws.amazon.com/marketplace">AWS Marketplace</a></p>
 <ul>
-<li><p><a class="reference external" href="https://docs.aws.amazon.com/code-samples/latest/catalog/code-catalog-python.html">Code Samples for Python</a></p></li>
+<li><p><a class="reference external" href="https://aws.amazon.com/marketplace/pp/prodview-dxk3xpeg6znhm">AWS Deep Learning Base AMI (Ubuntu 18.04)</a></p></li>
 </ul>
 </li>
+<li><p>GitHub</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/aws/amazon-sagemaker-examples">aws / amazon-sagemaker-examples</a></p></li>
+<li><p><a class="reference external" href="https://github.com/aws/sagemaker-tensorflow-serving-container">aws / sagemaker-tensorflow-serving-container</a></p></li>
 </ul>
 </li>
 <li><p>Conda packages</p>
@@ -438,6 +494,64 @@
 </ul>
 </li>
 </ul>
+<div class="section" id="services">
+<h2>Services<a class="headerlink" href="#services" title="Permalink to this headline">¶</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Service</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EBS</p></td>
+<td><p>Elastic Block Store</p></td>
+<td><p>block-level storage that can be attached to instances running on EC2 and used like hard drives</p></td>
+</tr>
+<tr class="row-odd"><td><p>EC2</p></td>
+<td><p>Elastic Cloud Compute</p></td>
+<td><p>virtual servers</p></td>
+</tr>
+<tr class="row-even"><td><p>ECR</p></td>
+<td><p>Elastic Container Registry</p></td>
+<td><p>repositories for <em>Docker</em> containers</p></td>
+</tr>
+<tr class="row-odd"><td><p>ECS</p></td>
+<td><p>Elastic Container Services</p></td>
+<td><p>deploy, manage and scale <em>Docker</em> containers</p></td>
+</tr>
+<tr class="row-even"><td><p>EKS</p></td>
+<td><p>Elastic Kubernetes Service</p></td>
+<td><p>container orchestration</p></td>
+</tr>
+<tr class="row-odd"><td><p>IAM</p></td>
+<td><p>Identity and Access Management</p></td>
+<td><p>permissions and access policies</p></td>
+</tr>
+<tr class="row-even"><td><p>KMS</p></td>
+<td><p>Key Management Service</p></td>
+<td><p>encryption keys</p></td>
+</tr>
+<tr class="row-odd"><td><p>S3</p></td>
+<td><p>Simple Storage Service</p></td>
+<td><p>scalable storage for internet services</p></td>
+</tr>
+<tr class="row-even"><td><p>SageMaker</p></td>
+<td></td>
+<td><p>managed machine learning services</p></td>
+</tr>
+<tr class="row-odd"><td><p>VPC</p></td>
+<td><p>Virtual Private Cloud</p></td>
+<td><p>logically isolated virtual networks</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
@@ -458,7 +572,7 @@
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 22, 2021.<br/>
+          Last updated on June 26, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

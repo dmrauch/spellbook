@@ -3,6 +3,23 @@ Docker
 ******
 
 
+Running without ``sudo``
+========================
+
+By default, *Docker* commands can only be run with ``sudo``.
+This can be circumvented by creating a group ``docker`` and adding
+your user to it. Note that this approach will give the user unrestricted root
+access to the system without password protection. Afterwards, either log out
+and back in or run ``newgrp docker`` to activate the changes.
+
+- `https://askubuntu.com/a/477554 <https://askubuntu.com/a/477554>`_
+- `https://askubuntu.com/a/739861 <https://askubuntu.com/a/739861>`_
+
+
+
+Quick Reference
+===============
+
 - download image from `Docker Hub <https://hub.docker.com/>`_
 
   .. code:: bash

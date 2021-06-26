@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
@@ -41,6 +42,8 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script defer="defer" src="../../_static/tooltip.js"></script>
@@ -263,6 +266,21 @@
    </em>
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4-tf-serving-docker-aws/index.html">
+   <em>
+    TensorFlow Serving
+   </em>
+   with
+   <em>
+    Docker
+   </em>
+   on
+   <em>
+    AWS
+   </em>
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -428,7 +446,7 @@ well as the <code class="docutils literal notranslate"><span class="pre">helpers
 cleaning the dataset. We will begin by looking at the <code class="docutils literal notranslate"><span class="pre">helpers</span></code> module.</p>
 <div class="section" id="textual-data-inspection">
 <h2>Textual Data Inspection<a class="headerlink" href="#textual-data-inspection" title="Permalink to this headline">¶</a></h2>
-<p>First, we load the data from the <code class="docutils literal notranslate"><span class="pre">*.csv</span></code> file using <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html#pandas.read_csv" title="(in pandas v1.2.4)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></a></p>
+<p>First, we load the data from the <code class="docutils literal notranslate"><span class="pre">*.csv</span></code> file using <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html#pandas.read_csv" title="(in pandas v1.2.5)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></a></p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>helpers.py</strong></p>
 <p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
@@ -436,7 +454,7 @@ cleaning the dataset. We will begin by looking at the <code class="docutils lite
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;healthcare-dataset-stroke-data.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>which returns a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>. Objects of this type come with a
+<p>which returns a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>. Objects of this type come with a
 few methods for inspecting them in textual form already:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>helpers.py</strong></p>
@@ -448,7 +466,7 @@ few methods for inspecting them in textual form already:</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;bmi&#39;</span><span class="p">])</span>  <span class="c1"># print column - &#39;bmi&#39; contains floats and &#39;NaN&#39;</span>
 </pre></div>
 </div>
-<p>The <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dtypes.html#pandas.DataFrame.dtypes" title="(in pandas v1.2.4)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.dtypes()</span></code></a> method yields</p>
+<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.dtypes()</span></code> method yields</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span>                     <span class="n">int64</span>
 <span class="n">gender</span>                <span class="nb">object</span>
 <span class="n">age</span>                  <span class="n">float64</span>
@@ -465,7 +483,7 @@ few methods for inspecting them in textual form already:</p>
 </pre></div>
 </div>
 <p>with <code class="docutils literal notranslate"><span class="pre">object</span></code> indicating string category labels. This can be seen explicitly
-with the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html#pandas.DataFrame.head" title="(in pandas v1.2.4)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.head()</span></code></a> command, which outputs</p>
+with the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html#pandas.DataFrame.head" title="(in pandas v1.2.5)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.head()</span></code></a> command, which outputs</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">bound</span> <span class="n">method</span> <span class="n">NDFrame</span><span class="o">.</span><span class="n">head</span> <span class="n">of</span>          <span class="nb">id</span>  <span class="n">gender</span>   <span class="n">age</span>  <span class="n">hypertension</span>  <span class="n">heart_disease</span> <span class="n">ever_married</span>      <span class="n">work_type</span> <span class="n">Residence_type</span>  <span class="n">avg_glucose_level</span>   <span class="n">bmi</span>   <span class="n">smoking_status</span>  <span class="n">stroke</span>
 <span class="mi">0</span>      <span class="mi">9046</span>    <span class="n">Male</span>  <span class="mf">67.0</span>             <span class="mi">0</span>              <span class="mi">1</span>          <span class="n">Yes</span>        <span class="n">Private</span>          <span class="n">Urban</span>             <span class="mf">228.69</span>  <span class="mf">36.6</span>  <span class="n">formerly</span> <span class="n">smoked</span>       <span class="mi">1</span>
 <span class="mi">1</span>     <span class="mi">51676</span>  <span class="n">Female</span>  <span class="mf">61.0</span>             <span class="mi">0</span>              <span class="mi">0</span>          <span class="n">Yes</span>  <span class="n">Self</span><span class="o">-</span><span class="n">employed</span>          <span class="n">Rural</span>             <span class="mf">202.21</span>   <span class="n">NaN</span>     <span class="n">never</span> <span class="n">smoked</span>       <span class="mi">1</span>
@@ -486,7 +504,7 @@ with the <a class="reference external" href="https://pandas.pydata.org/docs/refe
 <code class="docutils literal notranslate"><span class="pre">Yes</span></code>/<code class="docutils literal notranslate"><span class="pre">No</span></code> in the column <code class="docutils literal notranslate"><span class="pre">ever_married</span></code>, while others are labelled with
 integers, e.g. <code class="docutils literal notranslate"><span class="pre">0</span></code>/<code class="docutils literal notranslate"><span class="pre">1</span></code> in the column <code class="docutils literal notranslate"><span class="pre">hypertension</span></code>, leading to the
 indicated datatypes.</p>
-<p>The <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.count.html#pandas.DataFrame.count" title="(in pandas v1.2.4)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.count()</span></code></a> method counts the valid datapoints in each
+<p>The <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.count.html#pandas.DataFrame.count" title="(in pandas v1.2.5)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.count()</span></code></a> method counts the valid datapoints in each
 column, ignoring <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span>                   <span class="mi">5110</span>
 <span class="n">gender</span>               <span class="mi">5110</span>
@@ -534,7 +552,7 @@ Here, we are just going to drop the corresponding datapoints entirely:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> means that the existing <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> <code class="docutils literal notranslate"><span class="pre">data</span></code>
+<p><code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> means that the existing <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> <code class="docutils literal notranslate"><span class="pre">data</span></code>
 itself is modified and the datapoints containing missing values are removed.
 Otherwise, <code class="docutils literal notranslate"><span class="pre">data</span></code> would be left unaltered and a new copy would be returned
 with the affected datapoints removed.</p>
@@ -1018,7 +1036,7 @@ filesize at bay. The resulting plots are shown in Figures 22 and 23:</p>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 22, 2021.<br/>
+          Last updated on June 26, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>

@@ -148,6 +148,23 @@ D
 
 
 
+E
+-
+
+.. glossary::
+
+    EBS
+        Amazon *Elastic Block Store*
+
+    EC2
+        Amazon *Elastic Cloud Compute*: Virtual servers
+
+    ECR
+        Amazon *Elastic Container Registry*: Repositories for *Docker*
+        containers
+
+
+
 F
 -
 
@@ -243,6 +260,9 @@ I
 
 .. glossary::
 
+    IAM
+        AWS *Identity & Access Management*
+
     image augmentation
         In *image augmentation*, transformations are applied to images
         before feeding them into a model. These transformations can serve
@@ -262,6 +282,16 @@ I
         :term:`multi-class classification`.
 
         See :doc:`examples/1-binary-stroke-prediction/index`
+
+
+
+K
+-
+
+.. glossary::
+
+    KMS
+        AWS *Key Management Service*
 
 
 
@@ -658,3 +688,6 @@ V
         the given *true values* very well, but at the same time oscillate
         and fluctuate wildly in between those true values. Such a model
         will generalise poorly to new data, see :term:`overtraining`.
+
+    VPC
+        Amazon *Virtual Private Cloud*

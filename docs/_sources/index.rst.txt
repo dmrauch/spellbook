@@ -21,6 +21,7 @@
    Binary Classification: Stroke Prediction <examples/1-binary-stroke-prediction/index>
    Decision Forests in TensorFlow <examples/2-tensorflow-decision-forests/index>
    _examples/3-tensorflow-serving-docker/code.rst
+   examples/4-tf-serving-docker-aws/index
 
 
 .. toctree::
@@ -73,6 +74,7 @@ Welcome to the :bolditalic:`spellbook` Data Science & Machine Learning Library!
 .. margin:: News
    :class: spellbook-news
 
+   - *June 26, 2021*: :doc:`/examples/4-tf-serving-docker-aws/index`
    - *June 21, 2021*: :doc:`/_examples/3-tensorflow-serving-docker/code`
    - *June 16, 2021*: :doc:`/examples/2-tensorflow-decision-forests/index`
    - *June 13, 2021*: :doc:`/examples/1-binary-stroke-prediction/index`
@@ -122,6 +124,7 @@ Welcome to the :bolditalic:`spellbook` Data Science & Machine Learning Library!
    - :doc:`/examples/1-binary-stroke-prediction/index`
    - :doc:`/examples/2-tensorflow-decision-forests/index`
    - :doc:`/_examples/3-tensorflow-serving-docker/code`
+   - :doc:`/examples/4-tf-serving-docker-aws/index`
 
 
 *spellbook* is where I collect functionality that I implement and expect to

@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="_static/gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="_static/gallery-dataframe.css" />
@@ -41,6 +42,8 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -265,6 +268,21 @@
    </em>
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="examples/4-tf-serving-docker-aws/index.html">
+   <em>
+    TensorFlow Serving
+   </em>
+   with
+   <em>
+    Docker
+   </em>
+   on
+   <em>
+    AWS
+   </em>
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -415,6 +433,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#e">
+   E
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#f">
    F
   </a>
@@ -427,6 +450,11 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#i">
    I
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k">
+   K
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -605,6 +633,18 @@ preventing co-adaptation of feature detectors</em>, <a class="reference external
 </dd>
 </dl>
 </div>
+<div class="section" id="e">
+<h2>E<a class="headerlink" href="#e" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary simple">
+<dt id="term-EBS">EBS<a class="headerlink" href="#term-EBS" title="Permalink to this term">¶</a></dt><dd><p>Amazon <em>Elastic Block Store</em></p>
+</dd>
+<dt id="term-EC2">EC2<a class="headerlink" href="#term-EC2" title="Permalink to this term">¶</a></dt><dd><p>Amazon <em>Elastic Cloud Compute</em>: Virtual servers</p>
+</dd>
+<dt id="term-ECR">ECR<a class="headerlink" href="#term-ECR" title="Permalink to this term">¶</a></dt><dd><p>Amazon <em>Elastic Container Registry</em>: Repositories for <em>Docker</em>
+containers</p>
+</dd>
+</dl>
+</div>
 <div class="section" id="f">
 <h2>F<a class="headerlink" href="#f" title="Permalink to this headline">¶</a></h2>
 <dl class="glossary">
@@ -685,6 +725,8 @@ Gaussian random processes.</p></li>
 <div class="section" id="i">
 <h2>I<a class="headerlink" href="#i" title="Permalink to this headline">¶</a></h2>
 <dl class="glossary">
+<dt id="term-IAM">IAM<a class="headerlink" href="#term-IAM" title="Permalink to this term">¶</a></dt><dd><p>AWS <em>Identity &amp; Access Management</em></p>
+</dd>
 <dt id="term-image-augmentation">image augmentation<a class="headerlink" href="#term-image-augmentation" title="Permalink to this term">¶</a></dt><dd><p>In <em>image augmentation</em>, transformations are applied to images
 before feeding them into a model. These transformations can serve
 to normalise the images, e.g. by rescaling them with a common
@@ -701,6 +743,13 @@ the left.</p>
 the other(s), in <a class="reference internal" href="#term-binary-classification"><span class="xref std std-term">binary classification</span></a> or
 <a class="reference internal" href="#term-multi-class-classification"><span class="xref std std-term">multi-class classification</span></a>.</p>
 <p>See <a class="reference internal" href="examples/1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="k">
+<h2>K<a class="headerlink" href="#k" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary simple">
+<dt id="term-KMS">KMS<a class="headerlink" href="#term-KMS" title="Permalink to this term">¶</a></dt><dd><p>AWS <em>Key Management Service</em></p>
 </dd>
 </dl>
 </div>
@@ -1039,6 +1088,8 @@ the given <em>true values</em> very well, but at the same time oscillate
 and fluctuate wildly in between those true values. Such a model
 will generalise poorly to new data, see <a class="reference internal" href="#term-overtraining"><span class="xref std std-term">overtraining</span></a>.</p>
 </dd>
+<dt id="term-VPC">VPC<a class="headerlink" href="#term-VPC" title="Permalink to this term">¶</a></dt><dd><p>Amazon <em>Virtual Private Cloud</em></p>
+</dd>
 </dl>
 </div>
 </div>
@@ -1061,7 +1112,7 @@ will generalise poorly to new data, see <a class="reference internal" href="#ter
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 22, 2021.<br/>
+          Last updated on June 26, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
