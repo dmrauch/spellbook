@@ -12,6 +12,7 @@ Based on
 '''
 
 from docutils import nodes
+import html
 from sphinx.util.docutils import SphinxDirective
 
 
@@ -28,7 +29,7 @@ def visit_code_output_node(self, node):
     self.body.append('<span></span>')
     for i, line in enumerate(node.rawsource):
         if i > 0: self.body.append('\n')
-        self.body.append(line)
+        self.body.append(html.escape(line))
 
 def depart_code_output_node(self, node):
     self.body.append('</pre>')
