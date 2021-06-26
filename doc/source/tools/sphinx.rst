@@ -40,6 +40,7 @@ Name                         Description
                              from folders containing *Python* scripts and
                              automatically cross-reference them from the
                              source code documentation
+``sphinx_copybutton``        adds a copy button to code snippets
 ``sphinx.ext.githubpages``   creates ``.nojekyll`` file for GitHub Pages
 ============================ =====================================================================================================
 

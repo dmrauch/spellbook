@@ -19,5 +19,6 @@ dependencies:
  - autodocsumm
  - sphinx-autodoc-typehints # sphinx: typehints derived from signature
  - sphinx-gallery
+ - sphinx-copybutton
  - nbsphinx
  - beautifulsoup4 # HTML parsing and web scraping

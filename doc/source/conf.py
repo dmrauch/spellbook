@@ -47,6 +47,7 @@ extensions = [
     'sphinx_autodoc_typehints', # automatic documentation of typehints,
                                 # must come *after* 'sphinx.ext.napoleon'
     'sphinx_gallery.gen_gallery',
+    'sphinx_copybutton',
     'nbsphinx',
     # 'sphinx_thebe',
     'sphinx.ext.githubpages', # creates .nojekyll file for GitHub Pages
@@ -198,3 +199,8 @@ sphinx_gallery_conf = {
     # modules for which function/class level galleries are created
     'doc_module': ('spellbook')
 }
+
+
+copybutton_prompt_is_regexp = True
+copybutton_prompt_text = r"\$ |.* \$ |>>> |\.\.\."
+copybutton_line_continuation_character = "\\"
