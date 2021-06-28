@@ -5,3 +5,83 @@ Projects & Tutorials
 
 .. raw:: html
    :file: examples.html
+
+
+
+.. raw:: html
+
+   <p style="margin-bottom: 2.5rem">
+
+
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbcontainer">
+
+.. only:: html
+
+   .. figure:: /images/examples/1-binary-stroke-prediction/variables.png
+      :alt: Binary Classification with the Stroke Prediction Dataset
+
+      :doc:`1-binary-stroke-prediction/index`
+
+.. raw:: html
+
+   </div>
+
+
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbcontainer">
+
+.. only:: html
+
+   .. figure:: /images/examples/2-tensorflow-decision-forests/roc.png
+      :alt: Random Forests and Gradient Boosted Trees in TensorFlow
+
+      :doc:`/_examples/2-tensorflow-decision-forests/code`
+
+.. raw:: html
+
+   </div>
+
+
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbcontainer">
+
+.. only:: html
+
+   .. figure:: /_examples/3-tensorflow-serving-docker/images/thumb/sphx_glr_code_thumb.png
+      :alt: Serving *TensorFlow* Models in *Docker*
+
+      :ref:`sphx_glr__examples_3-tensorflow-serving-docker_code.py`
+
+.. raw:: html
+
+   </div>
+
+
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbcontainer">
+
+.. only:: html
+
+   .. figure:: /_static/TF_FullColor_Icon.png
+      :alt: TensorFlow Serving with Docker on AWS
+
+      :doc:`4-tf-serving-docker-aws/index`
+
+.. raw:: html
+
+   </div>
+
+
+
+.. raw:: html
+
+   <div class="sphx-glr-clear"></div>

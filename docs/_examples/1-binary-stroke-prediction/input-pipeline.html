@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Preparation and Input Pipeline &#8212; spellbook</title>
+    <title>Stroke Prediction - Data Preparation and Input Pipeline &#8212; spellbook</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -51,8 +51,8 @@
     <link rel="shortcut icon" href="../../_static/spellbook-icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Model Training and Validation" href="training-validation.html" />
-    <link rel="prev" title="Data Exploration and Cleaning" href="exploration-cleaning.html" />
+    <link rel="next" title="Stroke Prediction - Model Training and Validation" href="training-validation.html" />
+    <link rel="prev" title="Stroke Prediction - Data Exploration and Cleaning" href="exploration-cleaning.html" />
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -221,13 +221,13 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../examples.html">
+  <a class="reference internal" href="../../examples/examples.html">
    Table of Contents
   </a>
  </li>
  <li class="toctree-l1 current active collapsible-parent">
-  <a class="reference internal" href="index.html">
-   Binary Classification: Stroke Prediction
+  <a class="reference internal" href="../../examples/1-binary-stroke-prediction/index.html">
+   Classification: Stroke Prediction
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
@@ -250,35 +250,18 @@
   </i>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../2-tensorflow-decision-forests/index.html">
+  <a class="reference internal" href="../2-tensorflow-decision-forests/code.html">
    Decision Forests in TensorFlow
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html">
-   Serving
-   <em>
-    TensorFlow
-   </em>
-   Models in
-   <em>
-    Docker
-   </em>
+  <a class="reference internal" href="../3-tensorflow-serving-docker/code.html">
+   Serving TensorFlow Models in Docker
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../4-tf-serving-docker-aws/index.html">
-   <em>
-    TensorFlow Serving
-   </em>
-   with
-   <em>
-    Docker
-   </em>
-   on
-   <em>
-    AWS
-   </em>
+  <a class="reference internal" href="../../examples/4-tf-serving-docker-aws/index.html">
+   Serving TensorFlow Models on AWS
   </a>
  </li>
 </ul>
@@ -311,7 +294,7 @@
         <tr>
             <td style="text-align: left;">
                 <a href="https://github.com/dmrauch">
-                    <img src="../../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
+                    <i class="fab fa-github-square"></i>
                 </a>
             </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
@@ -321,8 +304,9 @@
         <tr>
             <td style="text-align: left;">
                 <a href="https://www.linkedin.com/in/dmrauch/">
-                    <img src="../../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
+                    <i class="fab fa-linkedin"></i>
                 </a>
+            </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
                 Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
             </td>
@@ -352,6 +336,38 @@
                 <i class="fas fa-arrow-up"></i>
             </button>
             
+
+            <a class="linkedin-button" href="https://www.linkedin.com/in/dmrauch/"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" aria-label="LinkedIn"
+                title="Contact me on LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+                </button>
+            </a>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dmrauch"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Contact me on GitHub"><i
+                    class="fab fa-github"></i>dmrauch profile</button></a>
+        <a class="repository-button"
+            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>spellbook repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_examples/1-binary-stroke-prediction/input-pipeline.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/_examples/1-binary-stroke-prediction/input-pipeline.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
             
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
@@ -361,32 +377,12 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/examples/1-binary-stroke-prediction/input-pipeline.rst.txt"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/_examples/1-binary-stroke-prediction/input-pipeline.rst.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fexamples/1-binary-stroke-prediction/input-pipeline.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/examples/1-binary-stroke-prediction/input-pipeline.rst"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
@@ -464,8 +460,13 @@
         
               <div>
                 
-  <div class="section" id="data-preparation-and-input-pipeline">
-<span id="binarystrokeprediction-inputpipeline"></span><h1>Data Preparation and Input Pipeline<a class="headerlink" href="#data-preparation-and-input-pipeline" title="Permalink to this headline">¶</a></h1>
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-1-binary-stroke-prediction-input-pipeline-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="stroke-prediction-data-preparation-and-input-pipeline">
+<span id="binarystrokeprediction-inputpipeline"></span><span id="sphx-glr-examples-1-binary-stroke-prediction-input-pipeline-py"></span><h1>Stroke Prediction - Data Preparation and Input Pipeline<a class="headerlink" href="#stroke-prediction-data-preparation-and-input-pipeline" title="Permalink to this headline">¶</a></h1>
 <p>Now let’s move on to bringing the data into a form that can be processed by
 the neural network!</p>
 <p>We’ll have a look at the three scripts</p>
@@ -484,10 +485,10 @@ variables and manipulating them so that they can be digested by the network.</p>
 <p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># inplace convert string category labels to numerical indices</span>
-<span class="n">categories</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">encode_categories</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">categories</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">encode_categories</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Behind the scenes, the function <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.encode_categories()</span></code>
+<p>Behind the scenes, the function <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.encode_categories" title="spellbook.input.encode_categories"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.encode_categories()</span></code></a>
 loops over all categorical variables in the dataset and converts them to
 <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Categorical.html#pandas.Categorical" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Categorical</span></code></a>s.
 A dictionary containing the mapping of the category names to numerical indices
@@ -508,7 +509,7 @@ for each categorical variable is returned:</p>
 variable <code class="docutils literal notranslate"><span class="pre">var</span></code>, an additional column <code class="docutils literal notranslate"><span class="pre">var_codes</span></code> is added to the dataset,
 containing the numerical category codes for each datapoint. These are the
 columns that we will later feed into the network.</p>
-<p>The corresponding code in <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.encode_categories()</span></code> looks
+<p>The corresponding code in <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.encode_categories" title="spellbook.input.encode_categories"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.encode_categories()</span></code></a> looks
 like this:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.encode_categories" title="spellbook.input.encode_categories"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.encode_categories()</span></code></a></p>
@@ -578,17 +579,17 @@ to directly feed features stored in a <a class="reference external" href="https:
 stored in a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> into <em>TensorFlow</em> networks.
 The separation of a single <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> into separate feature
 and label sets for training, validation and testing is implemented in
-<code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.split_pddataframe_to_pddataframes()</span></code>.</p>
+<a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_pddataframes" title="spellbook.input.split_pddataframe_to_pddataframes"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.split_pddataframe_to_pddataframes()</span></code></a>.</p>
 <div class="section" id="option-1-using-tensorflow-datasets">
 <h3>Option 1: Using <em>TensorFlow</em> Datasets<a class="headerlink" href="#option-1-using-tensorflow-datasets" title="Permalink to this headline">¶</a></h3>
 <p>This approach is taken in <code class="docutils literal notranslate"><span class="pre">2-stroke-prediction-naive.py</span></code>.
-It is implemented in <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.split_pddataframe_to_tfdatasets()</span></code>
+It is implemented in <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_tfdatasets" title="spellbook.input.split_pddataframe_to_tfdatasets"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.split_pddataframe_to_tfdatasets()</span></code></a>
 and can be used like this:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>2-stroke-prediction-naive.py</strong></p>
 <p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">split_pddataframe_to_tfdatasets</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">n_train</span><span class="o">=</span><span class="mi">3500</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">split_pddataframe_to_tfdatasets</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">n_train</span><span class="o">=</span><span class="mi">3500</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">cardinality</span><span class="p">())</span> <span class="c1"># print the size of the dataset</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">cardinality</span><span class="p">())</span>
 </pre></div>
@@ -606,7 +607,7 @@ training while at the same time ensuring that the validation (and possibly the
 results for the metrics used to quantify the model performance. The smaller
 the validation set is, the larger the statistical uncertainty on the metrics
 will be.</p>
-<p>Under the hood, in <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.split_pddataframe_to_tfdatasets()</span></code>,
+<p>Under the hood, in <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_tfdatasets" title="spellbook.input.split_pddataframe_to_tfdatasets"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.split_pddataframe_to_tfdatasets()</span></code></a>,
 the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> is split into two separate frames,
 one for the features and one for the target labels. These are converted to
 two <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>s which are then used to initialise the
@@ -662,7 +663,7 @@ least some stroke cases.</p>
 <div class="section" id="option-2-using-tensorflow-tensors">
 <h3>Option 2: Using <em>TensorFlow</em> Tensors<a class="headerlink" href="#option-2-using-tensorflow-tensors" title="Permalink to this headline">¶</a></h3>
 <p>Used in <code class="docutils literal notranslate"><span class="pre">3-stroke-prediction-oversampling.py</span></code>
-and implemented in <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.separate_tfdataset_to_tftensors()</span></code>.</p>
+and implemented in <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.separate_tfdataset_to_tftensors" title="spellbook.input.separate_tfdataset_to_tftensors"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.separate_tfdataset_to_tftensors()</span></code></a>.</p>
 <p>Just like before, <em>TensorFlow</em> <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code></a>s for training and
 validation are created. This time, they are each split into two separate
 <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>s - one for the features and one for the labels:</p>
@@ -670,13 +671,13 @@ validation are created. This time, they are each split into two separate
 <p class="sidebar-title">from <strong>3-stroke-prediction-oversampling.py</strong></p>
 <p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">split_pddataframe_to_tfdatasets</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">n_train</span><span class="o">=</span><span class="mi">7000</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">split_pddataframe_to_tfdatasets</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">n_train</span><span class="o">=</span><span class="mi">7000</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">cardinality</span><span class="p">())</span> <span class="c1"># print the size of the dataset</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">cardinality</span><span class="p">())</span>
 
 <span class="c1"># separate features and labels</span>
-<span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">separate_tfdataset_to_tftensors</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
-<span class="n">val_features</span><span class="p">,</span> <span class="n">val_labels</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">separate_tfdataset_to_tftensors</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">separate_tfdataset_to_tftensors</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+<span class="n">val_features</span><span class="p">,</span> <span class="n">val_labels</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">separate_tfdataset_to_tftensors</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Please don’t mind the increased size of the training set for now - this script
@@ -687,7 +688,7 @@ a separate object containing just the target
 labels, which can then be used when evaluating the model performance, e.g.
 when calculating a confusion matrix or a <a class="reference internal" href="../../glossary.html#term-ROC"><span class="xref std std-term">ROC</span></a> curve from comparisons
 of the predicted labels against the actual true target labels.</p>
-<p>Internally, <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.separate_tfdataset_to_tftensors()</span></code> proceeds as follows:</p>
+<p>Internally, <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.separate_tfdataset_to_tftensors" title="spellbook.input.separate_tfdataset_to_tftensors"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.separate_tfdataset_to_tftensors()</span></code></a> proceeds as follows:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.separate_tfdataset_to_tftensors" title="spellbook.input.separate_tfdataset_to_tftensors"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.separate_tfdataset_to_tftensors()</span></code></a></p>
 <p>in <a class="reference internal" href="../../_stubs/spellbook.input.html#module-spellbook.input" title="spellbook.input"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spellbook.input</span></code></a></p>
@@ -710,14 +711,14 @@ setup.</p>
 <div class="section" id="option-3-using-numpy-arrays">
 <span id="binarystrokeprediction-numpyarrays"></span><h3>Option 3: Using <em>NumPy</em> Arrays<a class="headerlink" href="#option-3-using-numpy-arrays" title="Permalink to this headline">¶</a></h3>
 <p>Used in <code class="docutils literal notranslate"><span class="pre">4-stroke-prediction-oversampling-norm.py</span></code>
-and implemented in <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.split_pddataframe_to_nparrays()</span></code>.</p>
+and implemented in <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_nparrays" title="spellbook.input.split_pddataframe_to_nparrays"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.split_pddataframe_to_nparrays()</span></code></a>.</p>
 <p>The third option is to split the dataset into <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>s:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>4-stroke-prediction-oversampling-norm.py</strong></p>
 <p>in <code class="docutils literal notranslate"><span class="pre">examples/1-binary-stroke-prediction/</span></code></p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">val_features</span><span class="p">,</span> <span class="n">val_labels</span> \
-    <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">split_pddataframe_to_nparrays</span><span class="p">(</span>
+    <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">split_pddataframe_to_nparrays</span><span class="p">(</span>
         <span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">n_train</span><span class="o">=</span><span class="mi">7000</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">train_features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># print the size of the dataset</span>
@@ -726,7 +727,7 @@ and implemented in <code class="xref py py-func docutils literal notranslate"><s
 <span class="nb">print</span><span class="p">(</span><span class="n">val_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The function <code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inputs.split_pddataframe_to_nparrays()</span></code> works
+<p>The function <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_nparrays" title="spellbook.input.split_pddataframe_to_nparrays"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.split_pddataframe_to_nparrays()</span></code></a> works
 like this in principle</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <a class="reference internal" href="../../_stubs/spellbook.input.html#spellbook.input.split_pddataframe_to_nparrays" title="spellbook.input.split_pddataframe_to_nparrays"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.split_pddataframe_to_nparrays()</span></code></a></p>
@@ -743,6 +744,15 @@ like this in principle</p>
 </div>
 <p>Like with <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>s in the previous approach, batching is left
 the call to <code class="xref py py-meth docutils literal notranslate"><span class="pre">tf.keras.Model.fit()</span></code> later after model setup.</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-1-binary-stroke-prediction-input-pipeline-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/c4a1391bf527fadc02b5055ee8611621/input-pipeline.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">input-pipeline.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/035db1625c6230aed56a3bd45a2c8640/input-pipeline.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">input-pipeline.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
 </div>
 </div>
@@ -753,8 +763,8 @@ the call to <code class="xref py py-meth docutils literal notranslate"><span cla
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="exploration-cleaning.html" title="previous page">Data Exploration and Cleaning</a>
-    <a class='right-next' id="next-link" href="training-validation.html" title="next page">Model Training and Validation</a>
+    <a class='left-prev' id="prev-link" href="exploration-cleaning.html" title="previous page">Stroke Prediction - Data Exploration and Cleaning</a>
+    <a class='right-next' id="next-link" href="training-validation.html" title="next page">Stroke Prediction - Model Training and Validation</a>
 
         </div>
         
@@ -765,10 +775,12 @@ the call to <code class="xref py py-meth docutils literal notranslate"><span cla
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 26, 2021.<br/>
+          Last updated on June 28, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
+            &nbsp; | &nbsp;
+            <a href="../../legal.html">Legal notes</a>
           </div>
       </p>
     </div>

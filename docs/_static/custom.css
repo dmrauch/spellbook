@@ -13,6 +13,7 @@
   --grey-medium: #ddd;
   --grey-light: #f8f8f8;
   --grey-headers: rgba(0,0,0,.1);
+  --grey-icons: #5a5a5a;
   --white: #fff;
 
 /*--blue: rgba(0,113,188,1.0);                 #0071bc HSB: 204°,1.00,0.74 */
@@ -46,15 +47,23 @@
 
 .container-xl {max-width: none;} /* 90% !important; */
 
+i.fa-github-square::before {color: var(--grey-icons);}
+i.fa-linkedin::before {color: var(--grey-icons);}
+
 /* make extra_navbar appear at regular distance from the last chapter entry */
 .bd-links {padding-bottom: 0.1rem;}
 
 /* space underneath the GitHub/LinkedIn links */
 .bd-sidebar div.navbar_extra_footer {margin-bottom: 50px;} /* 15px */
 
+.topbar .topbar-main a.linkedin-button {
+  float: right;
+}
+
 /* long horizontal line underneath section headers */
 h1 {
   font-size: 2.4em;
+  margin-top: 1.5rem;
   margin-bottom: 2.5rem !important;
 }
 h2 {
@@ -268,7 +277,11 @@ div.spellbook-news.margin.sidebar {margin-top: 2em !important;}
   PROJECTS & TUTORIALS
   .. admonition:: Some Title
      :class: spellbook-projects */
-div.spellbook-projects.admonition {border-left-color: var(--orange);}
+div.spellbook-projects.admonition {
+  border-left-color: var(--orange);
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
 .spellbook-projects p.admonition-title {background-color: var(--orange-medium1);}
 .spellbook-projects p.admonition-title::before {
   color: var(--orange);
@@ -392,3 +405,7 @@ div.sphx-glr-footer {display: none;}
 p.sphx-glr-signature {display: none;}
 div.sphx-glr-thumbcontainer::before {display: none;} /* remove the tooltips */
 div.sphx-glr-thumbcontainer::after {display: none;}  /* remove the tooltips */
+
+/* !important,
+   otherwise overridden by main.bd-content #main-content div.figure */
+.sphx-glr-thumbcontainer .figure {width: 160px !important;}

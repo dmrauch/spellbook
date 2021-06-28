@@ -51,8 +51,8 @@
     <link rel="shortcut icon" href="../../_static/spellbook-icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Serving TensorFlow Models in Docker" href="../../_examples/3-tensorflow-serving-docker/code.html" />
-    <link rel="prev" title="Model Training and Validation" href="../1-binary-stroke-prediction/training-validation.html" />
+    <link rel="next" title="Serving TensorFlow Models in Docker" href="../3-tensorflow-serving-docker/code.html" />
+    <link rel="prev" title="Stroke Prediction - Model Training and Validation" href="../1-binary-stroke-prediction/training-validation.html" />
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -221,13 +221,13 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../examples.html">
+  <a class="reference internal" href="../../examples/examples.html">
    Table of Contents
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../1-binary-stroke-prediction/index.html">
-   Binary Classification: Stroke Prediction
+  <a class="reference internal" href="../../examples/1-binary-stroke-prediction/index.html">
+   Classification: Stroke Prediction
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
@@ -255,30 +255,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html">
-   Serving
-   <em>
-    TensorFlow
-   </em>
-   Models in
-   <em>
-    Docker
-   </em>
+  <a class="reference internal" href="../3-tensorflow-serving-docker/code.html">
+   Serving TensorFlow Models in Docker
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../4-tf-serving-docker-aws/index.html">
-   <em>
-    TensorFlow Serving
-   </em>
-   with
-   <em>
-    Docker
-   </em>
-   on
-   <em>
-    AWS
-   </em>
+  <a class="reference internal" href="../../examples/4-tf-serving-docker-aws/index.html">
+   Serving TensorFlow Models on AWS
   </a>
  </li>
 </ul>
@@ -311,7 +294,7 @@
         <tr>
             <td style="text-align: left;">
                 <a href="https://github.com/dmrauch">
-                    <img src="../../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
+                    <i class="fab fa-github-square"></i>
                 </a>
             </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
@@ -321,8 +304,9 @@
         <tr>
             <td style="text-align: left;">
                 <a href="https://www.linkedin.com/in/dmrauch/">
-                    <img src="../../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
+                    <i class="fab fa-linkedin"></i>
                 </a>
+            </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
                 Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
             </td>
@@ -352,6 +336,38 @@
                 <i class="fas fa-arrow-up"></i>
             </button>
             
+
+            <a class="linkedin-button" href="https://www.linkedin.com/in/dmrauch/"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" aria-label="LinkedIn"
+                title="Contact me on LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+                </button>
+            </a>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dmrauch"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Contact me on GitHub"><i
+                    class="fab fa-github"></i>dmrauch profile</button></a>
+        <a class="repository-button"
+            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>spellbook repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_examples/2-tensorflow-decision-forests/code.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/_examples/2-tensorflow-decision-forests/code.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
             
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
@@ -361,32 +377,12 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/examples/2-tensorflow-decision-forests/index.rst.txt"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/_examples/2-tensorflow-decision-forests/code.rst.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fexamples/2-tensorflow-decision-forests/index.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/examples/2-tensorflow-decision-forests/index.rst"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
@@ -447,8 +443,13 @@
         
               <div>
                 
-  <div class="section" id="random-forests-and-gradient-boosted-trees-in-tensorflow">
-<h1>Random Forests and Gradient Boosted Trees in <em>TensorFlow</em><a class="headerlink" href="#random-forests-and-gradient-boosted-trees-in-tensorflow" title="Permalink to this headline">¶</a></h1>
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-2-tensorflow-decision-forests-code-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="random-forests-and-gradient-boosted-trees-in-tensorflow">
+<span id="sphx-glr-examples-2-tensorflow-decision-forests-code-py"></span><h1>Random Forests and Gradient Boosted Trees in <em>TensorFlow</em><a class="headerlink" href="#random-forests-and-gradient-boosted-trees-in-tensorflow" title="Permalink to this headline">¶</a></h1>
 <div class="tag-list">
    <div class="tag-cell tag-date">June 16, 2021</div>
    <div class="tag-cell tag-center"></div>
@@ -473,7 +474,7 @@ with a <strong>parallel coordinate plot</strong></p></li>
 <strong>binary classification</strong></p></li>
 <li><p><strong>Compare the performance</strong> of the tree models <strong>against the neural
 network</strong> trained in the previous tutorial
-<a class="reference internal" href="../1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a></p></li>
+<a class="reference internal" href="../../examples/1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a></p></li>
 </ul>
 </div>
 <p>In <em>TensorFlow</em> version 2.5.0, support for <em>decision trees</em> and <em>forests</em>
@@ -521,7 +522,7 @@ $ pip install -r requirements.txt
 <div class="section" id="parallel-coordinate-plots">
 <h2>Parallel Coordinate Plots<a class="headerlink" href="#parallel-coordinate-plots" title="Permalink to this headline">¶</a></h2>
 <p>This tutorial uses Kaggle’s <a class="reference external" href="https://www.kaggle.com/fedesoriano/stroke-prediction-dataset">Stroke Prediction Dataset</a>,
-just like the <a class="reference internal" href="../1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a> project before.
+just like the <a class="reference internal" href="../../examples/1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a> project before.
 So therefore, before we try out the decision trees in <em>TF-DF</em>, let’s have
 a look at another possibility of visualising entire datasets in a rather
 compact way - <em>parallel coordinate plots</em>. In <em>spellbook</em>, they are
@@ -546,7 +547,7 @@ Figure 1.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><div class="figure align-center" id="id4">
-<a class="reference internal image-reference" href="../../_images/parallel-coordinates1.png"><img alt="../../_images/parallel-coordinates1.png" src="../../_images/parallel-coordinates1.png" style="width: 90%;" /></a>
+<a class="reference internal image-reference" href="../../_images/parallel-coordinates.png"><img alt="../../_images/parallel-coordinates.png" src="../../_images/parallel-coordinates.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-text">Figure 1: Parallel coordinates plot showing a subset of
 Kaggle’s Stroke Prediction Dataset</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
@@ -582,7 +583,7 @@ government.</p>
 <h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h2>
 <p>Just like regular <em>TensorFlow</em>, <em>TF-DF</em> implements the <em>Keras</em> API and
 therefore, we can follow very closely what we did in
-<a class="reference internal" href="../1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a>.
+<a class="reference internal" href="../../examples/1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a>.
 So now let’s start using <em>TF-DF</em> and begin with the random forest model:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>2-random-forest.py</strong></p>
@@ -610,7 +611,7 @@ helper function, we apply oversampling to counteract the imbalance in the
 target classes between the 4.3% of the patients with a stroke and the
 overwhelming majority of 95.7% without a stroke. The dataset and the method
 of oversampling are described in detail in
-<a class="reference internal" href="../1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a>.
+<a class="reference internal" href="../../examples/1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a>.
 Finally, we split the dataset into a training and a validation set using
 <em>TF-DF</em>’s <a class="reference external" href="https://www.tensorflow.org/decision_forests/api_docs/python/tfdf/keras/pd_dataframe_to_tf_dataset">tfdf.keras.pd_dataframe_to_tf_dataset</a>.</p>
 <p>Note that we hardly did any preprocessing - in particular, decision trees do
@@ -620,7 +621,7 @@ variables expressed by strings or integers into properly indexed
 to work - but not for the decision trees.</p>
 <p>Next, we prepare a range of metrics useful for binary classification - the same
 ones that are also used and described in
-<a class="reference internal" href="../1-binary-stroke-prediction/training-validation.html"><span class="doc">Model Training and Validation</span></a>.
+<a class="reference internal" href="../1-binary-stroke-prediction/training-validation.html"><span class="doc">Stroke Prediction - Model Training and Validation</span></a>.
 Afterwards, we instantiate a <a class="reference external" href="https://www.tensorflow.org/decision_forests/api_docs/python/tfdf/keras/RandomForestModel">tfdf.keras.RandomForestModel</a>,
 sticking to the default values. We add the metrics using the <code class="docutils literal notranslate"><span class="pre">compile</span></code> method
 and train the model with <code class="docutils literal notranslate"><span class="pre">model.fit</span></code> on the training dataset <code class="docutils literal notranslate"><span class="pre">train</span></code>.
@@ -662,7 +663,10 @@ rapid way of evaluating the model performance goes somewhat like this:</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">eval</span></code> is a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> containing the values of the metrics calculated
 from the validation dataset.</p>
-<p>But let’s go on and calculate the confusion matrix:</p>
+<p>But let’s go on and calculate and plot the confusion matrix with
+<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/math/confusion_matrix" title="(in TensorFlow v2.4)"><code class="xref py py-func docutils literal notranslate"><span class="pre">tf.math.confusion_matrix()</span></code></a> and
+<a class="reference internal" href="../../_stubs/spellbook.plot.html#spellbook.plot.plot_confusion_matrix" title="spellbook.plot.plot_confusion_matrix"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.plot_confusion_matrix()</span></code></a>. As usual, the plot is saved
+with <a class="reference internal" href="../../_stubs/spellbook.plot.html#spellbook.plot.save" title="spellbook.plot.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.save()</span></code></a>:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>2-random-forest.py</strong></p>
 <p>in <code class="docutils literal notranslate"><span class="pre">examples/2-tensorflow-decision-forests/</span></code></p>
@@ -701,7 +705,7 @@ from the validation dataset.</p>
 </pre></div>
 </div>
 <p>Just like in
-<a class="reference internal" href="../1-binary-stroke-prediction/training-validation.html"><span class="doc">Model Training and Validation</span></a>, we can also
+<a class="reference internal" href="../1-binary-stroke-prediction/training-validation.html"><span class="doc">Stroke Prediction - Model Training and Validation</span></a>, we can also
 plot normalised versions of the confusion matrix. The confusion matrix with
 the absolute datapoint numbers is given in Figure 2 and a version where
 each true label/class is normalised in Figure 3:</p>
@@ -771,7 +775,7 @@ is in the instantiation:</p>
 <em>false positive rate</em> (<a class="reference internal" href="../../glossary.html#term-FPR"><span class="xref std std-term">FPR</span></a>) of 5.8%.</p>
 <p>Before we go on to compare the different tree models and the final neural
 network classifier trained in
-<a class="reference internal" href="../1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a>,
+<a class="reference internal" href="../../examples/1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a>,
 let’s have a look at a model-agnostic way of determining the importance
 that each feature plays in the performance of the classifier: the
 <em>permutation importance</em>. While one or more input features cannot simply
@@ -840,9 +844,10 @@ grouping multiple features into clusters and permuting them simultaneously.</p>
 <h2>Comparison Against Neural Networks<a class="headerlink" href="#comparison-against-neural-networks" title="Permalink to this headline">¶</a></h2>
 <p>Finally, let’s compare our tree classifiers against the final neural network
 classifier trained at the end of
-<a class="reference internal" href="../1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a> using both oversampling and
+<a class="reference internal" href="../../examples/1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a> using both oversampling and
 input normalisation and have a look at the different <em>Receiver Operator
-Characteristic</em> (<a class="reference internal" href="../../glossary.html#term-ROC"><span class="xref std std-term">ROC</span></a>) curves:</p>
+Characteristic</em> (<a class="reference internal" href="../../glossary.html#term-ROC"><span class="xref std std-term">ROC</span></a>) curves, calculated and plotted with
+<a class="reference internal" href="../../_stubs/spellbook.train.html#spellbook.train.ROCPlot" title="spellbook.train.ROCPlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.train.ROCPlot</span></code></a>:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">from <strong>4-roc.py</strong></p>
 <p>in <code class="docutils literal notranslate"><span class="pre">examples/2-tensorflow-decision-forests/</span></code></p>
@@ -887,7 +892,7 @@ rate</em> (<a class="reference internal" href="../../glossary.html#term-TPR"><sp
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><div class="figure align-default" id="id10">
-<a class="reference internal image-reference" href="../../_images/roc1.png"><img alt="../../_images/roc1.png" src="../../_images/roc1.png" style="height: 450px;" /></a>
+<a class="reference internal image-reference" href="../../_images/roc.png"><img alt="../../_images/roc.png" src="../../_images/roc.png" style="height: 450px;" /></a>
 <p class="caption"><span class="caption-text">Figure 7: Receiver Operator Characteristic (<a class="reference internal" href="../../glossary.html#term-ROC"><span class="xref std std-term">ROC</span></a>) curves</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </td>
@@ -911,6 +916,15 @@ is not a representation geared towards showing the characteristic patterns
 - which can e.g. move across the image and therefore from some columns to
 others. Neural networks are better at identifying and learning the relevant
 patterns in such unstructured datasets.</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-2-tensorflow-decision-forests-code-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/52a55a87e2188123ba73843846c467d2/code.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">code.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/14115432e0fb11754387f35e208c2034/code.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">code.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
 </div>
 
@@ -920,8 +934,8 @@ patterns in such unstructured datasets.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../1-binary-stroke-prediction/training-validation.html" title="previous page">Model Training and Validation</a>
-    <a class='right-next' id="next-link" href="../../_examples/3-tensorflow-serving-docker/code.html" title="next page">Serving <em>TensorFlow</em> Models in <em>Docker</em></a>
+    <a class='left-prev' id="prev-link" href="../1-binary-stroke-prediction/training-validation.html" title="previous page">Stroke Prediction - Model Training and Validation</a>
+    <a class='right-next' id="next-link" href="../3-tensorflow-serving-docker/code.html" title="next page">Serving <em>TensorFlow</em> Models in <em>Docker</em></a>
 
         </div>
         
@@ -932,10 +946,12 @@ patterns in such unstructured datasets.</p>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 26, 2021.<br/>
+          Last updated on June 28, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
+            &nbsp; | &nbsp;
+            <a href="../../legal.html">Legal notes</a>
           </div>
       </p>
     </div>

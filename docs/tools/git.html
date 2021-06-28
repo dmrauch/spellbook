@@ -227,21 +227,21 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../examples/1-binary-stroke-prediction/index.html">
-   Binary Classification: Stroke Prediction
+   Classification: Stroke Prediction
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../examples/1-binary-stroke-prediction/exploration-cleaning.html">
+    <a class="reference internal" href="../_examples/1-binary-stroke-prediction/exploration-cleaning.html">
      Data Exploration and Cleaning
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../examples/1-binary-stroke-prediction/input-pipeline.html">
+    <a class="reference internal" href="../_examples/1-binary-stroke-prediction/input-pipeline.html">
      Data Preparation and Input Pipeline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../examples/1-binary-stroke-prediction/training-validation.html">
+    <a class="reference internal" href="../_examples/1-binary-stroke-prediction/training-validation.html">
      Model Training and Validation
     </a>
    </li>
@@ -250,35 +250,18 @@
   </i>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../examples/2-tensorflow-decision-forests/index.html">
+  <a class="reference internal" href="../_examples/2-tensorflow-decision-forests/code.html">
    Decision Forests in TensorFlow
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html">
-   Serving
-   <em>
-    TensorFlow
-   </em>
-   Models in
-   <em>
-    Docker
-   </em>
+   Serving TensorFlow Models in Docker
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../examples/4-tf-serving-docker-aws/index.html">
-   <em>
-    TensorFlow Serving
-   </em>
-   with
-   <em>
-    Docker
-   </em>
-   on
-   <em>
-    AWS
-   </em>
+   Serving TensorFlow Models on AWS
   </a>
  </li>
 </ul>
@@ -311,7 +294,7 @@
         <tr>
             <td style="text-align: left;">
                 <a href="https://github.com/dmrauch">
-                    <img src="../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
+                    <i class="fab fa-github-square"></i>
                 </a>
             </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
@@ -321,8 +304,9 @@
         <tr>
             <td style="text-align: left;">
                 <a href="https://www.linkedin.com/in/dmrauch/">
-                    <img src="../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
+                    <i class="fab fa-linkedin"></i>
                 </a>
+            </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
                 Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
             </td>
@@ -352,6 +336,38 @@
                 <i class="fas fa-arrow-up"></i>
             </button>
             
+
+            <a class="linkedin-button" href="https://www.linkedin.com/in/dmrauch/"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" aria-label="LinkedIn"
+                title="Contact me on LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+                </button>
+            </a>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dmrauch"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Contact me on GitHub"><i
+                    class="fab fa-github"></i>dmrauch profile</button></a>
+        <a class="repository-button"
+            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>spellbook repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Ftools/git.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/tools/git.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
             
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
@@ -367,26 +383,6 @@
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Ftools/git.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/tools/git.rst"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
@@ -410,6 +406,23 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#command-reference">
+   Command Reference
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stashing">
+     Stashing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-changes-to-an-earlier-commit">
+     Adding Changes to an Earlier Commit
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#github">
    GitHub
@@ -446,6 +459,83 @@
                 
   <div class="section" id="git">
 <h1>Git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="command-reference">
+<h2>Command Reference<a class="headerlink" href="#command-reference" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stashing">
+<h3>Stashing<a class="headerlink" href="#stashing" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>List the stashes</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git stash list
+</pre></div>
+</div>
+</li>
+<li><p>Show the stashes</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git stash show <span class="o">[</span>&lt;stash&gt;<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Show the stashes as patches</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git stash show -p <span class="o">[</span>&lt;stash&gt;<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a new stash</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git stash push -m <span class="s2">&quot;&lt;message&gt;&quot;</span> &lt;file1&gt; <span class="o">[</span>&lt;file2&gt;, ...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Only tracked files can be stashed, so be sure to add any untracked files
+before creating a new stash and adding them to it.</p>
+</li>
+<li><p>Retrieve a stash and apply it to the working directory</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git stash pop <span class="o">[</span>&lt;stash&gt;<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="adding-changes-to-an-earlier-commit">
+<h3>Adding Changes to an Earlier Commit<a class="headerlink" href="#adding-changes-to-an-earlier-commit" title="Permalink to this headline">¶</a></h3>
+<p>The previous commit can be appended with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">--amend</span></code>.</p>
+<p>For any commit before the previous one, it is necessary to use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code>.</p>
+<ul>
+<li><p>Rebase to the commit <strong>before</strong> the one that you want to change</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git rebase -i &lt;HASH&gt;
+</pre></div>
+</div>
+<p>This will open a text editor with a list of the more recent commits
+following the one that you just rebased to.</p>
+</li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">pick</span></code> to <code class="docutils literal notranslate"><span class="pre">edit</span></code> for any commit that you want to modify
+and then save and close the file</p></li>
+<li><p>Add changes with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git add &lt;file1&gt; <span class="o">[</span>&lt;file2&gt; ...<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Commit the changes</p>
+<ul>
+<li><p>with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git commit --amend
+</pre></div>
+</div>
+<p>if you’d like to specify a new commit message</p>
+</li>
+<li><p>with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git commit --amend --no-edit
+</pre></div>
+</div>
+<p>if you’d like to keep the original commit message</p>
+</li>
+</ul>
+</li>
+<li><p>Go to the next commit to be edited or finish the process with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git rebase --continue
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="github">
 <h2>GitHub<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="git-credentials-for-github">
@@ -531,10 +621,12 @@ the <code class="docutils literal notranslate"><span class="pre">gh-pages</span>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 26, 2021.<br/>
+          Last updated on June 28, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
+            &nbsp; | &nbsp;
+            <a href="../legal.html">Legal notes</a>
           </div>
       </p>
     </div>

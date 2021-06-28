@@ -1,0 +1,16 @@
+
+:orphan:
+
+.. _sphx_glr__examples_1-binary-stroke-prediction_sg_execution_times:
+
+Computation times
+=================
+**00:00.094** total execution time for **_examples_1-binary-stroke-prediction** files:
+
++------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_1-binary-stroke-prediction_exploration-cleaning.py` (``exploration-cleaning.py``) | 00:00.093 | 0.0 MB |
++------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_1-binary-stroke-prediction_input-pipeline.py` (``input-pipeline.py``)             | 00:00.001 | 0.0 MB |
++------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr__examples_1-binary-stroke-prediction_training-validation.py` (``training-validation.py``)   | 00:00.000 | 0.0 MB |
++------------------------------------------------------------------------------------------------------------+-----------+--------+

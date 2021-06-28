@@ -226,21 +226,21 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="examples/1-binary-stroke-prediction/index.html">
-   Binary Classification: Stroke Prediction
+   Classification: Stroke Prediction
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="examples/1-binary-stroke-prediction/exploration-cleaning.html">
+    <a class="reference internal" href="_examples/1-binary-stroke-prediction/exploration-cleaning.html">
      Data Exploration and Cleaning
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="examples/1-binary-stroke-prediction/input-pipeline.html">
+    <a class="reference internal" href="_examples/1-binary-stroke-prediction/input-pipeline.html">
      Data Preparation and Input Pipeline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="examples/1-binary-stroke-prediction/training-validation.html">
+    <a class="reference internal" href="_examples/1-binary-stroke-prediction/training-validation.html">
      Model Training and Validation
     </a>
    </li>
@@ -249,35 +249,18 @@
   </i>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="examples/2-tensorflow-decision-forests/index.html">
+  <a class="reference internal" href="_examples/2-tensorflow-decision-forests/code.html">
    Decision Forests in TensorFlow
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="_examples/3-tensorflow-serving-docker/code.html">
-   Serving
-   <em>
-    TensorFlow
-   </em>
-   Models in
-   <em>
-    Docker
-   </em>
+   Serving TensorFlow Models in Docker
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="examples/4-tf-serving-docker-aws/index.html">
-   <em>
-    TensorFlow Serving
-   </em>
-   with
-   <em>
-    Docker
-   </em>
-   on
-   <em>
-    AWS
-   </em>
+   Serving TensorFlow Models on AWS
   </a>
  </li>
 </ul>
@@ -310,7 +293,7 @@
         <tr>
             <td style="text-align: left;">
                 <a href="https://github.com/dmrauch">
-                    <img src="_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
+                    <i class="fab fa-github-square"></i>
                 </a>
             </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
@@ -320,8 +303,9 @@
         <tr>
             <td style="text-align: left;">
                 <a href="https://www.linkedin.com/in/dmrauch/">
-                    <img src="_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
+                    <i class="fab fa-linkedin"></i>
                 </a>
+            </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
                 Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
             </td>
@@ -351,6 +335,38 @@
                 <i class="fas fa-arrow-up"></i>
             </button>
             
+
+            <a class="linkedin-button" href="https://www.linkedin.com/in/dmrauch/"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" aria-label="LinkedIn"
+                title="Contact me on LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+                </button>
+            </a>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dmrauch"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Contact me on GitHub"><i
+                    class="fab fa-github"></i>dmrauch profile</button></a>
+        <a class="repository-button"
+            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>spellbook repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/index.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
             
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
@@ -366,26 +382,6 @@
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/index.rst"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
@@ -465,36 +461,6 @@ learn about data science and machine learning tools and techniques as well as to
 examples for how to use the <em>spellbook</em> library.</p></li>
 </ul>
 </div>
-<div class="margin sidebar">
-<p class="sidebar-title">Gallery</p>
-<p>from left to right:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="_stubs/spellbook.plot.html#spellbook.plot.pairplot" title="spellbook.plot.pairplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.pairplot()</span></code></a></p></li>
-<li><p><a class="reference internal" href="_stubs/spellbook.plot.html#spellbook.plot.plot_confusion_matrix" title="spellbook.plot.plot_confusion_matrix"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.plot_confusion_matrix()</span></code></a></p></li>
-<li><p><a class="reference internal" href="_stubs/spellbook.train.html#spellbook.train.ROCPlot.plot" title="spellbook.train.ROCPlot.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.train.ROCPlot.plot()</span></code></a></p></li>
-<li><p><a class="reference internal" href="_stubs/spellbook.inspect.html#spellbook.inspect.PermutationImportance.plot" title="spellbook.inspect.PermutationImportance.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.inspect.PermutationImportance.plot()</span></code></a></p></li>
-<li><p><a class="reference internal" href="_stubs/spellbook.train.html#spellbook.train.plot_history_binary" title="spellbook.train.plot_history_binary"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.train.plot_history_binary()</span></code></a></p>
-<ul>
-<li><p>true/false positives/negatives</p></li>
-<li><p>loss and accuracy</p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="_stubs/spellbook.plot1D.html#spellbook.plot1D.histogram" title="spellbook.plot1D.histogram"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot1D.histogram()</span></code></a></p></li>
-<li><p><a class="reference internal" href="_stubs/spellbook.plot2D.html#spellbook.plot2D.categorical_histogram" title="spellbook.plot2D.categorical_histogram"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.categorical_histogram()</span></code></a></p></li>
-<li><p><a class="reference internal" href="_stubs/spellbook.plot.html#spellbook.plot.parallel_coordinates" title="spellbook.plot.parallel_coordinates"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.parallel_coordinates()</span></code></a></p></li>
-<li><p><a class="reference internal" href="_stubs/spellbook.train.html#spellbook.train.BinaryCalibrationPlot" title="spellbook.train.BinaryCalibrationPlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.train.BinaryCalibrationPlot</span></code></a></p></li>
-</ul>
-</div>
-<div class="spellbook-news margin sidebar">
-<p class="sidebar-title">News</p>
-<ul class="simple">
-<li><p><em>June 26, 2021</em>: <a class="reference internal" href="examples/4-tf-serving-docker-aws/index.html"><span class="doc">TensorFlow Serving with Docker on AWS</span></a></p></li>
-<li><p><em>June 21, 2021</em>: <a class="reference internal" href="_examples/3-tensorflow-serving-docker/code.html"><span class="doc">Serving TensorFlow Models in Docker</span></a></p></li>
-<li><p><em>June 16, 2021</em>: <a class="reference internal" href="examples/2-tensorflow-decision-forests/index.html"><span class="doc">Random Forests and Gradient Boosted Trees in TensorFlow</span></a></p></li>
-<li><p><em>June 13, 2021</em>: <a class="reference internal" href="examples/1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a></p></li>
-<li><p><em>June 13, 2021</em>: Release</p></li>
-</ul>
-</div>
 <div class="spellbook-gallery admonition">
 <p class="admonition-title">Gallery</p>
 <table class="spellbook-gallery-scroll table">
@@ -512,43 +478,43 @@ examples for how to use the <em>spellbook</em> library.</p></li>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><div class="figure align-default">
-<a class="reference internal image-reference" href="_images/pairplot-5x5.png"><img alt="_images/pairplot-5x5.png" src="_images/pairplot-5x5.png" style="height: 200px;" /></a>
+<a class="reference external image-reference" href="_stubs/spellbook.plot.html#pairplot"><img alt="_images/pairplot-5x5.png" src="_images/pairplot-5x5.png" style="height: 200px;" /></a>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="_images/confusion-matrix-absolute.png"><img alt="_images/confusion-matrix-absolute.png" src="_images/confusion-matrix-absolute.png" style="height: 200px;" /></a>
+<a class="reference external image-reference" href="_stubs/spellbook.plot.html#plot-confusion-matrix"><img alt="_images/confusion-matrix-absolute.png" src="_images/confusion-matrix-absolute.png" style="height: 200px;" /></a>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="_images/roc.png"><img alt="_images/roc.png" src="_images/roc.png" style="height: 200px;" /></a>
+<a class="reference external image-reference" href="_stubs/spellbook.train.html#rocplot"><img alt="_images/roc1.png" src="_images/roc1.png" style="height: 200px;" /></a>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="_images/permutation-importance.png"><img alt="_images/permutation-importance.png" src="_images/permutation-importance.png" style="height: 200px;" /></a>
+<a class="reference external image-reference" href="_stubs/spellbook.inspect.html#permutationimportance"><img alt="_images/permutation-importance.png" src="_images/permutation-importance.png" style="height: 200px;" /></a>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="_images/true-false-pos-neg-rates.png"><img alt="_images/true-false-pos-neg-rates.png" src="_images/true-false-pos-neg-rates.png" style="height: 200px;" /></a>
+<a class="reference external image-reference" href="_stubs/spellbook.train.html#plot-history-binary"><img alt="_images/true-false-pos-neg-rates.png" src="_images/true-false-pos-neg-rates.png" style="height: 200px;" /></a>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="_images/loss-acc.png"><img alt="_images/loss-acc.png" src="_images/loss-acc.png" style="height: 200px;" /></a>
+<a class="reference external image-reference" href="_stubs/spellbook.train.html#plot-history-binary"><img alt="_images/loss-acc.png" src="_images/loss-acc.png" style="height: 200px;" /></a>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="_images/histogram.png"><img alt="_images/histogram.png" src="_images/histogram.png" style="height: 200px;" /></a>
+<a class="reference external image-reference" href="_stubs/spellbook.plot1D.html#histogram"><img alt="_images/histogram.png" src="_images/histogram.png" style="height: 200px;" /></a>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="_images/categorical-histogram-stats.png"><img alt="_images/categorical-histogram-stats.png" src="_images/categorical-histogram-stats.png" style="height: 200px;" /></a>
+<a class="reference external image-reference" href="_stubs/spellbook.plot2D.html#categorical-histogram"><img alt="_images/categorical-histogram-stats.png" src="_images/categorical-histogram-stats.png" style="height: 200px;" /></a>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="_images/parallel-coordinates.png"><img alt="_images/parallel-coordinates.png" src="_images/parallel-coordinates.png" style="height: 200px;" /></a>
+<a class="reference external image-reference" href="_stubs/spellbook.plot.html#parallel-coordinates"><img alt="_images/parallel-coordinates1.png" src="_images/parallel-coordinates1.png" style="height: 200px;" /></a>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="_images/calibration.png"><img alt="_images/calibration.png" src="_images/calibration.png" style="height: 200px;" /></a>
+<a class="reference external image-reference" href="_stubs/spellbook.train.html#binarycalibrationplot"><img alt="_images/calibration.png" src="_images/calibration.png" style="height: 200px;" /></a>
 </div>
 </td>
 </tr>
@@ -557,13 +523,23 @@ examples for how to use the <em>spellbook</em> library.</p></li>
 </div>
 <div class="spellbook-projects admonition">
 <p class="admonition-title">Projects &amp; Tutorials</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="examples/1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a></p></li>
-<li><p><a class="reference internal" href="examples/2-tensorflow-decision-forests/index.html"><span class="doc">Random Forests and Gradient Boosted Trees in TensorFlow</span></a></p></li>
-<li><p><a class="reference internal" href="_examples/3-tensorflow-serving-docker/code.html"><span class="doc">Serving TensorFlow Models in Docker</span></a></p></li>
-<li><p><a class="reference internal" href="examples/4-tf-serving-docker-aws/index.html"><span class="doc">TensorFlow Serving with Docker on AWS</span></a></p></li>
-</ul>
+<div class="sphx-glr-clear"></div><div class="sphx-glr-thumbcontainer"><div class="figure align-default" id="id2">
+<img alt="Binary Classification with the Stroke Prediction Dataset" src="_images/variables.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="examples/1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
+</div><div class="sphx-glr-thumbcontainer"><div class="figure align-default" id="id3">
+<img alt="Random Forests and Gradient Boosted Trees in TensorFlow" src="_images/roc.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="_examples/2-tensorflow-decision-forests/code.html"><span class="doc">Random Forests and Gradient Boosted Trees in TensorFlow</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer"><div class="figure align-default" id="id4">
+<img alt="Serving *TensorFlow* Models in *Docker*" src="_images/sphx_glr_code_thumb1.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="_examples/3-tensorflow-serving-docker/code.html#sphx-glr-examples-3-tensorflow-serving-docker-code-py"><span class="std std-ref">Serving TensorFlow Models in Docker</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer"><div class="figure align-default" id="id5">
+<img alt="TensorFlow Serving with Docker on AWS" src="_images/TF_FullColor_Icon.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="examples/4-tf-serving-docker-aws/index.html"><span class="doc">TensorFlow Serving with Docker on AWS</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div></div>
 <p><em>spellbook</em> is where I collect functionality that I implement and expect to
 reuse later. In this spirit, <em>spellbook</em> grows as needed and its development
 does not aim to complete a specific set of features. The repository is
@@ -672,17 +648,17 @@ $ make doctest
 <h3>Publishing of the Compiled Documentation to <em>GitHub Pages</em><a class="headerlink" href="#publishing-of-the-compiled-documentation-to-github-pages" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>clone the repository to a different folder</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:dmrauch/spellbook.git spellbook-gh-pages
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:dmrauch/spellbook.git spellbook-gh-pages
 </pre></div>
 </div>
 </li>
 <li><p>create the new branch <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git branch gh-pages
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git branch gh-pages
 </pre></div>
 </div>
 <p>The new branch is created but the original branch remains active and
 checked out. Switch to the new branch with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git switch gh-pages
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git switch gh-pages
 </pre></div>
 </div>
 </li>
@@ -690,7 +666,7 @@ checked out. Switch to the new branch with</p>
 <code class="docutils literal notranslate"><span class="pre">master</span></code> or feature branch and then copy it over to the folder
 <code class="docutils literal notranslate"><span class="pre">spellbook-gh-pages</span></code></p></li>
 <li><p>push the compiled documentation to the branch <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> on <em>GitHub</em></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push -u origin gh-pages
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git push -u origin gh-pages
 </pre></div>
 </div>
 </li>
@@ -716,10 +692,12 @@ checked out. Switch to the new branch with</p>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 26, 2021.<br/>
+          Last updated on June 28, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
+            &nbsp; | &nbsp;
+            <a href="legal.html">Legal notes</a>
           </div>
       </p>
     </div>

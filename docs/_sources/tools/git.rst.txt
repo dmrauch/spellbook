@@ -3,6 +3,97 @@ Git
 ***
 
 
+Command Reference
+=================
+
+Stashing
+--------
+
+- List the stashes
+
+  .. code:: bash
+
+     $ git stash list
+
+- Show the stashes
+
+  .. code:: bash
+
+     $ git stash show [<stash>]
+
+- Show the stashes as patches
+
+  .. code:: bash
+
+     $ git stash show -p [<stash>]
+
+- Create a new stash
+
+  .. code:: bash
+
+     $ git stash push -m "<message>" <file1> [<file2>, ...]
+
+  Only tracked files can be stashed, so be sure to add any untracked files
+  before creating a new stash and adding them to it.
+
+- Retrieve a stash and apply it to the working directory
+
+  .. code:: bash
+
+     $ git stash pop [<stash>]
+
+
+Adding Changes to an Earlier Commit
+-----------------------------------
+
+The previous commit can be appended with ``git commit --amend``.
+
+For any commit before the previous one, it is necessary to use ``git rebase``.
+
+- Rebase to the commit **before** the one that you want to change
+
+  .. code:: bash
+
+     $ git rebase -i <HASH>
+
+  This will open a text editor with a list of the more recent commits
+  following the one that you just rebased to.
+
+- Change ``pick`` to ``edit`` for any commit that you want to modify
+  and then save and close the file
+
+- Add changes with
+
+  .. code:: bash
+
+     $ git add <file1> [<file2> ...]
+
+- Commit the changes
+
+  - with
+
+    .. code:: bash
+
+       $ git commit --amend
+
+    if you'd like to specify a new commit message
+
+  - with
+
+    .. code:: bash
+
+       $ git commit --amend --no-edit
+
+    if you'd like to keep the original commit message
+
+- Go to the next commit to be edited or finish the process with
+
+  .. code:: bash
+
+     $ git rebase --continue
+
+
+
 GitHub
 ======
 

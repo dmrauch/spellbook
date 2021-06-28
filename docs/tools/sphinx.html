@@ -228,21 +228,21 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../examples/1-binary-stroke-prediction/index.html">
-   Binary Classification: Stroke Prediction
+   Classification: Stroke Prediction
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../examples/1-binary-stroke-prediction/exploration-cleaning.html">
+    <a class="reference internal" href="../_examples/1-binary-stroke-prediction/exploration-cleaning.html">
      Data Exploration and Cleaning
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../examples/1-binary-stroke-prediction/input-pipeline.html">
+    <a class="reference internal" href="../_examples/1-binary-stroke-prediction/input-pipeline.html">
      Data Preparation and Input Pipeline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../examples/1-binary-stroke-prediction/training-validation.html">
+    <a class="reference internal" href="../_examples/1-binary-stroke-prediction/training-validation.html">
      Model Training and Validation
     </a>
    </li>
@@ -251,35 +251,18 @@
   </i>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../examples/2-tensorflow-decision-forests/index.html">
+  <a class="reference internal" href="../_examples/2-tensorflow-decision-forests/code.html">
    Decision Forests in TensorFlow
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html">
-   Serving
-   <em>
-    TensorFlow
-   </em>
-   Models in
-   <em>
-    Docker
-   </em>
+   Serving TensorFlow Models in Docker
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../examples/4-tf-serving-docker-aws/index.html">
-   <em>
-    TensorFlow Serving
-   </em>
-   with
-   <em>
-    Docker
-   </em>
-   on
-   <em>
-    AWS
-   </em>
+   Serving TensorFlow Models on AWS
   </a>
  </li>
 </ul>
@@ -312,7 +295,7 @@
         <tr>
             <td style="text-align: left;">
                 <a href="https://github.com/dmrauch">
-                    <img src="../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
+                    <i class="fab fa-github-square"></i>
                 </a>
             </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
@@ -322,8 +305,9 @@
         <tr>
             <td style="text-align: left;">
                 <a href="https://www.linkedin.com/in/dmrauch/">
-                    <img src="../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
+                    <i class="fab fa-linkedin"></i>
                 </a>
+            </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
                 Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
             </td>
@@ -353,6 +337,38 @@
                 <i class="fas fa-arrow-up"></i>
             </button>
             
+
+            <a class="linkedin-button" href="https://www.linkedin.com/in/dmrauch/"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" aria-label="LinkedIn"
+                title="Contact me on LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+                </button>
+            </a>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dmrauch"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Contact me on GitHub"><i
+                    class="fab fa-github"></i>dmrauch profile</button></a>
+        <a class="repository-button"
+            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>spellbook repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Ftools/sphinx.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/tools/sphinx.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
             
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
@@ -368,26 +384,6 @@
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Ftools/sphinx.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/tools/sphinx.rst"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
@@ -1212,7 +1208,7 @@ window. Otherwise, the plots will be centered horizontally.</p>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/roc.png"><img alt="../_images/roc.png" src="../_images/roc.png" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/roc1.png"><img alt="../_images/roc1.png" src="../_images/roc1.png" style="height: 200px;" /></a>
 </div>
 </td>
 <td><div class="figure align-default">
@@ -1259,7 +1255,7 @@ window. Otherwise, the plots will be centered horizontally.</p>
 </div>
 </td>
 <td><div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/roc.png"><img alt="../_images/roc.png" src="../_images/roc.png" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/roc1.png"><img alt="../_images/roc1.png" src="../_images/roc1.png" style="height: 200px;" /></a>
 </div>
 </td>
 </tr>
@@ -1316,10 +1312,12 @@ glossary and the index</p></li>
       <p>
         
             &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 26, 2021.<br/>
+          Last updated on June 28, 2021.<br/>
           <div class="extra_footer">
             Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
+            &nbsp; | &nbsp;
+            <a href="../legal.html">Legal notes</a>
           </div>
       </p>
     </div>

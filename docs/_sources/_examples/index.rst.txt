@@ -12,6 +12,110 @@
 
 
 
+.. _sphx_glr__examples_1-binary-stroke-prediction:
+
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip=" Now let&#x27;s move on to bringing the data into a form that can be processed by the neural network...">
+
+.. only:: html
+
+ .. figure:: /_examples/1-binary-stroke-prediction/images/thumb/sphx_glr_input-pipeline_thumb.png
+     :alt: Stroke Prediction - Data Preparation and Input Pipeline
+
+     :ref:`sphx_glr__examples_1-binary-stroke-prediction_input-pipeline.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/1-binary-stroke-prediction/input-pipeline
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Now that the inputs are prepared, we can proceed to set up and configure a model. I tried diffe...">
+
+.. only:: html
+
+ .. figure:: /_examples/1-binary-stroke-prediction/images/thumb/sphx_glr_training-validation_thumb.png
+     :alt: Stroke Prediction - Model Training and Validation
+
+     :ref:`sphx_glr__examples_1-binary-stroke-prediction_training-validation.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/1-binary-stroke-prediction/training-validation
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Now let&#x27;s dive in a bit deeper and have a look at some code snippets!">
+
+.. only:: html
+
+ .. figure:: /_examples/1-binary-stroke-prediction/images/thumb/sphx_glr_exploration-cleaning_thumb.png
+     :alt: Stroke Prediction - Data Exploration and Cleaning
+
+     :ref:`sphx_glr__examples_1-binary-stroke-prediction_exploration-cleaning.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/1-binary-stroke-prediction/exploration-cleaning
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr__examples_2-tensorflow-decision-forests:
+
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip=" .. raw:: html">
+
+.. only:: html
+
+ .. figure:: /_examples/2-tensorflow-decision-forests/images/thumb/sphx_glr_code_thumb.png
+     :alt: Random Forests and Gradient Boosted Trees in *TensorFlow*
+
+     :ref:`sphx_glr__examples_2-tensorflow-decision-forests_code.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/2-tensorflow-decision-forests/code
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
 .. _sphx_glr__examples_3-tensorflow-serving-docker:
 
 

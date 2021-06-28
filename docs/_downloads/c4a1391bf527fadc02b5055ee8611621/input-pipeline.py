@@ -1,8 +1,9 @@
+'''
 .. _BinaryStrokePrediction-InputPipeline:
 
-***********************************
-Data Preparation and Input Pipeline
-***********************************
+*******************************************************
+Stroke Prediction - Data Preparation and Input Pipeline
+*******************************************************
 
 
 Now let's move on to bringing the data into a form that can be processed by
@@ -32,9 +33,9 @@ variables and manipulating them so that they can be digested by the network.
 .. code:: python
 
     # inplace convert string category labels to numerical indices
-    categories = sb.inputs.encode_categories(data)
+    categories = sb.input.encode_categories(data)
 
-Behind the scenes, the function :func:`spellbook.inputs.encode_categories`
+Behind the scenes, the function :func:`spellbook.input.encode_categories`
 loops over all categorical variables in the dataset and converts them to
 :class:`pandas.Categorical`\s.
 A dictionary containing the mapping of the category names to numerical indices
@@ -56,7 +57,7 @@ variable ``var``, an additional column ``var_codes`` is added to the dataset,
 containing the numerical category codes for each datapoint. These are the 
 columns that we will later feed into the network.
 
-The corresponding code in :func:`spellbook.inputs.encode_categories` looks
+The corresponding code in :func:`spellbook.input.encode_categories` looks
 like this:
 
 .. margin:: from :func:`spellbook.input.encode_categories`
@@ -133,7 +134,7 @@ to directly feed features stored in a :class:`pandas.DataFrame` and labels
 stored in a :class:`pandas.Series` into *TensorFlow* networks.
 The separation of a single :class:`pandas.DataFrame` into separate feature
 and label sets for training, validation and testing is implemented in
-:func:`spellbook.inputs.split_pddataframe_to_pddataframes`.
+:func:`spellbook.input.split_pddataframe_to_pddataframes`.
 
 
 
@@ -141,7 +142,7 @@ Option 1: Using *TensorFlow* Datasets
 -------------------------------------
 
 This approach is taken in ``2-stroke-prediction-naive.py``.
-It is implemented in :func:`spellbook.inputs.split_pddataframe_to_tfdatasets`
+It is implemented in :func:`spellbook.input.split_pddataframe_to_tfdatasets`
 and can be used like this:
 
 .. margin:: from **2-stroke-prediction-naive.py**
@@ -150,7 +151,7 @@ and can be used like this:
 
 .. code:: python
 
-    train, val = sb.inputs.split_pddataframe_to_tfdatasets(data, target, features, n_train=3500)
+    train, val = sb.input.split_pddataframe_to_tfdatasets(data, target, features, n_train=3500)
     print(train.cardinality()) # print the size of the dataset
     print(val.cardinality())
 
@@ -168,7 +169,7 @@ results for the metrics used to quantify the model performance. The smaller
 the validation set is, the larger the statistical uncertainty on the metrics
 will be.
 
-Under the hood, in :func:`spellbook.inputs.split_pddataframe_to_tfdatasets`,
+Under the hood, in :func:`spellbook.input.split_pddataframe_to_tfdatasets`,
 the :class:`pandas.DataFrame` is split into two separate frames,
 one for the features and one for the target labels. These are converted to
 two ``numpy.ndarray``\s which are then used to initialise the
@@ -231,7 +232,7 @@ Option 2: Using *TensorFlow* Tensors
 ------------------------------------
 
 Used in ``3-stroke-prediction-oversampling.py``
-and implemented in :func:`spellbook.inputs.separate_tfdataset_to_tftensors`.
+and implemented in :func:`spellbook.input.separate_tfdataset_to_tftensors`.
 
 Just like before, *TensorFlow* :class:`tf.data.Dataset`\s for training and
 validation are created. This time, they are each split into two separate
@@ -243,13 +244,13 @@ validation are created. This time, they are each split into two separate
 
 .. code:: python
 
-    train, val = sb.inputs.split_pddataframe_to_tfdatasets(data, target, features, n_train=7000)
+    train, val = sb.input.split_pddataframe_to_tfdatasets(data, target, features, n_train=7000)
     print(train.cardinality()) # print the size of the dataset
     print(val.cardinality())
     
     # separate features and labels
-    train_features, train_labels = sb.inputs.separate_tfdataset_to_tftensors(train)
-    val_features, val_labels = sb.inputs.separate_tfdataset_to_tftensors(val)
+    train_features, train_labels = sb.input.separate_tfdataset_to_tftensors(train)
+    val_features, val_labels = sb.input.separate_tfdataset_to_tftensors(val)
 
 Please don't mind the increased size of the training set for now - this script
 uses *oversampling* to deal with the imbalance in the ``stroke`` categories.
@@ -261,7 +262,7 @@ labels, which can then be used when evaluating the model performance, e.g.
 when calculating a confusion matrix or a :term:`ROC` curve from comparisons
 of the predicted labels against the actual true target labels.
 
-Internally, :func:`spellbook.inputs.separate_tfdataset_to_tftensors` proceeds as follows:
+Internally, :func:`spellbook.input.separate_tfdataset_to_tftensors` proceeds as follows:
 
 .. margin:: from :func:`spellbook.input.separate_tfdataset_to_tftensors`
 
@@ -291,7 +292,7 @@ Option 3: Using *NumPy* Arrays
 ------------------------------
 
 Used in ``4-stroke-prediction-oversampling-norm.py``
-and implemented in :func:`spellbook.inputs.split_pddataframe_to_nparrays`.
+and implemented in :func:`spellbook.input.split_pddataframe_to_nparrays`.
 
 The third option is to split the dataset into :class:`numpy.ndarray`\s:
 
@@ -301,8 +302,8 @@ The third option is to split the dataset into :class:`numpy.ndarray`\s:
 
 .. code:: python
 
-    train_features, train_labels, val_features, val_labels \
-        = sb.inputs.split_pddataframe_to_nparrays(
+    train_features, train_labels, val_features, val_labels \\
+        = sb.input.split_pddataframe_to_nparrays(
             data, target, features, n_train=7000)
 
     print(train_features.shape) # print the size of the dataset
@@ -310,7 +311,7 @@ The third option is to split the dataset into :class:`numpy.ndarray`\s:
     print(val_features.shape)
     print(val_labels.shape)
 
-The function :func:`spellbook.inputs.split_pddataframe_to_nparrays` works
+The function :func:`spellbook.input.split_pddataframe_to_nparrays` works
 like this in principle
 
 .. margin:: from :func:`spellbook.input.split_pddataframe_to_nparrays`
@@ -329,3 +330,6 @@ like this in principle
 
 Like with :class:`tf.Tensor`\s in the previous approach, batching is left
 the call to :meth:`tf.keras.Model.fit` later after model setup.
+'''
+
+# sphinx_gallery_thumbnail_path = 'images/examples/1-binary-stroke-prediction/variables.png'
