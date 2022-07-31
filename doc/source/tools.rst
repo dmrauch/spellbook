@@ -12,6 +12,7 @@ This is a collection of notes on different software tools and technologies.
    tools/docker
    GCP <tools/gcp>
    tools/git
+   tools/jupyter
    tools/mkdocs
    tools/python
    tools/sphinx
