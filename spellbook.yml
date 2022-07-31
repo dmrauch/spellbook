@@ -2,6 +2,7 @@ name: spellbook
 channels:
  - defaults
  - conda-forge
+
 dependencies:
  - python >= 3.8.5 # must be >= 3.8 because of sphinx-autodoc-typehints
  - tensorflow >= 2.5.0
@@ -13,8 +14,9 @@ dependencies:
  - seaborn
 # - pydot
 # - graphviz
- - sphinx =3.5.4 # margin/sidebar in sphinx-book-theme don't work in sphinx 4
- - sphinx-book-theme >= 0.0.41
+
+ - sphinx
+ - sphinx-book-theme = 0.3.2
  - sphinx-tabs 
  - autodocsumm
  - sphinx-autodoc-typehints # sphinx: typehints derived from signature
