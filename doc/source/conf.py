@@ -100,10 +100,12 @@ html_js_files = [
 # - https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_sidebars
 # - double asterisk to include slashes: https://www.sphinx-doc.org/en/master/usage/configuration.html#id11
 html_sidebars = {
-    '**': ['sidebar-search-bs.html', # https://sphinx-book-theme.readthedocs.io/en/latest/configure.html?highlight=bootstrap#default-sidebar-elements
-           'sbt-sidebar-nav.html',
-           'sbt-sidebar-footer.html',
-           'sidebar-social.html'],
+    '**': [
+        'sidebar-logo.html',
+        'search-field.html', # https://githubmemory.com/repo/executablebooks/sphinx-book-theme/issues/329
+        'sbt-sidebar-nav.html',
+        'sidebar-social.html'
+    ],
 }
 
 
