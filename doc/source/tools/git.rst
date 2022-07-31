@@ -3,6 +3,44 @@ Git
 ***
 
 
+Git
+===
+
+Configuration
+-------------
+
+- Global git settings - stored in ``~/.gitconfig``::
+
+  $ git config --global user.name "My Name"
+  $ git config --global user.emal "my@email.xyz"
+
+- Per repository settings - stored in ``.git/config``::
+
+  $ git config user.name "My Name"
+  $ git config user.email "my@email.xyz"
+
+
+Branches
+--------
+
+- Switch to an existing branch::
+
+  $ git checkout <branch-name>
+
+- Create a new branch and check it out::
+
+  $ git checkout -b <branch-name>
+
+
+Revert Changes
+--------------
+
+- Create new changes that roll back the changes from a specific older commit::
+
+  $ git revert <commit-hash>
+
+
+
 GitHub
 ======
 
