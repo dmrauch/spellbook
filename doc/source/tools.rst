@@ -15,6 +15,7 @@ This is a collection of notes on different software tools and technologies.
    tools/python
    tools/sphinx
    tools/tf
+   tools/virtualenv
    tools/vscode
 
 
@@ -36,5 +37,6 @@ This is a collection of notes on different software tools and technologies.
    :doc:`tools/sphinx`       reStructuredText-based documentation and
                              *Python*-centric source code reference system
    :doc:`tools/tf`           machine learning framework by Google
+   :doc:`tools/virtualenv`   virtual *Python* environments
    :doc:`tools/vscode`       cross-platform source code editor and IDE
    ========================= ==================
