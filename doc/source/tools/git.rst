@@ -3,8 +3,9 @@ Git
 ***
 
 
-Git
-===
+Git Command Reference
+=====================
+
 
 Configuration
 -------------
@@ -32,6 +33,18 @@ Branches
   $ git checkout -b <branch-name>
 
 
+Remotes
+-------
+
+- List all remotes::
+
+  $ git remote -v
+
+- Rename a remote::
+
+  $ git remote rename <old-name> <new-name>
+
+
 Revert Changes
 --------------
 
@@ -39,6 +52,46 @@ Revert Changes
 
   $ git revert <commit-hash>
 
+
+
+Git How-Tos
+===========
+
+How to Split Out a Folder Into a Separate Repository
+----------------------------------------------------
+
+... and keep the *git* history!
+
+Very heavily based on https://ao.ms/how-to-split-a-subdirectory-to-a-new-git-repository-and-keep-the-history/
+
+1. Make a duplicate clone of the old repository. This copy of the repository will eventually become
+   the new repository that holds only the selected folder that is split out. If there is a copy of
+   the old repository sitting in the same directory, direct the duplicate clone to a folder with
+   a different name (`<new-repository>`)::
+   
+   $ git clone <old-repository> <new-repository>
+   $ cd <new-repository>
+
+2. Check out the appropriate branch::
+
+   $ git checkout <branch>
+
+3. Filter to keep only the contents of the desired folder::
+
+   $ fit filter-branch --prune-empty --subdirectory-filter <subdirectory>
+
+4. Create a new *git* repository at your hoser of choice. This will be the new repository holding
+   only the desired folder.
+
+5. Configure the new repository as the remote::
+
+   $ git remote set-url origin <url-to-new-repository>
+
+6. Push the contents of the new repository::
+
+   $ git push -u origin <branch>
+
+7. Optionally, delete the folder from the old repository
 
 
 GitHub
