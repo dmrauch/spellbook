@@ -10,6 +10,7 @@ This is a collection of notes on different software tools and technologies.
    tools/anaconda
    AWS <tools/aws>
    tools/docker
+   GCP <tools/gcp>
    tools/git
    tools/mkdocs
    tools/python
@@ -28,6 +29,7 @@ This is a collection of notes on different software tools and technologies.
    :doc:`tools/anaconda`     *Python* packages and package management for datascience
    :doc:`tools/aws`          Amazon Web Services
    :doc:`tools/docker`       containers
+   :doc:`tools/gcp`          Google Cloud Platform
    :doc:`tools/git`          distributed version control system
    :doc:`tools/mkdocs`       Markdown-based documentation and language-agnostic
                              source code reference system
