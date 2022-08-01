@@ -32,7 +32,8 @@ Name                         Description
                              ``sphinx.ext.autodoc`` automatically
 ``autodocsumm``              creates summary tables for the classes and
                              functions in a module
-``sphinx_autodoc_typehints`` automatic documentation of typehints
+``sphinx_autodoc_typehints`` automatic documentation of typehints,
+                             must be listed *after* ``sphinx.ext.napoleon``
 ``nbsphinx``                 add ``*.ipynb`` files to the toctree, automatically
                              execute them and generate pages that display the
                              notebook text and code cells and its outputs
@@ -250,6 +251,14 @@ page margin by adding ``:class: full-width``.
 
 
 Now the main text continues.
+
+
+
+Inline Markup
+-------------
+
+- GUI labels: ``:guilabel:`some-label`` renders as :guilabel:`some-label`
+- keybindings: ``:kbd:`Cmd + Shift + A`` renders as :kbd:`Cmd + Shift + A`
 
 
 
