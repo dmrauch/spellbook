@@ -51,6 +51,7 @@ extensions = [
     'nbsphinx',
     # 'sphinx_thebe',
     'sphinx.ext.githubpages', # creates .nojekyll file for GitHub Pages
+    'sphinx_design',
     'doc.source._ext.code' # provides custom directive 'code-output'
 ]
 
