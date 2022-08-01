@@ -2,6 +2,13 @@
 Python
 ******
 
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   python-logging
+
+
 
 Profiling
 =========

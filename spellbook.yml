@@ -10,6 +10,8 @@ dependencies:
 # - jupyter_core
  - ipykernel # run jupyter notebooks
 # - notebook
+ - rich # coloured and styled console output
+
  - matplotlib
  - seaborn
 # - pydot
