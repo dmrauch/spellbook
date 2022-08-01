@@ -25,4 +25,6 @@ dependencies:
  - sphinx-gallery
  - sphinx-copybutton
  - nbsphinx
+ - sphinx-design
+
  - beautifulsoup4 # HTML parsing and web scraping

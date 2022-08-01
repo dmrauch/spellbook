@@ -42,6 +42,8 @@ Name                         Description
                              source code documentation
 ``sphinx_copybutton``        adds a copy button to code snippets
 ``sphinx.ext.githubpages``   creates ``.nojekyll`` file for GitHub Pages
+``sphinx-design``            screen-size responsive web-components based on Bootstrap,
+                             such as badges and buttons
 ============================ =====================================================================================================
 
 Built-in extensions are listed here:
