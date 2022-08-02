@@ -15,6 +15,7 @@ This is a collection of notes on different software tools and technologies.
    tools/jupyter
    tools/mkdocs
    tools/python
+   tools/rich
    tools/sphinx
    tools/tf
    tools/virtualenv
@@ -35,6 +36,7 @@ This is a collection of notes on different software tools and technologies.
    :doc:`tools/mkdocs`       Markdown-based documentation and language-agnostic
                              source code reference system
    :doc:`tools/python`       *Python*
+   :doc:`tools/rich`         *Rich* -- coloured and styled printing to the console (and much more)
    *seaborn*                 high-level plotting framework built on top of
                              *Matplotlib*
    :doc:`tools/sphinx`       reStructuredText-based documentation and
