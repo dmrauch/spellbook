@@ -14,6 +14,7 @@ This is a collection of notes on different software tools and technologies.
    tools/git
    tools/jupyter
    tools/mkdocs
+   tools/pandas
    tools/python
    tools/rich
    tools/sphinx
@@ -35,6 +36,7 @@ This is a collection of notes on different software tools and technologies.
    :doc:`tools/git`          distributed version control system
    :doc:`tools/mkdocs`       Markdown-based documentation and language-agnostic
                              source code reference system
+   :doc:`tools/pandas`       *pandas*
    :doc:`tools/python`       *Python*
    :doc:`tools/rich`         *Rich* -- coloured and styled printing to the console (and much more)
    *seaborn*                 high-level plotting framework built on top of
