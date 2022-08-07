@@ -9,10 +9,10 @@ jobs:
     steps:
 
       # clone and checkout the branch/commit that triggered the workflow
-      - uses: actions/checkout
+      - uses: actions/checkout@v3
 
       # create the conda environment and activate it
-      - uses: conda-incubator/setup-miniconda
+      - uses: conda-incubator/setup-miniconda@v2
         with:
           environment-file: spellbook.yml
           activate-environment: spellbook
@@ -22,14 +22,14 @@ jobs:
       - run: pip freeze > requirements.txt
 
       - name: build and commit
-        uses: sphinx-notes/pages
+        uses: sphinx-notes/pages@v2
         with:
           documentation_path: doc
           target_path: docs
           requirements_path: requirements.txt
 
       - name: push
-        uses: ad-m/github-push-action
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
