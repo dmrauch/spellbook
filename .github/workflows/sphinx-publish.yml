@@ -1,0 +1,35 @@
+name: sphinx-publish
+on:
+  push:
+    branches:
+      - 'publish'
+jobs:
+  sphinx-publish:
+    runs-on: ubuntu-latest
+    steps:
+
+      # clone and checkout the branch/commit that triggered the workflow
+      - uses: actions/checkout
+
+      # create the conda environment and activate it
+      - uses: conda-incubator/setup-miniconda
+        with:
+          environment-file: spellbook.yml
+          activate-environment: spellbook
+
+      # create a requirements file from the environment for
+      # the sphinx-notes/pages action
+      - run: pip freeze > requirements.txt
+
+      - name: build and commit
+        uses: sphinx-notes/pages
+        with:
+          documentation_path: doc
+          target_path: docs
+          requirements_path: requirements.txt
+
+      - name: push
+        uses: ad-m/github-push-action
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
