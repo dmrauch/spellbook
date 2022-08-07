@@ -24,7 +24,7 @@ jobs:
       - name: build and commit
         uses: sphinx-notes/pages@v2
         with:
-          documentation_path: doc
+          documentation_path: doc/source
           target_path: docs
           requirements_path: requirements.txt
 
