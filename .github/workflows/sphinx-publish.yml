@@ -17,9 +17,20 @@ jobs:
           environment-file: spellbook.yml
           activate-environment: spellbook
 
+      # print info about conda and the environment
+      - name: Conda info and conda list
+        run: |
+          conda info
+          conda list
+
       # create a requirements file from the environment for
       # the sphinx-notes/pages action
-      - run: pip freeze > requirements.txt
+      - run: |
+          echo $GITHUB_WORKSPACE
+          pip freeze > requirements.txt
+          pwd
+          ls -lAh
+          cat requirements.txt
 
       - name: build and commit
         uses: sphinx-notes/pages@v2
