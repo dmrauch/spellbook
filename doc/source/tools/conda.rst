@@ -42,11 +42,61 @@ Environment Activation, Inspection & Deactivation
 
      $ conda deactivate
 
-- List all packages (and their versions) in the current environment:
+- List all packages (and their versions) in the current environment
 
-  .. code:: bash
+  - *Option 1* -- Easily readable by eye
 
-     $ conda list
+    .. code:: bash
+
+       $ conda list
+
+    creates output that looks like this::
+
+       # packages in environment at /Users/drauch/Software/Conda/miniconda/miniconda3/envs/spellbook:
+       #
+       # Name                    Version                   Build  Channel
+       abseil-cpp                20210324.2           h23ab428_0
+       absl-py                   0.15.0             pyhd3eb1b0_0
+       aiohttp                   3.8.1            py39hca72f7f_0
+       aiosignal                 1.2.0              pyhd3eb1b0_0
+       alabaster                 0.7.12             pyhd3eb1b0_0
+
+       # [...] output truncated
+
+
+  - *Option 2* -- For use by packaging tools
+
+    .. code:: bash
+
+       $ conda list -e
+
+    creates the following output::
+
+       # This file may be used to create an environment using:
+       # $ conda create --name <env> --file <this file>
+       # platform: osx-64
+       abseil-cpp=20210324.2=h23ab428_0
+       absl-py=0.15.0=pyhd3eb1b0_0
+       aiohttp=3.8.1=py39hca72f7f_0
+       aiosignal=1.2.0=pyhd3eb1b0_0
+       alabaster=0.7.12=pyhd3eb1b0_0
+
+       # [...] output truncated
+
+    This can be used to create a file that can later be used to recreate the same environment:
+
+    .. code:: bash
+   
+       $ conda list -e > conda-requirements.txt
+       $ conda create --name <env> --file conda-requirements.txt
+
+    Note that the ``conda-requirements.txt`` file does not work with *pip*, though.
+    For *pip*, you should do
+
+    .. code:: bash
+
+       $ pip freeze > requirements.txt
+       $ pip install -r requirements.txt
 
    
 
