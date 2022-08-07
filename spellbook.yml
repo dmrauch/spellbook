@@ -20,8 +20,8 @@ dependencies:
 # - pydot
 # - graphviz
 
- - sphinx
- - sphinx-book-theme = 0.3.2
+ - sphinx = 4.5.*
+ - sphinx-book-theme = 0.3.3
  - sphinx-tabs 
  - autodocsumm
  - sphinx-autodoc-typehints # sphinx: typehints derived from signature
