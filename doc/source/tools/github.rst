@@ -66,3 +66,65 @@ the ``gh-pages`` branch, it may have to be deleted as well?
 .. [#fGitHubPagesUnpublish] https://docs.github.com/en/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site
 
 
+
+GitHub Actions
+==============
+
+.. admonition:: Terminology
+
+   The difference between *GitHub Actions*, *workflows* and *actions*: [#GitHubActionsTerminology]_
+
+   *GitHub Actions*
+     The platform name
+   workflow
+     A series of things that are done automatically and that are triggered by one or more events
+     or manually
+   job
+     A workflow consists of multiple jobs
+   step
+     A job consists of multiple steps - each step can be an *action* provided by the GitHub
+     community or custom
+   runner
+     A runner is a server process that executes one job at a time. Runners can be hosted in the
+     cloud or can be self-hosted.
+
+
+GitHub Actions and workflows are configured in ``.yml``-files stored in the folder
+``.github/workflows/``:
+
+.. code:: yaml
+   :caption: Configuration of an action in a ``.github/workflows/*.yml``-file
+
+   name: <action-name> # the name of the action
+   on: <event>         # push, page_build, release, ...
+   jobs:
+   <job-name>:         # the name of the job to run
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v2
+       - uses: actions/setup-node@v1
+       - run: npm install -g bats
+       - run: bats -v
+
+- Events: ``on: <event>``
+
+  .. hlist::
+     :columns: 4
+
+     - ``pull_request_comment``
+     - ``issue_comment``
+     - ``deployment``
+     - ``pull_request_review``
+     - ``milestone???``
+     - ``pull_request``
+     - ``push``
+     - ``release``
+     - ``page_build``
+     - ``check_suite``
+     - ``delete``
+     - ``check_run``
+
+
+.. rubric:: Links & References
+
+.. [#GitHubActionsTerminology] https://dev.to/github/whats-the-difference-between-a-github-action-and-a-workflow-2gba
