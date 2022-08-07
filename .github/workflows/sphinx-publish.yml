@@ -9,31 +9,10 @@ jobs:
     steps:
 
       # clone and checkout the branch/commit that triggered the workflow
-      - uses: actions/checkout@v3
+      - name: Checkout branch 'publish'
+        uses: actions/checkout@v3
 
-      # create the conda environment and activate it
-      - uses: conda-incubator/setup-miniconda@v2
-        with:
-          mamba-version: '*'
-          environment-file: spellbook.yml
-          activate-environment: spellbook
-
-      # Activate spellbook environment and freeze to requirements.txt
-      # - use `pip list --format=freeze > requirements.txt` because
-      #   of https://stackoverflow.com/a/62886215
-      - name: Conda activate spellbook
-        shell: bash -l {0}
-        run: |
-          conda env list
-          conda activate spellbook
-          conda info
-          conda list
-          echo $GITHUB_WORKSPACE
-          pip list --format=freeze > requirements.txt
-          pwd
-          ls -lAh
-          cat requirements.txt
-
+      # the python version should be the same as in spellbook.yml
       - name: Set python version
         uses: actions/setup-python@v4
         with:
@@ -44,14 +23,14 @@ jobs:
           which python
           python --version
 
-      - name: build and commit
+      - name: Build Sphinx documentation and commit
         uses: sphinx-notes/pages@v2
         with:
           documentation_path: doc/source
           target_path: docs
           requirements_path: requirements.txt
 
-      - name: push
+      - name: Push to branch 'gh-pages'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

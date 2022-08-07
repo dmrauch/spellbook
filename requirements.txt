@@ -1,0 +1,25 @@
+tensorflow
+scikit-learn
+# - jupyter_core
+ipykernel # run jupyter notebooks
+jupyterlab
+# - notebook
+ipysheet
+rich # coloured and styled console output
+
+matplotlib
+seaborn
+# pydot
+# graphviz
+
+sphinx == 4.5.*
+sphinx-book-theme == 0.3.3
+sphinx-tabs 
+autodocsumm
+sphinx-autodoc-typehints # sphinx: typehints derived from signature
+sphinx-gallery
+sphinx-copybutton
+nbsphinx
+sphinx-design
+
+beautifulsoup4 # HTML parsing and web scraping
