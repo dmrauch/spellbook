@@ -4,12 +4,15 @@ channels:
  - conda-forge
 
 dependencies:
- - python >= 3.8.5 # must be >= 3.8 because of sphinx-autodoc-typehints
+ - python
  - pip
- - scikit-learn >= 0.24.2
+ - tensorflow
+ - scikit-learn
 # - jupyter_core
  - ipykernel # run jupyter notebooks
+ - jupyterlab
 # - notebook
+ - ipysheet
  - rich # coloured and styled console output
 
  - matplotlib
