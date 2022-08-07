@@ -32,6 +32,16 @@ jobs:
           ls -lAh
           cat requirements.txt
 
+      - name: Set python version
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Check python version
+        run: |
+          which python
+          python --version
+
       - name: build and commit
         uses: sphinx-notes/pages@v2
         with:
