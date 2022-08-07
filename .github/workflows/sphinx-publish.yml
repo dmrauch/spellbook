@@ -19,6 +19,8 @@ jobs:
           activate-environment: spellbook
 
       # Activate spellbook environment and freeze to requirements.txt
+      # - use `pip list --format=freeze > requirements.txt` because
+      #   of https://stackoverflow.com/a/62886215
       - name: Conda activate spellbook
         shell: bash -l {0}
         run: |
@@ -27,7 +29,7 @@ jobs:
           conda info
           conda list
           echo $GITHUB_WORKSPACE
-          pip freeze > requirements.txt
+          pip list --format=freeze > requirements.txt
           pwd
           ls -lAh
           cat requirements.txt
