@@ -262,6 +262,23 @@ These examples can be run as tests with
 Publishing of the Compiled Documentation to *GitHub Pages*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. note::
+
+   The Sphinx documentation is automatically built and published via the *GitHub Action*
+   configured in ``.github/workflows/sphinx-publish.yml`` when a commit is pushed to the
+   `publish` branch - i.e. changes should be merged from `master` into `publish` and then pushed
+   to *GitHub*.
+
+The automated build makes use of the ``requirements.txt``. This is due to the fact that the
+*GitHub* action ``sphinx-notes/pages`` accepts a *pip* requirements file. Creating the conda
+environment on the runner and listing it into a requirements file led to errors when
+``sphinx-notes/pages`` tried to install the dependencies. Therefore, the ``requirements.txt``
+now has to be kept in sync with conda's ``spellbook.yml`` manually until a better solution is
+in place.
+
+
+.. rubric:: The old manual procedure
+
 - clone the repository to a different folder
 
   .. code:: bash

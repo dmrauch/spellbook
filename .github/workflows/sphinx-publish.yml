@@ -9,26 +9,30 @@ jobs:
     steps:
 
       # clone and checkout the branch/commit that triggered the workflow
-      - uses: actions/checkout@v3
-
-      # create the conda environment and activate it
-      - uses: conda-incubator/setup-miniconda@v2
+      - name: Checkout branch 'publish'
+        uses: actions/checkout@v3
         with:
-          environment-file: spellbook.yml
-          activate-environment: spellbook
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
-      # create a requirements file from the environment for
-      # the sphinx-notes/pages action
-      - run: pip freeze > requirements.txt
+      # the python version should be the same as in spellbook.yml
+      - name: Set python version
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
 
-      - name: build and commit
+      - name: Check python version
+        run: |
+          which python
+          python --version
+
+      - name: Build Sphinx documentation and commit
         uses: sphinx-notes/pages@v2
         with:
-          documentation_path: doc
+          documentation_path: doc/source
           target_path: docs
           requirements_path: requirements.txt
 
-      - name: push
+      - name: Push to branch 'gh-pages'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
