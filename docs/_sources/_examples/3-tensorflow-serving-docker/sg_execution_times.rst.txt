@@ -5,8 +5,8 @@
 
 Computation times
 =================
-**00:00.789** total execution time for **_examples_3-tensorflow-serving-docker** files:
+**00:01.614** total execution time for **_examples_3-tensorflow-serving-docker** files:
 
 +-----------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr__examples_3-tensorflow-serving-docker_code.py` (``code.py``) | 00:00.789 | 0.0 MB |
+| :ref:`sphx_glr__examples_3-tensorflow-serving-docker_code.py` (``code.py``) | 00:01.614 | 0.0 MB |
 +-----------------------------------------------------------------------------+-----------+--------+

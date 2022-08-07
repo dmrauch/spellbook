@@ -906,6 +906,20 @@ $ make doctest
 </div>
 <section id="publishing-of-the-compiled-documentation-to-github-pages">
 <h3>Publishing of the Compiled Documentation to <em>GitHub Pages</em><a class="headerlink" href="#publishing-of-the-compiled-documentation-to-github-pages" title="Permalink to this headline">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Sphinx documentation is automatically built and published via the <em>GitHub Action</em>
+configured in <code class="docutils literal notranslate"><span class="pre">.github/workflows/sphinx-publish.yml</span></code> when a commit is pushed to the
+<cite>publish</cite> branch - i.e. changes should be merged from <cite>master</cite> into <cite>publish</cite> and then pushed
+to <em>GitHub</em>.</p>
+</div>
+<p>The automated build makes use of the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>. This is due to the fact that the
+<em>GitHub</em> action <code class="docutils literal notranslate"><span class="pre">sphinx-notes/pages</span></code> accepts a <em>pip</em> requirements file. Creating the conda
+environment on the runner and listing it into a requirements file led to errors when
+<code class="docutils literal notranslate"><span class="pre">sphinx-notes/pages</span></code> tried to install the dependencies. Therefore, the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>
+now has to be kept in sync with conda’s <code class="docutils literal notranslate"><span class="pre">spellbook.yml</span></code> manually until a better solution is
+in place.</p>
+<p class="rubric">The old manual procedure</p>
 <ul>
 <li><p>clone the repository to a different folder</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:dmrauch/spellbook.git spellbook-gh-pages

@@ -751,7 +751,7 @@ or manually</p>
 <dt>job</dt><dd><p>A workflow consists of multiple jobs</p>
 </dd>
 <dt>step</dt><dd><p>A job consists of multiple steps - each step can be an <em>action</em> provided by the GitHub
-community or custom</p>
+community via the <em>GitHub Marketplace</em> <a class="footnote-reference brackets" href="#githubactionsmarketplace" id="id6">6</a> or a custom step</p>
 </dd>
 <dt>runner</dt><dd><p>A runner is a server process that executes one job at a time. Runners can be hosted in the
 cloud or can be self-hosted.</p>
@@ -760,50 +760,66 @@ cloud or can be self-hosted.</p>
 </div>
 <p>GitHub Actions and workflows are configured in <code class="docutils literal notranslate"><span class="pre">.yml</span></code>-files stored in the folder
 <code class="docutils literal notranslate"><span class="pre">.github/workflows/</span></code>:</p>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Configuration of an action in a <code class="docutils literal notranslate"><span class="pre">.github/workflows/*.yml</span></code>-file</span><a class="headerlink" href="#id6" title="Permalink to this code">#</a></div>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;action-name&gt;</span><span class="w"> </span><span class="c1"># the name of the action</span><span class="w"></span>
-<span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;event&gt;</span><span class="w">         </span><span class="c1"># push, page_build, release, ...</span><span class="w"></span>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Example workflow configuration taken from <code class="docutils literal notranslate"><span class="pre">.github/workflows/sphinx-publish.yml</span></code></span><a class="headerlink" href="#id9" title="Permalink to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sphinx-publish</span><span class="w">           </span><span class="c1"># the name of the workflow</span><span class="w"></span>
+<span class="nt">on</span><span class="p">:</span><span class="w">                            </span><span class="c1"># the event(s) that trigger the workflow</span><span class="w"></span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">                        </span><span class="c1"># - in this example, pushing a commit to the branch</span><span class="w"></span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">                  </span><span class="c1">#   &#39;publish&#39; will trigger the workflow</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;publish&#39;</span><span class="w"></span>
 <span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
-<span class="nt">&lt;job-name&gt;</span><span class="p">:</span><span class="w">         </span><span class="c1"># the name of the job to run</span><span class="w"></span>
-<span class="w">  </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
-<span class="w">  </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v1</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm install -g bats</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bats -v</span><span class="w"></span>
+<span class="w">  </span><span class="nt">sphinx-publish</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">      </span><span class="c1"># clone and checkout the branch/commit that triggered the workflow</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout branch &#39;publish&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"> </span><span class="c1"># otherwise, you will failed to push refs to dest repo</span><span class="w"></span>
+
+<span class="w">      </span><span class="c1"># the python version should be the same as in spellbook.yml</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set python version</span><span class="w"></span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span><span class="w"></span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.9&#39;</span><span class="w"></span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Check python version</span><span class="w"></span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">          </span><span class="no">which python</span><span class="w"></span>
+<span class="w">          </span><span class="no">python --version</span><span class="w"></span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build Sphinx documentation and commit</span><span class="w"></span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sphinx-notes/pages@v2</span><span class="w"></span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">documentation_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">doc/source</span><span class="w"></span>
+<span class="w">          </span><span class="nt">target_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs</span><span class="w"></span>
+<span class="w">      </span><span class="w w-Error"> </span><span class="nt">requirements_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">requirements.txt</span><span class="w"></span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Push to branch &#39;gh-pages&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ad-m/github-push-action@master</span><span class="w"></span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">github_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span><span class="w"></span>
+<span class="w">          </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gh-pages</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<ul>
-<li><p>Events: <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">&lt;event&gt;</span></code></p>
-<table class="hlist"><tr><td><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pull_request_comment</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">issue_comment</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">deployment</span></code></p></li>
-</ul>
-</td><td><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pull_request_review</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">milestone???</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pull_request</span></code></p></li>
-</ul>
-</td><td><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">push</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">release</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">page_build</span></code></p></li>
-</ul>
-</td><td><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">check_suite</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">delete</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">check_run</span></code></p></li>
-</ul>
-</td></tr></table>
-</li>
-</ul>
+<p>The syntax for the workflow files <a class="footnote-reference brackets" href="#githubactionsworkflowsyntax" id="id7">7</a> as well as all events that can
+be used as triggers <a class="footnote-reference brackets" href="#githubactionstriggers" id="id8">8</a> are listed on
+<a class="reference external" href="https://docs.github.com/en/actions">GitHub Docs</a>.</p>
 <p class="rubric">Links &amp; References</p>
 <dl class="footnote brackets">
 <dt class="label" id="githubactionsterminology"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
 <dd><p><a class="reference external" href="https://dev.to/github/whats-the-difference-between-a-github-action-and-a-workflow-2gba">https://dev.to/github/whats-the-difference-between-a-github-action-and-a-workflow-2gba</a></p>
+</dd>
+<dt class="label" id="githubactionsmarketplace"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p><a class="reference external" href="https://github.com/marketplace?type=actions">https://github.com/marketplace?type=actions</a></p>
+</dd>
+<dt class="label" id="githubactionsworkflowsyntax"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions">https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions</a></p>
+</dd>
+<dt class="label" id="githubactionstriggers"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows">https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows</a></p>
 </dd>
 </dl>
 </section>
