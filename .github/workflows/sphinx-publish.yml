@@ -14,8 +14,16 @@ jobs:
       # create the conda environment and activate it
       - uses: conda-incubator/setup-miniconda@v2
         with:
+          mamba-version: '*'
           environment-file: spellbook.yml
           activate-environment: spellbook
+
+      # List conda environments and activate spellbook
+      - name: Conda activate spellbook
+        shell: bash -l {0}
+        run: |
+          conda env list
+          conda activate spellbook
 
       # print info about conda and the environment
       - name: Conda info and conda list
