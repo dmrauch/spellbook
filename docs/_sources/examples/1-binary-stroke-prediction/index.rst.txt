@@ -6,9 +6,9 @@ Binary Classification with the Stroke Prediction Dataset
 .. toctree::
    :hidden:
 
-   Data Exploration and Cleaning </_examples/1-binary-stroke-prediction/exploration-cleaning>
-   Data Preparation and Input Pipeline </_examples/1-binary-stroke-prediction/input-pipeline>
-   Model Training and Validation </_examples/1-binary-stroke-prediction/training-validation>
+   exploration-cleaning
+   input-pipeline
+   training-validation
 
 
 .. raw:: html
@@ -51,9 +51,9 @@ Here on this page, I will give a summary of the key points and ideas of this
 project without any code snippets. The technical and implementation details
 are then laid out in depth on the next pages of this tutorial:
 
-- :doc:`/_examples/1-binary-stroke-prediction/exploration-cleaning`
-- :doc:`/_examples/1-binary-stroke-prediction/input-pipeline`
-- :doc:`/_examples/1-binary-stroke-prediction/training-validation`
+- :doc:`/examples/1-binary-stroke-prediction/exploration-cleaning`
+- :doc:`/examples/1-binary-stroke-prediction/input-pipeline`
+- :doc:`/examples/1-binary-stroke-prediction/training-validation`
 
 
 
@@ -95,12 +95,12 @@ suffered a stroke.
 .. list-table::
    :class: spellbook-gallery-wrap
 
-   * - .. figure:: /images/examples/1-binary-stroke-prediction/stroke.png
+   * - .. figure:: images/stroke.png
           :height: 250px
 
           Figure 1: The binary target variable
 
-     - .. figure:: /images/examples/1-binary-stroke-prediction/variables.png
+     - .. figure:: images/variables.png
           :height: 250px
 
           Figure 2: Distributions of all variables
@@ -130,12 +130,12 @@ appearing to be good, cannot capture the fact that this model is inadequate.
 .. list-table::
    :class: spellbook-gallery-wrap
 
-   * - .. figure:: /images/examples/1-binary-stroke-prediction/naive-e100-history-loss-acc.png
+   * - .. figure:: images/naive-e100-history-loss-acc.png
           :height: 250px
 
           Figure 3: Naive approach: loss and accuracy
 
-     - .. figure:: /images/examples/1-binary-stroke-prediction/naive-e100-confusion-edited.png
+     - .. figure:: images/naive-e100-confusion-edited.png
           :height: 250px
 
           Figure 4: Naive approach: Confusion matrix
@@ -176,17 +176,17 @@ a patient with an alarming test result, normally triggering more tests.
 .. list-table::
    :class: spellbook-gallery-wrap
 
-   * - .. figure:: /images/examples/1-binary-stroke-prediction/oversampling-e500-history-loss-acc.png
+   * - .. figure:: images/oversampling-e500-history-loss-acc.png
           :height: 250px
 
           Figure 5: Oversampling: loss and accuracy
 
-     - .. figure:: /images/examples/1-binary-stroke-prediction/oversampling-e500-history-pos-neg.png
+     - .. figure:: images/oversampling-e500-history-pos-neg.png
           :height: 250px
 
           Figure 6: Oversampling: true/false positives/negatives
 
-     - .. figure:: /images/examples/1-binary-stroke-prediction/oversampling-e500-confusion-norm-true.png
+     - .. figure:: images/oversampling-e500-confusion-norm-true.png
           :height: 250px
 
           Figure 7: Oversampling: confusion matrix normalised by the true labels
@@ -219,7 +219,7 @@ Figure 8.
 .. list-table::
    :class: spellbook-gallery-wrap
 
-   * - .. figure:: /images/examples/1-binary-stroke-prediction/variables-normalised.png
+   * - .. figure:: images/variables-normalised.png
           :height: 250px
 
           Figure 8: Normalised continuous variables
@@ -254,17 +254,17 @@ oversampling and normalisation of the inputs performs best, reaching AUCs of
 .. list-table::
    :class: spellbook-gallery-wrap
 
-   * - .. figure:: /images/examples/1-binary-stroke-prediction/oversampling-normalised-e2000-history-loss-acc.png
+   * - .. figure:: images/oversampling-normalised-e2000-history-loss-acc.png
           :height: 250px
 
           Figure 9: Evolution of loss and accuracy
 
-     - .. figure:: /images/examples/1-binary-stroke-prediction/oversampling-normalised-e2000-confusion-norm-true.png
+     - .. figure:: images/oversampling-normalised-e2000-confusion-norm-true.png
           :height: 250px
 
           Figure 10: Confusion matrix for normalisation and oversampling
 
-     - .. figure:: /images/examples/1-binary-stroke-prediction/roc-2000-naive-oversampling-normalised.png
+     - .. figure:: images/roc-2000-naive-oversampling-normalised.png
           :height: 250px
 
           Figure 11: :term:`ROC` curves of the different models

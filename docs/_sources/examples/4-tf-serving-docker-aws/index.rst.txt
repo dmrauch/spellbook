@@ -395,7 +395,7 @@ and run it with the same command already used in the previous tutorial
    [evhttp_server.cc : 245] NET_LOG: Entering the event loop ...
 
 Now we can query the deployed model with an HTTP request to the REST API
-like in the last tutorial :doc:`/_examples/3-tensorflow-serving-docker/code`.
+like in the last tutorial :doc:`/examples/3-tensorflow-serving-docker/code`.
 For this, the script ``1-request`` is provided in
 ``examples/4-tf-serving-docker-aws/``. In it, set the ``IPv4`` variable to
 the appropriate address for your *EC2* instance.

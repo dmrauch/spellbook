@@ -18,10 +18,10 @@
    :hidden:
 
    Table of Contents <examples/examples.rst>
-   Classification: Stroke Prediction <examples/1-binary-stroke-prediction/index>
-   Decision Forests in TensorFlow <_examples/2-tensorflow-decision-forests/code>
-   Serving TensorFlow Models in Docker <_examples/3-tensorflow-serving-docker/code.rst>
-   Serving TensorFlow Models on AWS <examples/4-tf-serving-docker-aws/index>
+   Binary Classification: Stroke Prediction <examples/1-binary-stroke-prediction/index>
+   Decision Forests in TensorFlow <examples/2-tensorflow-decision-forests/index>
+   _examples/3-tensorflow-serving-docker/code.rst
+   examples/4-tf-serving-docker-aws/index
 
 
 .. toctree::
@@ -31,6 +31,7 @@
    literature
    glossary
    genindex
+   todo
 
 .. genindex in toctree taken from https://stackoverflow.com/a/42310803
 
@@ -52,6 +53,35 @@ Welcome to the :bolditalic:`spellbook` Data Science & Machine Learning Library!
      examples for how to use the *spellbook* library.
 
 
+.. margin:: Gallery
+
+   from left to right:
+
+   - :func:`spellbook.plot.pairplot`
+   - :func:`spellbook.plot.plot_confusion_matrix`
+   - :func:`spellbook.train.ROCPlot.plot`
+   - :func:`spellbook.inspect.PermutationImportance.plot`
+   - :func:`spellbook.train.plot_history_binary`
+
+     - true/false positives/negatives
+     - loss and accuracy
+
+   - :func:`spellbook.plot1D.histogram`
+   - :func:`spellbook.plot2D.categorical_histogram`
+   - :func:`spellbook.plot.parallel_coordinates`
+   - :class:`spellbook.train.BinaryCalibrationPlot`
+
+
+.. margin:: News
+   :class: spellbook-news
+
+   - *June 26, 2021*: :doc:`/examples/4-tf-serving-docker-aws/index`
+   - *June 21, 2021*: :doc:`/_examples/3-tensorflow-serving-docker/code`
+   - *June 16, 2021*: :doc:`/examples/2-tensorflow-decision-forests/index`
+   - *June 13, 2021*: :doc:`/examples/1-binary-stroke-prediction/index`
+   - *June 13, 2021*: Release
+
+
 .. admonition:: Gallery
    :class: spellbook-gallery
 
@@ -60,115 +90,42 @@ Welcome to the :bolditalic:`spellbook` Data Science & Machine Learning Library!
 
       * - .. figure:: /images/pairplot-5x5.png
              :height: 200px
-             :target: _stubs/spellbook.plot.html#pairplot
 
         - .. figure:: /images/confusion-matrix-absolute.png
              :height: 200px
-             :target: _stubs/spellbook.plot.html#plot-confusion-matrix
 
         - .. figure:: /images/roc.png
              :height: 200px
-             :target: _stubs/spellbook.train.html#rocplot
 
         - .. figure:: /images/permutation-importance.png
              :height: 200px
-             :target: _stubs/spellbook.inspect.html#permutationimportance
 
         - .. figure:: /images/true-false-pos-neg-rates.png
              :height: 200px
-             :target: _stubs/spellbook.train.html#plot-history-binary
 
         - .. figure:: /images/loss-acc.png
              :height: 200px
-             :target: _stubs/spellbook.train.html#plot-history-binary
 
         - .. figure:: /images/histogram.png
              :height: 200px
-             :target: _stubs/spellbook.plot1D.html#histogram
 
         - .. figure:: /images/categorical-histogram-stats.png
              :height: 200px
-             :target: _stubs/spellbook.plot2D.html#categorical-histogram
 
         - .. figure:: /images/parallel-coordinates.png
              :height: 200px
-             :target: _stubs/spellbook.plot.html#parallel-coordinates
 
         - .. figure:: /images/calibration.png
              :height: 200px
-             :target: _stubs/spellbook.train.html#binarycalibrationplot
 
 
 .. admonition:: Projects & Tutorials
    :class: spellbook-projects
 
-   .. raw:: html
-
-      <div class="sphx-glr-clear"></div>
-
-
-   .. raw:: html
-
-      <div class="sphx-glr-thumbcontainer">
-
-   .. only:: html
-
-      .. figure:: /images/examples/1-binary-stroke-prediction/variables.png
-         :alt: Binary Classification with the Stroke Prediction Dataset
-
-         :doc:`/examples/1-binary-stroke-prediction/index`
-
-   .. raw:: html
-
-      </div>
-
-
-   .. raw:: html
-
-      <div class="sphx-glr-thumbcontainer">
-
-   .. only:: html
-
-      .. figure:: /images/examples/2-tensorflow-decision-forests/roc.png
-         :alt: Random Forests and Gradient Boosted Trees in TensorFlow
-
-         :doc:`/_examples/2-tensorflow-decision-forests/code`
-
-   .. raw:: html
-
-      </div>
-
-
-   .. raw:: html
-
-      <div class="sphx-glr-thumbcontainer">
-
-   .. only:: html
-
-      .. figure:: /_examples/3-tensorflow-serving-docker/images/thumb/sphx_glr_code_thumb.png
-         :alt: Serving *TensorFlow* Models in *Docker*
-
-         :ref:`sphx_glr__examples_3-tensorflow-serving-docker_code.py`
-
-   .. raw:: html
-
-      </div>
-
-
-   .. raw:: html
-
-      <div class="sphx-glr-thumbcontainer">
-
-   .. only:: html
-
-      .. figure:: /_static/TF_FullColor_Icon.png
-         :alt: TensorFlow Serving with Docker on AWS
-
-         :doc:`/examples/4-tf-serving-docker-aws/index`
-
-   .. raw:: html
-
-      </div>
+   - :doc:`/examples/1-binary-stroke-prediction/index`
+   - :doc:`/examples/2-tensorflow-decision-forests/index`
+   - :doc:`/_examples/3-tensorflow-serving-docker/code`
+   - :doc:`/examples/4-tf-serving-docker-aws/index`
 
 
 *spellbook* is where I collect functionality that I implement and expect to
@@ -309,20 +266,20 @@ Publishing of the Compiled Documentation to *GitHub Pages*
 
   .. code:: bash
 
-     $ git clone git@github.com:dmrauch/spellbook.git spellbook-gh-pages
+     git clone git@github.com:dmrauch/spellbook.git spellbook-gh-pages
 
 - create the new branch ``gh-pages``
   
   .. code:: bash
 
-     $ git branch gh-pages
+     git branch gh-pages
 
   The new branch is created but the original branch remains active and
   checked out. Switch to the new branch with
 
   .. code:: bash
 
-     $ git switch gh-pages
+     git switch gh-pages
 
 - compile the documentation in the original folder using the proper
   ``master`` or feature branch and then copy it over to the folder
@@ -331,4 +288,4 @@ Publishing of the Compiled Documentation to *GitHub Pages*
 
   .. code:: bash
 
-     $ git push -u origin gh-pages
+     git push -u origin gh-pages

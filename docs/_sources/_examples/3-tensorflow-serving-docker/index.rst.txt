@@ -1,0 +1,39 @@
+
+
+.. _sphx_glr__examples_3-tensorflow-serving-docker:
+
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="    &lt;div class=&quot;tag-list&quot;&gt;        &lt;div class=&quot;tag-cell tag-date&quot;&gt;June 21, 2021&lt;/div&gt;        &lt;di...">
+
+.. only:: html
+
+  .. image:: /_examples/3-tensorflow-serving-docker/images/thumb/sphx_glr_code_thumb.png
+    :alt: Serving *TensorFlow* Models in *Docker*
+
+  :ref:`sphx_glr__examples_3-tensorflow-serving-docker_code.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Serving *TensorFlow* Models in *Docker*</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /_examples/3-tensorflow-serving-docker/code
+

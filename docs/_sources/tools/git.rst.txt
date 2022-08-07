@@ -2,156 +2,99 @@
 Git
 ***
 
+.. toctree::
+   :hidden:
+   :maxdepth: 1
 
-Command Reference
-=================
+   github
 
-Stashing
+
+Git Command Reference
+=====================
+
+
+Configuration
+-------------
+
+- Global git settings - stored in ``~/.gitconfig``::
+
+  $ git config --global user.name "My Name"
+  $ git config --global user.emal "my@email.xyz"
+
+- Per repository settings - stored in ``.git/config``::
+
+  $ git config user.name "My Name"
+  $ git config user.email "my@email.xyz"
+
+
+Branches
 --------
 
-- List the stashes
+- Switch to an existing branch::
 
-  .. code:: bash
+  $ git checkout <branch-name>
 
-     $ git stash list
+- Create a new branch and check it out::
 
-- Show the stashes
-
-  .. code:: bash
-
-     $ git stash show [<stash>]
-
-- Show the stashes as patches
-
-  .. code:: bash
-
-     $ git stash show -p [<stash>]
-
-- Create a new stash
-
-  .. code:: bash
-
-     $ git stash push -m "<message>" <file1> [<file2>, ...]
-
-  Only tracked files can be stashed, so be sure to add any untracked files
-  before creating a new stash and adding them to it.
-
-- Retrieve a stash and apply it to the working directory
-
-  .. code:: bash
-
-     $ git stash pop [<stash>]
+  $ git checkout -b <branch-name>
 
 
-Adding Changes to an Earlier Commit
------------------------------------
+Remotes
+-------
 
-The previous commit can be appended with ``git commit --amend``.
+- List all remotes::
 
-For any commit before the previous one, it is necessary to use ``git rebase``.
+  $ git remote -v
 
-- Rebase to the commit **before** the one that you want to change
+- Rename a remote::
 
-  .. code:: bash
+  $ git remote rename <old-name> <new-name>
 
-     $ git rebase -i <HASH>
 
-  This will open a text editor with a list of the more recent commits
-  following the one that you just rebased to.
+Revert Changes
+--------------
 
-- Change ``pick`` to ``edit`` for any commit that you want to modify
-  and then save and close the file
+- Create new changes that roll back the changes from a specific older commit::
 
-- Add changes with
-
-  .. code:: bash
-
-     $ git add <file1> [<file2> ...]
-
-- Commit the changes
-
-  - with
-
-    .. code:: bash
-
-       $ git commit --amend
-
-    if you'd like to specify a new commit message
-
-  - with
-
-    .. code:: bash
-
-       $ git commit --amend --no-edit
-
-    if you'd like to keep the original commit message
-
-- Go to the next commit to be edited or finish the process with
-
-  .. code:: bash
-
-     $ git rebase --continue
+  $ git revert <commit-hash>
 
 
 
-GitHub
-======
+Git How-Tos
+===========
 
-Git Credentials for GitHub
---------------------------
+How to Split Out a Folder Into a Separate Repository
+----------------------------------------------------
 
-.. code:: bash
+... and keep the *git* history!
 
-    $ git config --local user.name dmrauch
-    $ git config --local user.email 17890191+dmrauch@users.noreply.github.com
+Very heavily based on https://ao.ms/how-to-split-a-subdirectory-to-a-new-git-repository-and-keep-the-history/
 
+1. Make a duplicate clone of the old repository. This copy of the repository will eventually become
+   the new repository that holds only the selected folder that is split out. If there is a copy of
+   the old repository sitting in the same directory, direct the duplicate clone to a folder with
+   a different name (`<new-repository>`)::
+   
+   $ git clone <old-repository> <new-repository>
+   $ cd <new-repository>
 
-SSH Authentication
-------------------
+2. Check out the appropriate branch::
 
-From August 2021, GitHub will no longer allow password-based authentication for git operations: https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
+   $ git checkout <branch>
 
-- Connecting to GitHub with SSH: https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+3. Filter to keep only the contents of the desired folder::
 
-  - Adding a new SSH key to your GitHub account: https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
-  - Testing the SSH connection: https://docs.github.com/en/github/authenticating-to-github/testing-your-ssh-connection
-  - GitHub's SSH key fingerprints: https://docs.github.com/en/github/authenticating-to-github/githubs-ssh-key-fingerprints
-  - Working with SSH key passphrases: https://docs.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases
+   $ fit filter-branch --prune-empty --subdirectory-filter <subdirectory>
 
+4. Create a new *git* repository at your hoser of choice. This will be the new repository holding
+   only the desired folder.
 
-GitHub Pages
-------------
+5. Configure the new repository as the remote::
 
-There are two kinds of GitHub Pages [#fGitHubPages]_:
+   $ git remote set-url origin <url-to-new-repository>
 
-- **user/organisation site**: Hosted at ``<username>.github.io``. For these,
-  you need to create a repository names ``<username>.github.io``
-- **project site**: Hosted at ``<username>.github.io/<project>``. These can
-  be created for any repository.
+6. Push the contents of the new repository::
 
-GitHub only allows specific folders where the documentation can be located
-for it to be served as a GitHub Pages site [#fGitHubPagesSources]_. For project
-sites, these are:
+   $ git push -u origin <branch>
 
-- the repository's root/main folder
-- the ``docs`` folder
-
-However, it allows selection of the branch that should be used as the source.
-Typical choices are the ``docs`` folder on a branch called ``gh-pages``. This
-way, the project source code (including the source code of documentation) and
-the (compiled) website can be kept separately.
-
-A good step-by-step introduction and tutorial is given in
-[#fGitHubPagesTutorial]_.
-
-A published *GitHub Pages* site can be removed/unpublished by selecting `None`
-as the publishing source [#fGitHubPagesUnpublish]_. If the site was published from
-the ``gh-pages`` branch, it may have to be deleted as well?
-
-
-.. rubric:: Links
-
-.. [#fGitHubPages] https://pages.github.com/
-.. [#fGitHubPagesSources] https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-.. [#fGitHubPagesTutorial] https://www.docslikecode.com/articles/github-pages-python-sphinx/
-.. [#fGitHubPagesUnpublish] https://docs.github.com/en/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site
+7. Optionally, delete the folder from the old repository

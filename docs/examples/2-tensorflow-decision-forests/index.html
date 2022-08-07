@@ -1,0 +1,1217 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Random Forests and Gradient Boosted Trees in TensorFlow &#8212; spellbook</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tooltip.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script defer="defer" src="../../_static/tooltip.js"></script>
+    <script src="../../_static/glossary.json"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/spellbook-icon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Serving TensorFlow Models in Docker" href="../../_examples/3-tensorflow-serving-docker/code.html" />
+    <link rel="prev" title="Model Training and Validation" href="../1-binary-stroke-prediction/training-validation.html" />
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/spellbook-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">spellbook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search" aria-label="Search" autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The spellbook Library
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../API.html">
+   Source Code Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../API-python.html">
+     Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.input.html">
+       spellbook.input
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.inspect.html">
+       spellbook.inspect
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.plot.html">
+       spellbook.plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.plot1D.html">
+       spellbook.plot1D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.plot2D.html">
+       spellbook.plot2D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.plotutils.html">
+       spellbook.plotutils
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.stat.html">
+       spellbook.stat
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../_stubs/spellbook.train.html">
+       spellbook.train
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools.html">
+   Tools and Technologies
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/aws.html">
+     AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/conda.html">
+     Conda, Mamba &amp; Pip
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/docker.html">
+     Docker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/gcp.html">
+     GCP
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../tools/git.html">
+     Git
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tools/github.html">
+       GitHub
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/jupyter.html">
+     Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/mkdocs.html">
+     MkDocs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/pandas.html">
+     pandas
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../tools/python.html">
+     Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tools/python-logging.html">
+       Logging
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/rich.html">
+     Rich
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/sphinx.html">
+     Sphinx
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../tools/tf.html">
+     TensorFlow
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../tools/tf-save.html">
+       Saving and Loading Models
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/virtualenv.html">
+     virtualenv &amp; venv
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/vscode.html">
+     Visual Studio Code
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Projects &amp; Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../1-binary-stroke-prediction/index.html">
+   Binary Classification: Stroke Prediction
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-binary-stroke-prediction/exploration-cleaning.html">
+     Data Exploration and Cleaning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-binary-stroke-prediction/input-pipeline.html">
+     Data Preparation and Input Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-binary-stroke-prediction/training-validation.html">
+     Model Training and Validation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Decision Forests in TensorFlow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../_examples/3-tensorflow-serving-docker/code.html">
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4-tf-serving-docker-aws/index.html">
+   <em>
+    TensorFlow Serving
+   </em>
+   with
+   <em>
+    Docker
+   </em>
+   on
+   <em>
+    AWS
+   </em>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extras
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../literature.html">
+   Links &amp; Literature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../todo.html">
+   ToDo List
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav><div class="navbar_extra_footer">
+    <table style="margin-top:2.0rem;">
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://github.com/dmrauch">
+                    <img src="../../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
+                </a>
+            </td>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://github.com/dmrauch">GitHub</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">
+                <a href="https://www.linkedin.com/in/dmrauch/">
+                    <img src="../../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
+                </a>
+            <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
+                Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
+            </td>
+        </tr>
+    </table>
+</div></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/dmrauch/spellbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2Fexamples/2-tensorflow-decision-forests/index.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/dmrauch/spellbook/edit/master/doc/source/examples/2-tensorflow-decision-forests/index.rst"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/examples/2-tensorflow-decision-forests/index.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallel-coordinate-plots">
+   Parallel Coordinate Plots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-forest">
+   Random Forest
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gradient-boosted-trees">
+   Gradient Boosted Trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-against-neural-networks">
+   Comparison Against Neural Networks
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Random Forests and Gradient Boosted Trees in TensorFlow</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallel-coordinate-plots">
+   Parallel Coordinate Plots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-forest">
+   Random Forest
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gradient-boosted-trees">
+   Gradient Boosted Trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-against-neural-networks">
+   Comparison Against Neural Networks
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="random-forests-and-gradient-boosted-trees-in-tensorflow">
+<h1>Random Forests and Gradient Boosted Trees in <em>TensorFlow</em><a class="headerlink" href="#random-forests-and-gradient-boosted-trees-in-tensorflow" title="Permalink to this headline">#</a></h1>
+<div class="tag-list">
+   <div class="tag-cell tag-date">June 16, 2021</div>
+   <div class="tag-cell tag-center"></div>
+   <div class="tag-cell tag-right">
+      <span class="tag-text">tags:</span>
+      <a class="tag right" href="../../search.html?q=tags+binary+classification">
+         binary classification</a>
+      <a class="tag right" href="../../search.html?q=tags+gradient+boosted+trees">
+         gradient boosted trees</a>
+      <a class="tag right" href="../../search.html?q=tags+decision+forest">
+         decision forest</a>
+      <a class="tag right" href="../../search.html?q=tags+supervised+learning">
+         supervised learning</a>
+    </div>
+</div><div class="spellbook-admonition-orange admonition">
+<p class="admonition-title">In this project/tutorial, we will</p>
+<ul class="simple">
+<li><p>Visualise the <a class="reference external" href="https://www.kaggle.com/fedesoriano/stroke-prediction-dataset">Stroke Prediction Dataset</a>
+with a <strong>parallel coordinate plot</strong></p></li>
+<li><p>Use <strong>TensorFlow Decision Forests</strong> (<strong>TF-DF</strong>) to train a
+<strong>random forest</strong> and a <strong>gradient boosted trees</strong> model to do
+<strong>binary classification</strong></p></li>
+<li><p><strong>Compare the performance</strong> of the tree models <strong>against the neural
+network</strong> trained in the previous tutorial
+<a class="reference internal" href="../1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a></p></li>
+</ul>
+</div>
+<p>In <em>TensorFlow</em> version 2.5.0, support for <em>decision trees</em> and <em>forests</em>
+was added and <a class="reference external" href="https://youtu.be/5qgk9QJ4rdQ">announced</a> during
+Google I/O 2021. The documentation, including guides, tutorials and the
+API reference can be found <a class="reference external" href="https://www.tensorflow.org/decision_forests">here</a>.
+<em>TensorFlow Decision Forests</em> (<em>TF-DF</em>) includes the models</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.tensorflow.org/decision_forests/api_docs/python/tfdf/keras/RandomForestModel">tfdf.keras.RandomForestModel</a></p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/decision_forests/api_docs/python/tfdf/keras/GradientBoostedTreesModel">tfdf.keras.GradientBoostedTreesModel</a></p></li>
+</ul>
+<p>which we are going to explore in this tutorial.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
+<p>As of now, <em>TensorFlow Decision Forests</em> is not yet available on <em>Anaconda</em>
+and instead has to be installed from the <a class="reference external" href="https://pypi.org/project/tensorflow-decision-forests/">Python Package Index</a> via <code class="docutils literal notranslate"><span class="pre">pip</span></code>.
+Combining package installations via <em>conda</em> and <em>pip</em> should be done with a
+certain level of care. Following <em>spellbook</em>’s typical setup specified in
+<code class="docutils literal notranslate"><span class="pre">spellbook.yml</span></code> and combining the normal <em>conda</em>-based <em>TensorFlow</em>
+installation with <em>TF-DF</em> installed via <code class="docutils literal notranslate"><span class="pre">pip</span></code> will most probably not work.
+Instead, we are going to create a separate <em>conda</em> environment
+<code class="docutils literal notranslate"><span class="pre">spellbook-no-tensorflow</span></code> just for this tutorial and install both
+<em>TensorFlow</em> and <em>TF-DF</em> via <code class="docutils literal notranslate"><span class="pre">pip</span></code> using the provided <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
+<p>So let’s roll:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> examples/2-tensorflow-decision-forests
+</pre></div>
+</div>
+<p>If the default <code class="docutils literal notranslate"><span class="pre">spellbook</span></code> <em>conda</em> environment is currently active,
+deactivate it</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda deactivate
+</pre></div>
+</div>
+<p>and create the dedicated environment excluding <em>TensorFlow</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda env create --file spellbook-no-tensorflow.yml
+</pre></div>
+</div>
+<p>Once this is done, activate it and use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install both <em>TensorFlow</em>
+and <em>TensorFlow Decision Forests</em> into the new <em>conda</em> environment
+<code class="docutils literal notranslate"><span class="pre">spellbook-no-tensorflow</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda activate spellbook-no-tensorflow
+$ pip install -r requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="parallel-coordinate-plots">
+<h2>Parallel Coordinate Plots<a class="headerlink" href="#parallel-coordinate-plots" title="Permalink to this headline">#</a></h2>
+<p>This tutorial uses Kaggle’s <a class="reference external" href="https://www.kaggle.com/fedesoriano/stroke-prediction-dataset">Stroke Prediction Dataset</a>,
+just like the <a class="reference internal" href="../1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a> project before.
+So therefore, before we try out the decision trees in <em>TF-DF</em>, let’s have
+a look at another possibility of visualising entire datasets in a rather
+compact way - <em>parallel coordinate plots</em>. In <em>spellbook</em>, they are
+implemented in <a class="reference internal" href="../../_stubs/spellbook.plot.html#spellbook.plot.parallel_coordinates" title="spellbook.plot.parallel_coordinates"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot.parallel_coordinates()</span></code></a> and can be used
+like this:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">from <strong>1-plot.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/2-tensorflow-decision-forests/</span></code></p>
+</aside>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">parallel_coordinates</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">500</span><span class="p">],</span>
+   <span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">categories</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;parallel-coordinates.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We first shuffle the datapoints using <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sample.html#pandas.DataFrame.sample" title="(in pandas v1.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.sample()</span></code></a> and
+then take the first 500 of them in order to get a
+representative subset of all patients. The resulting plot is shown in
+Figure 1.</p>
+<table class="spellbook-gallery-wrap perc90 table">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/parallel-coordinates1.png"><img alt="../../_images/parallel-coordinates1.png" src="../../_images/parallel-coordinates1.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Parallel coordinates plot showing a subset of
+Kaggle’s Stroke Prediction Dataset</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>We can see the binary categorical target variable <code class="docutils literal notranslate"><span class="pre">stroke</span></code> on the far
+right-hand side of the plot. Patients with a stroke are shown with orange
+lines and patients without a stroke with blue lines. The features are shown
+in individual coordinate axes left of the target. There are both continuous
+variables, such as <code class="docutils literal notranslate"><span class="pre">age</span></code> or <code class="docutils literal notranslate"><span class="pre">bmi</span></code>, and categorical variables, such as
+<code class="docutils literal notranslate"><span class="pre">gender</span></code> or <code class="docutils literal notranslate"><span class="pre">heart_disease</span></code> and the density of the lines indicates the
+prevalence of the target labels. Looking at the age of the patients, we can
+see that strokes are more present at higher ages.
+For categorical variables, the datapoints are randomly
+smeared or shifted around the respective categories or classes. Therefore,
+the lines are not all drawn exactly on top of each other and it is possible
+to get an impression of the composition of the datapoints in a certain category
+in terms of the target labels. For instance, we can see that the <code class="docutils literal notranslate"><span class="pre">no</span></code>
+classes of the variables <code class="docutils literal notranslate"><span class="pre">hypertension</span></code> and <code class="docutils literal notranslate"><span class="pre">heart_disease</span></code> contain
+significant fractions of patients both with and without strokes, while the
+<code class="docutils literal notranslate"><span class="pre">yes</span></code> categories seem to be enriched in stroke patients. This seems
+plausible as it indicates positive correlations between these conditions
+and the presence of strokes. Additionally, the size of the smearing or
+shifting interval is chosen in proportion to the number of datapoints in
+the respective categories. Therefore, it is possible to get a feeling for
+how many patients fall into which class for each feature. For example, we
+can see that more patients work in the private sector that for the
+government.</p>
+</section>
+<section id="random-forest">
+<h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">#</a></h2>
+<p>Just like regular <em>TensorFlow</em>, <em>TF-DF</em> implements the <em>Keras</em> API and
+therefore, we can follow very closely what we did in
+<a class="reference internal" href="../1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a>.
+So now let’s start using <em>TF-DF</em> and begin with the random forest model:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">from <strong>2-random-forest.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/2-tensorflow-decision-forests/</span></code></p>
+</aside>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># data loading and cleaning</span>
+<span class="n">data</span><span class="p">,</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># inplace convert string category labels to numerical indices</span>
+<span class="n">categories</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">encode_categories</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># oversampling (including shuffling of the data)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">oversample</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+<span class="c1"># split into training and validation data</span>
+<span class="n">n_split</span> <span class="o">=</span> <span class="mi">7000</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">tfdf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">pd_dataframe_to_tf_dataset</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">features</span><span class="o">+</span><span class="p">[</span><span class="n">target</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">n_split</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
+<span class="n">val</span> <span class="o">=</span> <span class="n">tfdf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">pd_dataframe_to_tf_dataset</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">features</span><span class="o">+</span><span class="p">[</span><span class="n">target</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">n_split</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>After loading the <a class="reference external" href="https://www.kaggle.com/fedesoriano/stroke-prediction-dataset">Stroke Prediction Dataset</a> with the
+helper function, we apply oversampling to counteract the imbalance in the
+target classes between the 4.3% of the patients with a stroke and the
+overwhelming majority of 95.7% without a stroke. The dataset and the method
+of oversampling are described in detail in
+<a class="reference internal" href="../1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a>.
+Finally, we split the dataset into a training and a validation set using
+<em>TF-DF</em>’s <a class="reference external" href="https://www.tensorflow.org/decision_forests/api_docs/python/tfdf/keras/pd_dataframe_to_tf_dataset">tfdf.keras.pd_dataframe_to_tf_dataset</a>.</p>
+<p>Note that we hardly did any preprocessing - in particular, decision trees do
+not need normalised data. Likewise, it is not necessary to turn categorical
+variables expressed by strings or integers into properly indexed
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Categorical.html#pandas.Categorical" title="(in pandas v1.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Categorical</span></code></a>s. This is only needed here for the oversampling
+to work - but not for the decision trees.</p>
+<p>Next, we prepare a range of metrics useful for binary classification - the same
+ones that are also used and described in
+<a class="reference internal" href="../1-binary-stroke-prediction/training-validation.html"><span class="doc">Model Training and Validation</span></a>.
+Afterwards, we instantiate a <a class="reference external" href="https://www.tensorflow.org/decision_forests/api_docs/python/tfdf/keras/RandomForestModel">tfdf.keras.RandomForestModel</a>,
+sticking to the default values. We add the metrics using the <code class="docutils literal notranslate"><span class="pre">compile</span></code> method
+and train the model with <code class="docutils literal notranslate"><span class="pre">model.fit</span></code> on the training dataset <code class="docutils literal notranslate"><span class="pre">train</span></code>.
+Finally, we save the model so that it can be reloaded and used again later:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">from <strong>2-random-forest.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/2-tensorflow-decision-forests/</span></code></p>
+</aside>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define binary metrics</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">BinaryCrossentropy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">BinaryAccuracy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">TruePositives</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;tp&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">TrueNegatives</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;tn&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">FalsePositives</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;fp&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">FalseNegatives</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;fn&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Recall</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Precision</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;precision&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c1"># prepare and train the model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">tfdf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">RandomForestModel</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="n">metrics</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+<span class="c1"># model.summary()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model-</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">tfdf.keras.RandomForestModel</span></code> uses 300 trees with a depth of
+up to 16 and fitting our training dataset only takes a few seconds. The
+rapid way of evaluating the model performance goes somewhat like this:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">from <strong>2-random-forest.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/2-tensorflow-decision-forests/</span></code></p>
+</aside>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">return_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eval:&#39;</span><span class="p">,</span> <span class="nb">eval</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">eval</span></code> is a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> containing the values of the metrics calculated
+from the validation dataset.</p>
+<p>But let’s go on and calculate the confusion matrix:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">from <strong>2-random-forest.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/2-tensorflow-decision-forests/</span></code></p>
+</aside>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># separate the datasets into features and labels</span>
+<span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">train</span><span class="o">.</span><span class="n">unbatch</span><span class="p">())</span>
+<span class="n">val_features</span><span class="p">,</span> <span class="n">val_labels</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">val</span><span class="o">.</span><span class="n">unbatch</span><span class="p">())</span>
+
+<span class="c1"># obtain the predictions of the model</span>
+<span class="n">train_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+<span class="n">val_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+<span class="c1"># not strictly necessary: remove the superfluous inner nesting</span>
+<span class="n">train_predictions</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">train_predictions</span><span class="p">,</span> <span class="n">train_predictions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">val_predictions</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">val_predictions</span><span class="p">,</span> <span class="n">val_predictions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># until now the predictions are still continuous in [0, 1] and this breaks the</span>
+<span class="c1"># calculation of the confusion matrix, so we need to set them to either 0 or 1</span>
+<span class="c1"># according to an intermediate threshold of 0.5</span>
+<span class="n">train_predicted_labels</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">get_binary_labels</span><span class="p">(</span>
+    <span class="n">train_predictions</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">val_predicted_labels</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">get_binary_labels</span><span class="p">(</span>
+    <span class="n">val_predictions</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># calculate and plot the confusion matrix</span>
+<span class="n">class_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">categories</span><span class="p">[</span><span class="s1">&#39;stroke&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">class_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">categories</span><span class="p">[</span><span class="s1">&#39;stroke&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">val_confusion_matrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span>
+    <span class="n">val_labels</span><span class="p">,</span> <span class="n">val_predicted_labels</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">class_names</span><span class="p">))</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+    <span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_confusion_matrix</span><span class="p">(</span>
+        <span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">val_confusion_matrix</span><span class="p">,</span>
+        <span class="n">class_names</span> <span class="o">=</span> <span class="n">class_names</span><span class="p">,</span>
+        <span class="n">class_ids</span> <span class="o">=</span> <span class="n">class_ids</span><span class="p">),</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-confusion.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Just like in
+<a class="reference internal" href="../1-binary-stroke-prediction/training-validation.html"><span class="doc">Model Training and Validation</span></a>, we can also
+plot normalised versions of the confusion matrix. The confusion matrix with
+the absolute datapoint numbers is given in Figure 2 and a version where
+each true label/class is normalised in Figure 3:</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/random-forest-confusion.png"><img alt="../../_images/random-forest-confusion.png" src="../../_images/random-forest-confusion.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 2: Confusion matrix with absolute datapoint numbers</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/random-forest-confusion-norm-true.png"><img alt="../../_images/random-forest-confusion-norm-true.png" src="../../_images/random-forest-confusion-norm-true.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 3: Confusion matrix normalised along each true label/class</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>We can see that already with the default forest configuration, the model’s
+performance is good enough to not produce any false negatives. As for the
+false positives, only 5.5% of the truly negative datapoints are wrongly
+classified as positive.</p>
+</section>
+<section id="gradient-boosted-trees">
+<h2>Gradient Boosted Trees<a class="headerlink" href="#gradient-boosted-trees" title="Permalink to this headline">#</a></h2>
+<p>Random forests consist of many trees, each trained on a randomly drawn
+subset of the full training dataset. In contrast, a boosted decision trees
+model consists of many trees, where after training one tree, the weights of
+the wrongly classified datapoints are increased before training the next tree.
+This way, increasingly more importance is puts on datapoints that are hard
+to classify.</p>
+<p>The only real change we have to make to use a gradient boosted trees model
+is in the instantiation:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">from <strong>3-gradient-trees.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/2-tensorflow-decision-forests/</span></code></p>
+</aside>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">tfdf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">GradientBoostedTreesModel</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>By default, <em>TF-DF</em> trains up to 300 trees with a depth of up to 6.</p>
+<p>The resulting confusion matrices are shown in Figure 4 and 5:</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/gradient-trees-confusion.png"><img alt="../../_images/gradient-trees-confusion.png" src="../../_images/gradient-trees-confusion.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 4: Confusion matrix with absolute datapoint numbers</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/gradient-trees-confusion-norm-true.png"><img alt="../../_images/gradient-trees-confusion-norm-true.png" src="../../_images/gradient-trees-confusion-norm-true.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 5: Confusion matrix normalised along each true label/class</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>We can see that the performance is very similar to the random forest, with a
+<em>false positive rate</em> (<a class="reference internal" href="../../glossary.html#term-FPR"><span class="xref std std-term">FPR</span></a>) of 5.8%.</p>
+<p>Before we go on to compare the different tree models and the final neural
+network classifier trained in
+<a class="reference internal" href="../1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a>,
+let’s have a look at a model-agnostic way of determining the importance
+that each feature plays in the performance of the classifier: the
+<em>permutation importance</em>. While one or more input features cannot simply
+be removed, the idea behind <em>permutation importance</em> is to break the
+correlation of a feature with the target by randomly permuting the values
+of just that particular feature - hence the name. This way, the classifier
+is no longer able to use that feature when deriving the prediction.
+Permutation importance is implemented in <em>spellbook</em> in
+<a class="reference internal" href="../../_stubs/spellbook.inspect.html#spellbook.inspect.PermutationImportance" title="spellbook.inspect.PermutationImportance"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.inspect.PermutationImportance</span></code></a>, based on
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html#sklearn.inspection.permutation_importance" title="(in scikit-learn v1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.inspection.permutation_importance()</span></code></a>, and can be calculated
+and plotted as follows for any of the metrics previously defined and passed
+to the model in the <code class="docutils literal notranslate"><span class="pre">compile</span></code> step:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">from <strong>3-gradient-trees.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/2-tensorflow-decision-forests/</span></code></p>
+</aside>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">importance</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">inspect</span><span class="o">.</span><span class="n">PermutationImportance</span><span class="p">(</span>
+   <span class="n">data</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tfdf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+   <span class="n">importance</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+      <span class="n">metric_name</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span>
+      <span class="n">annotations_alignment</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+      <span class="n">xmin</span> <span class="o">=</span> <span class="mf">0.62</span><span class="p">),</span>
+   <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-permutation-importance-accuracy.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>resulting in the plot shown in Figure 6:</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../../_images/gradient-trees-permutation-importance-accuracy.png"><img alt="../../_images/gradient-trees-permutation-importance-accuracy.png" src="../../_images/gradient-trees-permutation-importance-accuracy.png" style="height: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 6: Permutation importance</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>We can see to what values the metric, in this case the classification accuracy,
+decreases when each one of the feature variables is randomly permuted. Each
+feature is permuted <code class="docutils literal notranslate"><span class="pre">n_repeats</span></code> times and the average and standard
+deviation of the resulting metrics are calculated. The standard deviations
+are used to draw horizontal error bars on the average deteriorated metrics,
+but can also be printed into the plot.</p>
+<p>We can see that the gradient boosted trees classifier relies most heavily
+on age, the average glucose level and the BMI, with the accuracy dropping
+by about 31%, 23% and 16%, respectively, when the corresponding values are
+scrambled.</p>
+<p>While the approach behind permutation importance is model-agnostic, care
+has to be taken in interpreting the results when some of the features are
+correlated. In this case, information from the missing permuted feature
+can at least partly be recovered by the classifier from the remaining
+correlated variable(s), leading to a less-than-expected deterioration
+of the studied metric. To overcome this limitation,
+<a class="reference internal" href="../../_stubs/spellbook.inspect.html#spellbook.inspect.PermutationImportance" title="spellbook.inspect.PermutationImportance"><code class="xref py py-class docutils literal notranslate"><span class="pre">spellbook.inspect.PermutationImportance</span></code></a> provides a mechanism for
+grouping multiple features into clusters and permuting them simultaneously.</p>
+<p>Further info:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html">https://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/auto_examples/inspection/plot_permutation_importance_multicollinear.html">https://scikit-learn.org/stable/auto_examples/inspection/plot_permutation_importance_multicollinear.html</a></p></li>
+</ul>
+</section>
+<section id="comparison-against-neural-networks">
+<h2>Comparison Against Neural Networks<a class="headerlink" href="#comparison-against-neural-networks" title="Permalink to this headline">#</a></h2>
+<p>Finally, let’s compare our tree classifiers against the final neural network
+classifier trained at the end of
+<a class="reference internal" href="../1-binary-stroke-prediction/index.html"><span class="doc">Binary Classification with the Stroke Prediction Dataset</span></a> using both oversampling and
+input normalisation and have a look at the different <em>Receiver Operator
+Characteristic</em> (<a class="reference internal" href="../../glossary.html#term-ROC"><span class="xref std std-term">ROC</span></a>) curves:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">from <strong>4-roc.py</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">examples/2-tensorflow-decision-forests/</span></code></p>
+</aside>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spellbook</span> <span class="k">as</span> <span class="nn">sb</span>
+
+<span class="c1"># load the pickled ROC curves of the different models</span>
+<span class="n">roc_network</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">ROCPlot</span><span class="o">.</span><span class="n">pickle_load</span><span class="p">(</span>
+    <span class="s1">&#39;../1-binary-stroke-prediction/oversampling-normalised-e2000-roc.pickle&#39;</span><span class="p">)</span>
+<span class="n">roc_forest</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">ROCPlot</span><span class="o">.</span><span class="n">pickle_load</span><span class="p">(</span><span class="s1">&#39;random-forest-roc.pickle&#39;</span><span class="p">)</span>
+<span class="n">roc_trees</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">ROCPlot</span><span class="o">.</span><span class="n">pickle_load</span><span class="p">(</span><span class="s1">&#39;gradient-trees-roc.pickle&#39;</span><span class="p">)</span>
+
+<span class="c1"># add and style the ROC curves</span>
+<span class="n">roc</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">ROCPlot</span><span class="p">()</span>
+<span class="n">roc</span> <span class="o">+=</span> <span class="n">roc_network</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">curves</span><span class="p">[</span><span class="s1">&#39;oversampling normalised / 2000 epochs (validation)&#39;</span><span class="p">][</span><span class="s1">&#39;line&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">curves</span><span class="p">[</span><span class="s1">&#39;oversampling normalised / 2000 epochs (training)&#39;</span><span class="p">][</span><span class="s1">&#39;line&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">roc</span> <span class="o">+=</span> <span class="n">roc_trees</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">curves</span><span class="p">[</span><span class="s1">&#39;gradient trees (validation)&#39;</span><span class="p">][</span><span class="s1">&#39;line&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">curves</span><span class="p">[</span><span class="s1">&#39;gradient trees (training)&#39;</span><span class="p">][</span><span class="s1">&#39;line&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">roc</span> <span class="o">+=</span> <span class="n">roc_forest</span>
+
+<span class="c1"># calculate and draw the working points with 100% true positive rate</span>
+<span class="n">WPs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">WPs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roc</span><span class="o">.</span><span class="n">get_WP</span><span class="p">(</span>
+    <span class="s1">&#39;oversampling normalised / 2000 epochs (validation)&#39;</span><span class="p">,</span> <span class="n">TPR</span><span class="o">=</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="n">WPs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roc</span><span class="o">.</span><span class="n">get_WP</span><span class="p">(</span>
+    <span class="s1">&#39;gradient trees (validation)&#39;</span><span class="p">,</span> <span class="n">TPR</span><span class="o">=</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="n">WPs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roc</span><span class="o">.</span><span class="n">get_WP</span><span class="p">(</span>
+    <span class="s1">&#39;random forest (validation)&#39;</span><span class="p">,</span> <span class="n">TPR</span><span class="o">=</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="n">roc</span><span class="o">.</span><span class="n">draw_WP</span><span class="p">(</span><span class="n">WPs</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C0&#39;</span><span class="p">])</span>
+
+<span class="c1"># save the plot</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">roc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xmin</span><span class="o">=-</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">11.0</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mf">50.0</span><span class="p">),</span> <span class="s1">&#39;roc.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The resulting <a class="reference internal" href="../../glossary.html#term-ROC"><span class="xref std std-term">ROC</span></a> curves with the working points at 100% <em>true positive
+rate</em> (<a class="reference internal" href="../../glossary.html#term-TPR"><span class="xref std std-term">TPR</span></a>) indicated are shown in Figure 7.</p>
+<table class="spellbook-gallery-wrap table">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../../_images/roc1.png"><img alt="../../_images/roc1.png" src="../../_images/roc1.png" style="height: 450px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 7: Receiver Operator Characteristic (<a class="reference internal" href="../../glossary.html#term-ROC"><span class="xref std std-term">ROC</span></a>) curves</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>There, we can see that both the decision forest and the gradient boosted trees
+outperform the neural network model, reaching lower <em>false positive rates</em>
+(<a class="reference internal" href="../../glossary.html#term-FPR"><span class="xref std std-term">FPR</span></a>) of 0.2% and 2.5%, respectively, while maintaining
+100% <a class="reference internal" href="../../glossary.html#term-TPR"><span class="xref std std-term">TPR</span></a>. Let’s also keep in mind that this is not only without any
+<a class="reference internal" href="../../glossary.html#term-hyperparameter-tuning"><span class="xref std std-term">hyperparameter tuning</span></a> but even just using the defaults.
+Furthermore, while it took about an hour to train the neural network classifier
+on a fairly standard laptop, fitting the decision tree models was a matter
+of a few seconds.</p>
+<p>This illustrates that decision trees tend to prefer <em>structured data</em>, i.e.
+data showing its characteristic patterns when represented in a table with the
+features in the columns and each datapoint in a row.
+While images, being a typical example of <em>unstructured data</em>, can also be
+represented in such a tabular manner, with each pixel in its own column, this
+is not a representation geared towards showing the characteristic patterns
+- which can e.g. move across the image and therefore from some columns to
+others. Neural networks are better at identifying and learning the relevant
+patterns in such unstructured datasets.</p>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../1-binary-stroke-prediction/training-validation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Model Training and Validation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../_examples/3-tensorflow-serving-docker/code.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Serving <em>TensorFlow</em> Models in <em>Docker</em></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+      &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
+    Last updated on August 7, 2022.<br/>
+    <div class="extra_footer">
+      Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
+using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

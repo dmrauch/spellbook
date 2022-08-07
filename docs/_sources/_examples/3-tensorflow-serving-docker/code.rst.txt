@@ -92,10 +92,9 @@ They can be loaded with
 
    in ``examples/3-tensorflow-serving-docker/``
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-88
+.. GENERATED FROM PYTHON SOURCE LINES 76-87
 
 .. code-block:: default
-
 
 
     import tensorflow as tf
@@ -114,17 +113,23 @@ They can be loaded with
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
+    Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/train-labels-idx1-ubyte.gz
+     8192/29515 [=======>......................] - ETA: 0s    29515/29515 [==============================] - 0s 0us/step
+    Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/train-images-idx3-ubyte.gz
+        8192/26421880 [..............................] - ETA: 0s     5472256/26421880 [=====>........................] - ETA: 0s    19980288/26421880 [=====================>........] - ETA: 0s    26421880/26421880 [==============================] - 0s 0us/step
+    Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/t10k-labels-idx1-ubyte.gz
+    5148/5148 [==============================] - 0s 0us/step
+    Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/t10k-images-idx3-ubyte.gz
+       8192/4422102 [..............................] - ETA: 0s    4422102/4422102 [==============================] - 0s 0us/step
     <class 'numpy.ndarray'> <class 'numpy.ndarray'>
     (60000, 28, 28) (60000,)
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-96
+.. GENERATED FROM PYTHON SOURCE LINES 88-94
 
 Each image is a 28x28 array of values between 0 and 255, with the background
 filled with zeros and the object itself given with values larger than 0:
@@ -133,7 +138,7 @@ filled with zeros and the object itself given with values larger than 0:
 
    in ``examples/3-tensorflow-serving-docker/``
 
-.. GENERATED FROM PYTHON SOURCE LINES 96-101
+.. GENERATED FROM PYTHON SOURCE LINES 94-99
 
 .. code-block:: default
 
@@ -147,8 +152,6 @@ filled with zeros and the object itself given with values larger than 0:
 
 
 .. rst-class:: sphx-glr-script-out
-
- Out:
 
  .. code-block:: none
 
@@ -184,7 +187,7 @@ filled with zeros and the object itself given with values larger than 0:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-131
+.. GENERATED FROM PYTHON SOURCE LINES 100-129
 
 While it is possible to use just these arrays to train a neural network
 classifier, let's go a step further and use
@@ -216,7 +219,7 @@ We can set up the generator and obtain the flow iterator with
 
    in ``examples/3-tensorflow-serving-docker/``
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-151
+.. GENERATED FROM PYTHON SOURCE LINES 129-149
 
 .. code-block:: default
 
@@ -247,7 +250,7 @@ We can set up the generator and obtain the flow iterator with
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-165
+.. GENERATED FROM PYTHON SOURCE LINES 150-163
 
 Note that we also rescaled the images with a factor of 1/255 to restrict
 the values to the range between 0 and 1. This is a customary input
@@ -263,7 +266,7 @@ retrieve the first batch of augmented images
 
    in ``examples/3-tensorflow-serving-docker/``
 
-.. GENERATED FROM PYTHON SOURCE LINES 165-176
+.. GENERATED FROM PYTHON SOURCE LINES 163-174
 
 .. code-block:: default
 
@@ -285,7 +288,7 @@ retrieve the first batch of augmented images
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 177-214
+.. GENERATED FROM PYTHON SOURCE LINES 175-212
 
 Here, we set ``shuffle=False`` because we want to preserve the order of
 the images for comparing the augmented to the original images.
@@ -325,7 +328,7 @@ row. The result is shown in Figure 1.
 
 As we can see, the clothes are flipped and rotated as specified.
 
-.. GENERATED FROM PYTHON SOURCE LINES 217-226
+.. GENERATED FROM PYTHON SOURCE LINES 215-224
 
 Training a Neural Network Classifier
 ====================================
@@ -337,7 +340,7 @@ We are now going to set up a neural network for classifying the
 
    in ``examples/3-tensorflow-serving-docker/``
 
-.. GENERATED FROM PYTHON SOURCE LINES 226-238
+.. GENERATED FROM PYTHON SOURCE LINES 224-236
 
 .. code-block:: default
 
@@ -359,23 +362,23 @@ We are now going to set up a neural network for classifying the
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
     Model: "sequential"
     _________________________________________________________________
-    Layer (type)                 Output Shape              Param #   
+     Layer (type)                Output Shape              Param #   
     =================================================================
-    conv2d (Conv2D)              (None, 26, 26, 30)        300       
-    _________________________________________________________________
-    max_pooling2d (MaxPooling2D) (None, 13, 13, 30)        0         
-    _________________________________________________________________
-    flatten (Flatten)            (None, 5070)              0         
-    _________________________________________________________________
-    dense (Dense)                (None, 50)                253550    
-    _________________________________________________________________
-    dense_1 (Dense)              (None, 10)                510       
+     conv2d (Conv2D)             (None, 26, 26, 30)        300       
+                                                                 
+     max_pooling2d (MaxPooling2D  (None, 13, 13, 30)       0         
+     )                                                               
+                                                                 
+     flatten (Flatten)           (None, 5070)              0         
+                                                                 
+     dense (Dense)               (None, 50)                253550    
+                                                                 
+     dense_1 (Dense)             (None, 10)                510       
+                                                                 
     =================================================================
     Total params: 254,360
     Trainable params: 254,360
@@ -385,7 +388,7 @@ We are now going to set up a neural network for classifying the
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 239-314
+.. GENERATED FROM PYTHON SOURCE LINES 237-312
 
 The networks begins with a 2D convolutional layer (:term:`CNN`)
 with 30 filters of 3x3 pixels each, followed by a max-pooling layer.
@@ -463,7 +466,7 @@ during and at the end of the training. As we can see from the ouput, a
 classification accuracy of about 85% is achieved during validation, which
 doesn't seem too great, but is enough for our purposes in this tutorial.
 
-.. GENERATED FROM PYTHON SOURCE LINES 318-397
+.. GENERATED FROM PYTHON SOURCE LINES 316-395
 
 Evaluating the Model
 ====================
@@ -545,7 +548,7 @@ correctly classified, except for shirts which are most often confused with
 t-shirts/tops (15.8%) and to a lesser extent coats (8.7%) and pullovers
 (7.4%).
 
-.. GENERATED FROM PYTHON SOURCE LINES 401-497
+.. GENERATED FROM PYTHON SOURCE LINES 399-495
 
 Making Predictions About Other Pictures
 =======================================
@@ -644,7 +647,7 @@ while the second one is mistaken for a bag - which is perhaps as much as
 can be expected with such a simple and only extremely briefly trained
 model.
 
-.. GENERATED FROM PYTHON SOURCE LINES 501-521
+.. GENERATED FROM PYTHON SOURCE LINES 499-519
 
 .. _ex3-serving-docker:
 
@@ -667,7 +670,7 @@ The model to serve can be specified via the ``MODEL_NAME`` and
 ``MODEL_BASE_PATH`` environment variables.
 By default, ``MODEL_BASE_PATH=/models`` and ``MODEL_NAME=model``.
 
-.. GENERATED FROM PYTHON SOURCE LINES 524-621
+.. GENERATED FROM PYTHON SOURCE LINES 522-619
 
 Creating a Custom Image for the Model
 -------------------------------------
@@ -767,7 +770,7 @@ Finally, we can stop the ``tf-serving-base`` container by doing
 
 which can readily be verified with ``sudo docker ps``.
 
-.. GENERATED FROM PYTHON SOURCE LINES 624-729
+.. GENERATED FROM PYTHON SOURCE LINES 622-727
 
 Serving and Querying Our Own Model
 ----------------------------------
@@ -876,25 +879,25 @@ used to refer to the container instead of the ID.
 - https://www.tensorflow.org/tfx/serving/api_rest#predict_api
 
 
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** ( 0 minutes  0.789 seconds)
+
+
 .. _sphx_glr_download__examples_3-tensorflow-serving-docker_code.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: code.py <code.py>`
 
-     :download:`Download Python source code: code.py <code.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: code.ipynb <code.ipynb>`
+      :download:`Download Jupyter notebook: code.ipynb <code.ipynb>`
 
 
 .. only:: html

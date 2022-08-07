@@ -13,7 +13,6 @@
   --grey-medium: #ddd;
   --grey-light: #f8f8f8;
   --grey-headers: rgba(0,0,0,.1);
-  --grey-icons: #5a5a5a;
   --white: #fff;
 
 /*--blue: rgba(0,113,188,1.0);                 #0071bc HSB: 204°,1.00,0.74 */
@@ -47,23 +46,15 @@
 
 .container-xl {max-width: none;} /* 90% !important; */
 
-i.fa-github-square::before {color: var(--grey-icons);}
-i.fa-linkedin::before {color: var(--grey-icons);}
-
 /* make extra_navbar appear at regular distance from the last chapter entry */
 .bd-links {padding-bottom: 0.1rem;}
 
 /* space underneath the GitHub/LinkedIn links */
 .bd-sidebar div.navbar_extra_footer {margin-bottom: 50px;} /* 15px */
 
-.topbar .topbar-main a.linkedin-button {
-  float: right;
-}
-
 /* long horizontal line underneath section headers */
 h1 {
   font-size: 2.4em;
-  margin-top: 1.5rem;
   margin-bottom: 2.5rem !important;
 }
 h2 {
@@ -163,6 +154,9 @@ main.bd-content #main-content .prev-next-bottom a:active {
 
 /*  .. list-table::
        :class: spellbook-gallery-wrap */
+table.spellbook-gallery-wrap.table {
+  display: block;
+}
 table.spellbook-gallery-wrap.table tbody {
   display: block;
 }
@@ -174,24 +168,22 @@ table.spellbook-gallery-wrap.table tbody tr {
 .spellbook-gallery-wrap.table p.caption {max-width: 450px;}
 .spellbook-gallery-wrap.perc90.table p.caption {max-width: 90%;}
 
+
 /*  .. list-table::
        :class: spellbook-gallery-scroll */
+table.spellbook-gallery-scroll.table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
 table.spellbook-gallery-scroll.table tbody {
-  display: grid;
-  justify-content: center;
+  display: table;
+  width: 100%;
 }
-table.spellbook-gallery-scroll.table tr {
-  display: unset;
-  position: sticky;
-  left: 0;
-}
-main.bd-content #main-content .spellbook-gallery-scroll.table div.figure {
-/* trigger horizontal scrolling for overflow by keeping each plot in a div
-    sized according to its content's size */
-  width: max-content;
+table.spellbook-gallery-scroll.table img {
+  max-width: fit-content;
 }
 .spellbook-gallery-scroll td {border-top: none;}
-/* .spellbook-gallery img {border: solid 2px rgba(0,113,188,0.8);} */
 
 
 
@@ -277,11 +269,7 @@ div.spellbook-news.margin.sidebar {margin-top: 2em !important;}
   PROJECTS & TUTORIALS
   .. admonition:: Some Title
      :class: spellbook-projects */
-div.spellbook-projects.admonition {
-  border-left-color: var(--orange);
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-}
+div.spellbook-projects.admonition {border-left-color: var(--orange);}
 .spellbook-projects p.admonition-title {background-color: var(--orange-medium1);}
 .spellbook-projects p.admonition-title::before {
   color: var(--orange);
@@ -405,7 +393,3 @@ div.sphx-glr-footer {display: none;}
 p.sphx-glr-signature {display: none;}
 div.sphx-glr-thumbcontainer::before {display: none;} /* remove the tooltips */
 div.sphx-glr-thumbcontainer::after {display: none;}  /* remove the tooltips */
-
-/* !important,
-   otherwise overridden by main.bd-content #main-content div.figure */
-.sphx-glr-thumbcontainer .figure {width: 160px !important;}

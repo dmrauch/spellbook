@@ -4,10 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>spellbook.plot &#8212; spellbook</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -17,37 +20,32 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tooltip.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script defer="defer" src="../_static/tooltip.js"></script>
     <script src="../_static/glossary.json"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/spellbook-icon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -56,52 +54,84 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
 
-
-
+    <!-- Google Analytics -->
+    
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/spellbook-logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">spellbook</h1>
-  
-</a>
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/spellbook-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">spellbook</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search" aria-label="Search" autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   The spellbook Library
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../API.html">
    Source Code Reference
   </a>
-  <ul class="current collapse-ul">
-   <li class="toctree-l2 current active collapsible-parent">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
     <a class="reference internal" href="../API-python.html">
      Python
     </a>
-    <ul class="current collapse-ul">
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="spellbook.input.html">
        spellbook.input
@@ -143,26 +173,27 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../tools.html">
    Tools and Technologies
   </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../tools/anaconda.html">
-     Anaconda / Conda
-    </a>
-   </li>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../tools/aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/conda.html">
+     Conda, Mamba &amp; Pip
     </a>
    </li>
    <li class="toctree-l2">
@@ -171,8 +202,30 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tools/gcp.html">
+     GCP
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../tools/git.html">
      Git
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tools/github.html">
+       GitHub
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/jupyter.html">
+     Jupyter
     </a>
    </li>
    <li class="toctree-l2">
@@ -181,8 +234,30 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tools/pandas.html">
+     pandas
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../tools/python.html">
      Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tools/python-logging.html">
+       Logging
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/rich.html">
+     Rich
     </a>
    </li>
    <li class="toctree-l2">
@@ -190,19 +265,27 @@
      Sphinx
     </a>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../tools/tf.html">
      TensorFlow
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../tools/tf-save.html">
        Saving and Loading Models
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/virtualenv.html">
+     virtualenv &amp; venv
+    </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../tools/vscode.html">
@@ -210,67 +293,85 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Projects &amp; Tutorials
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../examples/examples.html">
    Table of Contents
   </a>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../examples/1-binary-stroke-prediction/index.html">
-   Classification: Stroke Prediction
+   Binary Classification: Stroke Prediction
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../_examples/1-binary-stroke-prediction/exploration-cleaning.html">
+    <a class="reference internal" href="../examples/1-binary-stroke-prediction/exploration-cleaning.html">
      Data Exploration and Cleaning
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../_examples/1-binary-stroke-prediction/input-pipeline.html">
+    <a class="reference internal" href="../examples/1-binary-stroke-prediction/input-pipeline.html">
      Data Preparation and Input Pipeline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../_examples/1-binary-stroke-prediction/training-validation.html">
+    <a class="reference internal" href="../examples/1-binary-stroke-prediction/training-validation.html">
      Model Training and Validation
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../_examples/2-tensorflow-decision-forests/code.html">
+  <a class="reference internal" href="../examples/2-tensorflow-decision-forests/index.html">
    Decision Forests in TensorFlow
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html">
-   Serving TensorFlow Models in Docker
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../examples/4-tf-serving-docker-aws/index.html">
-   Serving TensorFlow Models on AWS
+   <em>
+    TensorFlow Serving
+   </em>
+   with
+   <em>
+    Docker
+   </em>
+   on
+   <em>
+    AWS
+   </em>
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Extras
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../literature.html">
    Links &amp; Literature
@@ -286,15 +387,20 @@
    Index
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../todo.html">
+   ToDo List
+  </a>
+ </li>
 </ul>
 
-</nav> <!-- To handle the deprecated key -->
-<div class="navbar_extra_footer">
+    </div>
+</nav><div class="navbar_extra_footer">
     <table style="margin-top:2.0rem;">
         <tr>
             <td style="text-align: left;">
                 <a href="https://github.com/dmrauch">
-                    <i class="fab fa-github-square"></i>
+                    <img src="../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
                 </a>
             </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
@@ -304,15 +410,20 @@
         <tr>
             <td style="text-align: left;">
                 <a href="https://www.linkedin.com/in/dmrauch/">
-                    <i class="fab fa-linkedin"></i>
+                    <img src="../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
                 </a>
-            </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
                 Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
             </td>
         </tr>
     </table>
-</div>
+</div></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -320,92 +431,179 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-
-            <a class="linkedin-button" href="https://www.linkedin.com/in/dmrauch/"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" aria-label="LinkedIn"
-                title="Contact me on LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-                </button>
-            </a>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/dmrauch"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Contact me on GitHub"><i
-                    class="fab fa-github"></i>dmrauch profile</button></a>
-        <a class="repository-button"
-            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>spellbook repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_stubs/spellbook.plot.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/_stubs/spellbook.plot.rst"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/_stubs/spellbook.plot.rst.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.rst</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/dmrauch/spellbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_stubs/spellbook.plot.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/dmrauch/spellbook/edit/master/doc/source/_stubs/spellbook.plot.rst"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/_stubs/spellbook.plot.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions">
    Functions
@@ -417,13 +615,6 @@
       pairplot
      </em>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#used-in">
-       used in
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#parallel-coordinates">
@@ -431,13 +622,6 @@
       parallel_coordinates
      </em>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sphx-glr-backref-spellbook-plot-parallel-coordinates">
-       used in
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#plot-1d">
@@ -445,13 +629,6 @@
       plot_1D
      </em>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sphx-glr-backref-spellbook-plot-plot-1d">
-       used in
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#plot-2d">
@@ -459,13 +636,6 @@
       plot_2D
      </em>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sphx-glr-backref-spellbook-plot-plot-2d">
-       used in
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#plot-confusion-matrix">
@@ -475,7 +645,7 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sphx-glr-backref-spellbook-plot-plot-confusion-matrix">
+      <a class="reference internal nav-link" href="#used-in">
        used in
       </a>
      </li>
@@ -487,13 +657,6 @@
       plot_grid_1D
      </em>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sphx-glr-backref-spellbook-plot-plot-grid-1d">
-       used in
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#plot-grid-2d">
@@ -501,13 +664,6 @@
       plot_grid_2D
      </em>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sphx-glr-backref-spellbook-plot-plot-grid-2d">
-       used in
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#save">
@@ -515,36 +671,116 @@
       save
      </em>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sphx-glr-backref-spellbook-plot-save">
-       used in
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
 </ul>
 
-        </nav>
-        
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>spellbook.plot</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pairplot">
+     <em>
+      pairplot
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallel-coordinates">
+     <em>
+      parallel_coordinates
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-1d">
+     <em>
+      plot_1D
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-2d">
+     <em>
+      plot_2D
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-confusion-matrix">
+     <em>
+      plot_confusion_matrix
+     </em>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#used-in">
+       used in
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-grid-1d">
+     <em>
+      plot_grid_1D
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-grid-2d">
+     <em>
+      plot_grid_2D
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#save">
+     <em>
+      save
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="module-spellbook.plot">
-<span id="spellbook-plot"></span><h1>spellbook.plot<a class="headerlink" href="#module-spellbook.plot" title="Permalink to this headline">¶</a></h1>
+  <section id="module-spellbook.plot">
+<span id="spellbook-plot"></span><h1>spellbook.plot<a class="headerlink" href="#module-spellbook.plot" title="Permalink to this headline">#</a></h1>
 <p>High-level functions for creating and saving plots</p>
 <dl class="field-list simple">
 <dt class="field-odd">Functions:</dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
-<table class="longtable table autosummary">
+<table class="autosummary longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -553,22 +789,22 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.plot.pairplot" title="spellbook.plot.pairplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairplot</span></code></a>(data, xs[, ys, fontsize, histplot_args])</p></td>
 <td><p>Create a pairplot</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spellbook.plot.parallel_coordinates" title="spellbook.plot.parallel_coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parallel_coordinates</span></code></a>(data, features, target, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#spellbook.plot.parallel_coordinates" title="spellbook.plot.parallel_coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parallel_coordinates</span></code></a>(data, features, target, ...)</p></td>
 <td><p>Parallel coordinates plot</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.plot.plot_1D" title="spellbook.plot.plot_1D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_1D</span></code></a>(data, x[, xlabel, fontsize, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.plot.plot_1D" title="spellbook.plot.plot_1D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_1D</span></code></a>(data, x[, xlabel, fontsize, ...])</p></td>
 <td><p>Create a single univariate plot</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spellbook.plot.plot_2D" title="spellbook.plot.plot_2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_2D</span></code></a>(data, x, y[, relative, fontsize, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#spellbook.plot.plot_2D" title="spellbook.plot.plot_2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_2D</span></code></a>(data, x, y[, relative, fontsize, ...])</p></td>
 <td><p>Create a single bivariate/correlation plot</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.plot.plot_confusion_matrix" title="spellbook.plot.plot_confusion_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_confusion_matrix</span></code></a>(confusion_matrix, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.plot.plot_confusion_matrix" title="spellbook.plot.plot_confusion_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_confusion_matrix</span></code></a>(confusion_matrix, ...)</p></td>
 <td><p>Create a confusion matrix heatmap plot</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spellbook.plot.plot_grid_1D" title="spellbook.plot.plot_grid_1D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_grid_1D</span></code></a>(nrows, ncols, data[, target, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#spellbook.plot.plot_grid_1D" title="spellbook.plot.plot_grid_1D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_grid_1D</span></code></a>(nrows, ncols, data[, target, ...])</p></td>
 <td><p>Create a grid of univariate plots</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.plot.plot_grid_2D" title="spellbook.plot.plot_grid_2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_grid_2D</span></code></a>(nrows, ncols, data, xs, ys[, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.plot.plot_grid_2D" title="spellbook.plot.plot_grid_2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_grid_2D</span></code></a>(nrows, ncols, data, xs, ys[, ...])</p></td>
 <td><p>Create a grid of bivariate/correlation plots</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#spellbook.plot.save" title="spellbook.plot.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(fig, filename[, dpi])</p></td>
@@ -576,15 +812,15 @@
 </tr>
 </tbody>
 </table>
-<div class="section" id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="pairplot">
-<h3><em>pairplot</em><a class="headerlink" href="#pairplot" title="Permalink to this headline">¶</a></h3>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
+<section id="pairplot">
+<h3><em>pairplot</em><a class="headerlink" href="#pairplot" title="Permalink to this headline">#</a></h3>
 <dl class="py function">
-<dt id="spellbook.plot.pairplot">
-<code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">pairplot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#pairplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.pairplot" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.plot.pairplot">
+<span class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></span><span class="sig-name descname"><span class="pre">pairplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#pairplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.pairplot" title="Permalink to this definition">#</a></dt>
 <dd><p>Create a pairplot</p>
-<a class="reference internal image-reference" href="../_images/pairplot-3x51.png"><img alt="../_images/pairplot-3x51.png" class="align-center" src="../_images/pairplot-3x51.png" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/pairplot-3x5.png"><img alt="../_images/pairplot-3x5.png" class="align-center" src="../_images/pairplot-3x5.png" style="width: 700px;" /></a>
 <p>The plot does not need to contain the same variables or number of variables
 in x and y. It can be rectangular with any number of rows and any number of
 columns. The subplots with the same variable in x and y are detected
@@ -599,19 +835,19 @@ ordinal, continuous).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset to plot</p></li>
-<li><p><strong>xs</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – Names of the variables to plot on the x-axis</p></li>
-<li><p><strong>ys</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]) – <em>Optional</em>. Names of the variables to plot on the y-axes.
+<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset to plot</p></li>
+<li><p><strong>xs</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – Names of the variables to plot on the x-axis</p></li>
+<li><p><strong>ys</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]) – <em>Optional</em>. Names of the variables to plot on the y-axes.
 If not specified, the same variables will be shown on the x-axes
 and the y-axes.</p></li>
-<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – <em>Optional</em>. Baseline fontsize for all elements.
+<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – <em>Optional</em>. Baseline fontsize for all elements.
 This is probably the fontsize that <code class="docutils literal notranslate"><span class="pre">medium</span></code> corresponds to?</p></li>
-<li><p><strong>histplot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments for <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.histplot.html#seaborn.histplot" title="(in seaborn v0.11.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">seaborn.histplot()</span></code></a>,
+<li><p><strong>histplot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments for <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.histplot.html#seaborn.histplot" title="(in seaborn v0.11.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">seaborn.histplot()</span></code></a>,
 which is used to draw the histograms</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The figure containing the grid of plots</p>
@@ -619,21 +855,14 @@ which is used to draw the histograms</p></li>
 </dl>
 </dd></dl>
 
-<div class="section" id="used-in">
-<span id="sphx-glr-backref-spellbook-plot-pairplot"></span><h4>used in<a class="headerlink" href="#used-in" title="Permalink to this headline">¶</a></h4>
-<div class="sphx-glr-thumbcontainer" tooltip="Now let&#x27;s dive in a bit deeper and have a look at some code snippets!"><div class="figure align-default" id="id9">
-<img alt="Stroke Prediction - Data Exploration and Cleaning" src="../_images/sphx_glr_exploration-cleaning_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/1-binary-stroke-prediction/exploration-cleaning.html#sphx-glr-examples-1-binary-stroke-prediction-exploration-cleaning-py"><span class="std std-ref">Stroke Prediction - Data Exploration and Cleaning</span></a></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-clear"></div></div>
-</div>
-<div class="section" id="parallel-coordinates">
-<h3><em>parallel_coordinates</em><a class="headerlink" href="#parallel-coordinates" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="parallel-coordinates">
+<span id="sphx-glr-backref-spellbook-plot-pairplot"></span><h3><em>parallel_coordinates</em><a class="headerlink" href="#parallel-coordinates" title="Permalink to this headline">#</a></h3>
 <dl class="py function">
-<dt id="spellbook.plot.parallel_coordinates">
-<code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">parallel_coordinates</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#parallel_coordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.parallel_coordinates" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.plot.parallel_coordinates">
+<span class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></span><span class="sig-name descname"><span class="pre">parallel_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#parallel_coordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.parallel_coordinates" title="Permalink to this definition">#</a></dt>
 <dd><p>Parallel coordinates plot</p>
-<a class="reference internal image-reference" href="../_images/parallel-coordinates1.png"><img alt="../_images/parallel-coordinates1.png" class="align-center" src="../_images/parallel-coordinates1.png" style="height: 250px;" /></a>
+<a class="reference internal image-reference" href="../_images/parallel-coordinates.png"><img alt="../_images/parallel-coordinates.png" class="align-center" src="../_images/parallel-coordinates.png" style="height: 250px;" /></a>
 <p>Based on <a class="reference external" href="https://benalexkeen.com/parallel-coordinates-in-matplotlib/">Parallel Coordinates in Matplotlib</a>,
 but extended to also support categorical variables.</p>
 <p>For categorical variables, a random uniform shift is applied to spread
@@ -646,38 +875,36 @@ datapoints there are in that class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset to plot</p></li>
-<li><p><strong>features</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – The names of the feature variables</p></li>
-<li><p><strong>target</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The name of the target variable</p></li>
-<li><p><strong>categories</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]) – Dictionary holding the category codes/indices and names
+<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset to plot</p></li>
+<li><p><strong>features</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – The names of the feature variables</p></li>
+<li><p><strong>target</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The name of the target variable</p></li>
+<li><p><strong>categories</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]) – Dictionary holding the category codes/indices and names
 as returned by <a class="reference internal" href="spellbook.input.html#spellbook.input.encode_categories" title="spellbook.input.encode_categories"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.input.encode_categories()</span></code></a></p></li>
-<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – <em>Optional</em>. Baseline fontsize for all elements.
+<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – <em>Optional</em>. Baseline fontsize for all elements.
 This is probably the fontsize that <code class="docutils literal notranslate"><span class="pre">medium</span></code> corresponds to?</p></li>
-<li><p><strong>shift</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – <em>Optional</em>. The half-size of the interval for uniformely
+<li><p><strong>shift</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – <em>Optional</em>. The half-size of the interval for uniformely
 shifting categorical variables</p></li>
 </ul>
 </dd>
 </dl>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Support more than the 10 colours included in <em>Matplotlib</em>’s
+tableau colours</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="section" id="sphx-glr-backref-spellbook-plot-parallel-coordinates">
-<span id="id2"></span><h4>used in<a class="headerlink" href="#sphx-glr-backref-spellbook-plot-parallel-coordinates" title="Permalink to this headline">¶</a></h4>
-<div class="sphx-glr-thumbcontainer" tooltip=" .. raw:: html"><div class="figure align-default" id="id10">
-<img alt="Random Forests and Gradient Boosted Trees in *TensorFlow*" src="../_images/sphx_glr_code_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/2-tensorflow-decision-forests/code.html#sphx-glr-examples-2-tensorflow-decision-forests-code-py"><span class="std std-ref">Random Forests and Gradient Boosted Trees in TensorFlow</span></a></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-clear"></div></div>
-</div>
-<div class="section" id="plot-1d">
-<h3><em>plot_1D</em><a class="headerlink" href="#plot-1d" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="plot-1d">
+<span id="sphx-glr-backref-spellbook-plot-parallel-coordinates"></span><h3><em>plot_1D</em><a class="headerlink" href="#plot-1d" title="Permalink to this headline">#</a></h3>
 <dl class="py function">
-<dt id="spellbook.plot.plot_1D">
-<code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">plot_1D</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">barchart_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histogram_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statsbox_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_1D" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.plot.plot_1D">
+<span class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></span><span class="sig-name descname"><span class="pre">plot_1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">barchart_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histogram_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statsbox_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_1D" title="Permalink to this definition">#</a></dt>
 <dd><p>Create a single univariate plot</p>
 <p>The type of the variable (<em>categorical</em> or <em>continuous</em>) is determined
 automatically and either <a class="reference internal" href="spellbook.plot1D.html#spellbook.plot1D.barchart" title="spellbook.plot1D.barchart"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot1D.barchart()</span></code></a> or
@@ -685,28 +912,28 @@ automatically and either <a class="reference internal" href="spellbook.plot1D.ht
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset to plot</p></li>
-<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Name of the variable to plot</p></li>
-<li><p><strong>xlabel</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – <em>Optional</em>. Title of the x-axis. If unspecified or set to
+<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset to plot</p></li>
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Name of the variable to plot</p></li>
+<li><p><strong>xlabel</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – <em>Optional</em>. Title of the x-axis. If unspecified or set to
 <code class="docutils literal notranslate"><span class="pre">None</span></code>, the name of the variable, as specified by <strong>x</strong>, will
 be used.</p></li>
-<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – <em>Optional</em>. Baseline fontsize for all elements. This is
+<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – <em>Optional</em>. Baseline fontsize for all elements. This is
 probably the fontsize that <code class="docutils literal notranslate"><span class="pre">medium</span></code> corresponds to?</p></li>
-<li><p><strong>figure_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments for the creation of the
-<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> with
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a></p></li>
-<li><p><strong>barchart_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
+<li><p><strong>figure_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments for the creation of the
+<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> with
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a></p></li>
+<li><p><strong>barchart_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
 <a class="reference internal" href="spellbook.plot1D.html#spellbook.plot1D.barchart" title="spellbook.plot1D.barchart"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot1D.barchart()</span></code></a> for categorical data</p></li>
-<li><p><strong>histogram_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
+<li><p><strong>histogram_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
 <a class="reference internal" href="spellbook.plot1D.html#spellbook.plot1D.histogram" title="spellbook.plot1D.histogram"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot1D.histogram()</span></code></a> for continuous data</p></li>
-<li><p><strong>histplot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments for <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.histplot.html#seaborn.histplot" title="(in seaborn v0.11.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">seaborn.histplot()</span></code></a>,
+<li><p><strong>histplot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments for <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.histplot.html#seaborn.histplot" title="(in seaborn v0.11.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">seaborn.histplot()</span></code></a>,
 which is used to draw the plot</p></li>
-<li><p><strong>statsbox_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on by
+<li><p><strong>statsbox_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on by
 <cite>spellbook.plot1D.histogram</cite> to <a class="reference internal" href="spellbook.plotutils.html#spellbook.plotutils.statsbox" title="spellbook.plotutils.statsbox"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plotutils.statsbox()</span></code></a></p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The figure containing the plot</p>
@@ -714,19 +941,12 @@ which is used to draw the plot</p></li>
 </dl>
 </dd></dl>
 
-<div class="section" id="sphx-glr-backref-spellbook-plot-plot-1d">
-<span id="id3"></span><h4>used in<a class="headerlink" href="#sphx-glr-backref-spellbook-plot-plot-1d" title="Permalink to this headline">¶</a></h4>
-<div class="sphx-glr-thumbcontainer" tooltip="Now let&#x27;s dive in a bit deeper and have a look at some code snippets!"><div class="figure align-default" id="id11">
-<img alt="Stroke Prediction - Data Exploration and Cleaning" src="../_images/sphx_glr_exploration-cleaning_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/1-binary-stroke-prediction/exploration-cleaning.html#sphx-glr-examples-1-binary-stroke-prediction-exploration-cleaning-py"><span class="std std-ref">Stroke Prediction - Data Exploration and Cleaning</span></a></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-clear"></div></div>
-</div>
-<div class="section" id="plot-2d">
-<h3><em>plot_2D</em><a class="headerlink" href="#plot-2d" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="plot-2d">
+<span id="sphx-glr-backref-spellbook-plot-plot-1d"></span><h3><em>plot_2D</em><a class="headerlink" href="#plot-2d" title="Permalink to this headline">#</a></h3>
 <dl class="py function">
-<dt id="spellbook.plot.plot_2D">
-<code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">plot_2D</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heatmap_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">violinplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cathist_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatterplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_2D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_2D" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.plot.plot_2D">
+<span class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></span><span class="sig-name descname"><span class="pre">plot_2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heatmap_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">violinplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cathist_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatterplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_2D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_2D" title="Permalink to this definition">#</a></dt>
 <dd><p>Create a single bivariate/correlation plot</p>
 <p>The types of the variables (<em>categorical</em> or <em>continuous</em>) are determined
 automatically and the corresponding 2D plotting function is called:</p>
@@ -743,10 +963,10 @@ automatically and the corresponding 2D plotting function is called:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset to plot</p></li>
-<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Name of the variable to plot on the x-axis</p></li>
-<li><p><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Name of the variable to plot on the y-axis</p></li>
-<li><p><strong>relative</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <p>Optional, whether or not the heatmaps drawn with
+<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset to plot</p></li>
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Name of the variable to plot on the x-axis</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Name of the variable to plot on the y-axis</p></li>
+<li><p><strong>relative</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <p>Optional, whether or not the heatmaps drawn with
 <a class="reference internal" href="spellbook.plot2D.html#spellbook.plot2D.heatmap" title="spellbook.plot2D.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.heatmap()</span></code></a> should be normalised or not</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: heatmap will be column-normalised
@@ -755,32 +975,32 @@ automatically and the corresponding 2D plotting function is called:</p>
 (<code class="docutils literal notranslate"><span class="pre">normalisation</span> <span class="pre">=</span> <span class="pre">count</span></code>)</p></li>
 </ul>
 </p></li>
-<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – <em>Optional</em>. Baseline fontsize for all elements.
+<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – <em>Optional</em>. Baseline fontsize for all elements.
 This is probably the fontsize that <code class="docutils literal notranslate"><span class="pre">medium</span></code> corresponds to?</p></li>
-<li><p><strong>figure_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments for the creation of the
-<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> with
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a></p></li>
-<li><p><strong>heatmap_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
+<li><p><strong>figure_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments for the creation of the
+<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> with
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a></p></li>
+<li><p><strong>heatmap_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
 <a class="reference internal" href="spellbook.plot2D.html#spellbook.plot2D.heatmap" title="spellbook.plot2D.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.heatmap()</span></code></a> for correlations between
 a <em>categorical</em> variable on the x-axis and
 a <em>categorical</em> variable on the y-axis</p></li>
-<li><p><strong>violinplot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
+<li><p><strong>violinplot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
 <a class="reference internal" href="spellbook.plot2D.html#spellbook.plot2D.violinplot" title="spellbook.plot2D.violinplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.violinplot()</span></code></a> for correlations between
 a <em>categorical</em> variable on the x-axis and
 a <em>continuous</em> variable on the y-axis</p></li>
-<li><p><strong>cathist_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
+<li><p><strong>cathist_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
 <a class="reference internal" href="spellbook.plot2D.html#spellbook.plot2D.categorical_histogram" title="spellbook.plot2D.categorical_histogram"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.categorical_histogram()</span></code></a> for correlations
 between
 a <em>continuous</em> variable on the x-axis and
 a <em>categorical</em> variable on the y-axis</p></li>
-<li><p><strong>scatterplot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
+<li><p><strong>scatterplot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
 <a class="reference internal" href="spellbook.plot2D.html#spellbook.plot2D.scatterplot" title="spellbook.plot2D.scatterplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.scatterplot()</span></code></a> for correlations between
 a <em>continuous</em> variable on the x-axis and
 a <em>continuous</em> variable on the y-axis</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The figure containing the plot</p>
@@ -826,19 +1046,12 @@ of the two categories. Each one of the dictionaries is then passed on to
 </ul>
 </dd></dl>
 
-<div class="section" id="sphx-glr-backref-spellbook-plot-plot-2d">
-<span id="id4"></span><h4>used in<a class="headerlink" href="#sphx-glr-backref-spellbook-plot-plot-2d" title="Permalink to this headline">¶</a></h4>
-<div class="sphx-glr-thumbcontainer" tooltip="Now let&#x27;s dive in a bit deeper and have a look at some code snippets!"><div class="figure align-default" id="id12">
-<img alt="Stroke Prediction - Data Exploration and Cleaning" src="../_images/sphx_glr_exploration-cleaning_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/1-binary-stroke-prediction/exploration-cleaning.html#sphx-glr-examples-1-binary-stroke-prediction-exploration-cleaning-py"><span class="std std-ref">Stroke Prediction - Data Exploration and Cleaning</span></a></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-clear"></div></div>
-</div>
-<div class="section" id="plot-confusion-matrix">
-<h3><em>plot_confusion_matrix</em><a class="headerlink" href="#plot-confusion-matrix" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="plot-confusion-matrix">
+<span id="sphx-glr-backref-spellbook-plot-plot-2d"></span><h3><em>plot_confusion_matrix</em><a class="headerlink" href="#plot-confusion-matrix" title="Permalink to this headline">#</a></h3>
 <dl class="py function">
-<dt id="spellbook.plot.plot_confusion_matrix">
-<code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">plot_confusion_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">confusion_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalisation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'count'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5.8,</span> <span class="pre">5.3)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize_annotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_confusion_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_confusion_matrix" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.plot.plot_confusion_matrix">
+<span class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></span><span class="sig-name descname"><span class="pre">plot_confusion_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">confusion_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalisation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'count'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5.8,</span> <span class="pre">5.3)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize_annotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_confusion_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_confusion_matrix" title="Permalink to this definition">#</a></dt>
 <dd><p>Create a confusion matrix heatmap plot</p>
 <a class="reference internal image-reference" href="../_images/confusion-matrix-absolute.png"><img alt="../_images/confusion-matrix-absolute.png" class="align-center" src="../_images/confusion-matrix-absolute.png" style="width: 600px;" /></a>
 <p>Both the absolute frequencies as well as the relative frequencies, either
@@ -850,11 +1063,11 @@ can be shown. The desired behaviour is specified with the parameter
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>confusion_matrix</strong> (<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>) – The confusion
 matrix</p></li>
-<li><p><strong>class_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – List of the class names</p></li>
-<li><p><strong>class_ids</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]) – Optional, list of IDs for each target class.
+<li><p><strong>class_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – List of the class names</p></li>
+<li><p><strong>class_ids</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]) – Optional, list of IDs for each target class.
 These IDs are shown on the x-axis and, together with the class
 names, on the y-axis.</p></li>
-<li><p><strong>normalisation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – <p>Optional, indicates if the absolute or relative
+<li><p><strong>normalisation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – <p>Optional, indicates if the absolute or relative
 frequencies should be plotted</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">count</span></code>: Numbers of datapoints</p></li>
@@ -864,8 +1077,8 @@ the true and the predicted classes/labels</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">norm-pred</span></code>: Percentages normalised across the predicted classes</p></li>
 </ul>
 </p></li>
-<li><p><strong>figsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – Optional, size (width, height) of the figure in inches</p></li>
-<li><p><strong>crop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <p>Plots with <em>normalisation</em> set to <code class="docutils literal notranslate"><span class="pre">norm-true</span></code>/<code class="docutils literal notranslate"><span class="pre">norm-pred</span></code>
+<li><p><strong>figsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – Optional, size (width, height) of the figure in inches</p></li>
+<li><p><strong>crop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <p>Plots with <em>normalisation</em> set to <code class="docutils literal notranslate"><span class="pre">norm-true</span></code>/<code class="docutils literal notranslate"><span class="pre">norm-pred</span></code>
 do not include the <em>SUM</em> row/column, respectively. When <em>crop</em> is
 set to</p>
 <ul>
@@ -877,14 +1090,14 @@ in the same position as with normalisation set to <code class="docutils literal 
 <code class="docutils literal notranslate"><span class="pre">norm-all</span></code></p></li>
 </ul>
 </p></li>
-<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – <em>Optional</em>. Baseline fontsize for all elements.
+<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – <em>Optional</em>. Baseline fontsize for all elements.
 This is probably the fontsize that <code class="docutils literal notranslate"><span class="pre">medium</span></code> corresponds to?</p></li>
-<li><p><strong>fontsize_annotations</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>]) – <em>Optional</em>. Fontsize for the annotations.
-As specified in <a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontsize" title="(in Matplotlib v3.4.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.text.Text.set_fontsize()</span></code></a>.</p></li>
+<li><p><strong>fontsize_annotations</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>]) – <em>Optional</em>. Fontsize for the annotations.
+As specified in <a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontsize" title="(in Matplotlib v3.5.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.text.Text.set_fontsize()</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The figure containing the plot</p>
@@ -896,27 +1109,18 @@ As specified in <a class="reference external" href="https://matplotlib.org/stabl
 </div>
 </dd></dl>
 
-<div class="section" id="sphx-glr-backref-spellbook-plot-plot-confusion-matrix">
-<span id="id5"></span><h4>used in<a class="headerlink" href="#sphx-glr-backref-spellbook-plot-plot-confusion-matrix" title="Permalink to this headline">¶</a></h4>
-<div class="sphx-glr-thumbcontainer" tooltip="Now that the inputs are prepared, we can proceed to set up and configure a model. I tried diffe..."><div class="figure align-default" id="id13">
-<img alt="Stroke Prediction - Model Training and Validation" src="../_images/sphx_glr_training-validation_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/1-binary-stroke-prediction/training-validation.html#sphx-glr-examples-1-binary-stroke-prediction-training-validation-py"><span class="std std-ref">Stroke Prediction - Model Training and Validation</span></a></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip=" .. raw:: html"><div class="figure align-default" id="id14">
-<img alt="Random Forests and Gradient Boosted Trees in *TensorFlow*" src="../_images/sphx_glr_code_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/2-tensorflow-decision-forests/code.html#sphx-glr-examples-2-tensorflow-decision-forests-code-py"><span class="std std-ref">Random Forests and Gradient Boosted Trees in TensorFlow</span></a></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="    &lt;div class=&quot;tag-list&quot;&gt;        &lt;div class=&quot;tag-cell tag-date&quot;&gt;June 21, 2021&lt;/div&gt;        &lt;di..."><div class="figure align-default" id="id15">
-<img alt="Serving *TensorFlow* Models in *Docker*" src="../_images/sphx_glr_code_thumb1.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html#sphx-glr-examples-3-tensorflow-serving-docker-code-py"><span class="std std-ref">Serving TensorFlow Models in Docker</span></a></span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-clear"></div></div>
-</div>
-<div class="section" id="plot-grid-1d">
-<h3><em>plot_grid_1D</em><a class="headerlink" href="#plot-grid-1d" title="Permalink to this headline">¶</a></h3>
+<section id="used-in">
+<span id="sphx-glr-backref-spellbook-plot-plot-confusion-matrix"></span><h4>used in<a class="headerlink" href="#used-in" title="Permalink to this headline">#</a></h4>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="    &lt;div class=&quot;tag-list&quot;&gt;        &lt;div class=&quot;tag-cell tag-date&quot;&gt;June 21, 2021&lt;/div&gt;        &lt;di..."><img alt="Serving *TensorFlow* Models in *Docker*" src="../_images/sphx_glr_code_thumb.png" />
+<p><a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html#sphx-glr-examples-3-tensorflow-serving-docker-code-py"><span class="std std-ref">Serving TensorFlow Models in Docker</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Serving *TensorFlow* Models in *Docker*</div>
+</div></div></div></section>
+</section>
+<section id="plot-grid-1d">
+<h3><em>plot_grid_1D</em><a class="headerlink" href="#plot-grid-1d" title="Permalink to this headline">#</a></h3>
 <dl class="py function">
-<dt id="spellbook.plot.plot_grid_1D">
-<code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">plot_grid_1D</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nrows</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stats_align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binwidths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histogram_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_grid_1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_grid_1D" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.plot.plot_grid_1D">
+<span class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></span><span class="sig-name descname"><span class="pre">plot_grid_1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nrows</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stats_align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binwidths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histogram_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_grid_1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_grid_1D" title="Permalink to this definition">#</a></dt>
 <dd><p>Create a grid of univariate plots</p>
 <p>The type / visual representation of each variable is determined automatically
 via <a class="reference internal" href="spellbook.plotutils.html#spellbook.plotutils.get_data_kind" title="spellbook.plotutils.get_data_kind"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plotutils.get_data_kind()</span></code></a>. Categorical variables are shown as
@@ -926,37 +1130,37 @@ Summary statistics boxes can be shown for the histograms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>nrows</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of rows</p></li>
-<li><p><strong>ncols</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of columns</p></li>
-<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset to plot</p></li>
-<li><p><strong>target</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – <em>Optional</em>. The name of the target variable. If specified,
+<li><p><strong>nrows</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of rows</p></li>
+<li><p><strong>ncols</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of columns</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset to plot</p></li>
+<li><p><strong>target</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – <em>Optional</em>. The name of the target variable. If specified,
 the target variable will be plotted first and highlighted by
 plotting it in orange. Either <strong>target</strong> or <strong>features</strong> has to
 be specified.</p></li>
-<li><p><strong>features</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]) – <em>Optional</em>. List with the names of the feature
+<li><p><strong>features</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]) – <em>Optional</em>. List with the names of the feature
 variables. If specified, the feature variables will be plotted after
 the target variable. Either <strong>target</strong> or <strong>features</strong> has to
 be specified.</p></li>
-<li><p><strong>xlabels</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>], <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>]) – <em>Optional</em>. The titles of the x-axes. If unspecified or set to
+<li><p><strong>xlabels</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>], <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>]) – <em>Optional</em>. The titles of the x-axes. If unspecified or set to
 <code class="docutils literal notranslate"><span class="pre">None</span></code>, the names of the variables, as specified by <strong>target</strong>
 and <strong>features</strong> will be used.</p></li>
-<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – <em>Optional</em>. Baseline fontsize for all elements. This is
+<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – <em>Optional</em>. Baseline fontsize for all elements. This is
 probably the fontsize that <code class="docutils literal notranslate"><span class="pre">medium</span></code> corresponds to?</p></li>
-<li><p><strong>figure_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments for the creation of the returned
-<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> with
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a></p></li>
-<li><p><strong>stats</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]]) – <em>Optional</em>. Bool or list of bools that
+<li><p><strong>figure_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments for the creation of the returned
+<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> with
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a></p></li>
+<li><p><strong>stats</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]]) – <em>Optional</em>. Bool or list of bools that
 indicate if statistics boxes are shown in each plot</p></li>
-<li><p><strong>stats_align</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>], <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>]) – <em>Optional</em>. List of alignment strings, one for
+<li><p><strong>stats_align</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>], <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>]) – <em>Optional</em>. List of alignment strings, one for
 each plot</p></li>
-<li><p><strong>binwidths</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>], <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>]) – <em>Optional</em>. Float or list of floats
+<li><p><strong>binwidths</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>], <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>]) – <em>Optional</em>. Float or list of floats
 that indicate the binwidth in each plot</p></li>
-<li><p><strong>histogram_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Dictionary of parameters and values
+<li><p><strong>histogram_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Dictionary of parameters and values
 that are passed to <a class="reference internal" href="spellbook.plot1D.html#spellbook.plot1D.histogram" title="spellbook.plot1D.histogram"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot1D.histogram()</span></code></a></p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Figure containing the grid of plots</p>
@@ -973,29 +1177,22 @@ that are passed to <a class="reference internal" href="spellbook.plot1D.html#spe
 </div>
 </dd></dl>
 
-<div class="section" id="sphx-glr-backref-spellbook-plot-plot-grid-1d">
-<span id="id6"></span><h4>used in<a class="headerlink" href="#sphx-glr-backref-spellbook-plot-plot-grid-1d" title="Permalink to this headline">¶</a></h4>
-<div class="sphx-glr-thumbcontainer" tooltip="Now let&#x27;s dive in a bit deeper and have a look at some code snippets!"><div class="figure align-default" id="id16">
-<img alt="Stroke Prediction - Data Exploration and Cleaning" src="../_images/sphx_glr_exploration-cleaning_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/1-binary-stroke-prediction/exploration-cleaning.html#sphx-glr-examples-1-binary-stroke-prediction-exploration-cleaning-py"><span class="std std-ref">Stroke Prediction - Data Exploration and Cleaning</span></a></span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-clear"></div></div>
-</div>
-<div class="section" id="plot-grid-2d">
-<h3><em>plot_grid_2D</em><a class="headerlink" href="#plot-grid-2d" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="plot-grid-2d">
+<span id="sphx-glr-backref-spellbook-plot-plot-grid-1d"></span><h3><em>plot_grid_2D</em><a class="headerlink" href="#plot-grid-2d" title="Permalink to this headline">#</a></h3>
 <dl class="py function">
-<dt id="spellbook.plot.plot_grid_2D">
-<code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">plot_grid_2D</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nrows</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heatmap_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">violinplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cathist_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatterplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_grid_2D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_grid_2D" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.plot.plot_grid_2D">
+<span class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></span><span class="sig-name descname"><span class="pre">plot_grid_2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nrows</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heatmap_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">violinplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cathist_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatterplot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#plot_grid_2D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.plot_grid_2D" title="Permalink to this definition">#</a></dt>
 <dd><p>Create a grid of bivariate/correlation plots</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>nrows</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of rows</p></li>
-<li><p><strong>ncols</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of columns</p></li>
-<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset to plot</p></li>
-<li><p><strong>xs</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – Names of the variables to plot on the x-axis</p></li>
-<li><p><strong>ys</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – Names of the variables to plot on the y-axis</p></li>
-<li><p><strong>relative</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <p><em>Optional</em>. Whether or not the heatmaps drawn with
+<li><p><strong>nrows</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of rows</p></li>
+<li><p><strong>ncols</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of columns</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>) – The dataset to plot</p></li>
+<li><p><strong>xs</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – Names of the variables to plot on the x-axis</p></li>
+<li><p><strong>ys</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – Names of the variables to plot on the y-axis</p></li>
+<li><p><strong>relative</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <p><em>Optional</em>. Whether or not the heatmaps drawn with
 <a class="reference internal" href="spellbook.plot2D.html#spellbook.plot2D.heatmap" title="spellbook.plot2D.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.heatmap()</span></code></a> should be normalised or not</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: heatmap will be column-normalised
@@ -1004,32 +1201,32 @@ that are passed to <a class="reference internal" href="spellbook.plot1D.html#spe
 (<code class="docutils literal notranslate"><span class="pre">normalisation</span> <span class="pre">=</span> <span class="pre">count</span></code>)</p></li>
 </ul>
 </p></li>
-<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – <em>Optional</em>. Baseline fontsize for all elements.
+<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – <em>Optional</em>. Baseline fontsize for all elements.
 This is probably the fontsize that <code class="docutils literal notranslate"><span class="pre">medium</span></code> corresponds to?</p></li>
-<li><p><strong>figure_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments for the creation of the
-<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> with
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a></p></li>
-<li><p><strong>heatmap_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
+<li><p><strong>figure_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments for the creation of the
+<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> with
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a></p></li>
+<li><p><strong>heatmap_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
 <a class="reference internal" href="spellbook.plot2D.html#spellbook.plot2D.heatmap" title="spellbook.plot2D.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.heatmap()</span></code></a> for correlations between
 a <em>categorical</em> variable on the x-axis and
 a <em>categorical</em> variable on the y-axis</p></li>
-<li><p><strong>violinplot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
+<li><p><strong>violinplot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
 <a class="reference internal" href="spellbook.plot2D.html#spellbook.plot2D.violinplot" title="spellbook.plot2D.violinplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.violinplot()</span></code></a> for correlations between
 a <em>categorical</em> variable on the x-axis and
 a <em>continuous</em> variable on the y-axis</p></li>
-<li><p><strong>cathist_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
+<li><p><strong>cathist_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
 <a class="reference internal" href="spellbook.plot2D.html#spellbook.plot2D.categorical_histogram" title="spellbook.plot2D.categorical_histogram"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.categorical_histogram()</span></code></a> for correlations
 between
 a <em>continuous</em> variable on the x-axis and
 a <em>categorical</em> variable on the y-axis</p></li>
-<li><p><strong>scatterplot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
+<li><p><strong>scatterplot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>. Arguments passed on to
 <a class="reference internal" href="spellbook.plot2D.html#spellbook.plot2D.scatterplot" title="spellbook.plot2D.scatterplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plot2D.scatterplot()</span></code></a> for correlations between
 a <em>continuous</em> variable on the x-axis and
 a <em>continuous</em> variable on the y-axis</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The figure containing the grid of plot</p>
@@ -1037,84 +1234,76 @@ a <em>continuous</em> variable on the y-axis</p></li>
 </dl>
 </dd></dl>
 
-<div class="section" id="sphx-glr-backref-spellbook-plot-plot-grid-2d">
-<span id="id7"></span><h4>used in<a class="headerlink" href="#sphx-glr-backref-spellbook-plot-plot-grid-2d" title="Permalink to this headline">¶</a></h4>
-<div class="sphx-glr-thumbcontainer" tooltip="Now let&#x27;s dive in a bit deeper and have a look at some code snippets!"><div class="figure align-default" id="id17">
-<img alt="Stroke Prediction - Data Exploration and Cleaning" src="../_images/sphx_glr_exploration-cleaning_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/1-binary-stroke-prediction/exploration-cleaning.html#sphx-glr-examples-1-binary-stroke-prediction-exploration-cleaning-py"><span class="std std-ref">Stroke Prediction - Data Exploration and Cleaning</span></a></span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-clear"></div></div>
-</div>
-<div class="section" id="save">
-<h3><em>save</em><a class="headerlink" href="#save" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="save">
+<span id="sphx-glr-backref-spellbook-plot-plot-grid-2d"></span><h3><em>save</em><a class="headerlink" href="#save" title="Permalink to this headline">#</a></h3>
 <dl class="py function">
-<dt id="spellbook.plot.save">
-<code class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></code><code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.save" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.plot.save">
+<span class="sig-prename descclassname"><span class="pre">spellbook.plot.</span></span><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/plot.html#save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.plot.save" title="Permalink to this definition">#</a></dt>
 <dd><p>Save a plot to a file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>fig</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a>) – The figure to plot</p></li>
-<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The filename under which to save the plot</p></li>
-<li><p><strong>dpi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Optional resolution</p></li>
+<li><p><strong>fig</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a>) – The figure to plot</p></li>
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The filename under which to save the plot</p></li>
+<li><p><strong>dpi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Optional resolution</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="section" id="sphx-glr-backref-spellbook-plot-save">
-<span id="id8"></span><h4>used in<a class="headerlink" href="#sphx-glr-backref-spellbook-plot-save" title="Permalink to this headline">¶</a></h4>
-<div class="sphx-glr-thumbcontainer" tooltip="Now let&#x27;s dive in a bit deeper and have a look at some code snippets!"><div class="figure align-default" id="id18">
-<img alt="Stroke Prediction - Data Exploration and Cleaning" src="../_images/sphx_glr_exploration-cleaning_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/1-binary-stroke-prediction/exploration-cleaning.html#sphx-glr-examples-1-binary-stroke-prediction-exploration-cleaning-py"><span class="std std-ref">Stroke Prediction - Data Exploration and Cleaning</span></a></span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip=" .. raw:: html"><div class="figure align-default" id="id19">
-<img alt="Random Forests and Gradient Boosted Trees in *TensorFlow*" src="../_images/sphx_glr_code_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/2-tensorflow-decision-forests/code.html#sphx-glr-examples-2-tensorflow-decision-forests-code-py"><span class="std std-ref">Random Forests and Gradient Boosted Trees in TensorFlow</span></a></span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-clear"></div></div>
-</div>
-</div>
-</div>
+<span class="target" id="sphx-glr-backref-spellbook-plot-save"></span></section>
+</section>
+</section>
 
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="spellbook.inspect.html" title="previous page">spellbook.inspect</a>
-    <a class='right-next' id="next-link" href="spellbook.plot1D.html" title="next page">spellbook.plot1D</a>
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="spellbook.inspect.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">spellbook.inspect</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="spellbook.plot1D.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">spellbook.plot1D</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-            &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 28, 2021.<br/>
-          <div class="extra_footer">
-            Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+      &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
+    Last updated on August 7, 2022.<br/>
+    <div class="extra_footer">
+      Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
-            &nbsp; | &nbsp;
-            <a href="../legal.html">Legal notes</a>
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
-
-    
   </body>
 </html>

@@ -4,10 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>spellbook.train &#8212; spellbook</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -17,37 +20,32 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tooltip.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script defer="defer" src="../_static/tooltip.js"></script>
     <script src="../_static/glossary.json"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/spellbook-icon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -56,52 +54,84 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
 
-
-
+    <!-- Google Analytics -->
+    
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/spellbook-logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">spellbook</h1>
-  
-</a>
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/spellbook-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">spellbook</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search" aria-label="Search" autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   The spellbook Library
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../API.html">
    Source Code Reference
   </a>
-  <ul class="current collapse-ul">
-   <li class="toctree-l2 current active collapsible-parent">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
     <a class="reference internal" href="../API-python.html">
      Python
     </a>
-    <ul class="current collapse-ul">
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="spellbook.input.html">
        spellbook.input
@@ -143,26 +173,27 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../tools.html">
    Tools and Technologies
   </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../tools/anaconda.html">
-     Anaconda / Conda
-    </a>
-   </li>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../tools/aws.html">
      AWS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/conda.html">
+     Conda, Mamba &amp; Pip
     </a>
    </li>
    <li class="toctree-l2">
@@ -171,8 +202,30 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tools/gcp.html">
+     GCP
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../tools/git.html">
      Git
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tools/github.html">
+       GitHub
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/jupyter.html">
+     Jupyter
     </a>
    </li>
    <li class="toctree-l2">
@@ -181,8 +234,30 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tools/pandas.html">
+     pandas
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../tools/python.html">
      Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tools/python-logging.html">
+       Logging
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/rich.html">
+     Rich
     </a>
    </li>
    <li class="toctree-l2">
@@ -190,19 +265,27 @@
      Sphinx
     </a>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../tools/tf.html">
      TensorFlow
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../tools/tf-save.html">
        Saving and Loading Models
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tools/virtualenv.html">
+     virtualenv &amp; venv
+    </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../tools/vscode.html">
@@ -210,67 +293,85 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Projects &amp; Tutorials
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../examples/examples.html">
    Table of Contents
   </a>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../examples/1-binary-stroke-prediction/index.html">
-   Classification: Stroke Prediction
+   Binary Classification: Stroke Prediction
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../_examples/1-binary-stroke-prediction/exploration-cleaning.html">
+    <a class="reference internal" href="../examples/1-binary-stroke-prediction/exploration-cleaning.html">
      Data Exploration and Cleaning
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../_examples/1-binary-stroke-prediction/input-pipeline.html">
+    <a class="reference internal" href="../examples/1-binary-stroke-prediction/input-pipeline.html">
      Data Preparation and Input Pipeline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../_examples/1-binary-stroke-prediction/training-validation.html">
+    <a class="reference internal" href="../examples/1-binary-stroke-prediction/training-validation.html">
      Model Training and Validation
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../_examples/2-tensorflow-decision-forests/code.html">
+  <a class="reference internal" href="../examples/2-tensorflow-decision-forests/index.html">
    Decision Forests in TensorFlow
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html">
-   Serving TensorFlow Models in Docker
+   Serving
+   <em>
+    TensorFlow
+   </em>
+   Models in
+   <em>
+    Docker
+   </em>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../examples/4-tf-serving-docker-aws/index.html">
-   Serving TensorFlow Models on AWS
+   <em>
+    TensorFlow Serving
+   </em>
+   with
+   <em>
+    Docker
+   </em>
+   on
+   <em>
+    AWS
+   </em>
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Extras
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../literature.html">
    Links &amp; Literature
@@ -286,15 +387,20 @@
    Index
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../todo.html">
+   ToDo List
+  </a>
+ </li>
 </ul>
 
-</nav> <!-- To handle the deprecated key -->
-<div class="navbar_extra_footer">
+    </div>
+</nav><div class="navbar_extra_footer">
     <table style="margin-top:2.0rem;">
         <tr>
             <td style="text-align: left;">
                 <a href="https://github.com/dmrauch">
-                    <i class="fab fa-github-square"></i>
+                    <img src="../_static/GitHub-Mark-32px.png" height="16" padding-right="1em">
                 </a>
             </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
@@ -304,15 +410,20 @@
         <tr>
             <td style="text-align: left;">
                 <a href="https://www.linkedin.com/in/dmrauch/">
-                    <i class="fab fa-linkedin"></i>
+                    <img src="../_static/LI-In-Bug.png" height="16" padding-right="1em"></td>
                 </a>
-            </td>
             <td style="padding-left: 0.5rem; text-align: left; font-style:italic; font-weight: bold;">
                 Contact me on <a href="https://www.linkedin.com/in/dmrauch/">LinkedIn</a>
             </td>
         </tr>
     </table>
-</div>
+</div></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -320,92 +431,179 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-
-            <a class="linkedin-button" href="https://www.linkedin.com/in/dmrauch/"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" aria-label="LinkedIn"
-                title="Contact me on LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-                </button>
-            </a>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/dmrauch"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Contact me on GitHub"><i
-                    class="fab fa-github"></i>dmrauch profile</button></a>
-        <a class="repository-button"
-            href="https://github.com/dmrauch/spellbook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>spellbook repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_stubs/spellbook.train.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/dmrauch/spellbook/edit/master/doc/source/_stubs/spellbook.train.rst"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/_stubs/spellbook.train.rst.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.rst</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/dmrauch/spellbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/dmrauch/spellbook/issues/new?title=Issue%20on%20page%20%2F_stubs/spellbook.train.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/dmrauch/spellbook/edit/master/doc/source/_stubs/spellbook.train.rst"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/_stubs/spellbook.train.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#classes">
    Classes
@@ -438,13 +636,6 @@
       ROCPlot
      </em>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sphx-glr-backref-spellbook-train-rocplot">
-       used in
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -473,42 +664,115 @@
       plot_history_binary
      </em>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sphx-glr-backref-spellbook-train-plot-history-binary">
-       used in
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
 </ul>
 
-        </nav>
-        
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>spellbook.train</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classes">
+   Classes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binarycalibrationplot">
+     <em>
+      BinaryCalibrationPlot
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelsavingcallback">
+     <em>
+      ModelSavingCallback
+     </em>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#used-in">
+       used in
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rocplot">
+     <em>
+      ROCPlot
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-binary-labels">
+     <em>
+      get_binary_labels
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-history">
+     <em>
+      plot_history
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-history-binary">
+     <em>
+      plot_history_binary
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="module-spellbook.train">
-<span id="spellbook-train"></span><h1>spellbook.train<a class="headerlink" href="#module-spellbook.train" title="Permalink to this headline">¶</a></h1>
+  <section id="module-spellbook.train">
+<span id="spellbook-train"></span><h1>spellbook.train<a class="headerlink" href="#module-spellbook.train" title="Permalink to this headline">#</a></h1>
 <p>Functions for model training and validation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Classes:</dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
-<table class="longtable table autosummary">
+<table class="autosummary longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.train.BinaryCalibrationPlot" title="spellbook.train.BinaryCalibrationPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BinaryCalibrationPlot</span></code></a>(labels, predictions[, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.train.BinaryCalibrationPlot" title="spellbook.train.BinaryCalibrationPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BinaryCalibrationPlot</span></code></a>(labels, predictions[, ...])</p></td>
 <td><p>Plot showing calibration/reliability curve(s) in binary classification</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#spellbook.train.ModelSavingCallback" title="spellbook.train.ModelSavingCallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelSavingCallback</span></code></a>([foldername, step])</p></td>
@@ -523,7 +787,7 @@
 <dt class="field-odd">Functions:</dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
-<table class="longtable table autosummary">
+<table class="autosummary longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -532,7 +796,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.train.get_binary_labels" title="spellbook.train.get_binary_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_binary_labels</span></code></a>(predictions[, threshold])</p></td>
 <td><p>Apply threshold to calculate the labels from the predictions</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spellbook.train.plot_history" title="spellbook.train.plot_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_history</span></code></a>(history[, nrows, ncols, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#spellbook.train.plot_history" title="spellbook.train.plot_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_history</span></code></a>(history[, nrows, ncols, ...])</p></td>
 <td><p>Plot the timeline of training metrics</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.train.plot_history_binary" title="spellbook.train.plot_history_binary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_history_binary</span></code></a>(history[, name_prefix])</p></td>
@@ -540,18 +804,18 @@
 </tr>
 </tbody>
 </table>
-<div class="section" id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="binarycalibrationplot">
-<h3><em>BinaryCalibrationPlot</em><a class="headerlink" href="#binarycalibrationplot" title="Permalink to this headline">¶</a></h3>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">#</a></h2>
+<section id="binarycalibrationplot">
+<h3><em>BinaryCalibrationPlot</em><a class="headerlink" href="#binarycalibrationplot" title="Permalink to this headline">#</a></h3>
 <dl class="py class">
-<dt id="spellbook.train.BinaryCalibrationPlot">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">spellbook.train.</span></code><code class="sig-name descname"><span class="pre">BinaryCalibrationPlot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_hist_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_yscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#BinaryCalibrationPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.BinaryCalibrationPlot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spellbook.train.</span></span><span class="sig-name descname"><span class="pre">BinaryCalibrationPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_hist_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_yscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#BinaryCalibrationPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot" title="Permalink to this definition">#</a></dt>
 <dd><p>Plot showing calibration/reliability curve(s) in binary classification</p>
 <a class="reference internal image-reference" href="../_images/calibration.png"><img alt="../_images/calibration.png" class="align-center" src="../_images/calibration.png" style="width: 400px;" /></a>
 <p>For each classifier, whose calibration curve is to be plotted, a set
 of true labels and predictions/scores has to be given. The calibration
-curves are calculated with <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.calibration.calibration_curve.html#sklearn.calibration.calibration_curve" title="(in scikit-learn v0.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.calibration.calibration_curve()</span></code></a>:
+curves are calculated with <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.calibration.calibration_curve.html#sklearn.calibration.calibration_curve" title="(in scikit-learn v1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.calibration.calibration_curve()</span></code></a>:
 The range of the predictions/scores is divided into <strong>bins</strong> bins. In each
 bin, the average of the predictions in that bin is calculated
 (<em>mean predicted value</em>) as well as the which fraction of the datapoints
@@ -569,73 +833,73 @@ visualise predictions that are very non-uniformly distributed.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>labels</strong> (<em>array-like</em><em> or </em><em>list of array-like</em>) – <p>The true target labels/classes. The type can be</p>
 <ul>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>: when plotting
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>: when plotting
 a single calibration curve</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>]
-or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>]: when plotting
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>]
+or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>]: when plotting
 one or more calibration curves</p></li>
 </ul>
 </p></li>
 <li><p><strong>predictions</strong> (<em>array-like</em><em> or </em><em>list of array-like</em>) – <p>The predicted labels/classes. The type can be</p>
 <ul>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>: when plotting
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>: when plotting
 a single calibration curve</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>]
-or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>]: when plotting
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>]
+or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/Tensor" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.Tensor</span></code></a>]: when plotting
 one or more calibration curves</p></li>
 </ul>
 </p></li>
-<li><p><strong>names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – <p>The names of the legend entries for each calibration curve.
+<li><p><strong>names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – <p>The names of the legend entries for each calibration curve.
 The type can be</p>
 <ul>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>: when plotting a single calibration curve</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]: when plotting one or more
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>: when plotting a single calibration curve</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]: when plotting one or more
 calibration curves</p></li>
 </ul>
 </p></li>
-<li><p><strong>bins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]) – <p>The number of bins in which to evaluate the calibration,
+<li><p><strong>bins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]) – <p>The number of bins in which to evaluate the calibration,
 i.e. the fractions of positives vs. the mean predicted values.
 The type can be</p>
 <ul>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>: when plotting a single calibration curve</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]: when plotting one or more
+<li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>: when plotting a single calibration curve</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]: when plotting one or more
 calibration curves</p></li>
 </ul>
 </p></li>
-<li><p><strong>predictions_hist_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – Arguments passed on to
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.hist.html#matplotlib.axes.Axes.hist" title="(in Matplotlib v3.4.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.hist()</span></code></a> when plotting the histograms
+<li><p><strong>predictions_hist_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – Arguments passed on to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.hist.html#matplotlib.axes.Axes.hist" title="(in Matplotlib v3.5.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.hist()</span></code></a> when plotting the histograms
 of the predictions</p></li>
-<li><p><strong>predictions_ymin</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – The lower end of the y-axis of predictions histogram</p></li>
-<li><p><strong>predictions_ymax</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – The upper end of the y-axis of predictions histogram</p></li>
-<li><p><strong>predictions_yscale</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – The scaling behaviour of the y-axis of predictions
-histogram as described in <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_yscale.html#matplotlib.axes.Axes.set_yscale" title="(in Matplotlib v3.4.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.set_yscale()</span></code></a>.
+<li><p><strong>predictions_ymin</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – The lower end of the y-axis of predictions histogram</p></li>
+<li><p><strong>predictions_ymax</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – The upper end of the y-axis of predictions histogram</p></li>
+<li><p><strong>predictions_yscale</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – The scaling behaviour of the y-axis of predictions
+histogram as described in <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_yscale.html#matplotlib.axes.Axes.set_yscale" title="(in Matplotlib v3.5.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.set_yscale()</span></code></a>.
 Meaningful values for histograms are <code class="docutils literal notranslate"><span class="pre">'linear'</span></code> and <code class="docutils literal notranslate"><span class="pre">'log'</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt id="spellbook.train.BinaryCalibrationPlot.fig">
-<code class="sig-name descname"><span class="pre">fig</span></code><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot.fig" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> object holding the plot</p>
+<dt class="sig sig-object py" id="spellbook.train.BinaryCalibrationPlot.fig">
+<span class="sig-name descname"><span class="pre">fig</span></span><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot.fig" title="Permalink to this definition">#</a></dt>
+<dd><p>The <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> object holding the plot</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="spellbook.train.BinaryCalibrationPlot.grid">
-<code class="sig-name descname"><span class="pre">grid</span></code><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot.grid" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.gridspec.GridSpec.html#matplotlib.gridspec.GridSpec" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.gridspec.GridSpec</span></code></a> object</p>
+<dt class="sig sig-object py" id="spellbook.train.BinaryCalibrationPlot.grid">
+<span class="sig-name descname"><span class="pre">grid</span></span><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot.grid" title="Permalink to this definition">#</a></dt>
+<dd><p>The <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.gridspec.GridSpec.html#matplotlib.gridspec.GridSpec" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.gridspec.GridSpec</span></code></a> object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="spellbook.train.BinaryCalibrationPlot.ax_calibrations">
-<code class="sig-name descname"><span class="pre">ax_calibrations</span></code><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot.ax_calibrations" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object holding the
+<dt class="sig sig-object py" id="spellbook.train.BinaryCalibrationPlot.ax_calibrations">
+<span class="sig-name descname"><span class="pre">ax_calibrations</span></span><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot.ax_calibrations" title="Permalink to this definition">#</a></dt>
+<dd><p>The <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object holding the
 calibration curves</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="spellbook.train.BinaryCalibrationPlot.ax_predictions">
-<code class="sig-name descname"><span class="pre">ax_predictions</span></code><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot.ax_predictions" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object holding the
+<dt class="sig sig-object py" id="spellbook.train.BinaryCalibrationPlot.ax_predictions">
+<span class="sig-name descname"><span class="pre">ax_predictions</span></span><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot.ax_predictions" title="Permalink to this definition">#</a></dt>
+<dd><p>The <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object holding the
 histograms of the predictions</p>
 </dd></dl>
 
@@ -645,38 +909,37 @@ histograms of the predictions</p>
 <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration_curve.html">https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration_curve.html</a></p>
 </div>
 <p><strong>Methods:</strong></p>
-<table class="longtable table autosummary">
+<table class="autosummary longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.train.BinaryCalibrationPlot.__init__" title="spellbook.train.BinaryCalibrationPlot.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(labels, predictions[, names, bins, …])</p></td>
-<td><p>Initialize self.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.train.BinaryCalibrationPlot.__init__" title="spellbook.train.BinaryCalibrationPlot.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(labels, predictions[, names, bins, ...])</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="spellbook.train.BinaryCalibrationPlot.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_hist_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_yscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#BinaryCalibrationPlot.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
+<dt class="sig sig-object py" id="spellbook.train.BinaryCalibrationPlot.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_hist_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_yscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#BinaryCalibrationPlot.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.BinaryCalibrationPlot.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="modelsavingcallback">
-<span id="sphx-glr-backref-spellbook-train-binarycalibrationplot"></span><h3><em>ModelSavingCallback</em><a class="headerlink" href="#modelsavingcallback" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="modelsavingcallback">
+<span id="sphx-glr-backref-spellbook-train-binarycalibrationplot"></span><h3><em>ModelSavingCallback</em><a class="headerlink" href="#modelsavingcallback" title="Permalink to this headline">#</a></h3>
 <dl class="py class">
-<dt id="spellbook.train.ModelSavingCallback">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">spellbook.train.</span></code><code class="sig-name descname"><span class="pre">ModelSavingCallback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">foldername</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'model'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ModelSavingCallback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ModelSavingCallback" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ModelSavingCallback">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spellbook.train.</span></span><span class="sig-name descname"><span class="pre">ModelSavingCallback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">foldername</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'model'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ModelSavingCallback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ModelSavingCallback" title="Permalink to this definition">#</a></dt>
 <dd><p>Callback that intermittently saves the full model during training</p>
 <p>The model is saved as a folder intermittently in configurable steps
 during training as well as at the end of the training. The foldername
 is kept unchanged as training goes on, thus always replacing the
 last/old model with the current/new state.</p>
 <p><strong>Methods:</strong></p>
-<table class="longtable table autosummary">
+<table class="autosummary longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -694,14 +957,14 @@ last/old model with the current/new state.</p>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="spellbook.train.ModelSavingCallback.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">foldername</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'model'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ModelSavingCallback.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ModelSavingCallback.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ModelSavingCallback.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">foldername</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'model'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ModelSavingCallback.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ModelSavingCallback.__init__" title="Permalink to this definition">#</a></dt>
 <dd><p>Callback that intermittently saves the full model during training</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>foldername</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The model is saved as a folder with this name</p></li>
-<li><p><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The model is saved every <em>step</em> number of epochs</p></li>
+<li><p><strong>foldername</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The model is saved as a folder with this name</p></li>
+<li><p><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The model is saved every <em>step</em> number of epochs</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -712,65 +975,60 @@ last/old model with the current/new state.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ModelSavingCallback.on_epoch_end">
-<code class="sig-name descname"><span class="pre">on_epoch_end</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ModelSavingCallback.on_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ModelSavingCallback.on_epoch_end" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ModelSavingCallback.on_epoch_end">
+<span class="sig-name descname"><span class="pre">on_epoch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ModelSavingCallback.on_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ModelSavingCallback.on_epoch_end" title="Permalink to this definition">#</a></dt>
 <dd><p>Called at the end of every epoch: Save the model every <em>self.step</em>
 epochs</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Index of the epoch</p></li>
-<li><p><strong>logs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Metrics for this training epoch as well as the
+<li><p><strong>epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Index of the epoch</p></li>
+<li><p><strong>logs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – Metrics for this training epoch as well as the
 validation epoch if validation is performed. Validation result
 keys are prefixed with <code class="docutils literal notranslate"><span class="pre">'val_'</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ModelSavingCallback.on_train_end">
-<code class="sig-name descname"><span class="pre">on_train_end</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ModelSavingCallback.on_train_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ModelSavingCallback.on_train_end" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ModelSavingCallback.on_train_end">
+<span class="sig-name descname"><span class="pre">on_train_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ModelSavingCallback.on_train_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ModelSavingCallback.on_train_end" title="Permalink to this definition">#</a></dt>
 <dd><p>Called at the end of the training: Save the model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>logs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Currently the output of the last call to
+<dd class="field-odd"><p><strong>logs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – Currently the output of the last call to
 <a class="reference internal" href="#spellbook.train.ModelSavingCallback.on_epoch_end" title="spellbook.train.ModelSavingCallback.on_epoch_end"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_epoch_end()</span></code></a> is passed to this argument for this
 method but that may change in the future.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 </dd></dl>
 
-<div class="section" id="used-in">
-<span id="sphx-glr-backref-spellbook-train-modelsavingcallback"></span><h4>used in<a class="headerlink" href="#used-in" title="Permalink to this headline">¶</a></h4>
-<div class="sphx-glr-thumbcontainer" tooltip="Now that the inputs are prepared, we can proceed to set up and configure a model. I tried diffe..."><div class="figure align-default" id="id3">
-<img alt="Stroke Prediction - Model Training and Validation" src="../_images/sphx_glr_training-validation_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/1-binary-stroke-prediction/training-validation.html#sphx-glr-examples-1-binary-stroke-prediction-training-validation-py"><span class="std std-ref">Stroke Prediction - Model Training and Validation</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="    &lt;div class=&quot;tag-list&quot;&gt;        &lt;div class=&quot;tag-cell tag-date&quot;&gt;June 21, 2021&lt;/div&gt;        &lt;di..."><div class="figure align-default" id="id4">
-<img alt="Serving *TensorFlow* Models in *Docker*" src="../_images/sphx_glr_code_thumb1.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html#sphx-glr-examples-3-tensorflow-serving-docker-code-py"><span class="std std-ref">Serving TensorFlow Models in Docker</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-clear"></div></div>
-</div>
-<div class="section" id="rocplot">
-<h3><em>ROCPlot</em><a class="headerlink" href="#rocplot" title="Permalink to this headline">¶</a></h3>
+<section id="used-in">
+<span id="sphx-glr-backref-spellbook-train-modelsavingcallback"></span><h4>used in<a class="headerlink" href="#used-in" title="Permalink to this headline">#</a></h4>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="    &lt;div class=&quot;tag-list&quot;&gt;        &lt;div class=&quot;tag-cell tag-date&quot;&gt;June 21, 2021&lt;/div&gt;        &lt;di..."><img alt="Serving *TensorFlow* Models in *Docker*" src="../_images/sphx_glr_code_thumb.png" />
+<p><a class="reference internal" href="../_examples/3-tensorflow-serving-docker/code.html#sphx-glr-examples-3-tensorflow-serving-docker-code-py"><span class="std std-ref">Serving TensorFlow Models in Docker</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Serving *TensorFlow* Models in *Docker*</div>
+</div></div></div></section>
+</section>
+<section id="rocplot">
+<h3><em>ROCPlot</em><a class="headerlink" href="#rocplot" title="Permalink to this headline">#</a></h3>
 <dl class="py class">
-<dt id="spellbook.train.ROCPlot">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">spellbook.train.</span></code><code class="sig-name descname"><span class="pre">ROCPlot</span></code><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spellbook.train.</span></span><span class="sig-name descname"><span class="pre">ROCPlot</span></span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot" title="Permalink to this definition">#</a></dt>
 <dd><p>Plot containing Receiver Operator Characteristic (ROC) curves and working
 points (WP)</p>
-<a class="reference internal image-reference" href="../_images/roc1.png"><img alt="../_images/roc1.png" class="align-center" src="../_images/roc1.png" style="width: 550px;" /></a>
+<a class="reference internal image-reference" href="../_images/roc.png"><img alt="../_images/roc.png" class="align-center" src="../_images/roc.png" style="width: 550px;" /></a>
 <p><strong>Methods:</strong></p>
-<table class="longtable table autosummary">
+<table class="autosummary longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -780,12 +1038,12 @@ points (WP)</p>
 <td><p>The <code class="docutils literal notranslate"><span class="pre">+=</span></code> operator</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#spellbook.train.ROCPlot.__init__" title="spellbook.train.ROCPlot.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
-<td><p>Initialize self.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.train.ROCPlot.add_curve" title="spellbook.train.ROCPlot.add_curve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_curve</span></code></a>(name, labels, predictions[, plot_args])</p></td>
 <td><p>Add a ROC curve</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#spellbook.train.ROCPlot.draw_WP" title="spellbook.train.ROCPlot.draw_WP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_WP</span></code></a>(WP[, line, linestyle, linecolor, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#spellbook.train.ROCPlot.draw_WP" title="spellbook.train.ROCPlot.draw_WP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_WP</span></code></a>(WP[, line, linestyle, linecolor, ...])</p></td>
 <td><p>Draw one or more working points and indicate their classifier thresholds as well as true positive and false positive rates</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#spellbook.train.ROCPlot.get_WP" title="spellbook.train.ROCPlot.get_WP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_WP</span></code></a>(curve_name[, threshold, FPR, TPR, method])</p></td>
@@ -815,8 +1073,8 @@ points (WP)</p>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="spellbook.train.ROCPlot.__iadd__">
-<code class="sig-name descname"><span class="pre">__iadd__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.__iadd__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.__iadd__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot.__iadd__">
+<span class="sig-name descname"><span class="pre">__iadd__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.__iadd__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.__iadd__" title="Permalink to this definition">#</a></dt>
 <dd><p>The <code class="docutils literal notranslate"><span class="pre">+=</span></code> operator</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -826,53 +1084,52 @@ points (WP)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ROCPlot.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ROCPlot.add_curve">
-<code class="sig-name descname"><span class="pre">add_curve</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.add_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.add_curve" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot.add_curve">
+<span class="sig-name descname"><span class="pre">add_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.add_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.add_curve" title="Permalink to this definition">#</a></dt>
 <dd><p>Add a ROC curve</p>
-<p>Internally it uses <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score" title="(in scikit-learn v0.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.metrics.roc_auc_score()</span></code></a> to calculate
+<p>Internally it uses <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score" title="(in scikit-learn v1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.metrics.roc_auc_score()</span></code></a> to calculate
 the ROC curve from the true labels and the predictions / classifier
 outputs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The name of the ROC curve</p></li>
-<li><p><strong>labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>] </em><em>/ numpy.ndarray</em><em>(</em><em>ndim=1</em><em>)</em>) – The target labels for
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The name of the ROC curve</p></li>
+<li><p><strong>labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>] </em><em>/ numpy.ndarray</em><em>(</em><em>ndim=1</em><em>)</em>) – The target labels for
 the datapoints</p></li>
-<li><p><strong>predictions</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>] </em><em>/ numpy.ndarray</em><em>(</em><em>ndim=1</em><em>)</em>) – The sigmoid-
+<li><p><strong>predictions</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>] </em><em>/ numpy.ndarray</em><em>(</em><em>ndim=1</em><em>)</em>) – The sigmoid-
 activated predictions for the datapoints. Note that not the
 predicted labels but rather the sigmoid-activated predictions
 should be used so that by scanning different thresholds the
 different true positive / false positive rates can be
 determined.</p></li>
-<li><p><strong>plot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Arguments to be passed to
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.4.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a></p></li>
+<li><p><strong>plot_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – Arguments to be passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.5.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a></p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ROCPlot.draw_WP">
-<code class="sig-name descname"><span class="pre">draw_WP</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">WP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.draw_WP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.draw_WP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot.draw_WP">
+<span class="sig-name descname"><span class="pre">draw_WP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">WP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.draw_WP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.draw_WP" title="Permalink to this definition">#</a></dt>
 <dd><p>Draw one or more working points and indicate their classifier thresholds
 as well as true positive and false positive rates</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>WP</strong> (<em>dict /</em><em> [</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>]</em>) – One or more working points as returned by
+<li><p><strong>WP</strong> (<em>dict /</em><em> [</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>]</em>) – One or more working points as returned by
 <a class="reference internal" href="#spellbook.train.ROCPlot.get_WP" title="spellbook.train.ROCPlot.get_WP"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_WP()</span></code></a></p></li>
-<li><p><strong>linestyle</strong> (<em>str /</em><em> [</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – Linestyle(s) for drawing the
+<li><p><strong>linestyle</strong> (<em>str /</em><em> [</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – Linestyle(s) for drawing the
 horizontal and vertical lines designating the working point(s)</p></li>
-<li><p><strong>info</strong> (<em>bool /</em><em> [</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>]</em><em>, </em><em>optional</em>) – Whether or not the parameters of the
+<li><p><strong>info</strong> (<em>bool /</em><em> [</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>, </em><em>optional</em>) – Whether or not the parameters of the
 WP(s) should be shown on the graph. If <code class="docutils literal notranslate"><span class="pre">None</span></code> or <code class="docutils literal notranslate"><span class="pre">True</span></code>,
 then all WPs are included. If <code class="docutils literal notranslate"><span class="pre">False</span></code> or <code class="docutils literal notranslate"><span class="pre">[]</span></code>, none are
 given. If a list of integers is given, then the WPs with the
@@ -889,14 +1146,14 @@ highlight.</p></li>
 <a class="reference internal" href="#wp-example"><span class="std std-ref">here</span></a> in <a class="reference internal" href="#spellbook.train.ROCPlot.get_WP" title="spellbook.train.ROCPlot.get_WP"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_WP()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ROCPlot.get_WP">
-<code class="sig-name descname"><span class="pre">get_WP</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curve_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">FPR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TPR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'interpolate'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.get_WP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.get_WP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot.get_WP">
+<span class="sig-name descname"><span class="pre">get_WP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curve_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">FPR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TPR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'interpolate'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.get_WP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.get_WP" title="Permalink to this definition">#</a></dt>
 <dd><p>Find working point(s) at specified classifier threshold(s), TPR(s) or
 FPR(s)</p>
 <p>Either the classifier threshold, the TPR or the FPR parameter can be
@@ -905,11 +1162,11 @@ more than one of the three at the same time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>curve_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Name of the curve from which to determine the WP(s)</p></li>
-<li><p><strong>threshold</strong> (<em>float /</em><em> [</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>]</em>) – Threshold/cut value on the classifier’s
+<li><p><strong>curve_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Name of the curve from which to determine the WP(s)</p></li>
+<li><p><strong>threshold</strong> (<em>float /</em><em> [</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – Threshold/cut value on the classifier’s
 sigmoid-activated output to separate the two classes</p></li>
-<li><p><strong>FPR</strong> (<em>float /</em><em> [</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>]</em>) – Target FPR(s) to match</p></li>
-<li><p><strong>TPR</strong> (<em>float /</em><em> [</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>]</em>) – Target TPR(s) to match</p></li>
+<li><p><strong>FPR</strong> (<em>float /</em><em> [</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – Target FPR(s) to match</p></li>
+<li><p><strong>TPR</strong> (<em>float /</em><em> [</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – Target TPR(s) to match</p></li>
 <li><p><strong>method</strong> (<code class="docutils literal notranslate"><span class="pre">interpolate</span></code> / <code class="docutils literal notranslate"><span class="pre">nearest</span></code>) – <p>Method for determining the
 working point(s)</p>
 <ul>
@@ -929,7 +1186,7 @@ dicts is returned, with each entry in the list corresponding to one
 WP.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict / [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a>]</p>
+<dd class="field-odd"><p>dict / [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>]</p>
 </dd>
 </dl>
 <p class="rubric" id="wp-example">Example</p>
@@ -964,22 +1221,22 @@ them</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ROCPlot.get_legend_labels">
-<code class="sig-name descname"><span class="pre">get_legend_labels</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.get_legend_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.get_legend_labels" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot.get_legend_labels">
+<span class="sig-name descname"><span class="pre">get_legend_labels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.get_legend_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.get_legend_labels" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the labels / texts for the ROC curves to be shown in the legend</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Labels / texts for the ROC curves to be shown in the legend</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
+<dd class="field-even"><p>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ROCPlot.get_legend_lines">
-<code class="sig-name descname"><span class="pre">get_legend_lines</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.get_legend_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.get_legend_lines" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot.get_legend_lines">
+<span class="sig-name descname"><span class="pre">get_legend_lines</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.get_legend_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.get_legend_lines" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the lines representing the ROC curves to be shown in the legend</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -987,20 +1244,20 @@ them</p>
 curves to be shown in the legend</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>[<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.lines.Line2D</span></code></a>]</p>
+<dd class="field-even"><p>[<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.lines.Line2D</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ROCPlot.pickle_load">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">pickle_load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'roc.pickle'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.pickle_load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.pickle_load" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot.pickle_load">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pickle_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'roc.pickle'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.pickle_load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.pickle_load" title="Permalink to this definition">#</a></dt>
 <dd><p>Unpickle and load an instance/object from a file</p>
 <p>Based on <a class="reference external" href="https://stackoverflow.com/q/35649603">https://stackoverflow.com/q/35649603</a> and
 <a class="reference external" href="https://stackoverflow.com/a/35667484">https://stackoverflow.com/a/35667484</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The name of the file from which the object should be
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The name of the file from which the object should be
 loaded</p>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1013,33 +1270,33 @@ loaded</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ROCPlot.pickle_save">
-<code class="sig-name descname"><span class="pre">pickle_save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'roc.pickle'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.pickle_save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.pickle_save" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot.pickle_save">
+<span class="sig-name descname"><span class="pre">pickle_save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'roc.pickle'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.pickle_save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.pickle_save" title="Permalink to this definition">#</a></dt>
 <dd><p>Pickle this instance/object and save it to a file</p>
 <p>Based on <a class="reference external" href="https://stackoverflow.com/q/35649603">https://stackoverflow.com/q/35649603</a> and
 <a class="reference external" href="https://stackoverflow.com/a/35667484">https://stackoverflow.com/a/35667484</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The name of the file to which the object should be
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The name of the file to which the object should be
 saved</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ROCPlot.plot">
-<code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">102.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.plot" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">102.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.plot" title="Permalink to this definition">#</a></dt>
 <dd><p>Plot one or more ROC curves and working points to a figure object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Lower end of the x-axis</p></li>
-<li><p><strong>xmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Upper end of the x-axis</p></li>
-<li><p><strong>ymin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Lower end of the y-axis</p></li>
-<li><p><strong>ymax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Upper end of the y-axis</p></li>
+<li><p><strong>xmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Lower end of the x-axis</p></li>
+<li><p><strong>xmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Upper end of the x-axis</p></li>
+<li><p><strong>ymin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Lower end of the y-axis</p></li>
+<li><p><strong>ymax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Upper end of the y-axis</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1047,64 +1304,53 @@ saved</p>
 plot including one or more curves and working points</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ROCPlot.remove_curve">
-<code class="sig-name descname"><span class="pre">remove_curve</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.remove_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.remove_curve" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot.remove_curve">
+<span class="sig-name descname"><span class="pre">remove_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.remove_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.remove_curve" title="Permalink to this definition">#</a></dt>
 <dd><p>Remove a ROC curve</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The name of the curve to be removed</p>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The name of the curve to be removed</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="spellbook.train.ROCPlot.rename_curve">
-<code class="sig-name descname"><span class="pre">rename_curve</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.rename_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.rename_curve" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.ROCPlot.rename_curve">
+<span class="sig-name descname"><span class="pre">rename_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#ROCPlot.rename_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.ROCPlot.rename_curve" title="Permalink to this definition">#</a></dt>
 <dd><p>Change the name of a ROC curve</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>old_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The old name</p></li>
-<li><p><strong>new_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The new name</p></li>
+<li><p><strong>old_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The old name</p></li>
+<li><p><strong>new_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The new name</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 </dd></dl>
 
-<div class="section" id="sphx-glr-backref-spellbook-train-rocplot">
-<span id="id1"></span><h4>used in<a class="headerlink" href="#sphx-glr-backref-spellbook-train-rocplot" title="Permalink to this headline">¶</a></h4>
-<div class="sphx-glr-thumbcontainer" tooltip="Now that the inputs are prepared, we can proceed to set up and configure a model. I tried diffe..."><div class="figure align-default" id="id5">
-<img alt="Stroke Prediction - Model Training and Validation" src="../_images/sphx_glr_training-validation_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/1-binary-stroke-prediction/training-validation.html#sphx-glr-examples-1-binary-stroke-prediction-training-validation-py"><span class="std std-ref">Stroke Prediction - Model Training and Validation</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip=" .. raw:: html"><div class="figure align-default" id="id6">
-<img alt="Random Forests and Gradient Boosted Trees in *TensorFlow*" src="../_images/sphx_glr_code_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/2-tensorflow-decision-forests/code.html#sphx-glr-examples-2-tensorflow-decision-forests-code-py"><span class="std std-ref">Random Forests and Gradient Boosted Trees in TensorFlow</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-clear"></div></div>
-</div>
-</div>
-<div class="section" id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="get-binary-labels">
-<h3><em>get_binary_labels</em><a class="headerlink" href="#get-binary-labels" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="functions">
+<span id="sphx-glr-backref-spellbook-train-rocplot"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
+<section id="get-binary-labels">
+<h3><em>get_binary_labels</em><a class="headerlink" href="#get-binary-labels" title="Permalink to this headline">#</a></h3>
 <dl class="py function">
-<dt id="spellbook.train.get_binary_labels">
-<code class="sig-prename descclassname"><span class="pre">spellbook.train.</span></code><code class="sig-name descname"><span class="pre">get_binary_labels</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#get_binary_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.get_binary_labels" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.get_binary_labels">
+<span class="sig-prename descclassname"><span class="pre">spellbook.train.</span></span><span class="sig-name descname"><span class="pre">get_binary_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#get_binary_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.get_binary_labels" title="Permalink to this definition">#</a></dt>
 <dd><p>Apply threshold to calculate the labels from the predictions</p>
 <p>It is necessary to apply the threshold and unequivocally assign each
 datapoint to a category for the calculation of the confusion matrix to
@@ -1115,15 +1361,15 @@ class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>predictions</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow.python.framework.ops.Tensor</span></code>]) – The sigmoid-activated classifier outputs, one value for
+<li><p><strong>predictions</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow.python.framework.ops.Tensor</span></code>]) – The sigmoid-activated classifier outputs, one value for
 each datapoint</p></li>
-<li><p><strong>threshold</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Datapoints whose prediction is below the threshold are
+<li><p><strong>threshold</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Datapoints whose prediction is below the threshold are
 associated to the first/negative class, datapoints whose prediction
 is above the threshold to the second/positive class</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Array of predicted labels</p>
@@ -1156,59 +1402,59 @@ is above the threshold to the second/positive class</p></li>
 </div>
 </dd></dl>
 
-</div>
-<div class="section" id="plot-history">
-<span id="sphx-glr-backref-spellbook-train-get-binary-labels"></span><h3><em>plot_history</em><a class="headerlink" href="#plot-history" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="plot-history">
+<span id="sphx-glr-backref-spellbook-train-get-binary-labels"></span><h3><em>plot_history</em><a class="headerlink" href="#plot-history" title="Permalink to this headline">#</a></h3>
 <dl class="py function">
-<dt id="spellbook.train.plot_history">
-<code class="sig-prename descclassname"><span class="pre">spellbook.train.</span></code><code class="sig-name descname"><span class="pre">plot_history</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['loss',</span> <span class="pre">'val_loss']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['training</span> <span class="pre">loss',</span> <span class="pre">'validation</span> <span class="pre">loss']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['l',</span> <span class="pre">'l']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaling_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[1.0,</span> <span class="pre">1.0]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['.3f',</span> <span class="pre">'.3f']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['',</span> <span class="pre">'']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">titles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[None]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['loss']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['accuracy']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_positions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['bl']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#plot_history"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.plot_history" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.plot_history">
+<span class="sig-prename descclassname"><span class="pre">spellbook.train.</span></span><span class="sig-name descname"><span class="pre">plot_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['loss',</span> <span class="pre">'val_loss']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['training</span> <span class="pre">loss',</span> <span class="pre">'validation</span> <span class="pre">loss']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['l',</span> <span class="pre">'l']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaling_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[1.0,</span> <span class="pre">1.0]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['.3f',</span> <span class="pre">'.3f']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[['',</span> <span class="pre">'']]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">titles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[None]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['loss']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['accuracy']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_positions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['bl']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#plot_history"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.plot_history" title="Permalink to this definition">#</a></dt>
 <dd><p>Plot the timeline of training metrics</p>
 <a class="reference internal image-reference" href="../_images/loss-acc.png"><img alt="../_images/loss-acc.png" class="align-center" src="../_images/loss-acc.png" style="width: 500px;" /></a>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or         <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/History" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.callbacks.History</span></code></a>) – <em>TensorFlow</em> history object returned by the model training or read
+<li><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or         <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/History" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.callbacks.History</span></code></a>) – <em>TensorFlow</em> history object returned by the model training or read
 from a <code class="docutils literal notranslate"><span class="pre">*.csv</span></code> file produced with the
 <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/CSVLogger" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.callbacks.CSVLogger</span></code></a> callback during training</p></li>
-<li><p><strong>nrows</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – <em>Optional</em>. Number of rows of plots arranged in a grid</p></li>
-<li><p><strong>ncols</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – <em>Optional</em>. Number of columns of plots arranged in a grid</p></li>
-<li><p><strong>metrics</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em><em>]</em>) – <em>Optional</em>. Names of the metrics in the history
+<li><p><strong>nrows</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – <em>Optional</em>. Number of rows of plots arranged in a grid</p></li>
+<li><p><strong>ncols</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – <em>Optional</em>. Number of columns of plots arranged in a grid</p></li>
+<li><p><strong>metrics</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>]</em>) – <em>Optional</em>. Names of the metrics in the history
 object that should be plotted</p></li>
-<li><p><strong>names</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em><em>]</em>) – <em>Optional</em>. How the plotted metrics should be named
+<li><p><strong>names</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>]</em>) – <em>Optional</em>. How the plotted metrics should be named
 in the legends</p></li>
-<li><p><strong>axes</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em><em>]</em>) – <em>Optional</em>. <code class="docutils literal notranslate"><span class="pre">l</span></code> or <code class="docutils literal notranslate"><span class="pre">r</span></code> to describe on which y-axis
+<li><p><strong>axes</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>]</em>) – <em>Optional</em>. <code class="docutils literal notranslate"><span class="pre">l</span></code> or <code class="docutils literal notranslate"><span class="pre">r</span></code> to describe on which y-axis
 a particular variable should be drawn</p></li>
-<li><p><strong>colors</strong> (<em>str /</em><em> [</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em><em>]</em>) – <em>Optional</em>. The line color(s). Can be either
+<li><p><strong>colors</strong> (<em>str /</em><em> [</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>]</em>) – <em>Optional</em>. The line color(s). Can be either
 a single color string, in which case all lines will have this same
 color, or a list of lists of strings specifying the line colors for
 each metric.</p></li>
-<li><p><strong>zorders</strong> (<em>float /</em><em> [</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>]</em><em>]</em>) – <em>Optional</em>. The zorder(s). Can be either
+<li><p><strong>zorders</strong> (<em>float /</em><em> [</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em><em>]</em>) – <em>Optional</em>. The zorder(s). Can be either
 a single float, in which case all zorders will have this same value,
 or a list of lists of floats specifying the zorders for each
 metric.</p></li>
-<li><p><strong>scaling_factors</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>]</em><em>]</em>) – <em>Optional</em>. Scaling factors that multiply
+<li><p><strong>scaling_factors</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em><em>]</em>) – <em>Optional</em>. Scaling factors that multiply
 each metric</p></li>
-<li><p><strong>formats</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em><em>]</em>) – <em>Optional</em>. Format strings specifying how last value
+<li><p><strong>formats</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>]</em>) – <em>Optional</em>. Format strings specifying how last value
 of each metric should be printed in the legends. Metrics are floats.</p></li>
-<li><p><strong>units</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em><em>]</em>) – <em>Optional</em>. Units that should be appended to the
+<li><p><strong>units</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>]</em>) – <em>Optional</em>. Units that should be appended to the
 legend entry for each metric</p></li>
-<li><p><strong>titles</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em>) – <em>Optional</em>. List containing one title for each plot in
+<li><p><strong>titles</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – <em>Optional</em>. List containing one title for each plot in
 the grid</p></li>
-<li><p><strong>y1labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em>) – <em>Optional</em>. List containing one label for the left
+<li><p><strong>y1labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – <em>Optional</em>. List containing one label for the left
 axes for each plot in the grid</p></li>
-<li><p><strong>y2labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em>) – <em>Optional</em>. List containing one label for the right
+<li><p><strong>y2labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – <em>Optional</em>. List containing one label for the right
 axes for each plot in the grid</p></li>
-<li><p><strong>legend_positions</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>]</em>) – <em>Optional</em>. List containing a two-character
+<li><p><strong>legend_positions</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – <em>Optional</em>. List containing a two-character
 string governing the legend position for each plot in the grid.
 Possible values are <code class="docutils literal notranslate"><span class="pre">tl</span></code>, <code class="docutils literal notranslate"><span class="pre">tc</span></code>, <code class="docutils literal notranslate"><span class="pre">tr</span></code>, <code class="docutils literal notranslate"><span class="pre">cl</span></code>, <code class="docutils literal notranslate"><span class="pre">cc</span></code>, <code class="docutils literal notranslate"><span class="pre">cr</span></code>,
 <code class="docutils literal notranslate"><span class="pre">bl</span></code>, <code class="docutils literal notranslate"><span class="pre">bc</span></code> and <code class="docutils literal notranslate"><span class="pre">br</span></code> as implemented in
 <a class="reference internal" href="spellbook.plotutils.html#spellbook.plotutils.legend_loc" title="spellbook.plotutils.legend_loc"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plotutils.legend_loc()</span></code></a>
 and <a class="reference internal" href="spellbook.plotutils.html#spellbook.plotutils.legend_bbox_to_anchor" title="spellbook.plotutils.legend_bbox_to_anchor"><code class="xref py py-func docutils literal notranslate"><span class="pre">spellbook.plotutils.legend_bbox_to_anchor()</span></code></a>.</p></li>
-<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – <em>Optional</em>, baseline fontsize for all elements.
+<li><p><strong>fontsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – <em>Optional</em>, baseline fontsize for all elements.
 This is probably the fontsize that <code class="docutils literal notranslate"><span class="pre">medium</span></code> corresponds to?</p></li>
-<li><p><strong>figure_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>, arguments for the creation of the
-<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> with
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a></p></li>
+<li><p><strong>figure_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – <em>Optional</em>, arguments for the creation of the
+<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> with
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a></p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1216,17 +1462,17 @@ This is probably the fontsize that <code class="docutils literal notranslate"><s
 grid of plots</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="plot-history-binary">
-<span id="sphx-glr-backref-spellbook-train-plot-history"></span><h3><em>plot_history_binary</em><a class="headerlink" href="#plot-history-binary" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="plot-history-binary">
+<span id="sphx-glr-backref-spellbook-train-plot-history"></span><h3><em>plot_history_binary</em><a class="headerlink" href="#plot-history-binary" title="Permalink to this headline">#</a></h3>
 <dl class="py function">
-<dt id="spellbook.train.plot_history_binary">
-<code class="sig-prename descclassname"><span class="pre">spellbook.train.</span></code><code class="sig-name descname"><span class="pre">plot_history_binary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'history-binary'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#plot_history_binary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.plot_history_binary" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="spellbook.train.plot_history_binary">
+<span class="sig-prename descclassname"><span class="pre">spellbook.train.</span></span><span class="sig-name descname"><span class="pre">plot_history_binary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'history-binary'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/spellbook/train.html#plot_history_binary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spellbook.train.plot_history_binary" title="Permalink to this definition">#</a></dt>
 <dd><p>Convenience function for plotting binary classification metrics</p>
 <table class="spellbook-gallery-scroll table">
 <colgroup>
@@ -1265,67 +1511,70 @@ on top of each other.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or         <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/History" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.callbacks.History</span></code></a>) – <em>TensorFlow</em> history object returned by the model training or read
+<li><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or         <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/History" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.callbacks.History</span></code></a>) – <em>TensorFlow</em> history object returned by the model training or read
 from a <code class="docutils literal notranslate"><span class="pre">*.csv</span></code> file produced with the
 <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/CSVLogger" title="(in TensorFlow v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tf.keras.callbacks.CSVLogger</span></code></a> callback during training</p></li>
-<li><p><strong>name_prefix</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Prefix to the filenames of the plots</p></li>
+<li><p><strong>name_prefix</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Prefix to the filenames of the plots</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="section" id="sphx-glr-backref-spellbook-train-plot-history-binary">
-<span id="id2"></span><h4>used in<a class="headerlink" href="#sphx-glr-backref-spellbook-train-plot-history-binary" title="Permalink to this headline">¶</a></h4>
-<div class="sphx-glr-thumbcontainer" tooltip="Now that the inputs are prepared, we can proceed to set up and configure a model. I tried diffe..."><div class="figure align-default" id="id7">
-<img alt="Stroke Prediction - Model Training and Validation" src="../_images/sphx_glr_training-validation_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../_examples/1-binary-stroke-prediction/training-validation.html#sphx-glr-examples-1-binary-stroke-prediction-training-validation-py"><span class="std std-ref">Stroke Prediction - Model Training and Validation</span></a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-clear"></div></div>
-</div>
-</div>
-</div>
+<span class="target" id="sphx-glr-backref-spellbook-train-plot-history-binary"></span></section>
+</section>
+</section>
 
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="spellbook.stat.html" title="previous page">spellbook.stat</a>
-    <a class='right-next' id="next-link" href="../tools.html" title="next page">Notes on Tools and Technologies</a>
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="spellbook.stat.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">spellbook.stat</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="../tools.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Notes on Tools and Technologies</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-            &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
-          Last updated on June 28, 2021.<br/>
-          <div class="extra_footer">
-            Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+      &copy; Copyright 2021, Daniel Rauch (dmrauch).<br/>
+    Last updated on August 7, 2022.<br/>
+    <div class="extra_footer">
+      Built with <a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>
 using the <a href="https://sphinx-book-theme.readthedocs.io/en/latest/">Sphinx Book Theme</a>
-            &nbsp; | &nbsp;
-            <a href="../legal.html">Legal notes</a>
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
-
-    
   </body>
 </html>

@@ -74,8 +74,6 @@ final section :ref:`ex3-serving-docker`.
 #
 #    in ``examples/3-tensorflow-serving-docker/``
 
-# sphinx_gallery_thumbnail_path = 'images/examples/3-tensorflow-serving-docker/thumbnail.png'
-
 import tensorflow as tf
 
 fashion_mnist = tf.keras.datasets.fashion_mnist
