@@ -18,22 +18,14 @@ jobs:
           environment-file: spellbook.yml
           activate-environment: spellbook
 
-      # List conda environments and activate spellbook
+      # Activate spellbook environment and freeze to requirements.txt
       - name: Conda activate spellbook
         shell: bash -l {0}
         run: |
           conda env list
           conda activate spellbook
-
-      # print info about conda and the environment
-      - name: Conda info and conda list
-        run: |
           conda info
           conda list
-
-      # create a requirements file from the environment for
-      # the sphinx-notes/pages action
-      - run: |
           echo $GITHUB_WORKSPACE
           pip freeze > requirements.txt
           pwd
