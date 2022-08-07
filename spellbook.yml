@@ -1,12 +1,12 @@
 name: spellbook
 channels:
- - defaults
  - conda-forge
+ - defaults
 
 dependencies:
- - python
+ - python = 3.9.*
  - pip
- - tensorflow
+ - tensorflow = 2.8.*
  - scikit-learn
 # - jupyter_core
  - ipykernel # run jupyter notebooks
@@ -20,8 +20,8 @@ dependencies:
 # - pydot
 # - graphviz
 
- - sphinx
- - sphinx-book-theme = 0.3.2
+ - sphinx = 4.5.*
+ - sphinx-book-theme = 0.3.3
  - sphinx-tabs 
  - autodocsumm
  - sphinx-autodoc-typehints # sphinx: typehints derived from signature

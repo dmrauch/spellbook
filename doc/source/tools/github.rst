@@ -83,7 +83,7 @@ GitHub Actions
      A workflow consists of multiple jobs
    step
      A job consists of multiple steps - each step can be an *action* provided by the GitHub
-     community or custom
+     community via the *GitHub Marketplace* [#GitHubActionsMarketplace]_ or a custom step
    runner
      A runner is a server process that executes one job at a time. Runners can be hosted in the
      cloud or can be self-hosted.
@@ -93,38 +93,56 @@ GitHub Actions and workflows are configured in ``.yml``-files stored in the fold
 ``.github/workflows/``:
 
 .. code:: yaml
-   :caption: Configuration of an action in a ``.github/workflows/*.yml``-file
+   :caption: Example workflow configuration taken from ``.github/workflows/sphinx-publish.yml``
 
-   name: <action-name> # the name of the action
-   on: <event>         # push, page_build, release, ...
+   name: sphinx-publish           # the name of the workflow
+   on:                            # the event(s) that trigger the workflow
+     push:                        # - in this example, pushing a commit to the branch
+       branches:                  #   'publish' will trigger the workflow
+         - 'publish'
    jobs:
-   <job-name>:         # the name of the job to run
-     runs-on: ubuntu-latest
-     steps:
-       - uses: actions/checkout@v2
-       - uses: actions/setup-node@v1
-       - run: npm install -g bats
-       - run: bats -v
+     sphinx-publish:
+       runs-on: ubuntu-latest
+       steps:
 
-- Events: ``on: <event>``
+         # clone and checkout the branch/commit that triggered the workflow
+         - name: Checkout branch 'publish'
+           uses: actions/checkout@v3
+           with:
+             fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
-  .. hlist::
-     :columns: 4
+         # the python version should be the same as in spellbook.yml
+         - name: Set python version
+           uses: actions/setup-python@v4
+           with:
+             python-version: '3.9'
 
-     - ``pull_request_comment``
-     - ``issue_comment``
-     - ``deployment``
-     - ``pull_request_review``
-     - ``milestone???``
-     - ``pull_request``
-     - ``push``
-     - ``release``
-     - ``page_build``
-     - ``check_suite``
-     - ``delete``
-     - ``check_run``
+         - name: Check python version
+           run: |
+             which python
+             python --version
+
+         - name: Build Sphinx documentation and commit
+           uses: sphinx-notes/pages@v2
+           with:
+             documentation_path: doc/source
+             target_path: docs
+          requirements_path: requirements.txt
+
+         - name: Push to branch 'gh-pages'
+           uses: ad-m/github-push-action@master
+           with:
+             github_token: ${{ secrets.GITHUB_TOKEN }}
+             branch: gh-pages
+
+The syntax for the workflow files [#GitHubActionsWorkflowSyntax]_ as well as all events that can
+be used as triggers [#GitHubActionsTriggers]_ are listed on
+`GitHub Docs <https://docs.github.com/en/actions>`_.
 
 
 .. rubric:: Links & References
 
 .. [#GitHubActionsTerminology] https://dev.to/github/whats-the-difference-between-a-github-action-and-a-workflow-2gba
+.. [#GitHubActionsMarketplace] https://github.com/marketplace?type=actions
+.. [#GitHubActionsWorkflowSyntax] https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+.. [#GitHubActionsTriggers] https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
