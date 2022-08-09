@@ -122,3 +122,55 @@ Run a task within a specific conda environment
 - VS Code tasks are run in non-interactive shells, e.g. ``zsh -c``. Therefore, for the
   *conda* environment activation to work, *conda* has to be initialized in a file that is
   read by the non-interactive shell, e.g. ``~/.zhenv``.
+
+
+
+Tests
+=====
+
+*pytest*
+--------
+
+- Open the command palette and select "Python: Configure Tests" [#VSCodeConfigureTests]_
+- Follow the instructions, select the folder where the tests reside and select *pytest*.
+  This will create or modify the file ``.vscode/settings.json`` in the project folder and add
+  the following lines::
+
+     {
+         "python.testing.pytestArgs": [
+             "<SOME-FOLDER>"
+         ],
+         "python.testing.unittestEnabled": false,
+         "python.testing.pytestEnabled": true
+     }
+
+- If environment variables need to be specified, this can be done in a ``.env`` file in the
+  project folder, e.g. ::
+
+     MY_VAR1=hello
+     MY_VAR2=123
+
+- ``.env`` is the default filename that *VS Code* expects. If the filename and/or location is
+  different, *VS Code* can be made aware of this via a setting in the ``.vscode/settings.json``,
+  e.g.::
+
+    "python.envFile": "${workspaceFolder}/<SOME-OTHER-FOLDER>/.env2",
+
+
+*pytest-xdist*
+--------------
+
+*pytest-xdist* enables running of *pytest* unittests in parallel on multiple CPU cores.
+
+- Install *pytest-xdist*
+- In the project folder, create a file ``pytest.ini`` and specify the number of CPU cores that
+  should be used [#VSCodePyTestXDist]_::
+
+     [pytest]
+     addopts=-n4
+
+
+.. rubric:: Links & References
+
+.. [#VSCodeConfigureTests] https://code.visualstudio.com/docs/python/testing#_configure-tests
+.. [#VSCodePyTestXDist] https://code.visualstudio.com/docs/python/testing#_run-tests-in-parallel
