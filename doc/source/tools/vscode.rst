@@ -167,10 +167,23 @@ Tests
   should be used [#VSCodePyTestXDist]_::
 
      [pytest]
-     addopts=-n4
+     addopts=-n auto
+
+  ``-n auto`` will attempt to detect the number of physical CPUs of the machine. If this fails,
+  *pytest* will fall back to ``-n logical`` which corresponds to the number of logical CPUs.
+  *pytest-xdist* can be deactivated completely with ``-n0 --dist no`` [#PyTestXDistDoc]_
+
+  Alternatively, such settings can also be added to a ``setup.cfg``, e.g. [#PyTestXDistExample]_::
+
+     [tool:pytest]
+     addopts = --verbose --numprocesses auto --dist=loadscope
+     python_files = unit_testing/test_*.py unit_testing/cli/test_*.py
+
 
 
 .. rubric:: Links & References
 
 .. [#VSCodeConfigureTests] https://code.visualstudio.com/docs/python/testing#_configure-tests
 .. [#VSCodePyTestXDist] https://code.visualstudio.com/docs/python/testing#_run-tests-in-parallel
+.. [#PyTestXDistDoc] https://pytest-xdist.readthedocs.io/en/latest/distribution.html
+.. [#PyTestXDistExample] https://github.com/pytest-dev/pytest-xdist/issues/231#issuecomment-762959356
