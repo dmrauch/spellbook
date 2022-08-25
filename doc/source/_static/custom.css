@@ -1,5 +1,12 @@
 /* global variables, use with 'var(--VARNAME)' */
 :root {
+  /* --pst-font-size-base: 15px; */
+
+  /* --sd-color-primary: hsl(204, 39%, 60%); */
+  /* --sd-color-primary: #9acaed; */
+  --sd-color-primary: #5899c6;
+  --sd-color-secondary: #ff9f4b;
+
   --news: #bbb;
   --news-background: #ddd;
   --news-marker: #888;
