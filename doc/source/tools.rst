@@ -13,6 +13,7 @@ This is a collection of notes on different software tools and technologies.
    GCP <tools/gcp>
    tools/git
    tools/jupyter
+   tools/macos
    tools/mkdocs
    tools/pandas
    tools/python
@@ -34,6 +35,7 @@ This is a collection of notes on different software tools and technologies.
    :doc:`tools/docker`       containers
    :doc:`tools/gcp`          Google Cloud Platform
    :doc:`tools/git`          distributed version control system
+   :doc:`tools/macos`        *MacOS* tipps and tricks
    :doc:`tools/mkdocs`       Markdown-based documentation and language-agnostic
                              source code reference system
    :doc:`tools/pandas`       *pandas*
