@@ -6,6 +6,8 @@ channels:
 dependencies:
  - python = 3.9.*
  - pip
+
+ - geopandas
  - tensorflow = 2.8.*
  - scikit-learn
 # - jupyter_core
@@ -15,7 +17,12 @@ dependencies:
  - ipysheet
  - rich # coloured and styled console output
 
+ - bokeh
+ - holoviews
+ - hvplot
+ - jupyter_bokeh
  - matplotlib
+ - panel
  - seaborn
 # - pydot
 # - graphviz
