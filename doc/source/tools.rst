@@ -20,6 +20,7 @@ This is a collection of notes on different software tools and technologies.
    tools/rich
    tools/sphinx
    tools/tf
+   tools/unix
    tools/virtualenv
    tools/vscode
 
