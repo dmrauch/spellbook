@@ -11,24 +11,22 @@ Binary Classification with the Stroke Prediction Dataset
    training-validation
 
 
-.. raw:: html
+.. grid:: 1
 
-   <div class="tag-list">
-      <div class="tag-cell tag-date">June 13, 2021</div>
-      <div class="tag-cell tag-center"></div>
-      <div class="tag-cell tag-right">
-         <span class="tag-text">tags:</span>
-         <a class="tag right" href="../../search.html?q=tags+binary+classification">
-            binary classification</a>
-         <a class="tag right" href="../../search.html?q=tags+imbalanced+data">
-            imbalanced data</a>
-         <a class="tag right" href="../../search.html?q=tags+oversampling">
-            oversampling</a>
-         <a class="tag right" href="../../search.html?q=tags+supervised+learning">
-            supervised learning</a>
-      </div>
-   </div>
+   .. grid-item::
 
+      .. article-info::
+         :avatar: /_static/spellbook-icon.png
+         :author: dmrauch
+         :date: June 13th, 2021
+
+   .. grid-item::
+
+      :octicon:`tag` tags:
+      :bdg-link-secondary:`binary classification <../../search.html?q=tags+binary+classification>`
+      :bdg-link-secondary:`imbalanced data <../../search.html?q=tags+imbalanced+data>`
+      :bdg-link-secondary:`oversampling <../../search.html?q=tags+oversampling>`
+      :bdg-link-secondary:`supervised learning <../../search.html?q=tags+supervised+learning>`
 
 
 .. admonition:: In this project/tutorial, we will
