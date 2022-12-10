@@ -18,6 +18,7 @@ This is a collection of notes on different software tools and technologies.
    tools/pandas
    tools/python
    tools/rich
+   tools/sklearn
    tools/sphinx
    tools/tf
    tools/unix
@@ -42,6 +43,7 @@ This is a collection of notes on different software tools and technologies.
    :doc:`tools/pandas`       *pandas*
    :doc:`tools/python`       *Python*
    :doc:`tools/rich`         *Rich* -- coloured and styled printing to the console (and much more)
+   :doc:`tools/sklearn`      *scikit-learn*
    *seaborn*                 high-level plotting framework built on top of
                              *Matplotlib*
    :doc:`tools/sphinx`       reStructuredText-based documentation and
