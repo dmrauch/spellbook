@@ -3,6 +3,19 @@ Visual Studio Code
 ******************
 
 
+- To control, when the active *Python* interpreter is shown in the status bar, edit the setting
+  ``python.interpreter.infoVisibility`` and set it to ``always``
+
+- To use *VS Code* as a three-way merge editor for *git*, add the following lines to your
+  ``~/.gitconfig``::
+
+     [merge]
+       tool = code
+     [mergetool "code"]
+       cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+
+
+
 Extensions
 ==========
 
